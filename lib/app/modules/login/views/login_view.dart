@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:text_divider/text_divider.dart';
@@ -14,14 +15,6 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    double pxToSp(double px) {
-      final textScaleFactor = MediaQuery.of(context).textScaleFactor;
-      final sp = px / textScaleFactor;
-      return sp;
-    }
-
-    final fontSizeSp14 = pxToSp(14);
-
     if (box.read("dataIngatSaya") != null) {
       controller.ingatSaya.value = true;
       controller.emailLoginC.text = box.read("dataIngatSaya")["email"];
@@ -63,15 +56,6 @@ class LoginView extends GetView<LoginController> {
                         fontSize: 14,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(width: 34),
-                    Text(
-                      "test font",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'DancingScript',
-                        // fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -190,13 +174,16 @@ class LoginView extends GetView<LoginController> {
                       alignment: Alignment.centerRight,
                       child: Padding(
                         padding: const EdgeInsets.only(right: 16),
-                        child: Text(
-                          "Lupa Password?",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF216BC9),
+                        child: TextButton(
+                          onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
+                          child: Text(
+                            "Lupa Password?",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF216BC9),
+                            ),
                           ),
                         ),
                       ),
@@ -266,7 +253,7 @@ class LoginView extends GetView<LoginController> {
                         ),
                         minimumSize: Size(Get.width - 30, 42),
                       ),
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
                         "Daftar",
                         style: TextStyle(
@@ -335,7 +322,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                // SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -348,14 +335,17 @@ class LoginView extends GetView<LoginController> {
                         color: Color(0xFF858585),
                       ),
                     ),
-                    SizedBox(width: 5),
-                    Text(
-                      "Daftar",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF216BC9),
+                    // SizedBox(width: 5),
+                    TextButton(
+                      onPressed: () => Get.toNamed(Routes.REGISTER),
+                      child: Text(
+                        "Daftar",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF216BC9),
+                        ),
                       ),
                     ),
                   ],
