@@ -9,60 +9,64 @@ class IntroductionScreenView extends GetView<IntroductionScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          SizedBox(height: 46),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 45),
-              child: Text(
-                "Lewati",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF216BC9),
+          Column(
+            children: [
+              SizedBox(height: 46),
+              Align(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 45),
+                  child: Text(
+                    "Lewati",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF216BC9),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(height: 19.02),
-          Center(
-            child: Image.asset(
-              "assets/icons/Mesin-Kasir.png",
-              height: 462.02,
-              width: 343.0,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(height: 23.98),
-          Text(
-            "Bisa Jadi Mesin Kasir",
-            style: TextStyle(
-              fontSize: 24,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF333333),
-            ),
-          ),
-          SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.only(left: 22, right: 22),
-            child: Text(
-              "Permudah proses jual beli di tokomu dengan fitur Mesin Kasir di aplikasi GAS.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w400,
-                color: Color(0xFF858585),
+              SizedBox(height: 19.02),
+              Center(
+                child: Image.asset(
+                  "assets/icons/Mesin-Kasir.png",
+                  height: 462.02,
+                  width: 343.0,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
+              SizedBox(height: 23.98),
+              Text(
+                "Bisa Jadi Mesin Kasir",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF333333),
+                ),
+              ),
+              SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.only(left: 22, right: 22),
+                child: Text(
+                  "Permudah proses jual beli di tokomu dengan fitur Mesin Kasir di aplikasi GAS.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF858585),
+                  ),
+                ),
+              ),
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Center(
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Align(
+              alignment: AlignmentDirectional.bottomCenter,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
