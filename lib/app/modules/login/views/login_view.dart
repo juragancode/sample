@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:text_divider/text_divider.dart';
@@ -36,36 +37,36 @@ class LoginView extends GetView<LoginController> {
               children: [
                 Center(
                   child: Container(
-                    width: 104,
-                    height: 104,
+                    width: 104.sp,
+                    height: 104.sp,
                     child: Image.asset(
                       "assets/icons/iconGAS.png",
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                     // color: Colors.amber,
                   ),
                 ),
 
-                SizedBox(height: 12),
+                SizedBox(height: 12.sp),
                 Row(
                   children: [
-                    SizedBox(width: 34),
+                    SizedBox(width: 34.sp),
                     Text(
                       "Email",
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 4.sp),
                 Container(
-                  height: 40,
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  height: 40.sp,
+                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32.sp),
                     color: Color(0xFFF0F0F0),
                   ),
                   child: TextField(
@@ -77,10 +78,10 @@ class LoginView extends GetView<LoginController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Ex: janedoe@email.com',
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 19.0.sp, vertical: 16.sp),
                       hintStyle: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: Color(0xFFA0A0A0),
@@ -88,27 +89,28 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.sp),
                 Row(
                   children: [
-                    SizedBox(width: 34),
+                    SizedBox(width: 34.sp),
                     Text(
                       "Password",
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 4.sp),
                 Container(
-                  height: 40,
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  height: 40.sp,
+                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
-                    color: Color(0xFFF0F0F0),
+                    borderRadius: BorderRadius.circular(32.sp),
+                    // color: Color(0xFFF0F0F0),
+                    color: Color.fromARGB(255, 154, 154, 154),
                   ),
                   child: Obx(
                     () => TextField(
@@ -122,9 +124,11 @@ class LoginView extends GetView<LoginController> {
                         border: InputBorder.none,
                         hintText: 'Masukkan password',
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 16),
+                          horizontal: 19.0.sp,
+                          vertical: 16.sp,
+                        ),
                         hintStyle: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: Color(0xFFA0A0A0),
@@ -155,6 +159,9 @@ class LoginView extends GetView<LoginController> {
                     Obx(
                       () => Container(
                         child: CheckboxListTile(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4.sp),
+                          ),
                           activeColor: Color(0xFF216BC9),
                           controlAffinity: ListTileControlAffinity.leading,
                           value: controller.ingatSaya.value,
@@ -179,7 +186,7 @@ class LoginView extends GetView<LoginController> {
                           child: Text(
                             "Lupa Password?",
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                               color: Color(0xFF216BC9),
@@ -209,20 +216,20 @@ class LoginView extends GetView<LoginController> {
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         textStyle: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32),
                         ),
-                        minimumSize: Size(Get.width - 30, 42),
+                        fixedSize: Size(343.w, 42.h),
                       ),
                       onPressed: () {},
                       child: Text(
                         "Login",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           // color: Color(0xFF216BC9),
@@ -231,7 +238,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
@@ -244,20 +251,20 @@ class LoginView extends GetView<LoginController> {
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         textStyle: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32),
                         ),
-                        minimumSize: Size(Get.width - 30, 42),
+                        fixedSize: Size(343.w, 42.h),
                       ),
                       onPressed: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
                         "Daftar",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           color: Color(0xFF216BC9),
@@ -266,58 +273,65 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                TextDivider(
-                  text: Text(
-                    "atau masuk dengan",
-                    style: TextStyle(
-                      color: Color(0xFF858585),
+                SizedBox(height: 16.h),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8, left: 8),
+                  child: TextDivider(
+                    text: Text(
+                      "atau masuk dengan",
+                      style: TextStyle(
+                        color: Color(0xFF858585),
+                      ),
                     ),
+                    color: Color(0xFF858585),
                   ),
-                  color: Color(0xFF858585),
                 ),
                 SizedBox(height: 16),
 
                 Center(
-                  child: Container(
-                    height: 42,
-                    width: 130,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        side: BorderSide(color: Color(0xFF216BC9), width: 1),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 30,
-                            width: 30,
-                            child: SvgPicture.asset(
-                              "assets/icons/iconGoogle.svg",
-                              fit: BoxFit.cover,
-                            ),
+                  child: Flexible(
+                    child: Container(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          side: BorderSide(color: Color(0xFF216BC9), width: 1),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          textStyle: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
                           ),
-                          SizedBox(width: 10),
-                          Text(
-                            "Google",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF216BC9),
-                            ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32),
                           ),
-                        ],
+                        ),
+                        onPressed: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Wrap(
+                            alignment: WrapAlignment.start,
+                            children: [
+                              Container(
+                                width: 30.sp,
+                                height: 30.sp,
+                                child: SvgPicture.asset(
+                                  "assets/icons/iconGoogle.svg",
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Google",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF216BC9),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -329,7 +343,7 @@ class LoginView extends GetView<LoginController> {
                     Text(
                       "Belum punya akun GAS?",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         color: Color(0xFF858585),
@@ -341,7 +355,7 @@ class LoginView extends GetView<LoginController> {
                       child: Text(
                         "Daftar",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           color: Color(0xFF216BC9),

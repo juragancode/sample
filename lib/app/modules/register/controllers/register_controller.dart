@@ -9,4 +9,7 @@ class RegisterController extends GetxController {
 
   // FocusNode
   FocusNode emailDaftarFN = FocusNode();
+
+// Syarat Kebijakan
+  RxBool syaratKebijakanCheck = false.obs;
 }

@@ -1,20 +1,11 @@
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class LupaPasswordController extends GetxController {
-  //TODO: Implement LupaPasswordController
+  // TextEditingController
+  TextEditingController lupaPassC = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  // FocusNode
+  FocusNode lupaPassFN = FocusNode();
 }

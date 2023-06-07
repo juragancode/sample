@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../controllers/lupa_password_controller.dart';
 
@@ -8,7 +9,6 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -67,7 +67,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                         style: TextStyle(
                           fontSize: 12,
                           fontFamily: 'Poppins',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w400,
                           color: Color(0xFF858585),
                         ),
                       ),
@@ -84,24 +84,24 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 Text(
                   "Email",
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 4.h),
             Container(
-              height: 40,
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              height: 40.h,
+              margin: EdgeInsets.symmetric(horizontal: 16.sp),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
+                borderRadius: BorderRadius.circular(32.sp),
                 color: Color(0xFFF0F0F0),
               ),
               child: TextField(
-                // focusNode: controller.emailLoginFN,
-                // controller: controller.emailLoginC,
+                focusNode: controller.lupaPassFN,
+                controller: controller.lupaPassC,
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
@@ -111,7 +111,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
                   hintStyle: TextStyle(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: Color(0xFFA0A0A0),
@@ -120,7 +120,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
               ),
             ),
             SizedBox(height: 16),
-            SizedBox(height: 4),
+            // SizedBox(height: 4),
             Center(
               child: DecoratedBox(
                 decoration: BoxDecoration(
@@ -146,10 +146,10 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32),
                     ),
-                    minimumSize: Size(Get.width - 30, 42),
+                    fixedSize: Size(343.w, 42.h),
                   ),
-                  // onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
+                  // onPressed: () {},
                   child: Text(
                     "Selanjutnya",
                     style: TextStyle(
