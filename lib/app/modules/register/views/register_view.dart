@@ -59,7 +59,7 @@ class RegisterView extends GetView<RegisterController> {
                   child: TextField(
                     focusNode: controller.emailDaftarFN,
                     controller: controller.emailDaftarC,
-                    textInputAction: TextInputAction.next,
+                    textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
                     decoration: InputDecoration(
