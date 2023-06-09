@@ -93,32 +93,46 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                   color: Color(0xFF216BC9),
                 ),
                 keyboardType: TextInputType.number,
-                // controller: controller.verifikasiLupaPassC,
+                controller: controller.verifikasiLupaPassC,
                 appContext: context,
                 length: 4,
                 onChanged: (value) {},
                 boxShadows: [
-                  // BoxShadow(
-                  // color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
-                  // offset: Offset(0, 0), // Posisi offset bayangan
-                  // blurRadius: 4, // Jumlah blur bayangan
-                  // spreadRadius: 0, // Jarak penyebaran bayangan
-                  // ),
+                  BoxShadow(
+                    color: Colors.white, // Warna bayangan
+                    offset: Offset(-2, -2), // Posisi offset bayangan
+                    blurRadius: 0, // Jumlah blur bayangan
+                    spreadRadius: 0, // Jarak penyebaran bayangan
+                  ),
+                  BoxShadow(
+                    color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
+                    offset: Offset(-1, -1), // Posisi offset bayangan
+                    blurRadius: 1, // Jumlah blur bayangan
+                    spreadRadius: 0, // Jarak penyebaran bayangan
+                  ),
+                  BoxShadow(
+                    color: Color(0xfff0f0f0), // Warna bayangan
+                    offset: Offset(2, 2), // Posisi offset bayangan
+                    blurRadius: 6, // Jumlah blur bayangan
+                    spreadRadius: 0, // Jarak penyebaran bayangan
+                  ),
+                  BoxShadow(
+                    color: Colors.white, // Warna bayangan
+                    offset: Offset(6, 6), // Posisi offset bayangan
+                    blurRadius: 5, // Jumlah blur bayangan
+                    spreadRadius: 0, // Jarak penyebaran bayangan
+                  ),
                 ],
+                scrollPadding: EdgeInsets.all(30),
                 pinTheme: PinTheme(
                   fieldHeight: 40.h,
                   fieldWidth: 32.w,
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(4),
                   borderWidth: 1,
-
-                  activeColor: Color.fromARGB(255, 199, 199, 199),
-                  selectedColor: Color(0xFF858585),
-                  inactiveColor: Color.fromARGB(255, 199, 199, 199),
-
-                  // activeColor: Colors.transparent,
-                  // selectedColor: Colors.transparent,
-                  // inactiveColor: Colors.transparent,
+                  activeColor: Colors.transparent,
+                  selectedColor: Colors.transparent,
+                  inactiveColor: Colors.transparent,
                 ),
               ),
             ),

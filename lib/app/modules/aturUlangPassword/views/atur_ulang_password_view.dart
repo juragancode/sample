@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
+import 'package:g_a_s_app_rekadigi/app/utils/widgets/splashPassBerhasilDiperbaharui.dart';
 
 import 'package:get/get.dart';
 
@@ -84,13 +87,13 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ],
               ),
-              SizedBox(height: 16.h),
-              SizedBox(height: 4.h),
+              SizedBox(height: 16.w),
+              SizedBox(height: 4.w),
               Container(
-                height: 40.sp,
-                margin: EdgeInsets.symmetric(horizontal: 16.sp),
+                height: 40.w,
+                margin: EdgeInsets.symmetric(horizontal: 16.w),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32.sp),
+                  borderRadius: BorderRadius.circular(32.r),
                   color: Color(0xFFF0F0F0),
                 ),
                 child: Obx(
@@ -105,10 +108,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Masukkan password baru',
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 19.0.sp,
-                        vertical: 16.sp,
-                      ),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -134,10 +135,10 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 4.h),
+              SizedBox(height: 4.w),
               Row(
                 children: [
-                  SizedBox(width: 20.w),
+                  SizedBox(width: 21.42.w),
                   Icon(
                     Icons.info,
                     color: Color(0xFF4D89D4),
@@ -154,13 +155,12 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ],
               ),
-              SizedBox(height: 16.h),
-
+              SizedBox(height: 16.w),
               Container(
-                height: 40.sp,
-                margin: EdgeInsets.symmetric(horizontal: 16.sp),
+                height: 40.w,
+                margin: EdgeInsets.symmetric(horizontal: 16.w),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32.sp),
+                  borderRadius: BorderRadius.circular(32.r),
                   color: Color(0xFFF0F0F0),
                 ),
                 child: Obx(
@@ -175,10 +175,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Masukkan ulang password baru',
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 19.0.sp,
-                        vertical: 16.sp,
-                      ),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -204,8 +202,28 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 16.h),
-              // SizedBox(height: 4),
+              SizedBox(height: 16.w),
+              Row(
+                children: [
+                  SizedBox(width: 18.w),
+                  Flexible(
+                    child: Wrap(
+                      children: [
+                        Text(
+                          "Setelah password diubah, silakan masuk ke akunmu dengan password baru.",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF858585),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 24.w),
               Center(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -217,7 +235,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32.r),
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -229,55 +247,19 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                         fontWeight: FontWeight.w600,
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32),
+                        borderRadius: BorderRadius.circular(32.r),
                       ),
-                      fixedSize: Size(343.w, 42.h),
+                      fixedSize: Size(343.w, 42.w),
                     ),
                     onPressed: () {
                       Get.dialog(
-                        GestureDetector(
-                          onTap: () => Get.offNamed(Routes.LUPA_PASSWORD),
-                          child: Container(
-                            width: Get.width.w,
-                            height: Get.height.h,
-                            color: Colors.white,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 222.w,
-                                  height: 199.99.h,
-                                  child: SvgPicture.asset(
-                                    "assets/icons/SuccessVector.svg",
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                SizedBox(height: 24.h),
-                                Text(
-                                  "Yeay! password berhasil diperbarui",
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFF333333),
-                                    decoration: TextDecoration.none,
-                                  ),
-                                ),
-                                SizedBox(height: 8.h),
-                                Text(
-                                  "Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!",
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xFF858585),
-                                    decoration: TextDecoration.none,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        splashPassBerhasilDiperbaharui(),
+                      );
+                      Timer(
+                        Duration(milliseconds: 3000),
+                        () {
+                          Get.offAllNamed(Routes.LOGIN);
+                        },
                       );
                     },
                     child: Text(
@@ -299,6 +281,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
     );
   }
 }
+
+
 
 /// Catatan logic
 /// Jika pass lama != (pass baru == ulang pass baru ) -> pass berhasil dirubah -> success

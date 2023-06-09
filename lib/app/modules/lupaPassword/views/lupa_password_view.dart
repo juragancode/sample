@@ -91,9 +91,9 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 ),
               ],
             ),
-            SizedBox(height: 4.h),
+            SizedBox(height: 4.w),
             Container(
-              height: 40.h,
+              height: 40.w,
               margin: EdgeInsets.symmetric(horizontal: 16.sp),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(32.sp),
@@ -108,12 +108,11 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 // style: TextStyle(
                 //   decoration: TextDecoration.none,
                 // ),
-
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Ex: janedoe@email.com',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                   hintStyle: TextStyle(
                     fontSize: 12.sp,
                     fontFamily: 'Poppins',
@@ -123,7 +122,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.w),
             // SizedBox(height: 4),
             Center(
               child: DecoratedBox(
@@ -150,7 +149,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32),
                     ),
-                    fixedSize: Size(343.w, 42.h),
+                    fixedSize: Size(343.w, 42.w),
                   ),
                   onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
                   // onPressed: () {},

@@ -131,10 +131,6 @@ class VerifikasiLupaPasswordView
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(4),
                   borderWidth: 1,
-                  // activeColor: Color.fromARGB(255, 199, 199, 199),
-                  // selectedColor: Color(0xFF858585),
-                  // inactiveColor: Color.fromARGB(255, 199, 199, 199),
-
                   activeColor: Colors.transparent,
                   selectedColor: Colors.transparent,
                   inactiveColor: Colors.transparent,
@@ -203,7 +199,7 @@ class VerifikasiLupaPasswordView
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32),
                     ),
-                    fixedSize: Size(343.w, 42.h),
+                    fixedSize: Size(343.w, 42.w),
                   ),
                   onPressed: () => Get.toNamed(Routes.ATUR_ULANG_PASSWORD),
                   child: Text(

@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:text_divider/text_divider.dart';
 
-import 'package:get/get.dart';
-
+import '../../../routes/app_pages.dart';
+import '../../../utils/widgets/buttonGoogle.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -37,8 +35,8 @@ class LoginView extends GetView<LoginController> {
               children: [
                 Center(
                   child: Container(
-                    width: 104.sp,
-                    height: 104.sp,
+                    width: 104.w,
+                    height: 104.w,
                     child: Image.asset(
                       "assets/icons/iconGAS.png",
                       fit: BoxFit.contain,
@@ -47,10 +45,10 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
 
-                SizedBox(height: 12.sp),
+                SizedBox(height: 12.w),
                 Row(
                   children: [
-                    SizedBox(width: 34.sp),
+                    SizedBox(width: 34.w),
                     Text(
                       "Email",
                       style: TextStyle(
@@ -61,12 +59,12 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 4.sp),
+                SizedBox(height: 4.w),
                 Container(
-                  height: 40.sp,
-                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
+                  height: 40.w,
+                  margin: EdgeInsets.symmetric(horizontal: 16.w),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.sp),
+                    borderRadius: BorderRadius.circular(32.r),
                     color: Color(0xFFF0F0F0),
                   ),
                   child: TextField(
@@ -78,8 +76,8 @@ class LoginView extends GetView<LoginController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Ex: janedoe@email.com',
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 19.0.sp, vertical: 16.sp),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -89,10 +87,10 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 8.sp),
+                SizedBox(height: 8.w),
                 Row(
                   children: [
-                    SizedBox(width: 34.sp),
+                    SizedBox(width: 34.w),
                     Text(
                       "Password",
                       style: TextStyle(
@@ -103,12 +101,12 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 4.sp),
+                SizedBox(height: 4.w),
                 Container(
-                  height: 40.sp,
-                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
+                  height: 40.w,
+                  margin: EdgeInsets.symmetric(horizontal: 16.w),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.sp),
+                    borderRadius: BorderRadius.circular(32.r),
                     color: Color(0xFFF0F0F0),
 
                     /// Warna untuk test
@@ -120,16 +118,14 @@ class LoginView extends GetView<LoginController> {
                       controller: controller.passLoginC,
                       textInputAction: TextInputAction.done,
                       keyboardType: TextInputType.text,
-                      obscureText: controller.obscureTextLogin.value,
+                      obscureText: controller.obscureTextDaftar.value,
                       obscuringCharacter: '*',
                       autocorrect: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Masukkan password',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 19.0.sp,
-                          vertical: 16.sp,
-                        ),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',
@@ -138,13 +134,13 @@ class LoginView extends GetView<LoginController> {
                         ),
                         suffixIcon: GestureDetector(
                           onTap: () {
-                            controller.obscureTextLogin.value =
-                                !controller.obscureTextLogin.value;
+                            controller.obscureTextDaftar.value =
+                                !controller.obscureTextDaftar.value;
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(right: 25),
                             child: Icon(
-                              controller.obscureTextLogin.value
+                              controller.obscureTextDaftar.value
                                   ? CupertinoIcons.eye_slash_fill
                                   : CupertinoIcons.eye_fill,
                               color: Color(0xFF858585),
@@ -163,7 +159,7 @@ class LoginView extends GetView<LoginController> {
                       () => Container(
                         child: CheckboxListTile(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4.sp),
+                            borderRadius: BorderRadius.circular(4.r),
                           ),
                           activeColor: Color(0xFF216BC9),
                           controlAffinity: ListTileControlAffinity.leading,
@@ -200,7 +196,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ],
                 ),
-                // SizedBox(height: 20),
+                // SizedBox(height: 20.w),
                 Center(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
@@ -212,7 +208,7 @@ class LoginView extends GetView<LoginController> {
                         begin: Alignment.topCenter, // Posisi awal gradient
                         end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32.r),
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -224,9 +220,9 @@ class LoginView extends GetView<LoginController> {
                           fontWeight: FontWeight.w600,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
+                          borderRadius: BorderRadius.circular(32.r),
                         ),
-                        fixedSize: Size(343.w, 42.h),
+                        fixedSize: Size(343.w, 42.w),
                       ),
                       onPressed: () {},
                       child: Text(
@@ -241,16 +237,16 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 8.w),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32.r),
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        side: BorderSide(color: Color(0xFF216BC9), width: 1),
+                        side: BorderSide(color: Color(0xFF216BC9), width: 1.w),
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         textStyle: TextStyle(
@@ -259,9 +255,9 @@ class LoginView extends GetView<LoginController> {
                           fontWeight: FontWeight.w600,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
+                          borderRadius: BorderRadius.circular(32.r),
                         ),
-                        fixedSize: Size(343.w, 42.h),
+                        fixedSize: Size(343.w, 42.w),
                       ),
                       onPressed: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
@@ -276,7 +272,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16.h),
+                SizedBox(height: 16.w),
                 Padding(
                   padding: const EdgeInsets.only(right: 8, left: 8),
                   child: TextDivider(
@@ -284,62 +280,17 @@ class LoginView extends GetView<LoginController> {
                       "atau masuk dengan",
                       style: TextStyle(
                         color: Color(0xFF858585),
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     color: Color(0xFF858585),
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.w),
 
-                Center(
-                  child: Flexible(
-                    child: Container(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          side: BorderSide(color: Color(0xFF216BC9), width: 1),
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.transparent,
-                          textStyle: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Wrap(
-                            alignment: WrapAlignment.start,
-                            children: [
-                              Container(
-                                width: 30.sp,
-                                height: 30.sp,
-                                child: SvgPicture.asset(
-                                  "assets/icons/iconGoogle.svg",
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                "Google",
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xFF216BC9),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                // SizedBox(height: 16),
+                ButtonGoogleAuth(),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

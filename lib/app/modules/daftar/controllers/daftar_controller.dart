@@ -1,20 +1,20 @@
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class DaftarController extends GetxController {
-  //TODO: Implement DaftarController
+  // TextEditingController
+  TextEditingController emailDaftarC = TextEditingController();
+  TextEditingController namaDaftarC = TextEditingController();
+  TextEditingController noHpDaftarC = TextEditingController();
+  TextEditingController passDaftarC = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // FocusNode
+  FocusNode emailDaftarFN = FocusNode();
+  FocusNode namaDaftarFN = FocusNode();
+  FocusNode noHpDaftarFN = FocusNode();
+  FocusNode passDaftarFN = FocusNode();
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  RxBool isLoading = false.obs;
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  RxBool obscureTextDaftar = true.obs;
 }

@@ -15,5 +15,5 @@ class LoginController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool ingatSaya = false.obs;
 
-  RxBool obscureTextLogin = true.obs;
+  RxBool obscureTextDaftar = true.obs;
 }
