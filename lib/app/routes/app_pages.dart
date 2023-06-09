@@ -1,5 +1,12 @@
 import 'package:get/get.dart';
 
+import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/views/atur_ulang_password_view.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/daftar/bindings/daftar_binding.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/daftar/views/daftar_view.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
+
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/introduction_screen/bindings/introduction_screen_binding.dart';
@@ -50,6 +57,21 @@ class AppPages {
       name: _Paths.VERIFIKASI_LUPA_PASSWORD,
       page: () => VerifikasiLupaPasswordView(),
       binding: VerifikasiLupaPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.ATUR_ULANG_PASSWORD,
+      page: () => AturUlangPasswordView(),
+      binding: AturUlangPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFIKASI_DAFTAR,
+      page: () => VerifikasiDaftarView(),
+      binding: VerifikasiDaftarBinding(),
+    ),
+    GetPage(
+      name: _Paths.DAFTAR,
+      page: () => DaftarView(),
+      binding: DaftarBinding(),
     ),
   ];
 }

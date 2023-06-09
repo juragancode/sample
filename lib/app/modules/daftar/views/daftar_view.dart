@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
-import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import '../controllers/lupa_password_controller.dart';
+import '../../../routes/app_pages.dart';
+import '../controllers/daftar_controller.dart';
 
-class LupaPasswordView extends GetView<LupaPasswordController> {
+class DaftarView extends GetView<DaftarController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +27,10 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
           ),
         ),
         title: Text(
-          'Lupa Password?',
+          'Daftar',
           style: TextStyle(
             color: Color(0xFF333333),
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -41,46 +41,10 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 20.h),
             Row(
               children: [
-                SizedBox(width: 18),
-                Text(
-                  "Atur Ulang Password",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(width: 8),
-              ],
-            ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                SizedBox(width: 18),
-                Flexible(
-                  child: Wrap(
-                    children: [
-                      Text(
-                        "Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF858585),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 8),
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 34),
+                SizedBox(width: 34.sp),
                 Text(
                   "Email",
                   style: TextStyle(
@@ -100,8 +64,8 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 color: Color(0xFFF0F0F0),
               ),
               child: TextField(
-                focusNode: controller.lupaPassFN,
-                controller: controller.lupaPassC,
+                // focusNode: controller.lupaPassFN,
+                // controller: controller.lupaPassC,
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
@@ -152,8 +116,8 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     ),
                     fixedSize: Size(343.w, 42.h),
                   ),
-                  onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
-                  // onPressed: () {},
+                  // onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
+                  onPressed: () {},
                   child: Text(
                     "Selanjutnya",
                     style: TextStyle(

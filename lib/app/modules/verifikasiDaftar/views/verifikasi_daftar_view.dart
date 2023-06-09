@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../controllers/verifikasi_lupa_password_controller.dart';
 
-class VerifikasiLupaPasswordView
-    extends GetView<VerifikasiLupaPasswordController> {
+import '../controllers/verifikasi_daftar_controller.dart';
+
+class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +29,7 @@ class VerifikasiLupaPasswordView
           ),
         ),
         title: Text(
-          'Lupa Password?',
+          'Daftar',
           style: TextStyle(
             color: Color(0xFF333333),
             fontSize: 16,
@@ -44,8 +43,8 @@ class VerifikasiLupaPasswordView
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: SvgPicture.asset(
-                "assets/icons/Verifikasi.svg",
+              child: Image.asset(
+                "assets/icons/Lupa-Password.png",
                 height: 200.h,
                 width: 275.h,
                 fit: BoxFit.cover,
@@ -94,50 +93,32 @@ class VerifikasiLupaPasswordView
                   color: Color(0xFF216BC9),
                 ),
                 keyboardType: TextInputType.number,
-                controller: controller.verifikasiLupaPassC,
+                // controller: controller.verifikasiLupaPassC,
                 appContext: context,
                 length: 4,
                 onChanged: (value) {},
                 boxShadows: [
-                  BoxShadow(
-                    color: Colors.white, // Warna bayangan
-                    offset: Offset(-2, -2), // Posisi offset bayangan
-                    blurRadius: 0, // Jumlah blur bayangan
-                    spreadRadius: 0, // Jarak penyebaran bayangan
-                  ),
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
-                    offset: Offset(-1, -1), // Posisi offset bayangan
-                    blurRadius: 1, // Jumlah blur bayangan
-                    spreadRadius: 0, // Jarak penyebaran bayangan
-                  ),
-                  BoxShadow(
-                    color: Color(0xfff0f0f0), // Warna bayangan
-                    offset: Offset(2, 2), // Posisi offset bayangan
-                    blurRadius: 6, // Jumlah blur bayangan
-                    spreadRadius: 0, // Jarak penyebaran bayangan
-                  ),
-                  BoxShadow(
-                    color: Colors.white, // Warna bayangan
-                    offset: Offset(6, 6), // Posisi offset bayangan
-                    blurRadius: 5, // Jumlah blur bayangan
-                    spreadRadius: 0, // Jarak penyebaran bayangan
-                  ),
+                  // BoxShadow(
+                  // color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
+                  // offset: Offset(0, 0), // Posisi offset bayangan
+                  // blurRadius: 4, // Jumlah blur bayangan
+                  // spreadRadius: 0, // Jarak penyebaran bayangan
+                  // ),
                 ],
-                scrollPadding: EdgeInsets.all(30),
                 pinTheme: PinTheme(
                   fieldHeight: 40.h,
                   fieldWidth: 32.w,
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(4),
                   borderWidth: 1,
-                  // activeColor: Color.fromARGB(255, 199, 199, 199),
-                  // selectedColor: Color(0xFF858585),
-                  // inactiveColor: Color.fromARGB(255, 199, 199, 199),
 
-                  activeColor: Colors.transparent,
-                  selectedColor: Colors.transparent,
-                  inactiveColor: Colors.transparent,
+                  activeColor: Color.fromARGB(255, 199, 199, 199),
+                  selectedColor: Color(0xFF858585),
+                  inactiveColor: Color.fromARGB(255, 199, 199, 199),
+
+                  // activeColor: Colors.transparent,
+                  // selectedColor: Colors.transparent,
+                  // inactiveColor: Colors.transparent,
                 ),
               ),
             ),
@@ -205,7 +186,7 @@ class VerifikasiLupaPasswordView
                     ),
                     fixedSize: Size(343.w, 42.h),
                   ),
-                  onPressed: () => Get.toNamed(Routes.ATUR_ULANG_PASSWORD),
+                  onPressed: () => Get.toNamed(Routes.DAFTAR),
                   child: Text(
                     "Verifikasi",
                     style: TextStyle(

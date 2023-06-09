@@ -109,8 +109,10 @@ class LoginView extends GetView<LoginController> {
                   margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32.sp),
-                    // color: Color(0xFFF0F0F0),
-                    color: Color.fromARGB(255, 154, 154, 154),
+                    color: Color(0xFFF0F0F0),
+
+                    /// Warna untuk test
+                    // color: Color.fromARGB(255, 154, 154, 154),
                   ),
                   child: Obx(
                     () => TextField(
@@ -119,6 +121,7 @@ class LoginView extends GetView<LoginController> {
                       textInputAction: TextInputAction.done,
                       keyboardType: TextInputType.text,
                       obscureText: controller.obscureTextLogin.value,
+                      obscuringCharacter: '*',
                       autocorrect: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,

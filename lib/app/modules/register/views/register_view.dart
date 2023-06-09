@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:text_divider/text_divider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +27,7 @@ class RegisterView extends GetView<RegisterController> {
               },
               icon: Icon(
                 Icons.arrow_back,
-                size: 31,
+                size: 31.sp,
                 color: Color(0xFFFFCA08),
               ),
             ),
@@ -35,7 +36,7 @@ class RegisterView extends GetView<RegisterController> {
             'Daftar',
             style: TextStyle(
               color: Color(0xFF333333),
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -63,11 +64,11 @@ class RegisterView extends GetView<RegisterController> {
                 SizedBox(height: 12.sp),
                 Row(
                   children: [
-                    SizedBox(width: 34),
+                    SizedBox(width: 34.w),
                     Text(
                       "Email",
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
@@ -77,12 +78,13 @@ class RegisterView extends GetView<RegisterController> {
                 SizedBox(height: 4.sp),
                 Container(
                   height: 40.sp,
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32.sp),
                     color: Color(0xFFF0F0F0),
                   ),
                   child: TextField(
+                    onChanged: (value) {},
                     focusNode: controller.emailDaftarFN,
                     controller: controller.emailDaftarC,
                     textInputAction: TextInputAction.done,
@@ -91,10 +93,10 @@ class RegisterView extends GetView<RegisterController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Ex: janedoe@email.com',
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16.0.sp, vertical: 16.sp),
                       hintStyle: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: Color(0xFFA0A0A0),
@@ -115,27 +117,27 @@ class RegisterView extends GetView<RegisterController> {
                         begin: Alignment.topCenter, // Posisi awal gradient
                         end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32.sp),
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         textStyle: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
+                          borderRadius: BorderRadius.circular(32.sp),
                         ),
                         fixedSize: Size(343.w, 42.h),
                       ),
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(Routes.VERIFIKASI_DAFTAR),
                       child: Text(
                         "Daftar",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           // color: Color(0xFF216BC9),
@@ -174,7 +176,7 @@ class RegisterView extends GetView<RegisterController> {
                             fontWeight: FontWeight.w600,
                           ),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32),
+                            borderRadius: BorderRadius.circular(32.sp),
                           ),
                         ),
                         onPressed: () {},
@@ -218,7 +220,7 @@ class RegisterView extends GetView<RegisterController> {
                         Obx(
                           () => Checkbox(
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(50.sp),
                             ),
                             visualDensity:
                                 const VisualDensity(horizontal: 0, vertical: 0),

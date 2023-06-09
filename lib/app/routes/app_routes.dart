@@ -10,6 +10,9 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const LUPA_PASSWORD = _Paths.LUPA_PASSWORD;
   static const VERIFIKASI_LUPA_PASSWORD = _Paths.VERIFIKASI_LUPA_PASSWORD;
+  static const ATUR_ULANG_PASSWORD = _Paths.ATUR_ULANG_PASSWORD;
+  static const VERIFIKASI_DAFTAR = _Paths.VERIFIKASI_DAFTAR;
+  static const DAFTAR = _Paths.DAFTAR;
 }
 
 abstract class _Paths {
@@ -19,4 +22,7 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const LUPA_PASSWORD = '/lupa-password';
   static const VERIFIKASI_LUPA_PASSWORD = '/verifikasi-lupa-password';
+  static const ATUR_ULANG_PASSWORD = '/atur-ulang-password';
+  static const VERIFIKASI_DAFTAR = '/verifikasi-daftar';
+  static const DAFTAR = '/daftar';
 }
