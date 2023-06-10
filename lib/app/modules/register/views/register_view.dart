@@ -98,8 +98,8 @@ class RegisterView extends GetView<RegisterController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Ex: janedoe@email.com',
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 16.w),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',

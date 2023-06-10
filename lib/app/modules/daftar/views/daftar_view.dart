@@ -17,18 +17,15 @@ class DaftarView extends GetView<DaftarController> {
         titleSpacing: 0, // Atur jarak antara leading dan title
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 0),
-          child: IconButton(
-            onPressed: () {
-              print("Back button pressed");
-              Get.back();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              size: 31,
-              color: Color(0xFFFFCA08),
-            ),
+        leading: IconButton(
+          onPressed: () {
+            print("Back button pressed");
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 31,
+            color: Color(0xFFFFCA08),
           ),
         ),
         title: Text(
@@ -78,7 +75,7 @@ class DaftarView extends GetView<DaftarController> {
                   border: InputBorder.none,
                   hintText: 'Ex: janedoe@email.com',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
                   hintStyle: TextStyle(
                     fontSize: 12.sp,
                     fontFamily: 'Poppins',
@@ -120,7 +117,7 @@ class DaftarView extends GetView<DaftarController> {
                   border: InputBorder.none,
                   hintText: 'Tulis nama lengkapmu',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
                   hintStyle: TextStyle(
                     fontSize: 12.sp,
                     fontFamily: 'Poppins',
@@ -162,7 +159,7 @@ class DaftarView extends GetView<DaftarController> {
                   border: InputBorder.none,
                   hintText: 'Ex: 081234567899',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
                   hintStyle: TextStyle(
                     fontSize: 12.sp,
                     fontFamily: 'Poppins',
@@ -210,7 +207,7 @@ class DaftarView extends GetView<DaftarController> {
                     border: InputBorder.none,
                     hintText: 'Masukkan password',
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
                     hintStyle: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
@@ -223,7 +220,7 @@ class DaftarView extends GetView<DaftarController> {
                             !controller.obscureTextDaftar.value;
                       },
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 25),
+                        padding: EdgeInsets.only(right: 25.w),
                         child: Icon(
                           controller.obscureTextDaftar.value
                               ? CupertinoIcons.eye_slash_fill
@@ -261,7 +258,7 @@ class DaftarView extends GetView<DaftarController> {
                       fontWeight: FontWeight.w600,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32.r),
                     ),
                     fixedSize: Size(343.w, 42.w),
                   ),
@@ -282,7 +279,6 @@ class DaftarView extends GetView<DaftarController> {
                       fontSize: 16.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
-                      // color: Color(0xFF216BC9),
                     ),
                   ),
                 ),

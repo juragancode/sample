@@ -76,8 +76,8 @@ class LoginView extends GetView<LoginController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Ex: janedoe@email.com',
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 16.w),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -124,8 +124,8 @@ class LoginView extends GetView<LoginController> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Masukkan password',
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 16.w),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',
@@ -138,7 +138,7 @@ class LoginView extends GetView<LoginController> {
                                 !controller.obscureTextDaftar.value;
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 25),
+                            padding: EdgeInsets.only(right: 25.w),
                             child: Icon(
                               controller.obscureTextDaftar.value
                                   ? CupertinoIcons.eye_slash_fill
@@ -151,52 +151,125 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                // SizedBox(height: 20),
-                Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Obx(
-                      () => Container(
-                        child: CheckboxListTile(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4.r),
-                          ),
-                          activeColor: Color(0xFF216BC9),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          value: controller.ingatSaya.value,
-                          onChanged: (value) {
-                            controller.ingatSaya.toggle();
-                          },
-                          title: Text(
-                            "ingat saya",
-                            style: TextStyle(
-                              color: Color(0xFF333333),
+                SizedBox(height: 14.w),
+                // Stack(
+                //   alignment: AlignmentDirectional.center,
+                //   children: [
+                //     Obx(
+                //       () => Container(
+                //         child: CheckboxListTile(
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(4.r),
+                //           ),
+                //           activeColor: Color(0xFF216BC9),
+                //           controlAffinity: ListTileControlAffinity.leading,
+                //           value: controller.ingatSaya.value,
+                //           onChanged: (value) {
+                //             controller.ingatSaya.toggle();
+                //           },
+                //           title: Text(
+                //             "ingat saya",
+                //             style: TextStyle(
+                //               color: Color(0xFF333333),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     Align(
+                //       alignment: Alignment.centerRight,
+                //       child: Padding(
+                //         padding: EdgeInsets.only(right: 16.w),
+                //         child: TextButton(
+                //           onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
+                //           child: Text(
+                //             "Lupa Password?",
+                //             style: TextStyle(
+                //               fontSize: 12.sp,
+                //               fontFamily: 'Poppins',
+                //               fontWeight: FontWeight.w600,
+                //               color: Color(0xFF216BC9),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.ingatSaya.value =
+                                  !controller.ingatSaya.value;
+                            },
+                            child: Obx(
+                              () => Container(
+                                height: 19.w,
+                                width: 19.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.r),
+
+                                  // color: Color(0xFFB5B5B5),
+                                  gradient: LinearGradient(
+                                    colors: controller.ingatSaya.value
+                                        ? [
+                                            Color(0xFF4D89D4),
+                                            Color(0xFF216BC9),
+                                          ]
+                                        : [
+                                            Color(0xFFB5B5B5),
+                                            Color(0xFFB5B5B5),
+                                          ], // Daftar warna gradient yang ingin digunakan
+                                    begin: Alignment
+                                        .topCenter, // Posisi awal gradient
+                                    end: Alignment
+                                        .bottomCenter, // Posisi akhir gradient
+                                  ),
+                                ),
+                                child: Icon(
+                                  CupertinoIcons.checkmark_alt,
+                                  size: 21.sp,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 16),
-                        child: TextButton(
-                          onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
-                          child: Text(
-                            "Lupa Password?",
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Ingat saya",
                             style: TextStyle(
                               fontSize: 12.sp,
                               fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF216BC9),
+                              fontWeight: FontWeight.w400,
                             ),
+                          ),
+                        ],
+                      ),
+                      TextButton(
+                        onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
+                        child: Text(
+                          "Lupa Password?",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF216BC9),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 // SizedBox(height: 20.w),
+                SizedBox(height: 14.w),
+
                 Center(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
@@ -241,14 +314,12 @@ class LoginView extends GetView<LoginController> {
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
                       borderRadius: BorderRadius.circular(32.r),
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         side: BorderSide(color: Color(0xFF216BC9), width: 1.w),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
+                        backgroundColor: Colors.white,
                         textStyle: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',
@@ -274,7 +345,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 SizedBox(height: 16.w),
                 Padding(
-                  padding: const EdgeInsets.only(right: 8, left: 8),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: TextDivider(
                     text: Text(
                       "atau masuk dengan",

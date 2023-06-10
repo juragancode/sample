@@ -15,18 +15,15 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
         titleSpacing: 0, // Atur jarak antara leading dan title
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 0),
-          child: IconButton(
-            onPressed: () {
-              print("Back button pressed");
-              Get.back();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              size: 31.sp,
-              color: Color(0xFFFFCA08),
-            ),
+        leading: IconButton(
+          onPressed: () {
+            print("Back button pressed");
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 31.sp,
+            color: Color(0xFFFFCA08),
           ),
         ),
         title: Text(
@@ -46,12 +43,12 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
             Center(
               child: Image.asset(
                 "assets/icons/Lupa-Password.png",
-                height: 200.h,
-                width: 275.h,
+                height: 200.w,
+                width: 275.w,
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 8.w),
             Center(
               child: Text(
                 "Masukkan kode Verifikasi",
@@ -63,7 +60,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ),
               ),
             ),
-            SizedBox(height: 16.h),
+            SizedBox(height: 16.w),
             Row(
               children: [
                 Flexible(
@@ -85,9 +82,9 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 SizedBox(width: 8.w),
               ],
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 24.w),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 99.5.w),
               child: PinCodeTextField(
                 cursorColor: Color(0xFF333333),
                 textStyle: TextStyle(
@@ -126,7 +123,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ],
                 scrollPadding: EdgeInsets.all(30),
                 pinTheme: PinTheme(
-                  fieldHeight: 40.h,
+                  fieldHeight: 40.w,
                   fieldWidth: 32.w,
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(4),
@@ -137,7 +134,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ),
               ),
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 24.w),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -173,7 +170,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ),
               ],
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 24.w),
             Center(
               child: DecoratedBox(
                 decoration: BoxDecoration(

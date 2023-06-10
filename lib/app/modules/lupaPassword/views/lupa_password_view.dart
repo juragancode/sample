@@ -13,18 +13,15 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
         titleSpacing: 0, // Atur jarak antara leading dan title
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 0),
-          child: IconButton(
-            onPressed: () {
-              print("Back button pressed");
-              Get.back();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              size: 31,
-              color: Color(0xFFFFCA08),
-            ),
+        leading: IconButton(
+          onPressed: () {
+            print("Back button pressed");
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 31,
+            color: Color(0xFFFFCA08),
           ),
         ),
         title: Text(
@@ -95,9 +92,9 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
             SizedBox(height: 4.w),
             Container(
               height: 40.w,
-              margin: EdgeInsets.symmetric(horizontal: 16.sp),
+              margin: EdgeInsets.symmetric(horizontal: 16.w),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32.sp),
+                borderRadius: BorderRadius.circular(32.r),
                 color: Color(0xFFF0F0F0),
               ),
               child: TextField(
@@ -113,7 +110,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                   border: InputBorder.none,
                   hintText: 'Ex: janedoe@email.com',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.w),
                   hintStyle: TextStyle(
                     fontSize: 12.sp,
                     fontFamily: 'Poppins',
@@ -124,7 +121,6 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
               ),
             ),
             SizedBox(height: 16.w),
-            // SizedBox(height: 4),
             Center(
               child: DecoratedBox(
                 decoration: BoxDecoration(
@@ -136,19 +132,19 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     begin: Alignment.topCenter, // Posisi awal gradient
                     end: Alignment.bottomCenter, // Posisi akhir gradient
                   ),
-                  borderRadius: BorderRadius.circular(32),
+                  borderRadius: BorderRadius.circular(32.r),
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
                     textStyle: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32.r),
                     ),
                     fixedSize: Size(343.w, 42.w),
                   ),
@@ -157,7 +153,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                   child: Text(
                     "Selanjutnya",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                       // color: Color(0xFF216BC9),
