@@ -14,6 +14,7 @@ class DaftarView extends GetView<DaftarController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 0, // Atur jarak antara leading dan title
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
