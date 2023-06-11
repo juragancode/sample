@@ -215,7 +215,7 @@ class VerifikasiLupaPasswordView
                       GestureDetector(
                         onTap: () {
                           // isikan fungsi
-                          controller.restartTimer;
+                          controller.restartTimer();
                           //
                         },
                         child: Text(
@@ -255,7 +255,10 @@ class VerifikasiLupaPasswordView
                               Color(0xFF4D89D4),
                               Color(0xFF216BC9),
                             ]
-                          : [],
+                          : [
+                              // Colors.transparent,
+                              // Colors.transparent,
+                            ],
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
