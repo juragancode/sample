@@ -21,29 +21,23 @@ class RegisterView extends GetView<RegisterController> {
           titleSpacing: 0, // Atur jarak antara leading dan title
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 0),
-            child: IconButton(
-              onPressed: () {
-                print("Back button pressed");
-                Get.back();
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                size: 31.sp,
-                color: Color(0xFFFFCA08),
-              ),
+          leading: IconButton(
+            onPressed: () {
+              print("Back button pressed");
+              Get.back();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              size: 31.sp,
+              color: Color(0xFFFFCA08),
             ),
           ),
-          title: Padding(
-            padding: const EdgeInsets.only(left: 0),
-            child: Text(
-              'Daftar',
-              style: TextStyle(
-                color: Color(0xFF333333),
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-              ),
+          title: Text(
+            'Daftar',
+            style: TextStyle(
+              color: Color(0xFF333333),
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
             ),
           ),
           // centerTitle: true,
@@ -171,50 +165,29 @@ class RegisterView extends GetView<RegisterController> {
 
                 ButtonGoogleAuth(),
                 SizedBox(height: 16.w),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Obx(
-                        //   () => Checkbox(
-                        //     shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(50.sp),
-                        //     ),
-                        //     visualDensity:
-                        //         const VisualDensity(horizontal: 0, vertical: 0),
-                        //     materialTapTargetSize:
-                        //         MaterialTapTargetSize.shrinkWrap,
-                        //     value: controller.syaratKebijakanCheck.value,
-                        //     onChanged: (value) {
-                        //       controller.syaratKebijakanCheck.toggle();
-                        //     },
-                        //   ),
-                        // ),
-                        Obx(
-                          () => GestureDetector(
-                            onTap: () {
-                              controller.syaratKebijakanCheck.value =
-                                  !controller.syaratKebijakanCheck.value;
-                            },
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 30.w,
-                                  width: 30.w,
-                                  color: Colors.amber,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Icon(
-                                          CupertinoIcons.checkmark_alt,
-                                          size: 30.sp,
-                                          color: Color(0xFF1A56A1),
-                                        ),
-                                      ),
-                                      Container(
+                Padding(
+                  padding: EdgeInsets.only(left: 20.w, right: 20.w),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Obx(
+                        () => GestureDetector(
+                          onTap: () {
+                            controller.syaratKebijakanCheck.value =
+                                !controller.syaratKebijakanCheck.value;
+                          },
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 23.w,
+                                width: 23.w,
+                                // color: Colors.amber,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      top: 5,
+                                      left: 2,
+                                      child: Container(
                                         height: 16.w,
                                         width: 16.w,
                                         decoration: BoxDecoration(
@@ -224,60 +197,74 @@ class RegisterView extends GetView<RegisterController> {
                                                 ? Color(0xFFFFCA08)
                                                 : Color(
                                                     0xFFB5B5B5), // Warna garis tepi
-                                            width: 1.0.sp, // Lebar garis tepi
+                                            width: 2.0.sp, // Lebar garis tepi
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(50.r),
                                         ),
                                       ),
-                                    ],
+                                    ),
+                                    Container(
+                                      child: controller
+                                              .syaratKebijakanCheck.value
+                                          ? Positioned(
+                                              top: -2,
+                                              left: 1,
+                                              child: Icon(
+                                                CupertinoIcons.checkmark_alt,
+                                                size: 26.sp,
+                                                color: Color(0xFF1A56A1),
+                                              ),
+                                            )
+                                          : null,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 7.w),
+                      Wrap(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: "Dengan mendaftar, kamu menyetujui",
+                                  style: new TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xFF858585),
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: " Syarat & \nKebijakan Privasi",
+                                  style: new TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF216BC9),
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: " GAS Indonesia.",
+                                  style: new TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xFF858585),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        // SizedBox(width: 11.w),
-                        // Wrap(
-                        //   // mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: [
-                        //     Text.rich(
-                        //       TextSpan(
-                        //         children: <TextSpan>[
-                        //           TextSpan(
-                        //             text: "Dengan mendaftar, kamu menyetujui",
-                        //             style: new TextStyle(
-                        //               fontSize: 12.sp,
-                        //               fontFamily: 'Poppins',
-                        //               fontWeight: FontWeight.w400,
-                        //               color: Color(0xFF858585),
-                        //             ),
-                        //           ),
-                        //           TextSpan(
-                        //             text: " Syarat & \nKebijakan Privasi",
-                        //             style: new TextStyle(
-                        //               fontSize: 12.sp,
-                        //               fontFamily: 'Poppins',
-                        //               fontWeight: FontWeight.w600,
-                        //               color: Color(0xFF216BC9),
-                        //             ),
-                        //           ),
-                        //           TextSpan(
-                        //             text: " GAS Indonesia.",
-                        //             style: new TextStyle(
-                        //               fontSize: 12.sp,
-                        //               fontFamily: 'Poppins',
-                        //               fontWeight: FontWeight.w400,
-                        //               color: Color(0xFF858585),
-                        //             ),
-                        //           ),
-                        //         ],
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],

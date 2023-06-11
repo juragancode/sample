@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/lupaPassword/controllers/lupa_password_controller.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/verifikasi_lupa_password_controller.dart';
+
+final LupaPasswordController emailFormattedC =
+    Get.put(LupaPasswordController());
 
 class VerifikasiLupaPasswordView
     extends GetView<VerifikasiLupaPasswordController> {
@@ -68,7 +72,7 @@ class VerifikasiLupaPasswordView
                   child: Wrap(
                     children: [
                       Text(
-                        "Kami telah mengirim kode verifikasi melalui email ke n***********@g****.com.",
+                        "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -175,39 +179,6 @@ class VerifikasiLupaPasswordView
                       ),
                     ],
                   );
-                  // } else if (controller.empatPuluhDetik.value == 0) {
-                  //   return Row(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: [
-                  //       GestureDetector(
-                  //         onTap: () {
-                  //           // isikan fungsi
-
-                  //           //
-                  //         },
-                  //         child: Text(
-                  //           "Kirim ulang",
-                  //           textAlign: TextAlign.center,
-                  //           style: TextStyle(
-                  //             fontSize: 12.sp,
-                  //             fontFamily: 'Poppins',
-                  //             fontWeight: FontWeight.w600,
-                  //             color: Color(0xFF216BC9),
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       Text(
-                  //         " kode verifikasi.",
-                  //         textAlign: TextAlign.center,
-                  //         style: TextStyle(
-                  //           fontSize: 12.sp,
-                  //           fontFamily: 'Poppins',
-                  //           fontWeight: FontWeight.w400,
-                  //           color: Color(0xFF858585),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   );
                 } else {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,

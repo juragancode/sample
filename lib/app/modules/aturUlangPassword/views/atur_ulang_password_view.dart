@@ -252,6 +252,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        // surfaceTintColor: Colors.transparent,
                         splashFactory: controller.passwordSama.isTrue
                             ? InkSplash.splashFactory
                             : NoSplash.splashFactory,
