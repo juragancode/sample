@@ -66,27 +66,24 @@ class VerifikasiLupaPasswordView
               ),
             ),
             SizedBox(height: 16.w),
-            Row(
-              children: [
-                Flexible(
-                  child: Wrap(
-                    children: [
-                      Text(
-                        "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF858585),
-                        ),
-                      ),
-                    ],
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Text(
+                    "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF858585),
+                    ),
                   ),
-                ),
-                SizedBox(width: 8.w),
-              ],
+                ],
+              ),
             ),
+            SizedBox(width: 8.w),
             SizedBox(height: 24.w),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 99.5.w),
