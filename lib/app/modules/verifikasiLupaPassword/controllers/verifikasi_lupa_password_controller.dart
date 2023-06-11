@@ -10,6 +10,7 @@ class VerifikasiLupaPasswordController extends GetxController {
 
   //
   RxBool kodeTerisi = false.obs;
+  RxBool kirimUlangKodeVerifikasi = false.obs;
 
   void perubahanKodeTerisi(String value) {
     if (value.length == 4) {
@@ -20,19 +21,42 @@ class VerifikasiLupaPasswordController extends GetxController {
   }
 
   // Hitung Mundur
-  final RxInt empatPuluhDetik = 40.obs;
+  final StreamController<int> timerController = StreamController<int>();
+  final RxInt empatPuluhDetik = 41.obs;
+  late Timer _timer;
 
-  void hitungMundur() {
-    empatPuluhDetik.value = 40;
-    Timer.periodic(
+  @override
+  void onInit() {
+    super.onInit();
+    startTimer();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    timerController.close();
+    _timer.cancel();
+  }
+
+  void startTimer() {
+    empatPuluhDetik.value = 41;
+    _timer = Timer.periodic(
       Duration(seconds: 1),
       (timer) {
         if (empatPuluhDetik.value > 0) {
           empatPuluhDetik.value--;
+          timerController.add(empatPuluhDetik.value);
         } else {
           timer.cancel();
         }
       },
     );
+    kirimUlangKodeVerifikasi.value = true;
+  }
+
+  void restartTimer() {
+    empatPuluhDetik.value = 41;
+    kirimUlangKodeVerifikasi.value = false;
+    startTimer();
   }
 }

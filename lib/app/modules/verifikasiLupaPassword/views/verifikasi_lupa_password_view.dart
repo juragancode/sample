@@ -136,42 +136,113 @@ class VerifikasiLupaPasswordView
               ),
             ),
             SizedBox(height: 24.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Mohon tunggu dalam",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF858585),
-                  ),
-                ),
-                Obx(
-                  () => Text(
-                    " ${controller.empatPuluhDetik.value} detik",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF858585),
-                    ),
-                  ),
-                ),
-                Text(
-                  " untuk kirim ulang.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF858585),
-                  ),
-                ),
-              ],
+            StreamBuilder<int>(
+              stream: controller.timerController.stream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && controller.empatPuluhDetik.value != 0) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Mohon tunggu dalam",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                      Text(
+                        " ${snapshot.data} detik",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                      Text(
+                        " untuk kirim ulang.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                    ],
+                  );
+                  // } else if (controller.empatPuluhDetik.value == 0) {
+                  //   return Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       GestureDetector(
+                  //         onTap: () {
+                  //           // isikan fungsi
+
+                  //           //
+                  //         },
+                  //         child: Text(
+                  //           "Kirim ulang",
+                  //           textAlign: TextAlign.center,
+                  //           style: TextStyle(
+                  //             fontSize: 12.sp,
+                  //             fontFamily: 'Poppins',
+                  //             fontWeight: FontWeight.w600,
+                  //             color: Color(0xFF216BC9),
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Text(
+                  //         " kode verifikasi.",
+                  //         textAlign: TextAlign.center,
+                  //         style: TextStyle(
+                  //           fontSize: 12.sp,
+                  //           fontFamily: 'Poppins',
+                  //           fontWeight: FontWeight.w400,
+                  //           color: Color(0xFF858585),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   );
+                } else {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // isikan fungsi
+                          controller.restartTimer;
+                          //
+                        },
+                        child: Text(
+                          "Kirim ulang",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF216BC9),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        " kode verifikasi.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              },
             ),
             SizedBox(height: 24.w),
             Center(
