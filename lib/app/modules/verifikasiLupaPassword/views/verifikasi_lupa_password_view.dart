@@ -95,7 +95,7 @@ class VerifikasiLupaPasswordView
                 controller: controller.verifikasiLupaPassC,
                 appContext: context,
                 length: 4,
-                onChanged: (value) {},
+                onChanged: controller.perubahanKodeTerisi,
                 boxShadows: [
                   BoxShadow(
                     color: Colors.white, // Warna bayangan
@@ -149,14 +149,16 @@ class VerifikasiLupaPasswordView
                     color: Color(0xFF858585),
                   ),
                 ),
-                Text(
-                  " 39 detik",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF858585),
+                Obx(
+                  () => Text(
+                    " ${controller.empatPuluhDetik.value} detik",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF858585),
+                    ),
                   ),
                 ),
                 Text(
@@ -173,40 +175,48 @@ class VerifikasiLupaPasswordView
             ),
             SizedBox(height: 24.w),
             Center(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFF4D89D4),
-                      Color(0xFF216BC9),
-                    ], // Daftar warna gradient yang ingin digunakan
-                    begin: Alignment.topCenter, // Posisi awal gradient
-                    end: Alignment.bottomCenter, // Posisi akhir gradient
-                  ),
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    textStyle: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
+              child: Obx(
+                () => DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: controller.kodeTerisi.value
+                          ? [
+                              Color(0xFF4D89D4),
+                              Color(0xFF216BC9),
+                            ]
+                          : [],
+                      begin: Alignment.topCenter, // Posisi awal gradient
+                      end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    fixedSize: Size(343.w, 42.w),
+                    borderRadius: BorderRadius.circular(32),
                   ),
-                  onPressed: () => Get.toNamed(Routes.ATUR_ULANG_PASSWORD),
-                  child: Text(
-                    "Verifikasi",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      // color: Color(0xFF216BC9),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      textStyle: TextStyle(
+                        fontSize: 16.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      fixedSize: Size(343.w, 42.w),
+                    ),
+                    onPressed: controller.kodeTerisi.value
+                        ? () {
+                            Get.toNamed(Routes.ATUR_ULANG_PASSWORD);
+                          }
+                        : () {},
+                    child: Text(
+                      "Verifikasi",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        // color: Color(0xFF216BC9),
+                      ),
                     ),
                   ),
                 ),
