@@ -44,7 +44,6 @@ class LoginView extends GetView<LoginController> {
                     // color: Colors.amber,
                   ),
                 ),
-
                 SizedBox(height: 12.w),
                 Row(
                   children: [
@@ -152,51 +151,6 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 SizedBox(height: 14.w),
-                // Stack(
-                //   alignment: AlignmentDirectional.center,
-                //   children: [
-                //     Obx(
-                //       () => Container(
-                //         child: CheckboxListTile(
-                //           shape: RoundedRectangleBorder(
-                //             borderRadius: BorderRadius.circular(4.r),
-                //           ),
-                //           activeColor: Color(0xFF216BC9),
-                //           controlAffinity: ListTileControlAffinity.leading,
-                //           value: controller.ingatSaya.value,
-                //           onChanged: (value) {
-                //             controller.ingatSaya.toggle();
-                //           },
-                //           title: Text(
-                //             "ingat saya",
-                //             style: TextStyle(
-                //               color: Color(0xFF333333),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     Align(
-                //       alignment: Alignment.centerRight,
-                //       child: Padding(
-                //         padding: EdgeInsets.only(right: 16.w),
-                //         child: TextButton(
-                //           onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
-                //           child: Text(
-                //             "Lupa Password?",
-                //             style: TextStyle(
-                //               fontSize: 12.sp,
-                //               fontFamily: 'Poppins',
-                //               fontWeight: FontWeight.w600,
-                //               color: Color(0xFF216BC9),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
@@ -267,9 +221,7 @@ class LoginView extends GetView<LoginController> {
                     ],
                   ),
                 ),
-                // SizedBox(height: 20.w),
                 SizedBox(height: 14.w),
-
                 Center(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
@@ -320,6 +272,7 @@ class LoginView extends GetView<LoginController> {
                       style: ElevatedButton.styleFrom(
                         side: BorderSide(color: Color(0xFF216BC9), width: 1.w),
                         backgroundColor: Colors.white,
+                        shadowColor: Colors.transparent,
                         textStyle: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',
@@ -351,7 +304,7 @@ class LoginView extends GetView<LoginController> {
                       "atau masuk dengan",
                       style: TextStyle(
                         color: Color(0xFF858585),
-                        fontSize: 14.sp,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -359,9 +312,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 SizedBox(height: 16.w),
-
                 ButtonGoogleAuth(),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

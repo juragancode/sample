@@ -98,14 +98,15 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 color: Color(0xFFF0F0F0),
               ),
               child: TextField(
+                onChanged: (value) {
+                  controller.email.value = value;
+                  controller.checkEmailValidity();
+                },
                 focusNode: controller.lupaPassFN,
                 controller: controller.lupaPassC,
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
-                // style: TextStyle(
-                //   decoration: TextDecoration.none,
-                // ),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Ex: janedoe@email.com',
@@ -122,41 +123,55 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
             ),
             SizedBox(height: 16.w),
             Center(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFF4D89D4),
-                      Color(0xFF216BC9),
-                    ], // Daftar warna gradient yang ingin digunakan
-                    begin: Alignment.topCenter, // Posisi awal gradient
-                    end: Alignment.bottomCenter, // Posisi akhir gradient
-                  ),
-                  borderRadius: BorderRadius.circular(32.r),
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    textStyle: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
+              child: Obx(
+                () => DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: controller.isValid
+                          ? [
+                              Color(0xFF4D89D4),
+                              Color(0xFF216BC9),
+                            ]
+                          : [
+                              Color(0xFFB5B5B5),
+                              Color(0xFFB5B5B5),
+                            ], // Daftar warna gradient yang ingin digunakan
+                      begin: Alignment.topCenter, // Posisi awal gradient
+                      end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32.r),
-                    ),
-                    fixedSize: Size(343.w, 42.w),
+                    borderRadius: BorderRadius.circular(32.r),
                   ),
-                  onPressed: () => Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
-                  // onPressed: () {},
-                  child: Text(
-                    "Selanjutnya",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      // color: Color(0xFF216BC9),
+                  child: Obx(
+                    () => ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32.r),
+                        ),
+                        fixedSize: Size(343.w, 42.w),
+                      ),
+                      // onPressed: () =>
+                      // Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD),
+                      onPressed: controller.isValid
+                          ? () {
+                              Get.toNamed(Routes.VERIFIKASI_LUPA_PASSWORD);
+                            }
+                          : () {},
+                      child: Text(
+                        "Selanjutnya",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          // color: Color(0xFF216BC9),
+                        ),
+                      ),
                     ),
                   ),
                 ),

@@ -8,4 +8,19 @@ class LupaPasswordController extends GetxController {
 
   // FocusNode
   FocusNode lupaPassFN = FocusNode();
+
+//
+  RxBool buttonLupaPass = true.obs;
+
+  RxString email = ''.obs;
+
+  bool get isValid {
+    return RegExp(
+            r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$')
+        .hasMatch(email.value);
+  }
+
+  void checkEmailValidity() {
+    buttonLupaPass.value = isValid;
+  }
 }

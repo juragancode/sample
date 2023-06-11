@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
@@ -153,13 +154,13 @@ class RegisterView extends GetView<RegisterController> {
                 // SizedBox(height: 8).sp,
                 SizedBox(height: 16.w),
                 Padding(
-                  padding: const EdgeInsets.only(right: 8, left: 8),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: TextDivider(
                     text: Text(
                       "atau masuk dengan",
                       style: TextStyle(
                         color: Color(0xFF858585),
-                        fontSize: 14.sp,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -176,59 +177,105 @@ class RegisterView extends GetView<RegisterController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // Obx(
+                        //   () => Checkbox(
+                        //     shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(50.sp),
+                        //     ),
+                        //     visualDensity:
+                        //         const VisualDensity(horizontal: 0, vertical: 0),
+                        //     materialTapTargetSize:
+                        //         MaterialTapTargetSize.shrinkWrap,
+                        //     value: controller.syaratKebijakanCheck.value,
+                        //     onChanged: (value) {
+                        //       controller.syaratKebijakanCheck.toggle();
+                        //     },
+                        //   ),
+                        // ),
                         Obx(
-                          () => Checkbox(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.sp),
-                            ),
-                            visualDensity:
-                                const VisualDensity(horizontal: 0, vertical: 0),
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            value: controller.syaratKebijakanCheck.value,
-                            onChanged: (value) {
-                              controller.syaratKebijakanCheck.toggle();
+                          () => GestureDetector(
+                            onTap: () {
+                              controller.syaratKebijakanCheck.value =
+                                  !controller.syaratKebijakanCheck.value;
                             },
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 30.w,
+                                  width: 30.w,
+                                  color: Colors.amber,
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Icon(
+                                          CupertinoIcons.checkmark_alt,
+                                          size: 30.sp,
+                                          color: Color(0xFF1A56A1),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 16.w,
+                                        width: 16.w,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: controller
+                                                    .syaratKebijakanCheck.value
+                                                ? Color(0xFFFFCA08)
+                                                : Color(
+                                                    0xFFB5B5B5), // Warna garis tepi
+                                            width: 1.0.sp, // Lebar garis tepi
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(50.r),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        Wrap(
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text.rich(
-                              TextSpan(
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: "Dengan mendaftar, kamu menyetujui",
-                                    style: new TextStyle(
-                                      fontSize: 12.sp,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF858585),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: " Syarat & \nKebijakan Privasi",
-                                    style: new TextStyle(
-                                      fontSize: 12.sp,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0xFF216BC9),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: " GAS Indonesia.",
-                                    style: new TextStyle(
-                                      fontSize: 12.sp,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF858585),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                        // SizedBox(width: 11.w),
+                        // Wrap(
+                        //   // mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     Text.rich(
+                        //       TextSpan(
+                        //         children: <TextSpan>[
+                        //           TextSpan(
+                        //             text: "Dengan mendaftar, kamu menyetujui",
+                        //             style: new TextStyle(
+                        //               fontSize: 12.sp,
+                        //               fontFamily: 'Poppins',
+                        //               fontWeight: FontWeight.w400,
+                        //               color: Color(0xFF858585),
+                        //             ),
+                        //           ),
+                        //           TextSpan(
+                        //             text: " Syarat & \nKebijakan Privasi",
+                        //             style: new TextStyle(
+                        //               fontSize: 12.sp,
+                        //               fontFamily: 'Poppins',
+                        //               fontWeight: FontWeight.w600,
+                        //               color: Color(0xFF216BC9),
+                        //             ),
+                        //           ),
+                        //           TextSpan(
+                        //             text: " GAS Indonesia.",
+                        //             style: new TextStyle(
+                        //               fontSize: 12.sp,
+                        //               fontFamily: 'Poppins',
+                        //               fontWeight: FontWeight.w400,
+                        //               color: Color(0xFF858585),
+                        //             ),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ),
