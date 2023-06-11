@@ -99,6 +99,9 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                 ),
                 child: Obx(
                   () => TextField(
+                    onChanged: (value) {
+                      controller.checkKesamaanPassword();
+                    },
                     focusNode: controller.passBaruFN,
                     controller: controller.passBaruC,
                     textInputAction: TextInputAction.next,
@@ -166,6 +169,9 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                 ),
                 child: Obx(
                   () => TextField(
+                    onChanged: (value) {
+                      controller.checkKesamaanPassword();
+                    },
                     focusNode: controller.passBaruUlangFN,
                     controller: controller.passBaruUlangC,
                     textInputAction: TextInputAction.done,
@@ -226,50 +232,62 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
               ),
               SizedBox(height: 24.w),
               Center(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFF4D89D4),
-                        Color(0xFF216BC9),
-                      ], // Daftar warna gradient yang ingin digunakan
-                      begin: Alignment.topCenter, // Posisi awal gradient
-                      end: Alignment.bottomCenter, // Posisi akhir gradient
-                    ),
-                    borderRadius: BorderRadius.circular(32.r),
-                  ),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      textStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                child: Obx(
+                  () => DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: controller.passwordSama.isTrue
+                            ? [
+                                Color(0xFF4D89D4),
+                                Color(0xFF216BC9),
+                              ]
+                            : [
+                                Color(0xFFB5B5B5),
+                                Color(0xFFB5B5B5),
+                              ], // Daftar warna gradient yang ingin digunakan
+                        begin: Alignment.topCenter, // Posisi awal gradient
+                        end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.r),
-                      ),
-                      fixedSize: Size(343.w, 42.w),
+                      borderRadius: BorderRadius.circular(32.r),
                     ),
-                    onPressed: () {
-                      Get.dialog(
-                        splashPassBerhasilDiperbaharui(),
-                      );
-                      Timer(
-                        Duration(milliseconds: 3000),
-                        () {
-                          Get.offAllNamed(Routes.LOGIN);
-                        },
-                      );
-                    },
-                    child: Text(
-                      "Lanjut",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        // color: Color(0xFF216BC9),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        splashFactory: controller.passwordSama.isTrue
+                            ? InkSplash.splashFactory
+                            : NoSplash.splashFactory,
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32.r),
+                        ),
+                        fixedSize: Size(343.w, 42.w),
+                      ),
+                      onPressed: controller.passwordSama.isTrue
+                          ? () {
+                              Get.dialog(
+                                splashPassBerhasilDiperbaharui(),
+                              );
+                              Timer(
+                                Duration(milliseconds: 3000),
+                                () {
+                                  Get.offAllNamed(Routes.LOGIN);
+                                },
+                              );
+                            }
+                          : () {},
+                      child: Text(
+                        "Lanjut",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          // color: Color(0xFF216BC9),
+                        ),
                       ),
                     ),
                   ),

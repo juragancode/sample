@@ -13,4 +13,13 @@ class AturUlangPasswordController extends GetxController {
 
   RxBool obscurePassBaru = true.obs;
   RxBool obscurePassBaruUlang = true.obs;
+  RxBool passwordSama = false.obs;
+
+  void checkKesamaanPassword() {
+    if (passBaruC.text == passBaruUlangC.text) {
+      passwordSama.value = true;
+    } else {
+      passwordSama.value = false;
+    }
+  }
 }
