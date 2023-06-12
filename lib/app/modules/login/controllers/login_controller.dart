@@ -16,4 +16,17 @@ class LoginController extends GetxController {
   RxBool ingatSaya = false.obs;
 
   RxBool obscureTextDaftar = true.obs;
+
+  // validator email
+  RxBool emailLogin = true.obs;
+  RxString email = ''.obs;
+  bool get isValid {
+    return RegExp(
+            r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$')
+        .hasMatch(email.value);
+  }
+
+  void checkEmailValidity() {
+    emailLogin.value = isValid;
+  }
 }

@@ -66,22 +66,38 @@ class LoginView extends GetView<LoginController> {
                     borderRadius: BorderRadius.circular(32.r),
                     color: Color(0xFFF0F0F0),
                   ),
-                  child: TextField(
-                    focusNode: controller.emailLoginFN,
-                    controller: controller.emailLoginC,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Ex: janedoe@email.com',
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 16.w),
-                      hintStyle: TextStyle(
-                        fontSize: 12.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFFA0A0A0),
+                  child: Obx(
+                    () => TextField(
+                      onChanged: (value) {
+                        controller.email.value = value;
+                        controller.checkEmailValidity();
+                      },
+                      focusNode: controller.emailLoginFN,
+                      controller: controller.emailLoginC,
+                      textInputAction: TextInputAction.next,
+                      keyboardType: TextInputType.emailAddress,
+                      autocorrect: false,
+                      decoration: InputDecoration(
+                        suffixIcon: controller.isValid
+                            ? Padding(
+                                padding: EdgeInsets.only(right: 25.w),
+                                child: Icon(
+                                  CupertinoIcons.checkmark_alt_circle_fill,
+                                  // Icons.check_circle,
+                                  color: Color(0xFF0DE864),
+                                ),
+                              )
+                            : null,
+                        border: InputBorder.none,
+                        hintText: 'Ex: janedoe@email.com',
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 16.w),
+                        hintStyle: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFFA0A0A0),
+                        ),
                       ),
                     ),
                   ),
@@ -156,14 +172,14 @@ class LoginView extends GetView<LoginController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              controller.ingatSaya.value =
-                                  !controller.ingatSaya.value;
-                            },
-                            child: Obx(
+                      GestureDetector(
+                        onTap: () {
+                          controller.ingatSaya.value =
+                              !controller.ingatSaya.value;
+                        },
+                        child: Row(
+                          children: [
+                            Obx(
                               () => Container(
                                 height: 19.w,
                                 width: 19.w,
@@ -194,17 +210,17 @@ class LoginView extends GetView<LoginController> {
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 8.w),
-                          Text(
-                            "Ingat saya",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
+                            SizedBox(width: 8.w),
+                            Text(
+                              "Ingat saya",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       TextButton(
                         onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
@@ -235,28 +251,33 @@ class LoginView extends GetView<LoginController> {
                       ),
                       borderRadius: BorderRadius.circular(32.r),
                     ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
+                    child: Obx(
+                      () => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          textStyle: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.r),
+                          ),
+                          fixedSize: Size(343.w, 42.w),
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.r),
-                        ),
-                        fixedSize: Size(343.w, 42.w),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          // color: Color(0xFF216BC9),
+                        onPressed: controller.isValid &&
+                                controller.passLoginC.text.isNotEmpty
+                            ? () => Get.toNamed(Routes.IZINKAN_AKSES_LOKASI)
+                            : () {},
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            // color: Color(0xFF216BC9),
+                          ),
                         ),
                       ),
                     ),

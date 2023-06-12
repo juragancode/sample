@@ -13,6 +13,7 @@ abstract class Routes {
   static const ATUR_ULANG_PASSWORD = _Paths.ATUR_ULANG_PASSWORD;
   static const VERIFIKASI_DAFTAR = _Paths.VERIFIKASI_DAFTAR;
   static const DAFTAR = _Paths.DAFTAR;
+  static const IZINKAN_AKSES_LOKASI = _Paths.IZINKAN_AKSES_LOKASI;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const ATUR_ULANG_PASSWORD = '/atur-ulang-password';
   static const VERIFIKASI_DAFTAR = '/verifikasi-daftar';
   static const DAFTAR = '/daftar';
+  static const IZINKAN_AKSES_LOKASI = '/izinkan-akses-lokasi';
 }

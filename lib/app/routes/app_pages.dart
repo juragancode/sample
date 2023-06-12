@@ -4,6 +4,8 @@ import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/bindings/atur_u
 import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/views/atur_ulang_password_view.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/daftar/bindings/daftar_binding.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/daftar/views/daftar_view.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/izinkanAksesLokasi/views/izinkan_akses_lokasi_view.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 
@@ -72,6 +74,11 @@ class AppPages {
       name: _Paths.DAFTAR,
       page: () => DaftarView(),
       binding: DaftarBinding(),
+    ),
+    GetPage(
+      name: _Paths.IZINKAN_AKSES_LOKASI,
+      page: () => IzinkanAksesLokasiView(),
+      binding: IzinkanAksesLokasiBinding(),
     ),
   ];
 }
