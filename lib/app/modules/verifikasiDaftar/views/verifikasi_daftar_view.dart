@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../controllers/verifikasi_daftar_controller.dart';
+
+final RegisterController emailFormattedC = Get.put(RegisterController());
 
 class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
   @override
@@ -30,7 +34,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
           'Daftar',
           style: TextStyle(
             color: Color(0xFF333333),
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -41,8 +45,8 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Image.asset(
-                "assets/icons/Lupa-Password.png",
+              child: SvgPicture.asset(
+                "assets/icons/Verifikasi.svg",
                 height: 200.w,
                 width: 275.w,
                 fit: BoxFit.cover,
@@ -61,27 +65,24 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
               ),
             ),
             SizedBox(height: 16.w),
-            Row(
-              children: [
-                Flexible(
-                  child: Wrap(
-                    children: [
-                      Text(
-                        "Kami telah mengirim kode verifikasi melalui email ke n***********@g****.com.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF858585),
-                        ),
-                      ),
-                    ],
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Text(
+                    "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF858585),
+                    ),
                   ),
-                ),
-                SizedBox(width: 8.w),
-              ],
+                ],
+              ),
             ),
+            SizedBox(width: 8.w),
             SizedBox(height: 24.w),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 99.5.w),
@@ -91,10 +92,10 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                   color: Color(0xFF216BC9),
                 ),
                 keyboardType: TextInputType.number,
-                controller: controller.verifikasiLupaPassC,
+                controller: controller.verifikasiDaftarC,
                 appContext: context,
                 length: 4,
-                onChanged: (value) {},
+                onChanged: controller.perubahanKodeTerisi,
                 boxShadows: [
                   BoxShadow(
                     color: Colors.white, // Warna bayangan
@@ -134,78 +135,132 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ),
               ),
             ),
-            SizedBox(height: 24.w),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Mohon tunggu dalam",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF858585),
-                  ),
-                ),
-                Text(
-                  " 39 detik",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF858585),
-                  ),
-                ),
-                Text(
-                  " untuk kirim ulang.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF858585),
-                  ),
-                ),
-              ],
+            SizedBox(height: 24.h),
+            StreamBuilder<int>(
+              stream: controller.timerController.stream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && controller.empatPuluhDetik.value != 0) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Mohon tunggu dalam",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                      Text(
+                        " ${snapshot.data} detik",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                      Text(
+                        " untuk kirim ulang.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                    ],
+                  );
+                } else {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // isikan fungsi
+                          controller.restartTimer();
+                          //
+                        },
+                        child: Text(
+                          "Kirim ulang",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF216BC9),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        " kode verifikasi.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              },
             ),
             SizedBox(height: 24.w),
             Center(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFF4D89D4),
-                      Color(0xFF216BC9),
-                    ], // Daftar warna gradient yang ingin digunakan
-                    begin: Alignment.topCenter, // Posisi awal gradient
-                    end: Alignment.bottomCenter, // Posisi akhir gradient
-                  ),
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    textStyle: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
+              child: Obx(
+                () => DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: controller.kodeTerisi.value
+                          ? [
+                              Color(0xFF4D89D4),
+                              Color(0xFF216BC9),
+                            ]
+                          : [
+                              Colors.transparent,
+                              Colors.transparent,
+                            ],
+                      begin: Alignment.topCenter, // Posisi awal gradient
+                      end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    fixedSize: Size(343.w, 42.h),
+                    borderRadius: BorderRadius.circular(32),
                   ),
-                  onPressed: () => Get.toNamed(Routes.DAFTAR),
-                  child: Text(
-                    "Verifikasi",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      // color: Color(0xFF216BC9),
+                  child: Visibility(
+                    visible: controller.kodeTerisi.value,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32),
+                        ),
+                        fixedSize: Size(343.w, 42.w),
+                      ),
+                      onPressed: controller.kodeTerisi.value
+                          ? () {
+                              Get.toNamed(Routes.DAFTAR);
+                            }
+                          : () {},
+                      child: Text(
+                        "Verifikasi",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          // color: Color(0xFF216BC9),
+                        ),
+                      ),
                     ),
                   ),
                 ),

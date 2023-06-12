@@ -151,8 +151,8 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                         style: ElevatedButton.styleFrom(
                           surfaceTintColor: Colors.transparent,
                           splashFactory: controller.isValid
-                              ? NoSplash.splashFactory
-                              : InkSplash.splashFactory,
+                              ? InkSplash.splashFactory
+                              : NoSplash.splashFactory,
                           backgroundColor: Colors.transparent,
                           shadowColor: Colors.transparent,
                           textStyle: TextStyle(

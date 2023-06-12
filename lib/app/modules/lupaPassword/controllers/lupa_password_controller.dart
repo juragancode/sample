@@ -48,4 +48,5 @@ class LupaPasswordController extends GetxController {
   }
 
   //
+
 }

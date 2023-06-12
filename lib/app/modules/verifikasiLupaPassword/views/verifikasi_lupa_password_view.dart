@@ -224,40 +224,43 @@ class VerifikasiLupaPasswordView
                               Color(0xFF216BC9),
                             ]
                           : [
-                              // Colors.transparent,
-                              // Colors.transparent,
+                              Colors.transparent,
+                              Colors.transparent,
                             ],
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
                     borderRadius: BorderRadius.circular(32),
                   ),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      textStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                  child: Visibility(
+                    visible: controller.kodeTerisi.value,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32),
+                        ),
+                        fixedSize: Size(343.w, 42.w),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32),
-                      ),
-                      fixedSize: Size(343.w, 42.w),
-                    ),
-                    onPressed: controller.kodeTerisi.value
-                        ? () {
-                            Get.toNamed(Routes.ATUR_ULANG_PASSWORD);
-                          }
-                        : () {},
-                    child: Text(
-                      "Verifikasi",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        // color: Color(0xFF216BC9),
+                      onPressed: controller.kodeTerisi.value
+                          ? () {
+                              Get.toNamed(Routes.ATUR_ULANG_PASSWORD);
+                            }
+                          : () {},
+                      child: Text(
+                        "Verifikasi",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          // color: Color(0xFF216BC9),
+                        ),
                       ),
                     ),
                   ),

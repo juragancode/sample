@@ -3,12 +3,10 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
-import 'package:g_a_s_app_rekadigi/app/utils/widgets/splashPassBerhasilDiperbaharui.dart';
-
 import 'package:get/get.dart';
+import '../../../routes/app_pages.dart';
 
+import '../../../utils/widgets/splashPassBerhasilDiperbaharui.dart';
 import '../controllers/atur_ulang_password_controller.dart';
 
 class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
@@ -252,7 +250,6 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        // surfaceTintColor: Colors.transparent,
                         splashFactory: controller.passwordSama.isTrue
                             ? InkSplash.splashFactory
                             : NoSplash.splashFactory,
