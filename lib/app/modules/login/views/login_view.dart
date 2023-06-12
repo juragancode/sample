@@ -129,6 +129,9 @@ class LoginView extends GetView<LoginController> {
                   ),
                   child: Obx(
                     () => TextField(
+                      onChanged: (value) {
+                        controller.PasswordTerisi();
+                      },
                       focusNode: controller.passLoginFN,
                       controller: controller.passLoginC,
                       textInputAction: TextInputAction.done,
@@ -267,8 +270,14 @@ class LoginView extends GetView<LoginController> {
                           fixedSize: Size(343.w, 42.w),
                         ),
                         onPressed: controller.isValid &&
-                                controller.passLoginC.text.isNotEmpty
-                            ? () => Get.toNamed(Routes.IZINKAN_AKSES_LOKASI)
+                                controller.passTerisi.isTrue
+                            ? () {
+                                controller.emailLoginFN.unfocus();
+                                controller.passLoginFN.unfocus();
+                                Future.delayed(Duration(milliseconds: 500), () {
+                                  Get.toNamed(Routes.IZINKAN_AKSES_LOKASI);
+                                });
+                              }
                             : () {},
                         child: Text(
                           "Login",

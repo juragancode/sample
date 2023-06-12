@@ -29,4 +29,15 @@ class LoginController extends GetxController {
   void checkEmailValidity() {
     emailLogin.value = isValid;
   }
+
+  //
+  RxBool passTerisi = false.obs;
+
+  void PasswordTerisi() {
+    if (passLoginC.text.isNotEmpty) {
+      passTerisi.value = true;
+    } else {
+      passTerisi.value = false;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
-
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -92,13 +93,29 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
                       fixedSize: Size(343.w, 54.w),
                     ),
                     child: Text(
-                      "Selanjutnya",
+                      "Izinkan",
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (await Permission.location.isPermanentlyDenied) {
+                        openAppSettings();
+                      } else {
+                        PermissionStatus status =
+                            await Permission.location.request();
+                        if (status.isGranted) {
+                          // Izin lokasi diberikan
+                          // Lanjutkan ke halaman selanjutnya
+                          Get.toNamed(Routes.HOME);
+                        } else if (status.isDenied ||
+                            status.isPermanentlyDenied) {
+                          // Izin lokasi ditolak atau secara permanen ditolak
+                          // Tampilkan pesan atau tindakan yang sesuai
+                        }
+                      }
+                    },
                   ),
                 ),
               ),
