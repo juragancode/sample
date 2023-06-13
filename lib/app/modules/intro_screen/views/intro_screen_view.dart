@@ -26,7 +26,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                       padding: EdgeInsets.only(
                         left: 16.w,
                         right: 16.w,
-                        top: 40.w,
+                        top: 25.h,
                       ),
                       child: Column(
                         children: [
@@ -44,7 +44,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 19.w),
+                          SizedBox(height: 10.h),
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.r),
@@ -56,9 +56,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                               // fit: BoxFit.cover,
                             ),
                           ),
-                          SizedBox(height: 17.02.w),
-                          SizedBox(height: 8.w),
-                          SizedBox(height: 23.98.w),
+                          SizedBox(height: 49.h),
                           Text(
                             contents[i].title,
                             style: TextStyle(
@@ -68,7 +66,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 8.w),
+                          SizedBox(height: 8.h),
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 16.w),
                             child: Text.rich(
@@ -90,7 +88,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
             alignment: Alignment.topCenter,
             child: Obx(
               () => Container(
-                margin: EdgeInsets.only(top: 500.w),
+                margin: EdgeInsets.only(top: 575.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -130,7 +128,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32.r),
                     ),
-                    fixedSize: Size(343.w, 54.w),
+                    fixedSize: Size(343.w, 54.h),
                   ),
                   child: Obx(
                     () => Text(
@@ -165,7 +163,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
   Container buildDot(int index, BuildContext context) {
     return Container(
       height: 8.w,
-      width: controller.currentIndex.value == index ? 32.w : 8.w,
+      width: controller.currentIndex.value == index ? 32.sp : 8.sp,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),

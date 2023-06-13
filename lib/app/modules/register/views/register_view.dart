@@ -51,10 +51,10 @@ class RegisterView extends GetView<RegisterController> {
               children: [
                 Center(
                   child: Container(
-                    width: 104.w,
-                    height: 104.w,
-                    child: Image.asset(
-                      "assets/icons/iconGAS.png",
+                    width: 110.h,
+                    height: 110.h,
+                    child: SvgPicture.asset(
+                      "assets/icons/iconGAS.svg",
                       fit: BoxFit.cover,
                     ),
                     // color: Colors.amber,

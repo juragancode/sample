@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:text_divider/text_divider.dart';
@@ -35,10 +38,10 @@ class LoginView extends GetView<LoginController> {
               children: [
                 Center(
                   child: Container(
-                    width: 104.w,
-                    height: 104.w,
-                    child: Image.asset(
-                      "assets/icons/iconGAS.png",
+                    width: 110.h,
+                    height: 110.h,
+                    child: SvgPicture.asset(
+                      "assets/icons/iconGAS.svg",
                       fit: BoxFit.contain,
                     ),
                     // color: Colors.amber,
@@ -269,16 +272,16 @@ class LoginView extends GetView<LoginController> {
                           ),
                           fixedSize: Size(343.w, 42.w),
                         ),
-                        onPressed: controller.isValid &&
-                                controller.passTerisi.isTrue
-                            ? () {
-                                controller.emailLoginFN.unfocus();
-                                controller.passLoginFN.unfocus();
-                                Future.delayed(Duration(milliseconds: 500), () {
-                                  Get.toNamed(Routes.IZINKAN_AKSES_LOKASI);
-                                });
-                              }
-                            : () {},
+                        onPressed:
+                            controller.isValid && controller.passTerisi.isTrue
+                                ? () {
+                                    controller.emailLoginFN.unfocus();
+                                    controller.passLoginFN.unfocus();
+                                    Timer(Duration(milliseconds: 500), () {
+                                      Get.toNamed(Routes.IZINKAN_AKSES_LOKASI);
+                                    });
+                                  }
+                                : () {},
                         child: Text(
                           "Login",
                           style: TextStyle(
