@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
-import '../../../utils/widgets/splashPassBerhasilDiperbaharui.dart';
+import '../../../widgets/splashPassBerhasilDiperbaharui.dart';
 import '../controllers/atur_ulang_password_controller.dart';
 
 class AturUlangPasswordView extends GetView<AturUlangPasswordController> {

@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.rekadigi.g_a_s_app_rekadigi">
+
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
    <application
         android:label="g_a_s_app_rekadigi"
         android:name="${applicationName}"

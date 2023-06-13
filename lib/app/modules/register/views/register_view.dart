@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
-import 'package:g_a_s_app_rekadigi/app/utils/widgets/buttonGoogle.dart';
+import 'package:g_a_s_app_rekadigi/app/widgets/buttonGoogle.dart';
 import 'package:get/get.dart';
 import 'package:text_divider/text_divider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -35,7 +35,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                             child: TextButton(
                               onPressed: () => Get.offAllNamed(Routes.LOGIN),
                               child: Text(
-                                "Lewati",
+                                "Lewati".tr,
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w600,

@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:text_divider/text_divider.dart';
 
 import '../../../routes/app_pages.dart';
-import '../../../utils/widgets/buttonGoogle.dart';
+import '../../../widgets/buttonGoogle.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
