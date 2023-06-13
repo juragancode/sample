@@ -99,27 +99,33 @@ class VerifikasiLupaPasswordView
                 onChanged: controller.perubahanKodeTerisi,
                 boxShadows: [
                   BoxShadow(
-                    color: Colors.white, // Warna bayangan
-                    offset: Offset(-2, -2), // Posisi offset bayangan
+                    color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
+                    offset: Offset(-1, -1), // Posisi offset bayangan
                     blurRadius: 0, // Jumlah blur bayangan
                     spreadRadius: 0, // Jarak penyebaran bayangan
                   ),
                   BoxShadow(
                     color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
-                    offset: Offset(-1, -1), // Posisi offset bayangan
+                    offset: Offset(1, 1), // Posisi offset bayangan
+                    blurRadius: 0, // Jumlah blur bayangan
+                    spreadRadius: 0, // Jarak penyebaran bayangan
+                  ),
+                  BoxShadow(
+                    color: Color.fromRGBO(0, 0, 0, 0.1), // Warna bayangan
+                    offset: Offset(0, 0), // Posisi offset bayangan
                     blurRadius: 1, // Jumlah blur bayangan
                     spreadRadius: 0, // Jarak penyebaran bayangan
                   ),
                   BoxShadow(
                     color: Color(0xfff0f0f0), // Warna bayangan
-                    offset: Offset(2, 2), // Posisi offset bayangan
-                    blurRadius: 6, // Jumlah blur bayangan
+                    offset: Offset(4, 4), // Posisi offset bayangan
+                    blurRadius: 10, // Jumlah blur bayangan
                     spreadRadius: 0, // Jarak penyebaran bayangan
                   ),
                   BoxShadow(
                     color: Colors.white, // Warna bayangan
                     offset: Offset(6, 6), // Posisi offset bayangan
-                    blurRadius: 5, // Jumlah blur bayangan
+                    blurRadius: 20, // Jumlah blur bayangan
                     spreadRadius: 0, // Jarak penyebaran bayangan
                   ),
                 ],

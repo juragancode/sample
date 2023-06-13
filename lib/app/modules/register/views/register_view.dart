@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -211,8 +213,11 @@ class RegisterView extends GetView<RegisterController> {
                         onPressed: controller.isValid &&
                                 controller.syaratKebijakanCheck.isTrue
                             ? () {
-                                Get.toNamed(Routes.VERIFIKASI_DAFTAR);
+                                controller.emailDaftarFN.unfocus();
                                 controller.formatEmail();
+                                Timer(Duration(milliseconds: 500), () {
+                                  Get.toNamed(Routes.VERIFIKASI_DAFTAR);
+                                });
                               }
                             : () {},
                         child: Text(

@@ -272,16 +272,16 @@ class LoginView extends GetView<LoginController> {
                           ),
                           fixedSize: Size(343.w, 42.w),
                         ),
-                        onPressed:
-                            controller.isValid && controller.passTerisi.isTrue
-                                ? () {
-                                    controller.emailLoginFN.unfocus();
-                                    controller.passLoginFN.unfocus();
-                                    Timer(Duration(milliseconds: 500), () {
-                                      Get.toNamed(Routes.IZINKAN_AKSES_LOKASI);
-                                    });
-                                  }
-                                : () {},
+                        onPressed: controller.isValid &&
+                                controller.passTerisi.isTrue
+                            ? () {
+                                controller.emailLoginFN.unfocus();
+                                controller.passLoginFN.unfocus();
+                                Timer(Duration(milliseconds: 500), () {
+                                  Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
+                                });
+                              }
+                            : () {},
                         child: Text(
                           "Login",
                           style: TextStyle(

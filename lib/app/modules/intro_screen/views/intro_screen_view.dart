@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/intro_screen/controllers/intro_screen_controller.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,14 @@ import 'content_model.dart';
 class IntroScreenView extends GetView<IntroScreenController> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Color(0xfff0f0f0), // Warna latar belakang status bar
+        // statusBarBrightness: Brightness.light,
+        statusBarIconBrightness:
+            Brightness.dark, // Kecerahan ikon di status bar
+      ),
+    );
     return Scaffold(
       body: Stack(
         children: [
@@ -49,7 +59,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.r),
                             ),
-                            child: Image.asset(
+                            child: SvgPicture.asset(
                               contents[i].image,
                               // width: 343.w,
                               // height: 437.w,

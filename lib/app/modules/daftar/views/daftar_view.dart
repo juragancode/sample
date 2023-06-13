@@ -304,7 +304,7 @@ class DaftarView extends GetView<DaftarController> {
                               Timer(
                                 Duration(milliseconds: 3000),
                                 () {
-                                  Get.offAllNamed(Routes.HOME);
+                                  Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
                                 },
                               );
                             }

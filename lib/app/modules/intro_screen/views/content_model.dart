@@ -16,7 +16,7 @@ class UnbordingContent {
 List<UnbordingContent> contents = [
   UnbordingContent(
     title: 'Bisa Jadi Mesin Kasir',
-    image: 'assets/icons/Mesin-Kasir.png',
+    image: 'assets/icons/Mesin-Kasir.svg',
     description: TextSpan(
       children: [
         TextSpan(
@@ -48,7 +48,7 @@ List<UnbordingContent> contents = [
   ),
   UnbordingContent(
     title: 'Multi-User',
-    image: 'assets/icons/Multi-User.png',
+    image: 'assets/icons/Multi-User.svg',
     description: TextSpan(
       children: [
         TextSpan(
@@ -65,7 +65,7 @@ List<UnbordingContent> contents = [
   ),
   UnbordingContent(
     title: 'Belanja Beragam Kebutuhan',
-    image: 'assets/icons/Beragam-Kebutuhan.png',
+    image: 'assets/icons/Beragam-Kebutuhan.svg',
     description: TextSpan(
       children: [
         TextSpan(

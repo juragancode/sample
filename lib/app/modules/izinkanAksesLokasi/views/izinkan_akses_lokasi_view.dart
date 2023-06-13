@@ -17,17 +17,16 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
             Column(
               children: [
                 SizedBox(height: 80.h),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  child: SvgPicture.asset(
-                    "assets/icons/Izinkan-Akses-Lokasi.svg",
-                    //   Image.asset(
-                    // "assets/icons/Izinkan-Akses-Lokasi.png",
-                    // fit: BoxFit.cover,
-                    // width: 343.h,
-                    // height: 437.h,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: SvgPicture.asset(
+                      "assets/icons/Izinkan-Akses-Lokasi.svg",
+                      // fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 SizedBox(height: 46.h),
