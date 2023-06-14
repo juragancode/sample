@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,33 +8,44 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.amber.shade300,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                  'assets/icons/Homepage-Header.png'), // Ganti dengan path gambar Anda
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: AppBar(
-            title: Text('HomeView'),
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-          ),
-        ),
+      appBar: AppBar(
+        title: Text('HomeView'),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
-      body: Center(
-        child: Obx(
-          () => Text(
-            'Selected Index: ${controller.selectedIndex.value}',
-            style: TextStyle(fontSize: 20),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 184,
+                // height: 222,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/icons/Homepage-Header.png',
+                    ),
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              Center(
+                child: Obx(
+                  () => Text(
+                    'Selected Index: ${controller.selectedIndex.value}',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: Obx(
         () => BottomAppBar(

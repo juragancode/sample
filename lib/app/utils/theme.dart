@@ -8,10 +8,10 @@ ThemeData themeGAS() => ThemeData(
 
 AppBarTheme AppBarGAS() {
   return AppBarTheme(
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Color(0xfff0f0f0),
-      // statusBarBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.dark,
-    ),
-  );
+      // systemOverlayStyle: SystemUiOverlayStyle(
+      //   statusBarColor: Color(0xfff0f0f0),
+      //   // statusBarBrightness: Brightness.light,
+      //   statusBarIconBrightness: Brightness.dark,
+      // ),
+      );
 }
