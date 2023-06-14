@@ -24,6 +24,21 @@ class IntroScreenView extends GetView<IntroScreenController> {
         children: [
           Column(
             children: [
+              SizedBox(height: 25.h),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => Get.offAllNamed(Routes.LOGIN),
+                  child: Text(
+                    "Lewati".tr,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF216BC9),
+                    ),
+                  ),
+                ),
+              ),
               Expanded(
                 child: PageView.builder(
                   controller: controller.initialP,
@@ -36,24 +51,9 @@ class IntroScreenView extends GetView<IntroScreenController> {
                       padding: EdgeInsets.only(
                         left: 16.w,
                         right: 16.w,
-                        top: 25.h,
                       ),
                       child: Column(
                         children: [
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () => Get.offAllNamed(Routes.LOGIN),
-                              child: Text(
-                                "Lewati".tr,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xFF216BC9),
-                                ),
-                              ),
-                            ),
-                          ),
                           SizedBox(height: 10.h),
                           Container(
                             decoration: BoxDecoration(
