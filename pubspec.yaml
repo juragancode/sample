@@ -17,6 +17,7 @@ dependencies:
   introduction_screen: ^3.1.8
   permission_handler: 10.3.0
   pin_code_fields: 7.4.0
+  stylish_bottom_bar: ^1.0.2
   text_divider: 1.0.0
 
 dev_dependencies:

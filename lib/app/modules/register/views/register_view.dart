@@ -226,7 +226,6 @@ class RegisterView extends GetView<RegisterController> {
                             fontSize: 16.sp,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            // color: Color(0xFF216BC9),
                           ),
                         ),
                       ),
