@@ -144,7 +144,7 @@ class LoginView extends GetView<LoginController> {
                       autocorrect: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Masukkan password',
+                        hintText: 'Masukkan password'.tr,
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 20.w, vertical: 16.w),
                         hintStyle: TextStyle(
@@ -218,7 +218,7 @@ class LoginView extends GetView<LoginController> {
                             ),
                             SizedBox(width: 8.w),
                             Text(
-                              "Ingat saya",
+                              "Ingat saya".tr,
                               style: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'Poppins',
@@ -231,7 +231,7 @@ class LoginView extends GetView<LoginController> {
                       TextButton(
                         onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
                         child: Text(
-                          "Lupa Password?",
+                          "Lupa Password?".tr,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontFamily: 'Poppins',
@@ -318,7 +318,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       onPressed: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
-                        "Daftar",
+                        "Daftar".tr,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',
@@ -334,7 +334,7 @@ class LoginView extends GetView<LoginController> {
                   padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: TextDivider(
                     text: Text(
-                      "atau masuk dengan",
+                      "atau masuk dengan".tr,
                       style: TextStyle(
                         color: Color(0xFF858585),
                         fontSize: 10.sp,
@@ -350,7 +350,7 @@ class LoginView extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Belum punya akun GAS?",
+                      "Belum punya akun GAS?".tr,
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -362,7 +362,7 @@ class LoginView extends GetView<LoginController> {
                     TextButton(
                       onPressed: () => Get.toNamed(Routes.REGISTER),
                       child: Text(
-                        "Daftar",
+                        "Daftar".tr,
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',

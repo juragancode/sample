@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:g_a_s_app_rekadigi/app/modules/alihBahasa/bindings/alih_bahasa_binding.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/alihBahasa/views/alih_bahasa_view.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/views/atur_ulang_password_view.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/daftar/bindings/daftar_binding.dart';
@@ -79,6 +81,11 @@ class AppPages {
       name: _Paths.IZINKAN_AKSES_LOKASI,
       page: () => IzinkanAksesLokasiView(),
       binding: IzinkanAksesLokasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALIH_BAHASA,
+      page: () => AlihBahasaView(),
+      binding: AlihBahasaBinding(),
     ),
   ];
 }

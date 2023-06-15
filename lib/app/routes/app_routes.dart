@@ -14,6 +14,7 @@ abstract class Routes {
   static const VERIFIKASI_DAFTAR = _Paths.VERIFIKASI_DAFTAR;
   static const DAFTAR = _Paths.DAFTAR;
   static const IZINKAN_AKSES_LOKASI = _Paths.IZINKAN_AKSES_LOKASI;
+  static const ALIH_BAHASA = _Paths.ALIH_BAHASA;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const VERIFIKASI_DAFTAR = '/verifikasi-daftar';
   static const DAFTAR = '/daftar';
   static const IZINKAN_AKSES_LOKASI = '/izinkan-akses-lokasi';
+  static const ALIH_BAHASA = '/alih-bahasa';
 }

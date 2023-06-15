@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         title: "Application",
-        initialRoute: Routes.INTRODUCTION_SCREEN,
+        initialRoute: Routes.ALIH_BAHASA,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),
