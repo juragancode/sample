@@ -16,7 +16,7 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
           children: [
             Column(
               children: [
-                SizedBox(height: 80.h),
+                SizedBox(height: 60.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Container(
@@ -25,13 +25,15 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
                     ),
                     child: SvgPicture.asset(
                       "assets/icons/Izinkan-Akses-Lokasi.svg",
-                      // fit: BoxFit.cover,
+                      width: 343.w,
+                      // height: 437.w,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 SizedBox(height: 46.h),
                 Text(
-                  'Izinkan Akses Lokasi',
+                  'Izinkan Akses Lokasi'.tr,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.w600,
@@ -42,7 +44,8 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 27.w),
                   child: Text(
-                    'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.',
+                    'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.'
+                        .tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -85,7 +88,7 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
                       fixedSize: Size(343.w, 54.h),
                     ),
                     child: Text(
-                      "Izinkan",
+                      "Izinkan".tr,
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,

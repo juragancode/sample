@@ -48,9 +48,8 @@ class IntroScreenView extends GetView<IntroScreenController> {
                   },
                   itemBuilder: (_, i) {
                     return Padding(
-                      padding: EdgeInsets.only(
-                        left: 16.w,
-                        right: 16.w,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
                       ),
                       child: Column(
                         children: [
@@ -61,9 +60,9 @@ class IntroScreenView extends GetView<IntroScreenController> {
                             ),
                             child: SvgPicture.asset(
                               contents[i].image,
-                              // width: 343.w,
+                              width: 343.w,
                               // height: 437.w,
-                              // fit: BoxFit.cover,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           SizedBox(height: 49.h),
@@ -98,7 +97,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
             alignment: Alignment.topCenter,
             child: Obx(
               () => Container(
-                margin: EdgeInsets.only(top: 575.h),
+                margin: EdgeInsets.only(top: 585.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(

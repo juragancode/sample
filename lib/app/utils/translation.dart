@@ -33,9 +33,10 @@ class Languages extends Translations {
           'Daftar': 'Daftar',
           'atau masuk dengan': 'atau masuk dengan',
           'Belum punya akun GAS?': 'Belum punya akun GAS?',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Izinkan Akses Lokasi': 'Izinkan Akses Lokasi',
+          'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.':
+              'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.',
+          'Izinkan': 'Izinkan',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -79,10 +80,14 @@ class Languages extends Translations {
           'Mulai Jual Beli, Yuk!': 'Let’s Buy & Sale!',
           'Masukkan password': 'Enter your password',
           'Ingat saya': 'Remember me',
-          'Lupa Password?': 'Lupa Password?',
+          'Lupa Password?': 'Forgot Password?',
           'Daftar': 'Sign Up',
           'atau masuk dengan': 'or login with',
           'Belum punya akun GAS?': 'Don’t have an account?',
+          'Izinkan Akses Lokasi': 'Allow Location Access',
+          'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.':
+              "We'll use your location to recommend nearby stores & make shipping easier.",
+          'Izinkan': 'Allow',
         },
       };
 }
