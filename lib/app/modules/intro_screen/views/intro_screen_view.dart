@@ -143,7 +143,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
                   child: Obx(
                     () => Text(
                       controller.currentIndex.value == contents.length - 1
-                          ? "Mulai Jual Beli, Yuk!"
+                          ? "Let’s Buy & Sale!"
                           : "Selanjutnya",
                       style: TextStyle(
                         fontSize: 16.sp,

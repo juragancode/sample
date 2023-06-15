@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:g_a_s_app_rekadigi/app/utils/theme.dart';
+import 'package:g_a_s_app_rekadigi/app/utils/translation.dart';
 
 import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
@@ -10,17 +11,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         title: "Application",
-        initialRoute: Routes.HOME,
+        initialRoute: Routes.INTRODUCTION_SCREEN,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),
+        translations: Languages(),
         locale: Locale(
             'id_ID'), // Set bahasa awal menjadi bahasa Indonesia ('id_ID')
         fallbackLocale: Locale(
