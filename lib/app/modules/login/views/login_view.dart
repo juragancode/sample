@@ -71,6 +71,11 @@ class LoginView extends GetView<LoginController> {
                   ),
                   child: Obx(
                     () => TextField(
+                      onTap: () {
+                        if (!controller.isTextFieldTapped.value) {
+                          controller.isTextFieldTapped.value = true;
+                        }
+                      },
                       onChanged: (value) {
                         controller.email.value = value;
                         controller.checkEmailValidity();
@@ -80,7 +85,37 @@ class LoginView extends GetView<LoginController> {
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
+                      style: TextStyle(
+                        color: controller.isValid
+                            ? Color(0xFF333333)
+                            : Color(0xFFFF002E),
+                      ),
                       decoration: InputDecoration(
+                        border: controller.isValid ||
+                                !controller.isTextFieldTapped.value
+                            ? InputBorder.none
+                            : OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(32.r),
+                              ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32.r),
+                          borderSide: BorderSide(
+                            color: controller.isValid ||
+                                    !controller.isTextFieldTapped.value
+                                ? Colors.transparent
+                                : Color(0xFFFF002E), // Warna tepi saat fokus
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(32.r),
+                          borderSide: BorderSide(
+                            color: controller.isValid ||
+                                    !controller.isTextFieldTapped.value
+                                ? Colors.transparent
+                                : Color(
+                                    0xFFFF002E), // Warna tepi saat tidak dalam fokus
+                          ),
+                        ),
                         suffixIcon: controller.isValid
                             ? Padding(
                                 padding: EdgeInsets.only(right: 25.w),
@@ -91,7 +126,6 @@ class LoginView extends GetView<LoginController> {
                                 ),
                               )
                             : null,
-                        border: InputBorder.none,
                         hintText: 'Ex: janedoe@email.com',
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 20.w, vertical: 16.w),
@@ -172,7 +206,36 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 14.w),
+                SizedBox(height: 8.h),
+                Obx(
+                  () => Visibility(
+                    visible: !controller.isValid &&
+                        controller.isTextFieldTapped.value,
+                    child: Row(
+                      children: [
+                        SizedBox(width: 21.42.w),
+                        Icon(
+                          Icons.info,
+                          color: Color(0xFFFF002E),
+                          size: 20,
+                        ),
+                        SizedBox(width: 5.sp),
+                        Text(
+                          controller.emailLoginC.text.isNotEmpty
+                              ? "Format email tidak valid.".tr
+                              : "Masukan email.",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFFFF002E),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(

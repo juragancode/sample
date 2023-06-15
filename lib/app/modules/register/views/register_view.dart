@@ -145,7 +145,7 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                 ),
-                SizedBox(height: 4.w),
+                SizedBox(height: 5.h),
                 Obx(
                   () => Visibility(
                     visible: !controller.isValid &&
@@ -156,8 +156,9 @@ class RegisterView extends GetView<RegisterController> {
                         Icon(
                           Icons.info,
                           color: Color(0xFFFF002E),
+                          size: 20,
                         ),
-                        SizedBox(width: 10.w),
+                        SizedBox(width: 5.sp),
                         Text(
                           "Format email tidak valid.",
                           style: TextStyle(

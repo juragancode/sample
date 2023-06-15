@@ -37,11 +37,13 @@ class Languages extends Translations {
           'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.':
               'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.',
           'Izinkan': 'Izinkan',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+
+          'Email belum terdaftar di aplikasi GAS.':
+              'Email belum terdaftar di aplikasi GAS.',
+          'Format email tidak valid.': 'Format email tidak valid.',
+          'Password yang kamu masukkan salah.':
+              'Password yang kamu masukkan salah.',
+          'Masukan email.': 'Masukan email.',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -88,6 +90,11 @@ class Languages extends Translations {
           'Kami butuh akses lokasi untuk nentuin lokasi pengiriman & menampilkan toko-toko terdekatmu.':
               "We'll use your location to recommend nearby stores & make shipping easier.",
           'Izinkan': 'Allow',
+          'Email belum terdaftar di aplikasi GAS.':
+              'Email not registered on GAS App',
+          'Format email tidak valid.': 'Invalid email format',
+          'Password yang kamu masukkan salah.': 'Wrong password',
+          'Masukan email.': 'Enter email.',
         },
       };
 }
