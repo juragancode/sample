@@ -156,7 +156,7 @@ class RegisterView extends GetView<RegisterController> {
                         Icon(
                           Icons.info,
                           color: Color(0xFFFF002E),
-                          size: 20,
+                          size: 20.sp,
                         ),
                         SizedBox(width: 5.sp),
                         Text(

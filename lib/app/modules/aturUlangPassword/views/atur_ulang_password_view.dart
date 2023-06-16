@@ -40,7 +40,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
             ),
           ),
           title: Text(
-            'Atur Ulang Password',
+            'Atur Ulang Password'.tr,
             style: TextStyle(
               color: Color(0xFF333333),
               fontSize: 16.sp,
@@ -58,7 +58,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                 children: [
                   SizedBox(width: 18.w),
                   Text(
-                    "Buat Password Baru",
+                    "Buat Password Baru".tr,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontFamily: 'Poppins',
@@ -76,8 +76,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     child: Wrap(
                       children: [
                         Text(
-                          "Silakan buat password baru untuk akunmu " +
-                              "(${email.emailLupaPassC.text})",
+                          "Silakan buat password baru untuk akunmu".tr +
+                              " (${email.emailLupaPassC.text})",
                           style: TextStyle(
                             fontSize: 12.sp.sp,
                             fontFamily: 'Poppins',
@@ -113,7 +113,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     autocorrect: false,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Masukkan password baru',
+                      hintText: 'Masukkan password baru'.tr,
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       hintStyle: TextStyle(
@@ -141,17 +141,18 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 4.w),
+              SizedBox(height: 5.h),
               Row(
                 children: [
                   SizedBox(width: 21.42.w),
                   Icon(
                     Icons.info,
                     color: Color(0xFF4D89D4),
+                    size: 20.sp,
                   ),
-                  SizedBox(width: 10.w),
+                  SizedBox(width: 5.h),
                   Text(
-                    "Minimal 8 karakter.",
+                    "Minimal 8 karakter.".tr,
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
@@ -183,7 +184,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     autocorrect: false,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Masukkan ulang password baru',
+                      hintText: 'Masukkan ulang password baru'.tr,
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       hintStyle: TextStyle(
@@ -219,7 +220,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     child: Wrap(
                       children: [
                         Text(
-                          "Setelah password diubah, silakan masuk ke akunmu dengan password baru.",
+                          "Setelah password diubah, silakan masuk ke akunmu dengan password baru."
+                              .tr,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontFamily: 'Poppins',
@@ -283,7 +285,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                             }
                           : () {},
                       child: Text(
-                        "Lanjut",
+                        "Lanjut".tr,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',

@@ -56,14 +56,15 @@ class Languages extends Translations {
           'Kirim ulang': 'Kirim ulang',
           ' kode verifikasi.': ' kode verifikasi.',
           'Verifikasi': 'Verifikasi',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Buat Password Baru': 'Buat Password Baru',
+          'Silakan buat password baru untuk akunmu':
+              'Silakan buat password baru untuk akunmu',
+          'Masukkan password baru': 'Masukkan password baru',
+          'Minimal 8 karakter.': 'Minimal 8 karakter.',
+          'Masukkan ulang password baru': 'Masukkan ulang password baru',
+          'Setelah password diubah, silakan masuk ke akunmu dengan password baru.':
+              'Setelah password diubah, silakan masuk ke akunmu dengan password baru.',
+          'Lanjut': 'Lanjut',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -127,6 +128,15 @@ class Languages extends Translations {
           'Kirim ulang': 'Resend',
           ' kode verifikasi.': ' the verification code.',
           'Verifikasi': 'Verify',
+          'Buat Password Baru': 'Create New Password',
+          'Silakan buat password baru untuk akunmu':
+              'Please re-create new password for your account',
+          'Masukkan password baru': 'Enter your new password',
+          'Minimal 8 karakter.': 'At least 8 character.',
+          'Masukkan ulang password baru': 'Re-enter your new password',
+          'Setelah password diubah, silakan masuk ke akunmu dengan password baru.':
+              'After this, please sign in to your account with new password.',
+          'Lanjut': 'Next',
         },
       };
 }

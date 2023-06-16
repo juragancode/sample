@@ -24,7 +24,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
         children: [
           Column(
             children: [
-              SizedBox(height: 25.h),
+              SizedBox(height: 35.h),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -39,74 +39,96 @@ class IntroScreenView extends GetView<IntroScreenController> {
                   ),
                 ),
               ),
-              Expanded(
+              SizedBox(height: 10.h),
+              Container(
+                height: 437.h,
                 child: PageView.builder(
                   controller: controller.initialP,
                   itemCount: contents.length,
                   onPageChanged: (int index) {
                     controller.currentIndex.value = index;
+                    controller.initialP.jumpToPage(index);
+                    controller.secondP.jumpToPage(index);
                   },
                   itemBuilder: (_, i) {
                     return Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: 16.w,
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 10.h),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                            child: SvgPicture.asset(
-                              contents[i].image,
-                              width: 343.w,
-                              // height: 437.w,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(height: 49.h),
-                          Text(
-                            contents[i].title,
-                            style: TextStyle(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF333333),
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(height: 8.h),
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 16.w),
-                            child: Text.rich(
-                              TextSpan(
-                                children: contents[i].description.children,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                        child: SvgPicture.asset(
+                          contents[i].image,
+                          // width: 343.w,
+                          // height: 437.w,
+                          // fit: BoxFit.cover,
+                        ),
                       ),
                     );
                   },
                 ),
               ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Obx(
-              () => Container(
-                margin: EdgeInsets.only(top: 585.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    contents.length,
-                    (index) => buildDot(index, context),
+              SizedBox(height: 25.h),
+              Obx(
+                () => Container(
+                  // margin: EdgeInsets.only(top: 560.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      contents.length,
+                      (index) => buildDot(index, context),
+                    ),
                   ),
                 ),
               ),
-            ),
+              // SizedBox(height: 20),
+              Flexible(
+                child: Container(
+                  child: PageView.builder(
+                    controller: controller.secondP,
+                    itemCount: contents.length,
+                    onPageChanged: (int index) {
+                      controller.currentIndex.value = index;
+                      controller.initialP.jumpToPage(index);
+                      controller.secondP.jumpToPage(index);
+                    },
+                    itemBuilder: (_, i) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16.w,
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 20.h),
+                            Text(
+                              contents[i].title,
+                              style: TextStyle(
+                                fontSize: 24.sp,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF333333),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 8.h),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 16.w),
+                              child: Text.rich(
+                                TextSpan(
+                                  children: contents[i].description.children,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -159,6 +181,10 @@ class IntroScreenView extends GetView<IntroScreenController> {
                       duration: Duration(milliseconds: 100),
                       curve: Curves.bounceIn,
                     );
+                    controller.secondP.nextPage(
+                      duration: Duration(milliseconds: 100),
+                      curve: Curves.bounceIn,
+                    );
                   },
                 ),
               ),
@@ -171,7 +197,7 @@ class IntroScreenView extends GetView<IntroScreenController> {
 
   Container buildDot(int index, BuildContext context) {
     return Container(
-      height: 8.w,
+      height: 8.h,
       width: controller.currentIndex.value == index ? 32.sp : 8.sp,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
