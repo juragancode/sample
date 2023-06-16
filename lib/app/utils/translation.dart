@@ -44,6 +44,25 @@ class Languages extends Translations {
           'Password yang kamu masukkan salah.':
               'Password yang kamu masukkan salah.',
           'Masukan email.': 'Masukan email.',
+          'Atur Ulang Password': 'Atur Ulang Password',
+          'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.':
+              'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
+          // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -95,6 +114,9 @@ class Languages extends Translations {
           'Format email tidak valid.': 'Invalid email format',
           'Password yang kamu masukkan salah.': 'Wrong password',
           'Masukan email.': 'Enter email.',
+          'Atur Ulang Password': 'Reset Password',
+          'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.':
+              'Please enter your registered email. To reset your password, we will send you a verification code',
         },
       };
 }

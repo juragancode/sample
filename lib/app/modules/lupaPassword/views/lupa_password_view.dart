@@ -30,7 +30,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
             ),
           ),
           title: Text(
-            'Lupa Password?',
+            'Lupa Password?'.tr,
             style: TextStyle(
               color: Color(0xFF333333),
               fontSize: 16,
@@ -48,7 +48,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                 children: [
                   SizedBox(width: 18),
                   Text(
-                    "Atur Ulang Password",
+                    "Atur Ulang Password".tr,
                     style: TextStyle(
                       fontSize: 14,
                       fontFamily: 'Poppins',
@@ -66,7 +66,8 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     child: Wrap(
                       children: [
                         Text(
-                          "Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.",
+                          "Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password."
+                              .tr,
                           style: TextStyle(
                             fontSize: 12,
                             fontFamily: 'Poppins',
@@ -174,7 +175,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                               }
                             : () {},
                         child: Text(
-                          "Selanjutnya",
+                          "Selanjutnya".tr,
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'Poppins',
