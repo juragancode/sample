@@ -32,7 +32,7 @@ class VerifikasiLupaPasswordView
           ),
         ),
         title: Text(
-          'Lupa Password?',
+          'Lupa Password?'.tr,
           style: TextStyle(
             color: Color(0xFF333333),
             fontSize: 16.sp,
@@ -56,7 +56,7 @@ class VerifikasiLupaPasswordView
             SizedBox(height: 8.w),
             Center(
               child: Text(
-                "Masukkan kode Verifikasi",
+                "Masukkan kode Verifikasi".tr,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontFamily: 'Poppins',
@@ -71,7 +71,8 @@ class VerifikasiLupaPasswordView
                 alignment: WrapAlignment.center,
                 children: [
                   Text(
-                    "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
+                    "Kami telah mengirim kode verifikasi melalui email ke ".tr +
+                        "${emailFormattedC.formattedEmail.value}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 12.sp,
@@ -161,7 +162,7 @@ class VerifikasiLupaPasswordView
                         ),
                       ),
                       Text(
-                        " ${snapshot.data} detik",
+                        " ${snapshot.data} " "detik".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,

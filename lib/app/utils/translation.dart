@@ -47,11 +47,12 @@ class Languages extends Translations {
           'Atur Ulang Password': 'Atur Ulang Password',
           'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.':
               'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Masukkan kode Verifikasi': 'Masukkan kode Verifikasi',
+          'Kami telah mengirim kode verifikasi melalui email ke ':
+              'Kami telah mengirim kode verifikasi melalui email ke ',
+          'Mohon tunggu dalam': 'Mohon tunggu dalam',
+          'detik': 'detik',
+          ' untuk kirim ulang.': ' untuk kirim ulang.',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -117,6 +118,12 @@ class Languages extends Translations {
           'Atur Ulang Password': 'Reset Password',
           'Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password.':
               'Please enter your registered email. To reset your password, we will send you a verification code',
+          'Masukkan kode Verifikasi': 'Enter Verification Code',
+          'Kami telah mengirim kode verifikasi melalui email ke ':
+              'We’ve sent the verification code to ',
+          'Mohon tunggu dalam': 'Please wait for about',
+          'detik': 'seconds',
+          ' untuk kirim ulang.': ' to resend.',
         },
       };
 }
