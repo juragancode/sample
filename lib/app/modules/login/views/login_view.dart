@@ -223,7 +223,7 @@ class LoginView extends GetView<LoginController> {
                         Text(
                           controller.emailLoginC.text.isNotEmpty
                               ? "Format email tidak valid.".tr
-                              : "Masukan email.",
+                              : "Masukan email.".tr,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontFamily: 'Poppins',

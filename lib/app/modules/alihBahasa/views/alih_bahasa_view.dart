@@ -12,8 +12,8 @@ class AlihBahasaView extends GetView<AlihBahasaController> {
     {'name': 'Indonesia', 'locale': Locale('id', 'ID')},
   ];
   updateLanguage(Locale locale) {
-    Get.updateLocale(locale);
     Get.back();
+    Get.updateLocale(locale);
   }
 
   builddialog(BuildContext context) {
