@@ -3,11 +3,14 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/lupaPassword/controllers/lupa_password_controller.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
 import '../../../widgets/splashPassBerhasilDiperbaharui.dart';
 import '../controllers/atur_ulang_password_controller.dart';
+
+final LupaPasswordController email = Get.put(LupaPasswordController());
 
 class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
   @override
@@ -73,7 +76,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     child: Wrap(
                       children: [
                         Text(
-                          "Silakan buat password baru untuk akunmu (naufalwibawanto@gmail.com)",
+                          "Silakan buat password baru untuk akunmu " +
+                              "(${email.emailLupaPassC.text})",
                           style: TextStyle(
                             fontSize: 12.sp.sp,
                             fontFamily: 'Poppins',

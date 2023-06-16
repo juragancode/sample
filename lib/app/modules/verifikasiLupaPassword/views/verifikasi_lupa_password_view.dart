@@ -152,7 +152,7 @@ class VerifikasiLupaPasswordView
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Mohon tunggu dalam",
+                        "Mohon tunggu dalam".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -162,7 +162,7 @@ class VerifikasiLupaPasswordView
                         ),
                       ),
                       Text(
-                        " ${snapshot.data} " "detik".tr,
+                        " ${snapshot.data} " + "detik".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -172,7 +172,7 @@ class VerifikasiLupaPasswordView
                         ),
                       ),
                       Text(
-                        " untuk kirim ulang.",
+                        " untuk kirim ulang.".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -194,7 +194,7 @@ class VerifikasiLupaPasswordView
                           //
                         },
                         child: Text(
-                          "Kirim ulang",
+                          "Kirim ulang".tr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 12.sp,
@@ -205,7 +205,7 @@ class VerifikasiLupaPasswordView
                         ),
                       ),
                       Text(
-                        " kode verifikasi.",
+                        " kode verifikasi.".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -261,7 +261,7 @@ class VerifikasiLupaPasswordView
                             }
                           : () {},
                       child: Text(
-                        "Verifikasi",
+                        "Verifikasi".tr,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',

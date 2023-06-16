@@ -53,9 +53,9 @@ class Languages extends Translations {
           'Mohon tunggu dalam': 'Mohon tunggu dalam',
           'detik': 'detik',
           ' untuk kirim ulang.': ' untuk kirim ulang.',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Kirim ulang': 'Kirim ulang',
+          ' kode verifikasi.': ' kode verifikasi.',
+          'Verifikasi': 'Verifikasi',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -124,6 +124,9 @@ class Languages extends Translations {
           'Mohon tunggu dalam': 'Please wait for about',
           'detik': 'seconds',
           ' untuk kirim ulang.': ' to resend.',
+          'Kirim ulang': 'Resend',
+          ' kode verifikasi.': ' the verification code.',
+          'Verifikasi': 'Verify',
         },
       };
 }
