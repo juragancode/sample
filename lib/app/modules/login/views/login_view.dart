@@ -86,6 +86,8 @@ class LoginView extends GetView<LoginController> {
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
                       style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
                         color: controller.isValid
                             ? Color(0xFF333333)
                             : Color(0xFFFF002E),
@@ -128,7 +130,7 @@ class LoginView extends GetView<LoginController> {
                             : null,
                         hintText: 'Ex: janedoe@email.com',
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 16.w),
+                            horizontal: 20.w, vertical: 14.w),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',
@@ -169,6 +171,11 @@ class LoginView extends GetView<LoginController> {
                       onChanged: (value) {
                         controller.PasswordTerisi();
                       },
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF333333),
+                      ),
                       focusNode: controller.passLoginFN,
                       controller: controller.passLoginC,
                       textInputAction: TextInputAction.done,
@@ -180,7 +187,7 @@ class LoginView extends GetView<LoginController> {
                         border: InputBorder.none,
                         hintText: 'Masukkan password'.tr,
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 16.w),
+                            horizontal: 20.w, vertical: 14.w),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',

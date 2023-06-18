@@ -128,6 +128,7 @@ class AlihBahasaView extends GetView<AlihBahasaController> {
                     var locale = Locale('id', 'ID');
                     builddialog(context);
                     Get.updateLocale(locale);
+                    Get.forceAppUpdate();
                   },
                 ),
               ),

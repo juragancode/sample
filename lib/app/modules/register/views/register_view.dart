@@ -102,6 +102,8 @@ class RegisterView extends GetView<RegisterController> {
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
                       style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
                         color: controller.isValid
                             ? Color(0xFF333333)
                             : Color(0xFFFF002E),
@@ -134,7 +136,7 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                         hintText: 'Ex: janedoe@email.com',
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 16.w),
+                            horizontal: 20.w, vertical: 14.w),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',
@@ -252,11 +254,10 @@ class RegisterView extends GetView<RegisterController> {
                 SizedBox(height: 16.w),
 
                 ButtonGoogleAuth(),
-                SizedBox(height: 16.w),
+                // SizedBox(height: 16.w),
                 Padding(
-                  padding: EdgeInsets.only(left: 20.w, right: 20.w),
+                  padding: EdgeInsets.only(right: 20.w),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Obx(
                         () => GestureDetector(
@@ -264,56 +265,65 @@ class RegisterView extends GetView<RegisterController> {
                             controller.syaratKebijakanCheck.value =
                                 !controller.syaratKebijakanCheck.value;
                           },
-                          child: Row(
-                            children: [
-                              Container(
-                                height: 23.w,
-                                width: 23.w,
-                                // color: Colors.amber,
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      top: 5,
-                                      left: 2,
-                                      child: Container(
-                                        height: 16.w,
-                                        width: 16.w,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: controller
-                                                    .syaratKebijakanCheck.value
-                                                ? Color(0xFFFFCA08)
-                                                : Color(
-                                                    0xFFB5B5B5), // Warna garis tepi
-                                            width: 2.0.sp, // Lebar garis tepi
+                          child: Flexible(
+                            child: Container(
+                              color: Colors.transparent,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: 20.sp,
+                                  right: 8.sp,
+                                  top: 22.sp,
+                                  bottom: 22.sp,
+                                ),
+                                child: Container(
+                                  height: 23.w,
+                                  width: 23.w,
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                        top: 5,
+                                        left: 2,
+                                        child: Container(
+                                          height: 16.w,
+                                          width: 16.w,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: controller
+                                                      .syaratKebijakanCheck
+                                                      .value
+                                                  ? Color(0xFFFFCA08)
+                                                  : Color(
+                                                      0xFFB5B5B5), // Warna garis tepi
+                                              width: 2.0.sp, // Lebar garis tepi
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(50.r),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(50.r),
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      child: controller
-                                              .syaratKebijakanCheck.value
-                                          ? Positioned(
-                                              top: -2,
-                                              left: 1,
-                                              child: Icon(
-                                                CupertinoIcons.checkmark_alt,
-                                                size: 26.sp,
-                                                color: Color(0xFF1A56A1),
-                                              ),
-                                            )
-                                          : null,
-                                    ),
-                                  ],
+                                      Container(
+                                        child: controller
+                                                .syaratKebijakanCheck.value
+                                            ? Positioned(
+                                                top: -2,
+                                                left: 1,
+                                                child: Icon(
+                                                  CupertinoIcons.checkmark_alt,
+                                                  size: 26.sp,
+                                                  color: Color(0xFF1A56A1),
+                                                ),
+                                              )
+                                            : null,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 7.w),
+                      // SizedBox(width: 7.w),
                       Wrap(
                         // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
