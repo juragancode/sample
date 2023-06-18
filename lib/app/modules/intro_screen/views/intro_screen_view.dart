@@ -79,7 +79,8 @@ class IntroScreenView extends GetView<IntroScreenController> {
                             ),
                             SizedBox(height: 8.h),
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 16.w),
+                              // margin: EdgeInsets.symmetric(horizontal: 16.w),
+                              margin: EdgeInsets.symmetric(horizontal: 4.w),
                               child: Text.rich(
                                 TextSpan(
                                   children: [
@@ -194,7 +195,8 @@ class IntroScreenView extends GetView<IntroScreenController> {
             alignment: Alignment.topCenter,
             child: Obx(
               () => Container(
-                margin: EdgeInsets.only(top: 590.h),
+                margin: EdgeInsets.only(top: 190 * (3.h)),
+                // margin: EdgeInsets.only(top: (Get.height / (17)) * 11.8.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(

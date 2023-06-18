@@ -69,26 +69,20 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                 ],
               ),
               SizedBox(height: 8.h),
-              Row(
-                children: [
-                  SizedBox(width: 18.w),
-                  Flexible(
-                    child: Wrap(
-                      children: [
-                        Text(
-                          "Silakan buat password baru untuk akunmu".tr +
-                              " (${email.emailLupaPassC.text})",
-                          style: TextStyle(
-                            fontSize: 12.sp.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF858585),
-                          ),
-                        ),
-                      ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                child: Center(
+                  child: Text(
+                    "Silakan buat password baru untuk akunmu".tr +
+                        " (${email.emailLupaPassC.text})",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF858585),
                     ),
                   ),
-                ],
+                ),
               ),
               SizedBox(height: 16.w),
               SizedBox(height: 4.w),
@@ -104,6 +98,11 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     onChanged: (value) {
                       controller.checkKesamaanPassword();
                     },
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF333333),
+                    ),
                     focusNode: controller.passBaruFN,
                     controller: controller.passBaruC,
                     textInputAction: TextInputAction.next,
@@ -114,8 +113,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Masukkan password baru'.tr,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 12.w),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -175,6 +174,11 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     onChanged: (value) {
                       controller.checkKesamaanPassword();
                     },
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF333333),
+                    ),
                     focusNode: controller.passBaruUlangFN,
                     controller: controller.passBaruUlangC,
                     textInputAction: TextInputAction.done,
@@ -185,8 +189,8 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Masukkan ulang password baru'.tr,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 12.w),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -213,26 +217,20 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                 ),
               ),
               SizedBox(height: 16.w),
-              Row(
-                children: [
-                  SizedBox(width: 18.w),
-                  Flexible(
-                    child: Wrap(
-                      children: [
-                        Text(
-                          "Setelah password diubah, silakan masuk ke akunmu dengan password baru."
-                              .tr,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF858585),
-                          ),
-                        ),
-                      ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                child: Center(
+                  child: Text(
+                    "Setelah password diubah, silakan masuk ke akunmu dengan password baru."
+                        .tr,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF858585),
                     ),
                   ),
-                ],
+                ),
               ),
               SizedBox(height: 24.w),
               Center(
@@ -240,7 +238,11 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   () => DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: controller.passwordSama.isTrue
+                        colors: controller.passwordSama.isTrue &&
+                                controller.passBaruC.text.isNotEmpty &&
+                                controller.passBaruUlangC.text.isNotEmpty &&
+                                controller.passBaruC.text.length == 8 &&
+                                controller.passBaruUlangC.text.length == 8
                             ? [
                                 Color(0xFF4D89D4),
                                 Color(0xFF216BC9),
@@ -256,7 +258,11 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        splashFactory: controller.passwordSama.isTrue
+                        splashFactory: controller.passwordSama.isTrue &&
+                                controller.passBaruC.text.isNotEmpty &&
+                                controller.passBaruUlangC.text.isNotEmpty &&
+                                controller.passBaruC.text.length == 8 &&
+                                controller.passBaruUlangC.text.length == 8
                             ? InkSplash.splashFactory
                             : NoSplash.splashFactory,
                         backgroundColor: Colors.transparent,
@@ -271,7 +277,9 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                         ),
                         fixedSize: Size(343.w, 42.w),
                       ),
-                      onPressed: controller.passwordSama.isTrue
+                      onPressed: controller.passwordSama.isTrue &&
+                              controller.passBaruC.text.isNotEmpty &&
+                              controller.passBaruUlangC.text.isNotEmpty
                           ? () {
                               Get.dialog(
                                 splashPassBerhasilDiperbaharui(),

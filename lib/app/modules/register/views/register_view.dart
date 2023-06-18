@@ -136,7 +136,7 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                         hintText: 'Ex: janedoe@email.com',
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 14.w),
+                            horizontal: 20.w, vertical: 10.w),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',

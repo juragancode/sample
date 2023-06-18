@@ -46,7 +46,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
             children: [
               Row(
                 children: [
-                  SizedBox(width: 18),
+                  SizedBox(width: 18.w),
                   Text(
                     "Atur Ulang Password".tr,
                     style: TextStyle(
@@ -55,36 +55,29 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                 ],
               ),
               SizedBox(height: 8),
-              Row(
-                children: [
-                  SizedBox(width: 18),
-                  Flexible(
-                    child: Wrap(
-                      children: [
-                        Text(
-                          "Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password."
-                              .tr,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF858585),
-                          ),
-                        ),
-                      ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                child: Center(
+                  child: Text(
+                    "Silakan masukkan e-mail kamu yang terdaftar. Selanjutnya, kami akan mengirimkan kode verifikasi untuk mengatur ulang password."
+                        .tr,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF858585),
                     ),
                   ),
-                  SizedBox(width: 8),
-                ],
+                ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Row(
                 children: [
-                  SizedBox(width: 34),
+                  SizedBox(width: 34.w),
                   Text(
                     "Email",
                     style: TextStyle(
@@ -95,7 +88,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                   ),
                 ],
               ),
-              SizedBox(height: 4.w),
+              SizedBox(height: 4.h),
               Container(
                 height: 40.w,
                 margin: EdgeInsets.symmetric(horizontal: 16.w),
@@ -108,6 +101,11 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     controller.email.value = value;
                     controller.checkEmailValidity();
                   },
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF333333),
+                  ),
                   focusNode: controller.emailLupaPassFN,
                   controller: controller.emailLupaPassC,
                   textInputAction: TextInputAction.done,
@@ -117,7 +115,7 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                     border: InputBorder.none,
                     hintText: 'Ex: janedoe@email.com',
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.w),
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
                     hintStyle: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
