@@ -55,7 +55,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
             SizedBox(height: 8.w),
             Center(
               child: Text(
-                "Masukkan kode Verifikasi",
+                "Masukkan kode Verifikasi".tr,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontFamily: 'Poppins',
@@ -65,21 +65,28 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
               ),
             ),
             SizedBox(height: 16.w),
-            Center(
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                children: [
-                  Text(
-                    "Kami telah mengirim kode verifikasi melalui email ke ${emailFormattedC.formattedEmail.value}",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF858585),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Center(
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    Obx(
+                      () => Text(
+                        "Kami telah mengirim kode verifikasi melalui email ke "
+                                .tr +
+                            "${emailFormattedC.formattedEmail.value}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF858585),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(width: 8.w),
@@ -150,7 +157,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Mohon tunggu dalam",
+                        "Mohon tunggu dalam".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -160,7 +167,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                         ),
                       ),
                       Text(
-                        " ${snapshot.data} detik",
+                        " ${snapshot.data} detik".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -170,7 +177,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                         ),
                       ),
                       Text(
-                        " untuk kirim ulang.",
+                        " untuk kirim ulang.".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -192,7 +199,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                           //
                         },
                         child: Text(
-                          "Kirim ulang",
+                          "Kirim ulang".tr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 12.sp,
@@ -203,7 +210,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                         ),
                       ),
                       Text(
-                        " kode verifikasi.",
+                        " kode verifikasi.".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -259,7 +266,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                             }
                           : () {},
                       child: Text(
-                        "Verifikasi",
+                        "Verifikasi".tr,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',

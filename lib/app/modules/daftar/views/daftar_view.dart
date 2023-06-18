@@ -3,11 +3,14 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:g_a_s_app_rekadigi/app/widgets/splashAccountBerhasilDibuat.dart';
 import 'package:get/get.dart';
 
 import '../controllers/daftar_controller.dart';
+
+final RegisterController email = Get.put(RegisterController());
 
 class DaftarView extends GetView<DaftarController> {
   @override
@@ -51,51 +54,62 @@ class DaftarView extends GetView<DaftarController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 10.w),
-              Row(
-                children: [
-                  SizedBox(width: 34.w),
-                  Text(
-                    "Email",
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 4.w),
-              Container(
-                height: 40.w,
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32.sp),
-                  color: Color(0xFFF0F0F0),
-                ),
-                child: TextField(
-                  onChanged: (value) {
-                    controller.checkEmailValidity();
-                    controller.email.value = value;
-                  },
-                  focusNode: controller.emailDaftarFN,
-                  controller: controller.emailDaftarC,
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.emailAddress,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Ex: janedoe@email.com',
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
-                    hintStyle: TextStyle(
-                      fontSize: 12.sp,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFA0A0A0),
-                    ),
-                  ),
-                ),
-              ),
+
+              // Email
+              //
+
+              // Row(
+              //   children: [
+              //     SizedBox(width: 34.w),
+              //     Text(
+              //       "Email",
+              //       style: TextStyle(
+              //         fontSize: 14.sp,
+              //         fontFamily: 'Poppins',
+              //         fontWeight: FontWeight.w600,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(height: 4.w),
+              // Container(
+              //   height: 40.w,
+              //   margin: EdgeInsets.symmetric(horizontal: 16.w),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(32.sp),
+              //     color: Color(0xFFF0F0F0),
+              //   ),
+              //   child: TextField(
+              //     onChanged: (value) {
+              //       controller.checkEmailValidity();
+              //       controller.email.value = value;
+              //     },
+              //     style: TextStyle(
+              //       fontSize: 12.sp,
+              //       fontWeight: FontWeight.w400,
+              //       color: Color(0xFF333333),
+              //     ),
+              //     enabled: false,
+              //     focusNode: controller.emailDaftarFN,
+              //     controller: email.emailDaftarC,
+              //     textInputAction: TextInputAction.next,
+              //     keyboardType: TextInputType.emailAddress,
+              //     autocorrect: false,
+              //     decoration: InputDecoration(
+              //       border: InputBorder.none,
+              //       hintText: 'Ex: janedoe@email.com',
+              //       contentPadding:
+              //           EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
+              //       hintStyle: TextStyle(
+              //         fontSize: 12.sp,
+              //         fontFamily: 'Poppins',
+              //         fontWeight: FontWeight.w400,
+              //         color: Color(0xFFA0A0A0),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+
               SizedBox(height: 12.w),
               Row(
                 children: [
@@ -122,6 +136,11 @@ class DaftarView extends GetView<DaftarController> {
                   onChanged: (value) {
                     controller.buttonDaftarActive();
                   },
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF333333),
+                  ),
                   focusNode: controller.namaDaftarFN,
                   controller: controller.namaDaftarC,
                   textInputAction: TextInputAction.next,
@@ -131,7 +150,7 @@ class DaftarView extends GetView<DaftarController> {
                     border: InputBorder.none,
                     hintText: 'Tulis nama lengkapmu',
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
                     hintStyle: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
@@ -168,6 +187,11 @@ class DaftarView extends GetView<DaftarController> {
                     controller.buttonDaftarActive();
                     controller.cekNomorHP();
                   },
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF333333),
+                  ),
                   focusNode: controller.noHpDaftarFN,
                   controller: controller.noHpDaftarC,
                   textInputAction: TextInputAction.next,
@@ -178,7 +202,7 @@ class DaftarView extends GetView<DaftarController> {
                     border: InputBorder.none,
                     hintText: 'Ex: 081234567899',
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.w),
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
                     hintStyle: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
@@ -215,6 +239,11 @@ class DaftarView extends GetView<DaftarController> {
                     onChanged: (value) {
                       controller.buttonDaftarActive();
                     },
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF333333),
+                    ),
                     focusNode: controller.passDaftarFN,
                     controller: controller.passDaftarC,
                     textInputAction: TextInputAction.done,
@@ -226,7 +255,7 @@ class DaftarView extends GetView<DaftarController> {
                       border: InputBorder.none,
                       hintText: 'Masukkan password',
                       contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 16.w),
+                          horizontal: 20.w, vertical: 13.w),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -259,17 +288,20 @@ class DaftarView extends GetView<DaftarController> {
                   () => DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: controller.isValid &&
-                                controller.buttonDaftar.isTrue &&
-                                controller.isNoHpValid.value
-                            ? [
-                                Color(0xFF4D89D4),
-                                Color(0xFF216BC9),
-                              ]
-                            : [
-                                Color(0xFFB5B5B5),
-                                Color(0xFFB5B5B5),
-                              ], // Daftar warna gradient yang ingin digunakan
+                        colors:
+
+                            // controller.isValid &&
+
+                            controller.buttonDaftar.isTrue &&
+                                    controller.isNoHpValid.value
+                                ? [
+                                    Color(0xFF4D89D4),
+                                    Color(0xFF216BC9),
+                                  ]
+                                : [
+                                    Color(0xFFB5B5B5),
+                                    Color(0xFFB5B5B5),
+                                  ], // Daftar warna gradient yang ingin digunakan
                         begin: Alignment.topCenter, // Posisi awal gradient
                         end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
@@ -277,11 +309,14 @@ class DaftarView extends GetView<DaftarController> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        splashFactory: controller.isValid &&
-                                controller.buttonDaftar.isTrue &&
-                                controller.isNoHpValid.value
-                            ? InkSplash.splashFactory
-                            : NoSplash.splashFactory,
+                        splashFactory:
+
+                            // controller.isValid &&
+
+                            controller.buttonDaftar.isTrue &&
+                                    controller.isNoHpValid.value
+                                ? InkSplash.splashFactory
+                                : NoSplash.splashFactory,
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         textStyle: TextStyle(
@@ -294,21 +329,25 @@ class DaftarView extends GetView<DaftarController> {
                         ),
                         fixedSize: Size(343.w, 42.w),
                       ),
-                      onPressed: controller.isValid &&
-                              controller.buttonDaftar.isTrue &&
-                              controller.isNoHpValid.value
-                          ? () {
-                              Get.dialog(
-                                splashAccountBerhasilDibuat(),
-                              );
-                              Timer(
-                                Duration(milliseconds: 3000),
-                                () {
-                                  Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
-                                },
-                              );
-                            }
-                          : () {},
+                      onPressed:
+
+                          // controller.isValid &&
+
+                          controller.buttonDaftar.isTrue &&
+                                  controller.isNoHpValid.value
+                              ? () {
+                                  Get.dialog(
+                                    splashAccountBerhasilDibuat(),
+                                  );
+                                  Timer(
+                                    Duration(milliseconds: 3000),
+                                    () {
+                                      Get.offAllNamed(
+                                          Routes.IZINKAN_AKSES_LOKASI);
+                                    },
+                                  );
+                                }
+                              : () {},
                       child: Text(
                         "Buat Akun",
                         style: TextStyle(
