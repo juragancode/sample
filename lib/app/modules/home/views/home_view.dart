@@ -19,27 +19,19 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Container(
-        height: Get.height,
-        width: Get.width,
-        // color: Colors.amber.shade300,
-        child: Stack(
-          // alignment: AlignmentDirectional.topStart,
-          children: [
-            Flexible(
-              child: Container(
-                // height: 196
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/icons/Homepage-Header.png',
-                    ),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            expandedHeight: 89.w,
+            flexibleSpace: SvgPicture.asset(
+              'assets/icons/Homepage-Header.svg',
+              fit: BoxFit.fitWidth,
             ),
-            Center(
+            actions: [],
+          ),
+          SliverToBoxAdapter(
+            child: Center(
               child: Obx(
                 () => Text(
                   'Selected Index: ${controller.selectedIndex.value}',
@@ -47,12 +39,53 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: Center(
+              child: Obx(
+                () => Text(
+                  'Selected Index: ${controller.selectedIndex.value}',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
+      // body: Container(
+      //   height: Get.height,
+      //   width: Get.width,
+      //   // color: Colors.amber.shade300,
+      //   child: Stack(
+      //     // alignment: AlignmentDirectional.topStart,
+      //     children: [
+      //       Flexible(
+      //         child: Container(
+      //           // height: 196
+      //           decoration: BoxDecoration(
+      //             image: DecorationImage(
+      //               image: AssetImage(
+      //                 'assets/icons/Homepage-Header.png',
+      //               ),
+      //               fit: BoxFit.contain,
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //       Center(
+      //         child: Obx(
+      //           () => Text(
+      //             'Selected Index: ${controller.selectedIndex.value}',
+      //             style: TextStyle(fontSize: 20),
+      //           ),
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
       bottomNavigationBar: Obx(
         () => BottomAppBar(
-          notchMargin: 5.h,
+          notchMargin: -8.sp,
           shape: CircularNotchedRectangle(),
           child: BottomNavigationBar(
             backgroundColor: Colors.transparent,
@@ -125,16 +158,27 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 0,
-        onPressed: () {
-          // Aksi yang dijalankan ketika tombol "Add" ditekan
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Color(0xFF216BC9), // Warna latar belakang tombol "Add"
+      floatingActionButton: ClipOval(
+        child: Container(
+          width: 90,
+          height: 90,
+          // color: Color.fromARGB(255, 58, 205, 58),
+          child: FloatingActionButton(
+            elevation: 0,
+            onPressed: () {
+              // Aksi yang dijalankan ketika tombol "Add" ditekan
+            },
+            child: SvgPicture.asset(
+              'assets/icons/iconGAS-Biru.svg',
+              fit: BoxFit.contain,
+              width: 100,
+              height: 100,
+            ),
+            backgroundColor: Colors.transparent,
+          ),
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation
-          .centerDocked, // Menempatkan tombol "Add" di tengah bawah
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
