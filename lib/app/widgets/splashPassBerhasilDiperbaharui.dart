@@ -23,7 +23,7 @@ class splashPassBerhasilDiperbaharui extends StatelessWidget {
           ),
           SizedBox(height: 24),
           Text(
-            "Yeay! password berhasil diperbarui",
+            "Yeay! password berhasil diperbarui".tr,
             style: TextStyle(
               fontSize: 16,
               fontFamily: 'Poppins',
@@ -34,7 +34,7 @@ class splashPassBerhasilDiperbaharui extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            "Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!",
+            "Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!".tr,
             style: TextStyle(
               fontSize: 12,
               fontFamily: 'Poppins',

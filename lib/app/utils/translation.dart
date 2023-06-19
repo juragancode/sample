@@ -65,8 +65,10 @@ class Languages extends Translations {
           'Setelah password diubah, silakan masuk ke akunmu dengan password baru.':
               'Setelah password diubah, silakan masuk ke akunmu dengan password baru.',
           'Lanjut': 'Lanjut',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Yeay! password berhasil diperbarui':
+              'Yeay! password berhasil diperbarui',
+          'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!':
+              'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -137,6 +139,10 @@ class Languages extends Translations {
           'Setelah password diubah, silakan masuk ke akunmu dengan password baru.':
               'After this, please sign in to your account with new password.',
           'Lanjut': 'Next',
+          'Yeay! password berhasil diperbarui':
+              'Yay! you’ve canged your password',
+          'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!':
+              'So, don’t forget your password again, okay?',
         },
       };
 }
