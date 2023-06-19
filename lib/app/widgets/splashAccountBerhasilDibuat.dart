@@ -23,7 +23,7 @@ class splashAccountBerhasilDibuat extends StatelessWidget {
           ),
           SizedBox(height: 24),
           Text(
-            "Yeay! akun berhasil dibuat",
+            "Yeay! akun berhasil dibuat".tr,
             style: TextStyle(
               fontSize: 16,
               fontFamily: 'Poppins',
@@ -34,7 +34,7 @@ class splashAccountBerhasilDibuat extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            "Nikmati kemudahan jual beli dengan GAS Indonesia!",
+            "Nikmati kemudahan jual beli dengan GAS Indonesia!".tr,
             style: TextStyle(
               fontSize: 12,
               fontFamily: 'Poppins',

@@ -39,7 +39,7 @@ class DaftarView extends GetView<DaftarController> {
             ),
           ),
           title: Text(
-            'Daftar',
+            'Daftar'.tr,
             style: TextStyle(
               color: Color(0xFF333333),
               fontSize: 16.sp,
@@ -110,12 +110,12 @@ class DaftarView extends GetView<DaftarController> {
               //   ),
               // ),
 
-              SizedBox(height: 12.w),
+              // SizedBox(height: 12.w),
               Row(
                 children: [
                   SizedBox(width: 34.w),
                   Text(
-                    "Nama Lengkap",
+                    "Nama Lengkap".tr,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontFamily: 'Poppins',
@@ -148,7 +148,7 @@ class DaftarView extends GetView<DaftarController> {
                   autocorrect: false,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Tulis nama lengkapmu',
+                    hintText: 'Tulis nama lengkapmu'.tr,
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
                     hintStyle: TextStyle(
@@ -165,7 +165,7 @@ class DaftarView extends GetView<DaftarController> {
                 children: [
                   SizedBox(width: 34.w),
                   Text(
-                    "No. HP",
+                    "No. HP".tr,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontFamily: 'Poppins',
@@ -253,7 +253,7 @@ class DaftarView extends GetView<DaftarController> {
                     autocorrect: false,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Masukkan password',
+                      hintText: 'Masukkan password'.tr,
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 13.w),
                       hintStyle: TextStyle(
@@ -349,7 +349,7 @@ class DaftarView extends GetView<DaftarController> {
                                 }
                               : () {},
                       child: Text(
-                        "Buat Akun",
+                        "Buat Akun".tr,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'Poppins',
