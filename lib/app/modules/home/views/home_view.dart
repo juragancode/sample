@@ -19,33 +19,36 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: 184,
-                // height: 222,
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        // color: Colors.amber.shade300,
+        child: Stack(
+          // alignment: AlignmentDirectional.topStart,
+          children: [
+            Flexible(
+              child: Container(
+                // height: 196
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
                       'assets/icons/Homepage-Header.png',
                     ),
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
-              Center(
-                child: Obx(
-                  () => Text(
-                    'Selected Index: ${controller.selectedIndex.value}',
-                    style: TextStyle(fontSize: 20),
-                  ),
+            ),
+            Center(
+              child: Obx(
+                () => Text(
+                  'Selected Index: ${controller.selectedIndex.value}',
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: Obx(
         () => BottomAppBar(

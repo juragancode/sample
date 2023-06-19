@@ -416,6 +416,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 SizedBox(height: 16.w),
                 ButtonGoogleAuth(),
+                SizedBox(height: 16.w),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -428,9 +429,11 @@ class LoginView extends GetView<LoginController> {
                         color: Color(0xFF858585),
                       ),
                     ),
-                    // SizedBox(width: 5),
-                    TextButton(
-                      onPressed: () => Get.toNamed(Routes.REGISTER),
+                    SizedBox(width: 4.sp),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.REGISTER);
+                      },
                       child: Text(
                         "Daftar".tr,
                         style: TextStyle(
