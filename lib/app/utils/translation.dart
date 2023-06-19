@@ -25,6 +25,7 @@ class Languages extends Translations {
           'Pengen belanja, tapi mager dan males ngantri? Pesen aja lewat aplikasi':
               'Pengen belanja, tapi mager dan males ngantri? Pesen aja lewat aplikasi',
           ' GAS Indonesia.': ' GAS Indonesia.',
+          'GAS Indonesia.': 'GAS Indonesia.',
           ' Bisa dianter ke rumah!': ' Bisa dianter ke rumah!',
           'Mulai Jual Beli, Yuk!': 'Mulai Jual Beli, Yuk!',
           'Masukkan password': 'Masukkan password',
@@ -69,8 +70,9 @@ class Languages extends Translations {
               'Yeay! password berhasil diperbarui',
           'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!':
               'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!',
-          // 'Selanjutnya': '',
-          // 'Selanjutnya': '',
+          'Dengan mendaftar, kamu menyetujui':
+              'Dengan mendaftar, kamu menyetujui',
+          ' Syarat & Kebijakan Privasi ': ' Syarat & Kebijakan Privasi ',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
           // 'Selanjutnya': '',
@@ -101,6 +103,7 @@ class Languages extends Translations {
           'Pengen belanja, tapi mager dan males ngantri? Pesen aja lewat aplikasi':
               'Wanna shop online? you can buy various needs on',
           ' GAS Indonesia.': '  GAS Marketplace',
+          'GAS Indonesia.': 'of GAS Indonesia.',
           ' Bisa dianter ke rumah!': '',
           'Mulai Jual Beli, Yuk!': 'Let’s Buy & Sale!',
           'Masukkan password': 'Enter your password',
@@ -143,6 +146,9 @@ class Languages extends Translations {
               'Yay! you’ve canged your password',
           'Eits! tapi diingat-ingat, jangan sampai lupa lagi, ya!':
               'So, don’t forget your password again, okay?',
+          'Dengan mendaftar, kamu menyetujui':
+              'By registering, you agree to the',
+          ' Syarat & Kebijakan Privasi ': ' Terms & Privacy Policy ',
         },
       };
 }

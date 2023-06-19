@@ -27,14 +27,17 @@ class IntroScreenView extends GetView<IntroScreenController> {
               SizedBox(height: 35.h),
               Align(
                 alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () => Get.offAllNamed(Routes.LOGIN),
-                  child: Text(
-                    "Lewati".tr,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF216BC9),
+                child: Padding(
+                  padding: EdgeInsets.only(right: 10.w),
+                  child: TextButton(
+                    onPressed: () => Get.offAllNamed(Routes.LOGIN),
+                    child: Text(
+                      "Lewati".tr,
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF216BC9),
+                      ),
                     ),
                   ),
                 ),

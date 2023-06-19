@@ -2,14 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/buttonGoogle.dart';
 import 'package:get/get.dart';
 import 'package:text_divider/text_divider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../routes/app_pages.dart';
+import '../../../widgets/buttonGoogle.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
@@ -36,7 +35,7 @@ class RegisterView extends GetView<RegisterController> {
             ),
           ),
           title: Text(
-            'Daftar',
+            'Daftar'.tr,
             style: TextStyle(
               color: Color(0xFF333333),
               fontSize: 16.sp,
@@ -163,7 +162,7 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                         SizedBox(width: 5.sp),
                         Text(
-                          "Format email tidak valid.",
+                          "Format email tidak valid.".tr,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontFamily: 'Poppins',
@@ -225,7 +224,7 @@ class RegisterView extends GetView<RegisterController> {
                               }
                             : () {},
                         child: Text(
-                          "Daftar",
+                          "Daftar".tr,
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'Poppins',
@@ -242,7 +241,7 @@ class RegisterView extends GetView<RegisterController> {
                   padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: TextDivider(
                     text: Text(
-                      "atau masuk dengan",
+                      "atau masuk dengan".tr,
                       style: TextStyle(
                         color: Color(0xFF858585),
                         fontSize: 10.sp,
@@ -333,14 +332,14 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                         ),
                         // SizedBox(width: 7.w),
-                        Wrap(
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text.rich(
+                        Flexible(
+                          child: Container(
+                            child: Text.rich(
                               TextSpan(
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: "Dengan mendaftar, kamu menyetujui",
+                                    text:
+                                        "Dengan mendaftar, kamu menyetujui".tr,
                                     style: new TextStyle(
                                       fontSize: 12.sp,
                                       fontFamily: 'Poppins',
@@ -349,7 +348,7 @@ class RegisterView extends GetView<RegisterController> {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: " Syarat & \nKebijakan Privasi",
+                                    text: " Syarat & Kebijakan Privasi ".tr,
                                     style: new TextStyle(
                                       fontSize: 12.sp,
                                       fontFamily: 'Poppins',
@@ -358,7 +357,7 @@ class RegisterView extends GetView<RegisterController> {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: " GAS Indonesia.",
+                                    text: "GAS Indonesia.".tr,
                                     style: new TextStyle(
                                       fontSize: 12.sp,
                                       fontFamily: 'Poppins',
@@ -369,7 +368,7 @@ class RegisterView extends GetView<RegisterController> {
                                 ],
                               ),
                             ),
-                          ],
+                          ),
                         ),
                       ],
                     ),

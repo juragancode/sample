@@ -31,7 +31,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
           ),
         ),
         title: Text(
-          'Daftar',
+          'Daftar'.tr,
           style: TextStyle(
             color: Color(0xFF333333),
             fontSize: 16.sp,
@@ -167,7 +167,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                         ),
                       ),
                       Text(
-                        " ${snapshot.data} detik".tr,
+                        " ${snapshot.data} " + "detik".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
