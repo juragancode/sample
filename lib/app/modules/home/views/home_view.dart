@@ -14,8 +14,8 @@ class HomeView extends GetView<HomeController> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.amber.shade300,
       appBar: AppBar(
-        title: Text('HomeView'),
-        centerTitle: true,
+        // title: Text('HomeView'),
+        // centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -28,7 +28,107 @@ class HomeView extends GetView<HomeController> {
               'assets/icons/Homepage-Header.svg',
               fit: BoxFit.fitWidth,
             ),
-            actions: [],
+            actions: [
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 36.sp,
+                        width: 223.w,
+                        // width: 223.sp,
+
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(32.r),
+                        ),
+                        child: TextField(
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF333333),
+                          ),
+                          //            focusNode: controller.emailLupaPassFN,
+                          // controller: controller.emailLupaPassC,
+                          textInputAction: TextInputAction.done,
+                          keyboardType: TextInputType.emailAddress,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Ex: janedoe@email.com',
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 11.w),
+                            hintStyle: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFFA0A0A0),
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          //
+                          print("Pesan");
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 4),
+                          child: Container(
+                            // height: 36.sp,
+                            // width: 36.sp,
+                            child: SvgPicture.asset(
+                              'assets/icons/Button-Message.svg',
+                              fit: BoxFit.contain,
+                              width: 36.sp,
+                              height: 36.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          //
+                          print("Notifikasi");
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 4),
+                          child: Container(
+                            // height: 36.sp,
+                            // width: 36.sp,
+                            child: SvgPicture.asset(
+                              'assets/icons/Button-Notif.svg',
+                              fit: BoxFit.contain,
+                              height: 36.sp,
+                              width: 36.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          //
+                          print("Keranjang");
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 16.sp, left: 4),
+                          child: Container(
+                            // height: 36.sp,
+                            // width: 36.sp,
+                            child: SvgPicture.asset(
+                              'assets/icons/Button-Cart.svg',
+                              fit: BoxFit.contain,
+                              height: 36.sp,
+                              width: 36.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
           SliverToBoxAdapter(
             child: Center(
@@ -83,6 +183,7 @@ class HomeView extends GetView<HomeController> {
       //     ],
       //   ),
       // ),
+
       bottomNavigationBar: Obx(
         () => BottomAppBar(
           notchMargin: -8.sp,
@@ -160,19 +261,19 @@ class HomeView extends GetView<HomeController> {
       ),
       floatingActionButton: ClipOval(
         child: Container(
-          width: 90,
-          height: 90,
+          width: 90.sp,
+          height: 90.sp,
           // color: Color.fromARGB(255, 58, 205, 58),
           child: FloatingActionButton(
-            elevation: 0,
+            elevation: 0.sp,
             onPressed: () {
               // Aksi yang dijalankan ketika tombol "Add" ditekan
             },
             child: SvgPicture.asset(
               'assets/icons/iconGAS-Biru.svg',
               fit: BoxFit.contain,
-              width: 100,
-              height: 100,
+              width: 100.sp,
+              height: 100.sp,
             ),
             backgroundColor: Colors.transparent,
           ),
