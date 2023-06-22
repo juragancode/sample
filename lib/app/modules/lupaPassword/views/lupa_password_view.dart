@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -114,10 +113,9 @@ class LupaPasswordView extends GetView<LupaPasswordController> {
                   autocorrect: false,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Cari di aplikasi GAS',
-                    prefixIcon: Icon(CupertinoIcons.search),
+                    hintText: 'Ex: janedoe@email.com',
                     contentPadding:
-                        EdgeInsets.only(right: 20.w, left: 40.w, bottom: 13.w),
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.w),
                     hintStyle: TextStyle(
                       fontSize: 12.sp,
                       fontFamily: 'Poppins',
