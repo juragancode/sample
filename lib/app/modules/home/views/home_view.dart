@@ -19,7 +19,9 @@ class HomeView extends GetView<HomeController> {
       },
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        backgroundColor: Color.fromARGB(255, 136, 255, 198),
+        // backgroundColor: Color(0xFFF9F9F9),
+        backgroundColor: Color.fromARGB(255, 234, 234,
+            234), // ini cuman warna contoh, warna asli yg di atas
         appBar: AppBar(
           // title: Text('HomeView'),
           // centerTitle: true,
@@ -29,298 +31,446 @@ class HomeView extends GetView<HomeController> {
         body: Stack(
           children: [
             Container(),
-            // Container(
-            //   child: Row(
-            //           children: [
-            //             Container(
-            //               height: 36.sp,
-            //               width: 223.w,
-            //               // width: 223.sp,
-
-            //               decoration: BoxDecoration(
-            //                 color: Color(0xFFFFFFFF),
-            //                 borderRadius: BorderRadius.circular(32.r),
-            //               ),
-            //               child: TextField(
-            //                 style: TextStyle(
-            //                   fontSize: 12.sp,
-            //                   fontWeight: FontWeight.w400,
-            //                   color: Color(0xFF333333),
-            //                 ),
-            //                 focusNode: controller.searchFN,
-            //                 controller: controller.searchC,
-            //                 textInputAction: TextInputAction.done,
-            //                 keyboardType: TextInputType.emailAddress,
-            //                 autocorrect: false,
-            //                 decoration: InputDecoration(
-            //                   border: InputBorder.none,
-            //                   hintText: 'Cari di aplikasi GAS',
-            //                   prefixIcon: Icon(
-            //                     CupertinoIcons.search,
-            //                     color: Color(0xFFFFCA08),
-            //                   ),
-            //                   contentPadding: EdgeInsets.only(
-            //                       right: 20.w,
-            //                       left: 11.34.w,
-            //                       // left: 40.w,
-            //                       top: 11.7.sp,
-            //                       bottom: 11.7.sp),
-            //                   hintStyle: TextStyle(
-            //                     fontSize: 12.sp,
-            //                     fontFamily: 'Poppins',
-            //                     fontWeight: FontWeight.w400,
-            //                     color: Color(0xFFA0A0A0),
-            //                   ),
-            //                 ),
-            //               ),
-            //             ),
-            //             GestureDetector(
-            //               onTap: () {
-            //                 //
-            //                 print("Pesan");
-            //               },
-            //               child: Padding(
-            //                 padding: EdgeInsets.only(left: 4),
-            //                 child: Container(
-            //                   // height: 36.sp,
-            //                   // width: 36.sp,
-            //                   child: SvgPicture.asset(
-            //                     'assets/icons/Button-Message.svg',
-            //                     fit: BoxFit.contain,
-            //                     width: 36.sp,
-            //                     height: 36.sp,
-            //                   ),
-            //                 ),
-            //               ),
-            //             ),
-            //             GestureDetector(
-            //               onTap: () {
-            //                 //
-            //                 print("Notifikasi");
-            //               },
-            //               child: Padding(
-            //                 padding: EdgeInsets.only(left: 4),
-            //                 child: Container(
-            //                   // height: 36.sp,
-            //                   // width: 36.sp,
-            //                   child: SvgPicture.asset(
-            //                     'assets/icons/Button-Notif.svg',
-            //                     fit: BoxFit.contain,
-            //                     height: 36.sp,
-            //                     width: 36.sp,
-            //                   ),
-            //                 ),
-            //               ),
-            //             ),
-            //             GestureDetector(
-            //               onTap: () {
-            //                 //
-            //                 print("Keranjang");
-            //               },
-            //               child: Padding(
-            //                 padding: EdgeInsets.only(right: 16.sp, left: 4),
-            //                 child: Container(
-            //                   // height: 36.sp,
-            //                   // width: 36.sp,
-            //                   child: SvgPicture.asset(
-            //                     'assets/icons/Button-Cart.svg',
-            //                     fit: BoxFit.contain,
-            //                     height: 36.sp,
-            //                     width: 36.sp,
-            //                   ),
-            //                 ),
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            // ),
             Container(
               width: Get.width,
+              height: 175.w,
               child: SvgPicture.asset(
                 'assets/icons/Homepage-Header.svg',
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
               ),
             ),
-            Positioned(
-              top: 45.sp,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                child: Container(
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 36.sp,
-                        width: 223.w,
-                        // width: 223.sp,
-
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFFFFFF),
-                          borderRadius: BorderRadius.circular(32.r),
-                        ),
-                        child: TextField(
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF333333),
-                          ),
-                          focusNode: controller.searchFN,
-                          controller: controller.searchC,
-                          textInputAction: TextInputAction.done,
-                          keyboardType: TextInputType.emailAddress,
-                          autocorrect: false,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Cari di aplikasi GAS',
-                            prefixIcon: Icon(
-                              CupertinoIcons.search,
-                              color: Color(0xFFFFCA08),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                // horizontal: 16.sp,
+                horizontal: 0,
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 55.sp),
+                  Container(
+                    color: Colors.transparent,
+                    // height: 36.sp,
+                    // width: Get.width,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 36.sp,
+                            width: 223.w,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(32.r),
                             ),
-                            contentPadding: EdgeInsets.only(
-                                right: 20.w,
-                                left: 11.34.w,
-                                // left: 40.w,
-                                top: 11.7.sp,
-                                bottom: 11.7.sp),
-                            hintStyle: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFFA0A0A0),
+                            child: TextField(
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF333333),
+                              ),
+                              focusNode: controller.searchFN,
+                              controller: controller.searchC,
+                              textInputAction: TextInputAction.done,
+                              keyboardType: TextInputType.text,
+                              autocorrect: false,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Cari di aplikasi GAS',
+                                prefixIcon: Icon(
+                                  CupertinoIcons.search,
+                                  color: Color(0xFFFFCA08),
+                                ),
+                                contentPadding: EdgeInsets.only(
+                                    right: 20.w,
+                                    left: 11.34.w,
+                                    // left: 40.w,
+                                    top: 11.7.sp,
+                                    bottom: 11.7.sp),
+                                hintStyle: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFFA0A0A0),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          GestureDetector(
+                            onTap: () {
+                              //
+                              print("Pesan");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 4.w),
+                              child: Container(
+                                // height: 36.sp,
+                                // width: 36.sp,
+                                child: SvgPicture.asset(
+                                  'assets/icons/Button-Message.svg',
+                                  fit: BoxFit.contain,
+                                  width: 36.sp,
+                                  height: 36.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              //
+                              print("Notifikasi");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 4.w),
+                              child: Container(
+                                // height: 36.sp,
+                                // width: 36.sp,
+                                child: SvgPicture.asset(
+                                  'assets/icons/Button-Notif.svg',
+                                  fit: BoxFit.contain,
+                                  height: 36.sp,
+                                  width: 36.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              //
+                              print("Keranjang");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                // right: 16.sp,
+                                left: 4.w,
+                              ),
+                              child: Container(
+                                // height: 36.sp,
+                                // width: 36.sp,
+                                child: SvgPicture.asset(
+                                  'assets/icons/Button-Cart.svg',
+                                  fit: BoxFit.contain,
+                                  height: 36.sp,
+                                  width: 36.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          //
-                          print("Pesan");
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 4),
-                          child: Container(
-                            // height: 36.sp,
-                            // width: 36.sp,
-                            child: SvgPicture.asset(
-                              'assets/icons/Button-Message.svg',
-                              fit: BoxFit.contain,
-                              width: 36.sp,
-                              height: 36.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          //
-                          print("Notifikasi");
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 4),
-                          child: Container(
-                            // height: 36.sp,
-                            // width: 36.sp,
-                            child: SvgPicture.asset(
-                              'assets/icons/Button-Notif.svg',
-                              fit: BoxFit.contain,
-                              height: 36.sp,
-                              width: 36.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          //
-                          print("Keranjang");
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 16.sp, left: 4),
-                          child: Container(
-                            // height: 36.sp,
-                            // width: 36.sp,
-                            child: SvgPicture.asset(
-                              'assets/icons/Button-Cart.svg',
-                              fit: BoxFit.contain,
-                              height: 36.sp,
-                              width: 36.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 148.sp,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                child: Container(
-                  width: 343.w,
-                  height: 60.sp,
-                  decoration: BoxDecoration(
+                  SizedBox(height: 65.sp),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 16.sp),
+                    width: 343.w,
+                    height: 60.sp,
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.r),
-                      color: Colors.white),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Positioned(
-                              left: 10.sp,
-                              top: 10.sp,
-                              child: Row(
+                      color: Color(0xFFFFFFFF),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 40.sp,
+                                width: 40.sp,
+                                child: Image.asset(
+                                  'assets/icons/contoh-profil-1.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              SizedBox(width: 8.sp),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Naufal Wibawanto",
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.sp),
+                                  Text(
+                                    "Akun Personal",
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF858585),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            size: 24.sp,
+                            color: Primary50,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 12.sp),
+                  CarouselSlider.builder(
+                    itemCount: controller.imageList.length,
+                    options: CarouselOptions(
+                      height: 104.w,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      viewportFraction: 1.0,
+                      onPageChanged:
+                          (int index, CarouselPageChangedReason reason) {
+                        controller.currentIndex.value = index;
+                      },
+                    ),
+                    itemBuilder:
+                        (BuildContext context, int index, int? realIndex) {
+                      return Container(
+                        // color: Colors.amber,
+                        margin: EdgeInsets.symmetric(horizontal: 16.sp),
+
+                        child: Image.asset(
+                          controller.imageList[index],
+                          fit: BoxFit.contain,
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(height: 24.sp),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Container(
+                            width: 167.w,
+                            // height: 110.sp,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.r),
+                              color: Color(0xFFFFFFFF),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0.sp),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     height: 40.sp,
                                     width: 40.sp,
-                                    child: Image.asset(
-                                      'assets/icons/contoh-profil-1.png',
+                                    child: SvgPicture.asset(
+                                      'assets/icons/icon-Bag-Red.svg',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  SizedBox(width: 8.sp),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Naufal Wibawanto",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xFF333333),
-                                        ),
-                                      ),
-                                      SizedBox(height: 2.sp),
-                                      Text(
-                                        "Akun Personal",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xFF858585),
-                                        ),
-                                      ),
-                                    ],
+                                  SizedBox(height: 2.sp),
+                                  Text(
+                                    "Plaza",
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.sp),
+                                  Text(
+                                    "Cari berbagai kebutuhan di plaza sekitarmu.",
+                                    style: TextStyle(
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF858585),
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
-                            Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              size: 24.sp,
-                              color: Primary,
+                          ),
+                        ),
+                        Flexible(
+                          child: Container(
+                            width: 167.w,
+                            // height: 110.sp,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.r),
+                              color: Color(0xFFFFFFFF),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0.sp),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 40.sp,
+                                    width: 40.sp,
+                                    child: SvgPicture.asset(
+                                      'assets/icons/icon-Shop-Blue.svg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.sp),
+                                  Text(
+                                    "Toko",
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF333333),
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.sp),
+                                  Text(
+                                    "Belanja murah di toko-toko terdekat.",
+                                    style: TextStyle(
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF858585),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 24.sp),
+                  Padding(
+                    padding: EdgeInsets.only(left: 16.sp),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Kategori Lainnya",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: H333333,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 8.sp),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 73.75.sp,
+                              width: 73.75.sp,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.r),
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/icons/Category-Icons-Fashion.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            SizedBox(height: 4.sp),
+                            Text(
+                              "Fashion",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: H333333,
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        Column(
+                          children: [
+                            Container(
+                              height: 73.75.sp,
+                              width: 73.75.sp,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.r),
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/icons/Category-Icons-Food.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            SizedBox(height: 4.sp),
+                            Text(
+                              "GAS Food",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: H333333,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 73.75.sp,
+                              width: 73.75.sp,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.r),
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/icons/Category-Icons-Otomotif.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            SizedBox(height: 4.sp),
+                            Text(
+                              "Otomotif",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: H333333,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 73.75.sp,
+                              width: 73.75.sp,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.r),
+                                color: Color(0xFFFFFFFF),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/icons/Category-Icons-Lainnya.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            SizedBox(height: 4.sp),
+                            Text(
+                              "Lain-lain",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: H333333,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           ],
