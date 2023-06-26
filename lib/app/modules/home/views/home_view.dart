@@ -1,14 +1,19 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
-import 'package:g_a_s_app_rekadigi/app/model/produk_promo_model.dart';
-import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../controllers/home_controller.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+
+import '../../../constant/colors.dart';
+import '../../../model/produk_promo_model.dart';
+import '../../../widgets/backgroundHomePage.dart';
+import '../../../widgets/informasiAkunHomePage.dart';
+import '../../../widgets/kategoriLainnyaHomePage.dart';
+import '../../../widgets/plazaTokoHomePage.dart';
+import '../controllers/home_controller.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -29,8 +34,6 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: Color.fromARGB(255, 234, 234,
             234), // ini cuman warna contoh, warna asli yg di atas
         appBar: AppBar(
-          // title: Text('HomeView'),
-          // centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -38,14 +41,7 @@ class HomeView extends GetView<HomeController> {
           child: Stack(
             children: [
               Container(),
-              Container(
-                width: Get.width,
-                height: 175.w,
-                child: SvgPicture.asset(
-                  'assets/icons/Homepage-Header.svg',
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
+              BackgroundHomePage(),
               Padding(
                 padding: EdgeInsets.symmetric(
                   // horizontal: 16.sp,
@@ -168,64 +164,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ),
                     SizedBox(height: 65.sp),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16.sp),
-                      width: 343.w,
-                      height: 60.sp,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.r),
-                        color: Color(0xFFFFFFFF),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  height: 40.sp,
-                                  width: 40.sp,
-                                  child: Image.asset(
-                                    'assets/icons/contoh-profil-1.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                SizedBox(width: 8.sp),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Naufal Wibawanto",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF333333),
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.sp),
-                                    Text(
-                                      "Akun Personal",
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              size: 24.sp,
-                              color: Primary50,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    InformasiAkunHomePage(),
                     SizedBox(height: 12.sp),
                     CarouselSlider.builder(
                       itemCount: controller.imageList.length,
@@ -256,241 +195,9 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                     SizedBox(height: 24.sp),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Container(
-                              width: 167.w,
-                              // height: 110.sp,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.r),
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0.sp),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 32.sp,
-                                      width: 32.sp,
-                                      child: SvgPicture.asset(
-                                        'assets/icons/icon-Bag-Red.svg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.sp),
-                                    Text(
-                                      "Plaza",
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF333333),
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.sp),
-                                    Text(
-                                      "Cari berbagai kebutuhan di plaza sekitarmu.",
-                                      style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: 167.w,
-                              // height: 110.sp,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.r),
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0.sp),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 32.sp,
-                                      width: 32.sp,
-                                      child: SvgPicture.asset(
-                                        'assets/icons/icon-Shop-Blue.svg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.sp),
-                                    Text(
-                                      "Toko",
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF333333),
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.sp),
-                                    Text(
-                                      "Belanja murah di toko-toko terdekat.",
-                                      style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    PlazaTokoHomePage(),
                     SizedBox(height: 24.sp),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.sp),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Kategori Lainnya",
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: H333333,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 8.sp),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  color: Color(0xFFFFFFFF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(14.sp),
-                                  child: SvgPicture.asset(
-                                    height: 46.sp,
-                                    width: 46.sp,
-                                    'assets/icons/Category-Icons-Fashion2.svg',
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 4.sp),
-                              Text(
-                                "Fashion",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  color: Color(0xFFFFFFFF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(14.sp),
-                                  child: SvgPicture.asset(
-                                    height: 46.sp,
-                                    width: 46.sp,
-                                    'assets/icons/Category-Icons-Food2.svg',
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 4.sp),
-                              Text(
-                                "GAS Food",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  color: Color(0xFFFFFFFF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(14.sp),
-                                  child: SvgPicture.asset(
-                                    height: 46.sp,
-                                    width: 46.sp,
-                                    'assets/icons/Category-Icons-Otomotif2.svg',
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 4.sp),
-                              Text(
-                                "Otomotif",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  // color: Color.fromARGB(255, 255, 113, 113),
-                                  color: Color(0xFFFFFFFF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(14.sp),
-                                  child: SvgPicture.asset(
-                                    height: 46.sp,
-                                    width: 46.sp,
-                                    'assets/icons/Category-Icons-Lainnya2.svg',
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 4.sp),
-                              Text(
-                                "Lain-lain",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    KategoriLainnyaHomePage(),
                     SizedBox(height: 24.sp),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.sp),
@@ -521,134 +228,138 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                     ),
-                    IntrinsicHeight(
-                      child: Container(
-                        // height: 240.0.sp,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: productPromoList.productPromos.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 122.0.sp,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius: BorderRadius.circular(8.r),
+                    Container(
+                      height: 250.0.sp,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: productPromoList.productPromos.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            width: 122.0.sp,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            margin: EdgeInsets.all(8.0.sp),
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                8.0.sp,
+                                8.0.sp,
+                                8.0.sp,
+                                0.sp,
                               ),
-                              margin: EdgeInsets.all(8.0.sp),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0.sp),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 106.0.sp,
-                                      height: 90.0.sp,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(4.0.sp),
-                                          topRight: Radius.circular(4.0.sp),
-                                        ),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            ProductPromoList()
-                                                .productPromos[index]
-                                                .image,
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 106.0.sp,
+                                    height: 90.0.sp,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(4.0.sp),
+                                        topRight: Radius.circular(4.0.sp),
                                       ),
-                                    ),
-                                    Container(
-                                      width: 106.0.sp,
-                                      height: 18.0.sp,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(16.0.sp),
-                                          bottomLeft: Radius.circular(4.0.sp),
-                                        ),
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFF4D89D4),
-                                            Color(0xFF216BC9),
-                                          ],
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          left: 8.0.sp,
-                                          top: 2.sp,
-                                          bottom: 2.sp,
-                                        ),
-                                        child: Text(
-                                          "Lagi Promo!",
-                                          style: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      ProductPromoList()
-                                          .productPromos[index]
-                                          .name,
-                                      style: TextStyle(
-                                        fontSize: 12.0.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: H333333,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                    ),
-                                    SizedBox(height: 4.0.sp),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Secondary50,
-                                          size: 16.0.sp,
-                                        ),
-                                        SizedBox(width: 4.sp),
-                                        Text(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
                                           ProductPromoList()
                                               .productPromos[index]
-                                              .rating
-                                              .toString(),
-                                          style: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            fontWeight: FontWeight.w400,
-                                            color: Neutral90,
-                                          ),
+                                              .image,
                                         ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 8.0.sp),
-                                    Text(
-                                      "Rp ${f.format(ProductPromoList().productPromos[index].priceDicoret.toInt())}",
-                                      style: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        fontWeight: FontWeight.w400,
-                                        decoration: TextDecoration.lineThrough,
-                                        color: Neutral90,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                    Text(
-                                      "Rp ${f.format(productPromoList.productPromos[index].price.toInt())}",
-                                      style: TextStyle(
-                                        fontSize: 14.0.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: H333333,
+                                  ),
+                                  Container(
+                                    width: 106.0.sp,
+                                    height: 18.0.sp,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(16.0.sp),
+                                        bottomLeft: Radius.circular(4.0.sp),
+                                      ),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xFF4D89D4),
+                                          Color(0xFF216BC9),
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        left: 8.0.sp,
+                                        top: 2.sp,
+                                        bottom: 2.sp,
+                                      ),
+                                      child: Text(
+                                        "Lagi Promo!",
+                                        style: TextStyle(
+                                          fontSize: 10.0.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.0.sp),
+                                  Text(
+                                    ProductPromoList()
+                                        .productPromos[index]
+                                        .name,
+                                    style: TextStyle(
+                                      fontSize: 12.0.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: H333333,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                  SizedBox(height: 4.0.sp),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Secondary50,
+                                        size: 16.0.sp,
+                                      ),
+                                      SizedBox(width: 4.sp),
+                                      Text(
+                                        ProductPromoList()
+                                            .productPromos[index]
+                                            .rating
+                                            .toString(),
+                                        style: TextStyle(
+                                          fontSize: 10.0.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 8.0.sp),
+                                  Text(
+                                    "Rp ${f.format(ProductPromoList().productPromos[index].priceDicoret.toInt())}",
+                                    style: TextStyle(
+                                      fontSize: 10.0.sp,
+                                      fontWeight: FontWeight.w400,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Neutral90,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Rp ${f.format(productPromoList.productPromos[index].price.toInt())}",
+                                    style: TextStyle(
+                                      fontSize: 14.0.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: H333333,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],

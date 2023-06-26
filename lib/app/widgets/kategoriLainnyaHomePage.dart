@@ -1,0 +1,158 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../constant/colors.dart';
+
+class KategoriLainnyaHomePage extends StatelessWidget {
+  const KategoriLainnyaHomePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 16.sp),
+          child: Row(
+            children: [
+              Text(
+                "Kategori Lainnya",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                  color: H333333,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 8.sp),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.sp),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      color: Color(0xFFFFFFFF),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14.sp),
+                      child: SvgPicture.asset(
+                        height: 46.sp,
+                        width: 46.sp,
+                        'assets/icons/Category-Icons-Fashion2.svg',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 4.sp),
+                  Text(
+                    "Fashion",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: H333333,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      color: Color(0xFFFFFFFF),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14.sp),
+                      child: SvgPicture.asset(
+                        height: 46.sp,
+                        width: 46.sp,
+                        'assets/icons/Category-Icons-Food2.svg',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 4.sp),
+                  Text(
+                    "GAS Food",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: H333333,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      color: Color(0xFFFFFFFF),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14.sp),
+                      child: SvgPicture.asset(
+                        height: 46.sp,
+                        width: 46.sp,
+                        'assets/icons/Category-Icons-Otomotif2.svg',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 4.sp),
+                  Text(
+                    "Otomotif",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: H333333,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.r),
+                      // color: Color.fromARGB(255, 255, 113, 113),
+                      color: Color(0xFFFFFFFF),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14.sp),
+                      child: SvgPicture.asset(
+                        height: 46.sp,
+                        width: 46.sp,
+                        'assets/icons/Category-Icons-Lainnya2.svg',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 4.sp),
+                  Text(
+                    "Lain-lain",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                      color: H333333,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
