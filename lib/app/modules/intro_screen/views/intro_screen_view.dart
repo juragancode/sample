@@ -6,7 +6,7 @@ import 'package:g_a_s_app_rekadigi/app/modules/intro_screen/controllers/intro_sc
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
-import 'content_model.dart';
+import '../../../model/intro_screen_model.dart';
 
 class IntroScreenView extends GetView<IntroScreenController> {
   @override
