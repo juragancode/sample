@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 
 import '../../../constant/colors.dart';
 import '../../../model/produk_promo_model.dart';
+import '../../../model/belanjaan_terakhir_model.dart';
 import '../../../widgets/backgroundHomePage.dart';
 import '../../../widgets/informasiAkunHomePage.dart';
 import '../../../widgets/kategoriLainnyaHomePage.dart';
@@ -19,6 +20,7 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 class HomeView extends GetView<HomeController> {
   final ProductPromoList productPromoList = ProductPromoList();
+  final BelanjaanTerakhirList belanjaanTerakhirList = BelanjaanTerakhirList();
 
   @override
   Widget build(BuildContext context) {
@@ -273,6 +275,10 @@ class HomeView extends GetView<HomeController> {
                                     width: 106.0.sp,
                                     height: 18.0.sp,
                                     decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: DEDEDE,
+                                        width: 0.5.sp,
+                                      ),
                                       borderRadius: BorderRadius.only(
                                         bottomRight: Radius.circular(16.0.sp),
                                         bottomLeft: Radius.circular(4.0.sp),
@@ -349,6 +355,120 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                   Text(
                                     "Rp ${f.format(productPromoList.productPromos[index].price.toInt())}",
+                                    style: TextStyle(
+                                      fontSize: 14.0.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: H333333,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 24.0.sp),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Belanjaan Terakhir",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                              color: H333333,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              //
+                            },
+                            child: Text(
+                              "Lihat Semua",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600,
+                                color: Primary50,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 210.0.sp,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount:
+                            belanjaanTerakhirList.belanjaanTerakhirs.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            width: 122.0.sp,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            margin: EdgeInsets.all(8.0.sp),
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                8.0.sp,
+                                8.0.sp,
+                                8.0.sp,
+                                0.sp,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 106.0.sp,
+                                    height: 90.0.sp,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: DEDEDE,
+                                        width: 0.5.sp,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(4.0.sp),
+                                        topRight: Radius.circular(4.0.sp),
+                                      ),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                          BelanjaanTerakhirList()
+                                              .belanjaanTerakhirs[index]
+                                              .image,
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.0.sp),
+                                  Text(
+                                    BelanjaanTerakhirList()
+                                        .belanjaanTerakhirs[index]
+                                        .name,
+                                    style: TextStyle(
+                                      fontSize: 12.0.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: H333333,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                  SizedBox(height: 8.0.sp),
+                                  Text(
+                                    "Rp ${f.format(BelanjaanTerakhirList().belanjaanTerakhirs[index].priceDicoret.toInt())}",
+                                    style: TextStyle(
+                                      fontSize: 10.0.sp,
+                                      fontWeight: FontWeight.w400,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Neutral90,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Rp ${f.format(BelanjaanTerakhirList().belanjaanTerakhirs[index].price.toInt())}",
                                     style: TextStyle(
                                       fontSize: 14.0.sp,
                                       fontWeight: FontWeight.w600,
