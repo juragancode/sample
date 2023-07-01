@@ -15,6 +15,7 @@ abstract class Routes {
   static const DAFTAR = _Paths.DAFTAR;
   static const IZINKAN_AKSES_LOKASI = _Paths.IZINKAN_AKSES_LOKASI;
   static const ALIH_BAHASA = _Paths.ALIH_BAHASA;
+  static const EXPLORE = _Paths.EXPLORE;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const DAFTAR = '/daftar';
   static const IZINKAN_AKSES_LOKASI = '/izinkan-akses-lokasi';
   static const ALIH_BAHASA = '/alih-bahasa';
+  static const EXPLORE = '/explore';
 }

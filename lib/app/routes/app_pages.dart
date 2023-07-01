@@ -1,26 +1,27 @@
 import 'package:get/get.dart';
 
-import 'package:g_a_s_app_rekadigi/app/modules/alihBahasa/bindings/alih_bahasa_binding.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/alihBahasa/views/alih_bahasa_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/aturUlangPassword/views/atur_ulang_password_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/daftar/bindings/daftar_binding.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/daftar/views/daftar_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/izinkanAksesLokasi/views/izinkan_akses_lokasi_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
-
+import '../modules/alihBahasa/bindings/alih_bahasa_binding.dart';
+import '../modules/alihBahasa/views/alih_bahasa_view.dart';
+import '../modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
+import '../modules/aturUlangPassword/views/atur_ulang_password_view.dart';
+import '../modules/daftar/bindings/daftar_binding.dart';
+import '../modules/daftar/views/daftar_view.dart';
+import '../modules/explore/bindings/explore_binding.dart';
+import '../modules/explore/views/explore_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro_screen/bindings/intro_screen_binding.dart';
 import '../modules/intro_screen/views/intro_screen_view.dart';
+import '../modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart';
+import '../modules/izinkanAksesLokasi/views/izinkan_akses_lokasi_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
+import '../modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 import '../modules/verifikasiLupaPassword/bindings/verifikasi_lupa_password_binding.dart';
 import '../modules/verifikasiLupaPassword/views/verifikasi_lupa_password_view.dart';
 
@@ -86,6 +87,11 @@ class AppPages {
       name: _Paths.ALIH_BAHASA,
       page: () => AlihBahasaView(),
       binding: AlihBahasaBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXPLORE,
+      page: () => const ExploreView(),
+      binding: ExploreBinding(),
     ),
   ];
 }

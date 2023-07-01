@@ -17,6 +17,15 @@ class ProductPromoList {
   final List<ProductPromo> productPromos = [
     ProductPromo(
       name:
+          "Tas Rotan 15Cm - 18Cm - 20Cm Polos Premium - Tas Rotan Kualitas -Tas Rotan Bali - Tas Rotan Bulat",
+      image:
+          "https://ds393qgzrxwzn.cloudfront.net/resize/m400x400/cat1/img/images/0/guvlDsocY9.jpg",
+      price: 82450,
+      priceDicoret: 124500,
+      rating: 4.7,
+    ),
+    ProductPromo(
+      name:
           "Baju Dewasa Wanita - Build Up Sweater Wanita Size M - Xxl - Crewneck Wanita Kekinian - Sweater Wanita Tebal",
       image:
           "https://lzd-img-global.slatic.net/g/p/755fedc6a4d647169d8ad77bb7bf12fa.jpg_720x720q80.jpg",
