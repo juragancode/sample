@@ -54,40 +54,38 @@ class HomeView extends GetView<HomeController> {
                               color: Color(0xFFFFFFFF),
                               borderRadius: BorderRadius.circular(32.r),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: TextField(
-                                    style: TextStyle(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF333333),
-                                    ),
-                                    // textAlignVertical: TextAlignVertical.center,
-                                    focusNode: controller.searchFN,
-                                    controller: controller.searchC,
-                                    textInputAction: TextInputAction.done,
-                                    keyboardType: TextInputType.text,
-                                    autocorrect: false,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: 'Cari di aplikasi GAS',
-                                      prefixIcon: Icon(
-                                        CupertinoIcons.search,
-                                        color: Color(0xFFFFCA08),
-                                      ),
-                                      suffix: Text("     "),
-                                      hintStyle: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA0A0A0),
-                                      ),
-                                    ),
+                            child: Expanded(
+                              child: TextField(
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF333333),
+                                ),
+                                // textAlignVertical: TextAlignVertical.center,
+                                focusNode: controller.searchFN,
+                                controller: controller.searchC,
+                                textInputAction: TextInputAction.done,
+                                keyboardType: TextInputType.text,
+                                autocorrect: false,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Cari di aplikasi GAS',
+                                  prefixIcon: Icon(
+                                    CupertinoIcons.search,
+                                    color: Color(0xFFFFCA08),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 4.sp,
+                                  ),
+                                  suffix: SizedBox(width: 20.sp),
+                                  hintStyle: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xFFA0A0A0),
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                           GestureDetector(
