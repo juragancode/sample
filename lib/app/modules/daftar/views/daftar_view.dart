@@ -137,6 +137,7 @@ class DaftarView extends GetView<DaftarController> {
                     controller.buttonDaftarActive();
                   },
                   style: TextStyle(
+                    decorationThickness: 0,
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF333333),
@@ -188,6 +189,7 @@ class DaftarView extends GetView<DaftarController> {
                     controller.cekNomorHP();
                   },
                   style: TextStyle(
+                    decorationThickness: 0,
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF333333),
@@ -240,6 +242,7 @@ class DaftarView extends GetView<DaftarController> {
                       controller.buttonDaftarActive();
                     },
                     style: TextStyle(
+                      decorationThickness: 0,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF333333),

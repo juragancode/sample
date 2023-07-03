@@ -102,6 +102,7 @@ class RegisterView extends GetView<RegisterController> {
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
                       style: TextStyle(
+                        decorationThickness: 0,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
                         color: controller.isValid

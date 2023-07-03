@@ -99,6 +99,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                       controller.checkKesamaanPassword();
                     },
                     style: TextStyle(
+                      decorationThickness: 0,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF333333),
@@ -175,6 +176,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                       controller.checkKesamaanPassword();
                     },
                     style: TextStyle(
+                      decorationThickness: 0,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF333333),
