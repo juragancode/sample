@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         title: "Application",
-        initialRoute: Routes.HOME,
+        initialRoute: Routes.HOME_TOKO,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         locale: Locale(
             'id_ID'), // Set bahasa awal menjadi bahasa Indonesia ('id_ID')
         fallbackLocale: Locale(
-            'en_US'), // Set bahasa cadangan menjadi bahasa Indonesia ('en_US')
+            'en_US'), // Set bahasa cadangan menjadi bahasa inggris ('en_US')
       ),
       useInheritedMediaQuery: true,
       designSize: const Size(375, 812),

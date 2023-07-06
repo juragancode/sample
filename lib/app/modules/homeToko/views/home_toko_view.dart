@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+
+import '../controllers/home_toko_controller.dart';
 import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/home/controllers/home_controller.dart';
 
 import '../../../constant/colors.dart';
 import '../../../model/produk_promo_model.dart';
@@ -15,21 +21,17 @@ import '../../../model/belanjaan_terakhir_model.dart';
 import '../../../widgets/backgroundHomePage.dart';
 import '../../../widgets/kategoriLainnyaHomePage.dart';
 import '../../../widgets/plazaTokoHomePage.dart';
-import '../controllers/home_controller.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
+final HomeController homeController = Get.put(HomeController());
 
-class HomeView extends GetView<HomeController> {
-  final ProductPromoList productPromoList = ProductPromoList();
-  final BelanjaanTerakhirList belanjaanTerakhirList = BelanjaanTerakhirList();
-
+class HomeTokoView extends GetView<HomeTokoController> {
+  const HomeTokoView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return GestureDetector(
       onTap: () {
-        controller.searchFN.unfocus();
+        homeController.searchFN.unfocus();
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -64,11 +66,11 @@ class HomeView extends GetView<HomeController> {
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF333333),
+                                      color: H333333,
                                       decorationThickness: 0,
                                     ),
-                                    focusNode: controller.searchFN,
-                                    controller: controller.searchC,
+                                    focusNode: homeController.searchFN,
+                                    controller: homeController.searchC,
                                     textInputAction: TextInputAction.done,
                                     keyboardType: TextInputType.text,
                                     autocorrect: false,
@@ -194,16 +196,16 @@ class HomeView extends GetView<HomeController> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "Naufal Wibawanto",
+                                          "Toko Rekadigi",
                                           style: TextStyle(
                                             fontSize: 14.sp,
                                             fontWeight: FontWeight.w600,
-                                            color: Color(0xFF333333),
+                                            color: H333333,
                                           ),
                                         ),
                                         SizedBox(height: 2.sp),
                                         Text(
-                                          "Akun Personal",
+                                          "Akun Toko",
                                           style: TextStyle(
                                             fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
@@ -225,333 +227,208 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       SizedBox(height: 12.sp),
-                      CarouselSlider.builder(
-                        itemCount: controller.imageList.length,
-                        options: CarouselOptions(
-                          height: 104.w,
-                          autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 5),
-                          autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          enableInfiniteScroll: true,
-                          viewportFraction: 1.0,
-                          onPageChanged:
-                              (int index, CarouselPageChangedReason reason) {
-                            controller.currentIndex.value = index;
-                          },
-                        ),
-                        itemBuilder:
-                            (BuildContext context, int index, int? realIndex) {
-                          return Container(
-                            // color: Colors.amber,
-                            margin: EdgeInsets.symmetric(horizontal: 16.sp),
-
-                            child: Image.asset(
-                              controller.imageList[index],
-                              fit: BoxFit.contain,
-                            ),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 24.sp),
-                      PlazaTokoHomePage(),
-                      SizedBox(height: 24.sp),
-                      KategoriLainnyaHomePage(),
-                      SizedBox(height: 24.sp),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.sp),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "Produk Promo!",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
-                                color: H333333,
+                            Flexible(
+                              child: Container(
+                                width: 167.w,
+                                // height: 110.sp,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: Color(0xFFFFFFFF),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0.sp),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 32.sp,
+                                        width: 32.sp,
+                                        child: SvgPicture.asset(
+                                          'assets/icons/icon-Mesin-Kasir-Blue.svg',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2.sp),
+                                      Text(
+                                        "Mesin Kasir",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2.sp),
+                                      Text(
+                                        "Hitung penjualanmu dengan mesin kasir otomatis.",
+                                        style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                //
-                              },
-                              child: Text(
-                                "Lihat Semua",
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Primary50,
+                            Flexible(
+                              child: Container(
+                                width: 167.w,
+                                // height: 110.sp,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: Color(0xFFFFFFFF),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0.sp),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 32.sp,
+                                        width: 32.sp,
+                                        child: SvgPicture.asset(
+                                          'assets/icons/icon-Kelola Product-Yellow.svg',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2.sp),
+                                      Text(
+                                        "Kelola Produk",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2.sp),
+                                      Text(
+                                        "Kelola stok, varian, dan kategori produkmu",
+                                        style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Container(
-                        height: 250.0.sp,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: productPromoList.productPromos.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 122.0.sp,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              margin: EdgeInsets.all(8.0.sp),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                  8.0.sp,
-                                  8.0.sp,
-                                  8.0.sp,
-                                  0.sp,
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      width: 106.0.sp,
-                                      height: 90.0.sp,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(4.0.sp),
-                                          topRight: Radius.circular(4.0.sp),
-                                        ),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            ProductPromoList()
-                                                .productPromos[index]
-                                                .image,
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
-                                        border: Border.all(
-                                          strokeAlign:
-                                              BorderSide.strokeAlignOutside,
-                                          color: DEDEDE,
-                                          width: 0.5.sp,
-                                        ),
-                                      ),
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // SizedBox naik 0.5 agar
-                                        SizedBox(height: 89.5.sp),
-                                        Container(
-                                          width: 106.0.sp,
-                                          height: 18.0.sp,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              bottomRight:
-                                                  Radius.circular(16.0.sp),
-                                              bottomLeft:
-                                                  Radius.circular(4.0.sp),
-                                            ),
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color(0xFF4D89D4),
-                                                Color(0xFF216BC9),
-                                              ],
-                                              begin: Alignment.topCenter,
-                                              end: Alignment.bottomCenter,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.only(
-                                              left: 8.0.sp,
-                                              top: 2.sp,
-                                              bottom: 2.sp,
-                                            ),
-                                            child: Text(
-                                              "Lagi Promo!",
-                                              style: TextStyle(
-                                                fontSize: 10.0.sp,
-                                                fontWeight: FontWeight.w600,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 8.0.sp),
-                                        Text(
-                                          ProductPromoList()
-                                              .productPromos[index]
-                                              .name,
-                                          style: TextStyle(
-                                            fontSize: 12.0.sp,
-                                            fontWeight: FontWeight.w400,
-                                            color: H333333,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 2,
-                                        ),
-                                        SizedBox(height: 4.0.sp),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              color: Secondary50,
-                                              size: 16.0.sp,
-                                            ),
-                                            SizedBox(width: 4.sp),
-                                            Text(
-                                              ProductPromoList()
-                                                  .productPromos[index]
-                                                  .rating
-                                                  .toString(),
-                                              style: TextStyle(
-                                                fontSize: 10.0.sp,
-                                                fontWeight: FontWeight.w400,
-                                                color: Neutral90,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 8.0.sp),
-                                        Text(
-                                          "Rp ${f.format(ProductPromoList().productPromos[index].priceDicoret.toInt())}",
-                                          style: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            fontWeight: FontWeight.w400,
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            color: Neutral90,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rp ${f.format(productPromoList.productPromos[index].price.toInt())}",
-                                          style: TextStyle(
-                                            fontSize: 14.0.sp,
-                                            fontWeight: FontWeight.w600,
-                                            color: H333333,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 24.0.sp),
+                      SizedBox(height: 8.sp),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.sp),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "Belanjaan Terakhir",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
-                                color: H333333,
+                            Flexible(
+                              child: Container(
+                                width: 167.w,
+                                // height: 110.sp,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: Color(0xFFFFFFFF),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16.sp,
+                                    vertical: 10.sp,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Pesanan Baru",
+                                            style: TextStyle(
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w400,
+                                              color: H333333,
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 8,
+                                            height: 8,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Error50,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 4.sp),
+                                      Text(
+                                        "3",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                //
-                              },
-                              child: Text(
-                                "Lihat Semua",
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Primary50,
+                            Flexible(
+                              child: Container(
+                                width: 167.w,
+                                // height: 110.sp,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: Color(0xFFFFFFFF),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16.sp,
+                                    // bottom: 10.sp,
+                                    vertical: 10.sp,
+                                    // right: 16.sp,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Pesanan Selesai",
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                      SizedBox(height: 4.sp),
+                                      Text(
+                                        "15",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Container(
-                        height: 210.0.sp,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount:
-                              belanjaanTerakhirList.belanjaanTerakhirs.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 122.0.sp,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              margin: EdgeInsets.all(8.0.sp),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                  8.0.sp,
-                                  8.0.sp,
-                                  8.0.sp,
-                                  0.sp,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 106.0.sp,
-                                      height: 90.0.sp,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: DEDEDE,
-                                          width: 0.5.sp,
-                                        ),
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(4.0.sp),
-                                          topRight: Radius.circular(4.0.sp),
-                                        ),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            BelanjaanTerakhirList()
-                                                .belanjaanTerakhirs[index]
-                                                .image,
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.0.sp),
-                                    Text(
-                                      BelanjaanTerakhirList()
-                                          .belanjaanTerakhirs[index]
-                                          .name,
-                                      style: TextStyle(
-                                        fontSize: 12.0.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: H333333,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                    ),
-                                    SizedBox(height: 8.0.sp),
-                                    Text(
-                                      "Rp ${f.format(BelanjaanTerakhirList().belanjaanTerakhirs[index].priceDicoret.toInt())}",
-                                      style: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        fontWeight: FontWeight.w400,
-                                        decoration: TextDecoration.lineThrough,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Rp ${f.format(BelanjaanTerakhirList().belanjaanTerakhirs[index].price.toInt())}",
-                                      style: TextStyle(
-                                        fontSize: 14.0.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: H333333,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                      SizedBox(height: 24.sp),
                     ],
                   ),
                 ],
@@ -559,7 +436,7 @@ class HomeView extends GetView<HomeController> {
             ),
             Obx(
               () => Visibility(
-                visible: controller.buttonFloat.isTrue,
+                visible: homeController.buttonFloat.isTrue,
                 child: Container(
                   width: 231.w,
                   height: 116.w,
@@ -679,8 +556,8 @@ class HomeView extends GetView<HomeController> {
             child: BottomNavigationBar(
               backgroundColor: Colors.transparent,
               showUnselectedLabels: true,
-              currentIndex: controller.selectedIndex.value,
-              onTap: (index) => controller.changePage(index),
+              currentIndex: homeController.selectedIndex.value,
+              onTap: (index) => homeController.changePage(index),
               selectedItemColor:
                   Color(0xFF216BC9), // Warna ikon dan teks saat terpilih
               unselectedItemColor:
@@ -700,7 +577,7 @@ class HomeView extends GetView<HomeController> {
               items: [
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    controller.selectedIndex.value == 0
+                    homeController.selectedIndex.value == 0
                         ? 'assets/icons/Home.svg'
                         : 'assets/icons/Home-Grey.svg',
                     width: 30.h,
@@ -710,7 +587,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    controller.selectedIndex.value == 1
+                    homeController.selectedIndex.value == 1
                         ? 'assets/icons/Explore.svg'
                         : 'assets/icons/Explore-Grey.svg',
                     width: 30.h,
@@ -724,7 +601,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    controller.selectedIndex.value == 3
+                    homeController.selectedIndex.value == 3
                         ? 'assets/icons/Transaksi.svg'
                         : 'assets/icons/Transaksi-Grey.svg',
                     width: 30.h,
@@ -734,7 +611,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    controller.selectedIndex.value == 4
+                    homeController.selectedIndex.value == 4
                         ? 'assets/icons/Profil.svg'
                         : 'assets/icons/Profil-Grey.svg',
                     width: 30.h,
@@ -755,10 +632,11 @@ class HomeView extends GetView<HomeController> {
                 elevation: 0.sp,
                 onPressed: () {
                   //
-                  controller.buttonFloat.value = !controller.buttonFloat.value;
+                  homeController.buttonFloat.value =
+                      !homeController.buttonFloat.value;
                 },
                 child: SvgPicture.asset(
-                  controller.buttonFloat.isFalse
+                  homeController.buttonFloat.isFalse
                       ? 'assets/icons/iconGAS-Biru.svg'
                       : 'assets/icons/iconGAS-Kuning.svg',
                   fit: BoxFit.contain,
