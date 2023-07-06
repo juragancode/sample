@@ -1,26 +1,17 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
-import '../controllers/home_toko_controller.dart';
 import 'dart:ui';
 
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/home/controllers/home_controller.dart';
 
 import '../../../constant/colors.dart';
-import '../../../model/produk_promo_model.dart';
-import '../../../model/belanjaan_terakhir_model.dart';
 import '../../../widgets/backgroundHomePage.dart';
-import '../../../widgets/kategoriLainnyaHomePage.dart';
-import '../../../widgets/plazaTokoHomePage.dart';
+import '../../home/controllers/home_controller.dart';
+import '../controllers/home_toko_controller.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 final HomeController homeController = Get.put(HomeController());
@@ -513,6 +504,131 @@ class HomeTokoView extends GetView<HomeTokoController> {
                           ],
                         ),
                       ),
+                      SizedBox(height: 16.sp),
+                      Padding(
+                        padding: EdgeInsets.all(0),
+                        child: Flexible(
+                          child: Container(
+                            width: 343.w,
+                            // height: 220.sp,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.r),
+                              color: Color(0xFFFFFFFF),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(8.0.sp),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Statistik Penjualan",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: H333333,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          top: 10.sp,
+                                          right: 16.sp,
+                                          bottom: 16.sp,
+                                        ),
+                                        child: AspectRatio(
+                                          aspectRatio: 1.5,
+                                          child: LineChart(
+                                            LineChartData(
+                                              minX: 0,
+                                              minY: 0,
+                                              maxX: 5,
+                                              maxY: 25,
+                                              gridData: FlGridData(
+                                                show: true,
+                                                getDrawingHorizontalLine:
+                                                    (value) {
+                                                  return FlLine(
+                                                    color: Neutral50,
+                                                    strokeWidth: 1,
+                                                  );
+                                                },
+                                                drawVerticalLine: true,
+                                                getDrawingVerticalLine:
+                                                    (value) {
+                                                  return FlLine(
+                                                    color: Neutral50,
+                                                    strokeWidth: 1,
+                                                  );
+                                                },
+                                              ),
+                                              lineBarsData: [
+                                                LineChartBarData(
+                                                  spots: [
+                                                    FlSpot(0, 2.5),
+                                                    FlSpot(1, 5),
+                                                    FlSpot(2, 10),
+                                                    FlSpot(3, 14),
+                                                    FlSpot(4, 18),
+                                                    FlSpot(5, 22),
+                                                  ],
+                                                ),
+                                              ],
+                                              titlesData: FlTitlesData(
+                                                topTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                      showTitles: false),
+                                                ),
+                                                rightTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                      showTitles: false),
+                                                ),
+                                                bottomTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                    getTitlesWidget:
+                                                        (value, meta) {
+                                                      switch (value.toInt()) {
+                                                        case 0:
+                                                          return Text(
+                                                            '6 Mei',
+                                                            // style: TextStyle(
+                                                            //   fontSize: 12.sp,
+                                                            //   fontWeight:
+                                                            //       FontWeight.w400,
+                                                            //   color: Neutral90,
+                                                            // ),
+                                                          );
+                                                        case 1:
+                                                          return Text('11 Mei');
+                                                        case 2:
+                                                          return Text('16 Mei');
+                                                        case 3:
+                                                          return Text('21 Mei');
+                                                        case 4:
+                                                          return Text('26 Mei');
+                                                        case 5:
+                                                          return Text('31 Mei');
+                                                        default:
+                                                          return Text('');
+                                                      }
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 30),
                     ],
                   ),
                 ],
