@@ -1,25 +1,26 @@
 import 'dart:ui';
 
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 import '../../../constant/colors.dart';
 import '../../../widgets/backgroundHomePage.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/home_toko_controller.dart';
 
-var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 final HomeController homeController = Get.put(HomeController());
 
 class HomeTokoView extends GetView<HomeTokoController> {
   const HomeTokoView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return GestureDetector(
       onTap: () {
         homeController.searchFN.unfocus();
@@ -27,8 +28,8 @@ class HomeTokoView extends GetView<HomeTokoController> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
-        // backgroundColor: Color(0xFFF9F9F9),
-        backgroundColor: Color.fromARGB(255, 222, 255, 191),
+        backgroundColor: Color(0xFFF9F9F9),
+        // backgroundColor: Color.fromARGB(255, 222, 255, 191),
         body: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
@@ -176,7 +177,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                       height: 40.sp,
                                       width: 40.sp,
                                       child: Image.asset(
-                                        'assets/icons/contoh-profil-1.png',
+                                        'assets/icons/contoh-profil-2.png',
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -533,20 +534,28 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                          top: 10.sp,
+                                          top: 16.sp,
                                           right: 16.sp,
                                           bottom: 16.sp,
                                         ),
                                         child: AspectRatio(
-                                          aspectRatio: 1.5,
+                                          aspectRatio: 1.7,
                                           child: LineChart(
                                             LineChartData(
                                               minX: 0,
                                               minY: 0,
                                               maxX: 5,
                                               maxY: 25,
+                                              borderData: FlBorderData(
+                                                show: true,
+                                                border: Border.all(
+                                                  color: Neutral50,
+                                                  width: 1.0,
+                                                ),
+                                              ),
                                               gridData: FlGridData(
                                                 show: true,
+                                                verticalInterval: 1,
                                                 getDrawingHorizontalLine:
                                                     (value) {
                                                   return FlLine(
@@ -569,49 +578,143 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                                     FlSpot(0, 2.5),
                                                     FlSpot(1, 5),
                                                     FlSpot(2, 10),
-                                                    FlSpot(3, 14),
-                                                    FlSpot(4, 18),
-                                                    FlSpot(5, 22),
+                                                    FlSpot(3, 14.4),
+                                                    FlSpot(4, 18.5),
+                                                    FlSpot(5, 21.5),
                                                   ],
+                                                  color: Primary50,
+                                                  isCurved: true,
+                                                  dotData: FlDotData(
+                                                    show: true,
+                                                    getDotPainter: (spot,
+                                                        percent,
+                                                        barData,
+                                                        index) {
+                                                      final color = Primary10;
+                                                      return FlDotCirclePainter(
+                                                        radius: 0,
+                                                        color: color,
+                                                        strokeWidth: 3,
+                                                        strokeColor: color,
+                                                      );
+                                                    },
+                                                  ),
+                                                  belowBarData: BarAreaData(
+                                                    show: false,
+                                                  ),
+                                                  barWidth: 2,
                                                 ),
                                               ],
                                               titlesData: FlTitlesData(
+                                                show: true,
                                                 topTitles: AxisTitles(
                                                   sideTitles: SideTitles(
-                                                      showTitles: false),
+                                                    showTitles: false,
+                                                  ),
                                                 ),
                                                 rightTitles: AxisTitles(
                                                   sideTitles: SideTitles(
-                                                      showTitles: false),
+                                                    showTitles: false,
+                                                  ),
+                                                ),
+                                                leftTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                    showTitles: true,
+                                                    reservedSize: 25,
+                                                    getTitlesWidget:
+                                                        (value, meta) {
+                                                      // String nilai = '';
+
+                                                      // switch (value.toInt()) {
+                                                      //   case 0:
+                                                      //     nilai = '0';
+                                                      //     break;
+                                                      //   case 5:
+                                                      //     nilai = '5';
+                                                      //     break;
+                                                      //   case 10:
+                                                      //     nilai = '10';
+                                                      //     break;
+                                                      //   case 15:
+                                                      //     nilai = '15';
+                                                      //     break;
+                                                      //   case 20:
+                                                      //     nilai = '20';
+                                                      //     break;
+                                                      //   case 25:
+                                                      //     nilai = '25';
+                                                      //     break;
+                                                      // }
+                                                      return Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                          right: 6.sp,
+                                                        ),
+                                                        child: Text(
+                                                          value
+                                                              .toInt()
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                            color: H333333,
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                          textDirection:
+                                                              TextDirection.rtl,
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                                 bottomTitles: AxisTitles(
                                                   sideTitles: SideTitles(
+                                                    showTitles: true,
+                                                    interval: 1,
+                                                    reservedSize: 30,
                                                     getTitlesWidget:
                                                         (value, meta) {
+                                                      String text = '';
+
                                                       switch (value.toInt()) {
                                                         case 0:
-                                                          return Text(
-                                                            '6 Mei',
-                                                            // style: TextStyle(
-                                                            //   fontSize: 12.sp,
-                                                            //   fontWeight:
-                                                            //       FontWeight.w400,
-                                                            //   color: Neutral90,
-                                                            // ),
-                                                          );
+                                                          text = '6 Mei';
+                                                          break;
                                                         case 1:
-                                                          return Text('11 Mei');
+                                                          text = '11 Mei';
+                                                          break;
                                                         case 2:
-                                                          return Text('16 Mei');
+                                                          text = '16 Mei';
+                                                          break;
                                                         case 3:
-                                                          return Text('21 Mei');
+                                                          text = '21 Mei';
+                                                          break;
                                                         case 4:
-                                                          return Text('26 Mei');
+                                                          text = '26 Mei';
+                                                          break;
                                                         case 5:
-                                                          return Text('31 Mei');
+                                                          text = '1 Juni';
+                                                          break;
                                                         default:
-                                                          return Text('');
+                                                          text = '';
+                                                          break;
                                                       }
+                                                      return Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                          top: 12.sp,
+                                                          left: 10.sp,
+                                                        ),
+                                                        child: Text(
+                                                          text,
+                                                          style: TextStyle(
+                                                            color: H333333,
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                      );
                                                     },
                                                   ),
                                                 ),
