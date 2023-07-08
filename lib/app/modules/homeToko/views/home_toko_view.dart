@@ -13,6 +13,8 @@ import '../../../widgets/backgroundHomePage.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/home_toko_controller.dart';
 
+import '../../../widgets/gantiAkun_showModalButtomSheet.dart';
+
 final HomeController homeController = Get.put(HomeController());
 
 class HomeTokoView extends GetView<HomeTokoController> {
@@ -36,6 +38,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
             SingleChildScrollView(
               child: Stack(
                 children: [
+                  SizedBox(height: Get.height - 56),
                   BackgroundHomePage(),
                   Column(
                     children: [
@@ -88,7 +91,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                   ),
                                 ),
                               ),
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {
                                   //
                                   print("Pesan");
@@ -107,7 +110,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                   ),
                                 ),
                               ),
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {
                                   //
                                   print("Notifikasi");
@@ -126,7 +129,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                   ),
                                 ),
                               ),
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {
                                   //
                                   print("Keranjang");
@@ -139,11 +142,17 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                   child: Container(
                                     // height: 36.sp,
                                     // width: 36.sp,
-                                    child: SvgPicture.asset(
-                                      'assets/icons/Button-Cart.svg',
-                                      fit: BoxFit.contain,
-                                      height: 36.sp,
-                                      width: 36.sp,
+                                    child: InkWell(
+                                      onTap: () {
+                                        //
+                                        print("Keranjang");
+                                      },
+                                      child: SvgPicture.asset(
+                                        'assets/icons/Button-Cart.svg',
+                                        fit: BoxFit.contain,
+                                        height: 36.sp,
+                                        width: 36.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -153,68 +162,72 @@ class HomeTokoView extends GetView<HomeTokoController> {
                         ),
                       ),
                       SizedBox(height: 63.w),
-                      InkWell(
-                        onTap: () {
-                          //
-                          print("Ganti Akun");
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 16.sp),
-                          width: 343.w,
-                          height: 60.sp,
-                          decoration: BoxDecoration(
+                      Container(
+                        width: 343.w,
+                        height: 60.sp,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: Color(0xFFFFFFFF),
+                        ),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
                             borderRadius: BorderRadius.circular(8.r),
-                            color: Color(0xFFFFFFFF),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 40.sp,
-                                      width: 40.sp,
-                                      child: Image.asset(
-                                        'assets/icons/contoh-profil-2.png',
-                                        fit: BoxFit.cover,
+                            onTap: () {
+                              //
+                              gantiAkun_showModalButtomSheet(context);
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 40.sp,
+                                        width: 40.sp,
+                                        child: Image.asset(
+                                          'assets/icons/contoh-profil-2.png',
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(width: 8.sp),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Toko Rekadigi",
-                                          style: TextStyle(
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.w600,
-                                            color: H333333,
+                                      SizedBox(width: 8.sp),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Toko Rekadigi",
+                                            style: TextStyle(
+                                              fontSize: 14.sp,
+                                              fontWeight: FontWeight.w600,
+                                              color: H333333,
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(height: 2.sp),
-                                        Text(
-                                          "Akun Toko",
-                                          style: TextStyle(
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w400,
-                                            color: Neutral90,
+                                          SizedBox(height: 2.sp),
+                                          Text(
+                                            "Akun Toko",
+                                            style: TextStyle(
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w400,
+                                              color: Neutral90,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  size: 24.sp,
-                                  color: Primary50,
-                                ),
-                              ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    size: 24.sp,
+                                    color: Primary50,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -247,7 +260,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                           fit: BoxFit.cover,
                                         ),
                                       ),
-                                      SizedBox(height: 2.sp),
+                                      SizedBox(height: 8.sp),
                                       Text(
                                         "Mesin Kasir",
                                         style: TextStyle(
@@ -292,7 +305,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                           fit: BoxFit.cover,
                                         ),
                                       ),
-                                      SizedBox(height: 2.sp),
+                                      SizedBox(height: 8.sp),
                                       Text(
                                         "Kelola Produk",
                                         style: TextStyle(
@@ -556,6 +569,7 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                               gridData: FlGridData(
                                                 show: true,
                                                 verticalInterval: 1,
+                                                horizontalInterval: 5,
                                                 getDrawingHorizontalLine:
                                                     (value) {
                                                   return FlLine(
@@ -619,32 +633,11 @@ class HomeTokoView extends GetView<HomeTokoController> {
                                                 ),
                                                 leftTitles: AxisTitles(
                                                   sideTitles: SideTitles(
+                                                    interval: 5,
                                                     showTitles: true,
                                                     reservedSize: 25,
                                                     getTitlesWidget:
                                                         (value, meta) {
-                                                      // String nilai = '';
-
-                                                      // switch (value.toInt()) {
-                                                      //   case 0:
-                                                      //     nilai = '0';
-                                                      //     break;
-                                                      //   case 5:
-                                                      //     nilai = '5';
-                                                      //     break;
-                                                      //   case 10:
-                                                      //     nilai = '10';
-                                                      //     break;
-                                                      //   case 15:
-                                                      //     nilai = '15';
-                                                      //     break;
-                                                      //   case 20:
-                                                      //     nilai = '20';
-                                                      //     break;
-                                                      //   case 25:
-                                                      //     nilai = '25';
-                                                      //     break;
-                                                      // }
                                                       return Padding(
                                                         padding:
                                                             EdgeInsets.only(
@@ -738,8 +731,10 @@ class HomeTokoView extends GetView<HomeTokoController> {
               ),
             ),
             Obx(
-              () => Visibility(
-                visible: homeController.buttonFloat.isTrue,
+              () => AnimatedPositioned(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                bottom: homeController.buttonFloat.isTrue ? 0 : -116.w,
                 child: Container(
                   width: 231.w,
                   height: 116.w,

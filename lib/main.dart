@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),
         translations: Languages(),
-        locale: Locale(
-            'id_ID'), // Set bahasa awal menjadi bahasa Indonesia ('id_ID')
-        fallbackLocale: Locale(
-            'en_US'), // Set bahasa cadangan menjadi bahasa inggris ('en_US')
+        locale: Locale('id_ID'), // Set bahasa awal menjadi bahasa Indonesia
+        fallbackLocale:
+            Locale('en_US'), // Set bahasa cadangan menjadi bahasa inggris
       ),
       useInheritedMediaQuery: true,
       designSize: const Size(375, 812),

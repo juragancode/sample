@@ -38,7 +38,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 2.sp),
+                    SizedBox(height: 8.sp),
                     Text(
                       "Plaza",
                       style: TextStyle(
@@ -82,7 +82,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 2.sp),
+                    SizedBox(height: 8.sp),
                     Text(
                       "Toko",
                       style: TextStyle(

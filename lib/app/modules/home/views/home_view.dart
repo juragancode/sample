@@ -16,6 +16,7 @@ import '../../../widgets/backgroundHomePage.dart';
 import '../../../widgets/kategoriLainnyaHomePage.dart';
 import '../../../widgets/plazaTokoHomePage.dart';
 import '../controllers/home_controller.dart';
+import '../../../widgets/gantiAkun_showModalButtomSheet.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -41,6 +42,7 @@ class HomeView extends GetView<HomeController> {
             SingleChildScrollView(
               child: Stack(
                 children: [
+                  SizedBox(height: Get.height - 56),
                   BackgroundHomePage(),
                   Column(
                     children: [
@@ -558,8 +560,10 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             Obx(
-              () => Visibility(
-                visible: controller.buttonFloat.isTrue,
+              () => AnimatedPositioned(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                bottom: controller.buttonFloat.isTrue ? 0 : -116.w,
                 child: Container(
                   width: 231.w,
                   height: 116.w,
