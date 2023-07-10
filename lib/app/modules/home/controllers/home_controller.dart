@@ -14,7 +14,7 @@ class HomeController extends GetxController {
 
   // indeks Bottom Navigation Bar
   RxInt selectedIndex = 0.obs;
-  RxInt accountIndex = 0.obs;
+  RxInt accountIndex = 1.obs;
 
   final List<String> imageList = [
     'assets/icons/Banner-Belanja-Praktis.png',
