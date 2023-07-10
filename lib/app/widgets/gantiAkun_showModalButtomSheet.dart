@@ -41,6 +41,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       GestureDetector(
                         onTap: () {
                           homeController.accountIndex.value = 1;
+                          homeController.navigateToHomePage();
                         },
                         child: Material(
                           child: Row(
@@ -94,6 +95,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       GestureDetector(
                         onTap: () {
                           homeController.accountIndex.value = 2;
+                          homeController.navigateToHomePage();
                         },
                         child: Material(
                           child: Row(
@@ -147,7 +149,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       GestureDetector(
                         onTap: () {
                           homeController.accountIndex.value = 3;
-                          print(homeController.accountIndex.value);
+                          homeController.navigateToHomePage();
                         },
                         child: Material(
                           child: Row(

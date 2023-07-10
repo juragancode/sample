@@ -41,6 +41,8 @@ class AppPages {
       name: _Paths.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 800),
     ),
     GetPage(
       name: _Paths.INTRODUCTION_SCREEN,
@@ -101,11 +103,15 @@ class AppPages {
       name: _Paths.HOME_TOKO,
       page: () => const HomeTokoView(),
       binding: HomeTokoBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 800),
     ),
     GetPage(
       name: _Paths.HOME_KARYAWAN,
       page: () => const HomeKaryawanView(),
       binding: HomeKaryawanBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 800),
     ),
   ];
 }
