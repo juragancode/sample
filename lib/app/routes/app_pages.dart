@@ -96,19 +96,19 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.EXPLORE,
-      page: () => const ExploreView(),
+      page: () => ExploreView(),
       binding: ExploreBinding(),
     ),
     GetPage(
       name: _Paths.HOME_TOKO,
-      page: () => const HomeTokoView(),
+      page: () => HomeTokoView(),
       binding: HomeTokoBinding(),
       transition: Transition.fadeIn,
       transitionDuration: Duration(milliseconds: 800),
     ),
     GetPage(
       name: _Paths.HOME_KARYAWAN,
-      page: () => const HomeKaryawanView(),
+      page: () => HomeKaryawanView(),
       binding: HomeKaryawanBinding(),
       transition: Transition.fadeIn,
       transitionDuration: Duration(milliseconds: 800),

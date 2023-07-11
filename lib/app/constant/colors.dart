@@ -8,6 +8,9 @@ const Neutral90 = Color(0xFF858585);
 const Neutral50 = Color(0xFFB5B5B5);
 const Neutral30 = Color(0xFFD1D1D1);
 
+const Warning50 = Color(0xFFFF7A00);
+const Success50 = Color(0xFF0DE864);
+
 const H333333 = Color(0xFF333333);
 const DEDEDE = Color(0xFFDEDEDE);
 const Error50 = Color(0xFFFF002E);
