@@ -26,4 +26,8 @@ class HomeController extends GetxController {
   RxBool buttonFloat = false.obs;
 
   RxInt accountIndex = 0.obs;
+
+  void changeAccountIndex(int index) {
+    accountIndex.value = index;
+  }
 }
