@@ -40,8 +40,8 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          homeController.accountIndex.value = 1;
-                          homeController.navigateToHomePage();
+                          homeController.accountIndex.value = 0;
+                          Get.back();
                         },
                         child: Material(
                           child: Row(
@@ -84,7 +84,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                                   ),
                                 ],
                               ),
-                              homeController.accountIndex.value == 1
+                              homeController.accountIndex.value == 0
                                   ? checkModalBottomSheet_true()
                                   : checkModalBottomSheet_false(),
                             ],
@@ -94,8 +94,8 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       SizedBox(height: 20.sp),
                       GestureDetector(
                         onTap: () {
-                          homeController.accountIndex.value = 2;
-                          homeController.navigateToHomePage();
+                          homeController.accountIndex.value = 1;
+                          Get.back();
                         },
                         child: Material(
                           child: Row(
@@ -138,7 +138,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                                   ),
                                 ],
                               ),
-                              homeController.accountIndex.value == 2
+                              homeController.accountIndex.value == 1
                                   ? checkModalBottomSheet_true()
                                   : checkModalBottomSheet_false(),
                             ],
@@ -148,8 +148,8 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       SizedBox(height: 20.sp),
                       GestureDetector(
                         onTap: () {
-                          homeController.accountIndex.value = 3;
-                          homeController.navigateToHomePage();
+                          homeController.accountIndex.value = 2;
+                          Get.back();
                         },
                         child: Material(
                           child: Row(
@@ -192,7 +192,7 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                                   ),
                                 ],
                               ),
-                              homeController.accountIndex.value == 3
+                              homeController.accountIndex.value == 2
                                   ? checkModalBottomSheet_true()
                                   : checkModalBottomSheet_false(),
                             ],

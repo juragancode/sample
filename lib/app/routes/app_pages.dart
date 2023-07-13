@@ -10,10 +10,6 @@ import '../modules/explore/bindings/explore_binding.dart';
 import '../modules/explore/views/explore_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/homeKaryawan/bindings/home_karyawan_binding.dart';
-import '../modules/homeKaryawan/views/home_karyawan_view.dart';
-import '../modules/homeToko/bindings/home_toko_binding.dart';
-import '../modules/homeToko/views/home_toko_view.dart';
 import '../modules/intro_screen/bindings/intro_screen_binding.dart';
 import '../modules/intro_screen/views/intro_screen_view.dart';
 import '../modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart';
@@ -98,20 +94,6 @@ class AppPages {
       name: _Paths.EXPLORE,
       page: () => ExploreView(),
       binding: ExploreBinding(),
-    ),
-    GetPage(
-      name: _Paths.HOME_TOKO,
-      page: () => HomeTokoView(),
-      binding: HomeTokoBinding(),
-      transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 800),
-    ),
-    GetPage(
-      name: _Paths.HOME_KARYAWAN,
-      page: () => HomeKaryawanView(),
-      binding: HomeKaryawanBinding(),
-      transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 800),
     ),
   ];
 }
