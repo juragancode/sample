@@ -30,4 +30,10 @@ class HomeController extends GetxController {
   void changeAccountIndex(int index) {
     accountIndex.value = index;
   }
+
+  RxBool isCardExpanded = false.obs;
+
+  void toggleCardExpansion() {
+    isCardExpanded.value = !isCardExpanded.value;
+  }
 }

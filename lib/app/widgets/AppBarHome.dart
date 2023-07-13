@@ -8,117 +8,110 @@ import '../modules/home/controllers/home_controller.dart';
 
 class AppBarHome extends StatelessWidget {
   const AppBarHome({
-    super.key,
+    Key? key,
     required this.controller,
-  });
+  }) : super(key: key);
 
   final HomeController controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.amber,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.sp),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              height: 36.sp,
-              width: 223.w,
-              decoration: BoxDecoration(
-                color: Color(0xFFFFFFFF),
-                borderRadius: BorderRadius.circular(32.r),
-              ),
-              child: TextField(
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF333333),
-                  decorationThickness: 0,
+            Expanded(
+              child: Container(
+                height: 36.sp,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.circular(32.r),
                 ),
-                focusNode: controller.searchFN,
-                controller: controller.searchC,
-                textInputAction: TextInputAction.done,
-                keyboardType: TextInputType.text,
-                autocorrect: false,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Cari di aplikasi GAS',
-                  prefixIcon: Icon(
-                    CupertinoIcons.search,
-                    color: Color(0xFFFFCA08),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 12.sp,
                   ),
-                  contentPadding: EdgeInsets.symmetric(
-                      // vertical: 2,
+                  child: Row(
+                    children: [
+                      Icon(
+                        CupertinoIcons.search,
+                        color: Color(0xFFFFCA08),
                       ),
-                  suffix: SizedBox(width: 20.sp),
-                  hintStyle: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Neutral90,
+                      SizedBox(width: 8.sp),
+                      Expanded(
+                        // bug apabila text yang diisi panjangnya melebihi yang disediakan textfield maka akn terpotong (kayaknya content padding)
+                        child: TextField(
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF333333),
+                            decorationThickness: 0,
+                          ),
+                          focusNode: controller.searchFN,
+                          controller: controller.searchC,
+                          textInputAction: TextInputAction.done,
+                          keyboardType: TextInputType.text,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Cari di aplikasi GAS',
+                            contentPadding:
+                                EdgeInsets.symmetric(vertical: 12.sp),
+                            hintStyle: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                              color: Neutral90,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
+            SizedBox(width: 8.sp),
             GestureDetector(
               onTap: () {
-                //
                 print("Pesan");
               },
-              child: Padding(
-                padding: EdgeInsets.only(left: 4.w),
-                child: Container(
-                  // height: 36.sp,
-                  // width: 36.sp,
-                  child: SvgPicture.asset(
-                    'assets/icons/Button-Message.svg',
-                    fit: BoxFit.contain,
-                    width: 36.sp,
-                    height: 36.sp,
-                  ),
+              child: Container(
+                child: SvgPicture.asset(
+                  'assets/icons/Button-Message.svg',
+                  fit: BoxFit.contain,
+                  width: 36.sp,
+                  height: 36.sp,
                 ),
               ),
             ),
+            SizedBox(width: 4.sp),
             GestureDetector(
               onTap: () {
-                //
                 print("Notifikasi");
               },
-              child: Padding(
-                padding: EdgeInsets.only(left: 4.w),
-                child: Container(
-                  // height: 36.sp,
-                  // width: 36.sp,
-                  child: SvgPicture.asset(
-                    'assets/icons/Button-Notif.svg',
-                    fit: BoxFit.contain,
-                    height: 36.sp,
-                    width: 36.sp,
-                  ),
+              child: Container(
+                child: SvgPicture.asset(
+                  'assets/icons/Button-Notif.svg',
+                  fit: BoxFit.contain,
+                  height: 36.sp,
+                  width: 36.sp,
                 ),
               ),
             ),
+            SizedBox(width: 4.sp),
             GestureDetector(
               onTap: () {
-                //
                 print("Keranjang");
               },
-              child: Padding(
-                padding: EdgeInsets.only(
-                  // right: 16.sp,
-                  left: 4.w,
-                ),
-                child: Container(
-                  // height: 36.sp,
-                  // width: 36.sp,
-                  child: SvgPicture.asset(
-                    'assets/icons/Button-Cart.svg',
-                    fit: BoxFit.contain,
-                    height: 36.sp,
-                    width: 36.sp,
-                  ),
+              child: Container(
+                child: SvgPicture.asset(
+                  'assets/icons/Button-Cart.svg',
+                  fit: BoxFit.contain,
+                  height: 36.sp,
+                  width: 36.sp,
                 ),
               ),
             ),
