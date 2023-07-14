@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
 
 class ExploreController extends GetxController {
-  RxInt initialIndex = 0.obs;
+  RxInt tabbarInitialIndex = 0.obs;
 }

@@ -6,8 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import '../constant/colors.dart';
 import '../modules/home/controllers/home_controller.dart';
 
-class AppBarHome extends StatelessWidget {
-  const AppBarHome({
+class AppBarExplore extends StatelessWidget {
+  const AppBarExplore({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -127,7 +127,7 @@ class AppBarHome extends StatelessWidget {
       borderRadius: BorderRadius.circular(32.r),
       border: Border.all(
         strokeAlign: BorderSide.strokeAlignInside,
-        style: BorderStyle.none,
+        // style: BorderStyle.none,
         width: 1.sp,
         color: Neutral10,
       ),
