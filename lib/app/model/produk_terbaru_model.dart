@@ -33,7 +33,7 @@ class ProductTerbaruList {
       favorite: true,
     ),
     ProductTerbaru(
-      name: "Lengkeng Bangkok per 500g. Longan Thailand",
+      name: "Lengkeng Bangkok per 500gr Longan Thailand",
       shopName: "Toko Bagas",
       city: "Boyolali",
       image:
