@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_a_s_app_rekadigi/app/model/Filter_model.dart';
 import 'package:get/get.dart';
 
 import '../../../constant/colors.dart';
@@ -8,11 +10,10 @@ import '../../../model/produk_promo_model.dart';
 import '../../../model/produk_terbaru_model.dart';
 import '../../../model/produk_terlaris_model.dart';
 import '../../../widgets/AppBarExplore.dart';
-import '../../../widgets/ProdukPromoExplore.dart';
-import '../../../widgets/ProdukTerbaru.dart';
-import '../../../widgets/ProdukTerlaris.dart';
+import '../../../widgets/TabBarExplore.dart';
 import '../../../widgets/gasBottomNavigationBar.dart';
 import '../../../widgets/gasFloatingActionButton_Bottom.dart';
+import '../../../widgets/contentExplorer.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/explore_controller.dart';
 
@@ -22,6 +23,7 @@ class ExploreView extends GetView<ExploreController> {
   final ProductPromoList productPromoList = ProductPromoList();
   final ProductTerlarisList productTerlarisList = ProductTerlarisList();
   final ProductTerbaruList productTerbaruList = ProductTerbaruList();
+  final FilterList filterList = FilterList();
 
   @override
   Widget build(BuildContext context) {
@@ -31,68 +33,180 @@ class ExploreView extends GetView<ExploreController> {
       onTap: () {
         homeController.searchFN.unfocus();
       },
-      child: DefaultTabController(
-        initialIndex: controller.tabbarInitialIndex.value.toInt(),
-        length: 2,
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          extendBodyBehindAppBar: true,
-          // backgroundColor: Color.fromARGB(255, 165, 255, 121),
-          backgroundColor: BackgroundColor,
-          body: Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    SizedBox(height: Get.height - 56),
-                    // BackgroundHomePage(),
-                    Column(
-                      children: [
-                        SizedBox(height: 54.w),
-                        AppBarExplore(controller: homeController),
-                        SizedBox(height: 14.sp),
-                        TabBar(
-                          labelStyle: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: H333333,
-                          ),
-                          unselectedLabelStyle: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: Neutral50,
-                          ),
-                          tabs: [
-                            Tab(text: "Produk"),
-                            Tab(text: "Toko"),
-                          ],
-                          isScrollable: false,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        extendBodyBehindAppBar: true,
+        // backgroundColor: Color.fromARGB(255, 204, 246, 183),
+        backgroundColor: BackgroundColor,
+        body: Stack(
+          alignment: AlignmentDirectional.bottomCenter,
+          children: [
+            SingleChildScrollView(
+              child: Stack(
+                children: [
+                  SizedBox(height: Get.height - 56),
+                  // BackgroundHomePage(),
+                  Container(
+                    width: Get.width,
+                    height: 190.sp,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF262626).withOpacity(0.05),
+                          offset: Offset(0, 5),
+                          blurRadius: 10,
+                          spreadRadius: 0,
                         ),
-                        SizedBox(height: 24.sp),
-                        ProdukPromoExplore(productPromoList: productPromoList),
-                        SizedBox(height: 24.0.sp),
-                        ProdukTerbaru(productTerbaruList: productTerbaruList),
-                        SizedBox(height: 24.sp),
-                        ProdukTerlaris(
-                            productTerlarisList: productTerlarisList),
-                        SizedBox(height: 10.sp),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(height: 54.w),
+                      AppBarExplore(controller: homeController),
+                      TabBarExplore(),
+                      Column(
+                        children: [
+                          SizedBox(height: 12.sp),
+                          Row(
+                            children: [
+                              SizedBox(width: 18.sp),
+                              Container(
+                                width: 28.0.sp,
+                                height: 28.0.sp,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(32.0.sp),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xFF4D89D4),
+                                      Color(0xFF216BC9),
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 1.5),
+                                  child: Icon(
+                                    CupertinoIcons.line_horizontal_3_decrease,
+                                    color: Colors.white,
+                                    size: 17.sp,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 8.sp),
+                              Container(
+                                height: 33.sp,
+                                width: Get.width - 32.0.sp - 18.sp - 8.sp,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: filterList.filters.length,
+                                  itemBuilder: (context, index) {
+                                    final filter = filterList.filters[index];
+                                    return Obx(
+                                      () => GestureDetector(
+                                        onTap: () {
+                                          homeController
+                                                  .filterSelectedState[index] =
+                                              !homeController
+                                                  .filterSelectedState[index];
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.slowMiddle,
+
+                                          margin: EdgeInsets.symmetric(
+                                            horizontal: 4.sp,
+                                          ),
+                                          // height: 33.sp,
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 20.sp,
+                                            vertical: 8.sp,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: homeController
+                                                    .filterSelectedState[index]
+                                                ? Color(0xFFD0E4FF)
+                                                : Colors.transparent,
+                                            borderRadius:
+                                                BorderRadius.circular(32.r),
+                                            border: homeController
+                                                    .filterSelectedState[index]
+                                                ? Border.all(
+                                                    color: Primary50,
+                                                    width: 0.5)
+                                                : Border.all(
+                                                    color: Neutral90,
+                                                    width: 0.5),
+                                          ),
+                                          child: Center(
+                                            child: Row(
+                                              children: [
+                                                if (filter.icon != null) ...[
+                                                  Icon(filter.icon,
+                                                      size: 18,
+                                                      color: Secondary50),
+                                                  SizedBox(width: 4.sp),
+                                                ],
+                                                Text(
+                                                  filter.title!,
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: homeController
+                                                                .filterSelectedState[
+                                                            index]
+                                                        ? Primary50
+                                                        : Neutral90,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Obx(
+                        () => IndexedStack(
+                          index: homeController.isTokoIndex.value,
+                          children: [
+                            ContentExplorer(
+                                productPromoList: productPromoList,
+                                productTerbaruList: productTerbaruList,
+                                productTerlarisList: productTerlarisList),
+                            Container(
+                              width: Get.width,
+                              height: Get.height,
+                              child: Center(
+                                child: Text("Halaman Toko"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              gasButton(controller: homeController),
-            ],
-          ),
-          bottomNavigationBar: gasBottomNavigationBar(
-            controller: homeController,
-          ),
-          floatingActionButton:
-              gasFloatingActionButton_Bottom(controller: homeController),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+            ),
+            gasButton(controller: homeController),
+          ],
         ),
+
+        bottomNavigationBar: gasBottomNavigationBar(
+          controller: homeController,
+        ),
+        floatingActionButton:
+            gasFloatingActionButton_Bottom(controller: homeController),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
