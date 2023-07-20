@@ -2,33 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_a_s_app_rekadigi/app/model/Filter_model.dart';
 import 'package:get/get.dart';
 
 import '../../../constant/colors.dart';
-import '../../../model/produk_promo_model.dart';
-import '../../../model/produk_terbaru_model.dart';
-import '../../../model/produk_terlaris_model.dart';
+import '../../../model/Filter_model.dart';
 import '../../../widgets/AppBarExplore.dart';
 import '../../../widgets/TabBarExplore.dart';
-import '../../../widgets/gasBottomNavigationBar.dart';
-import '../../../widgets/gasFloatingActionButton_Bottom.dart';
 import '../../../widgets/contentExplorer.dart';
+import '../../../widgets/backgroundExplore.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/explore_controller.dart';
 
 final HomeController homeController = Get.put(HomeController());
 
 class ExploreView extends GetView<ExploreController> {
-  final ProductPromoList productPromoList = ProductPromoList();
-  final ProductTerlarisList productTerlarisList = ProductTerlarisList();
-  final ProductTerbaruList productTerbaruList = ProductTerbaruList();
   final FilterList filterList = FilterList();
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
     return GestureDetector(
       onTap: () {
         homeController.searchFN.unfocus();
@@ -45,22 +42,7 @@ class ExploreView extends GetView<ExploreController> {
               child: Stack(
                 children: [
                   SizedBox(height: Get.height - 56),
-                  // BackgroundHomePage(),
-                  Container(
-                    width: Get.width,
-                    height: 190.sp,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFF262626).withOpacity(0.05),
-                          offset: Offset(0, 5),
-                          blurRadius: 10,
-                          spreadRadius: 0,
-                        ),
-                      ],
-                    ),
-                  ),
+                  backgroundExplore(),
                   Column(
                     children: [
                       SizedBox(height: 54.w),
@@ -115,7 +97,6 @@ class ExploreView extends GetView<ExploreController> {
                                         child: AnimatedContainer(
                                           duration: Duration(milliseconds: 300),
                                           curve: Curves.slowMiddle,
-
                                           margin: EdgeInsets.symmetric(
                                             horizontal: 4.sp,
                                           ),
@@ -178,10 +159,7 @@ class ExploreView extends GetView<ExploreController> {
                         () => IndexedStack(
                           index: homeController.isTokoIndex.value,
                           children: [
-                            ContentExplorer(
-                                productPromoList: productPromoList,
-                                productTerbaruList: productTerbaruList,
-                                productTerlarisList: productTerlarisList),
+                            ContentExplorer(),
                             Container(
                               width: Get.width,
                               height: Get.height,
@@ -197,16 +175,8 @@ class ExploreView extends GetView<ExploreController> {
                 ],
               ),
             ),
-            gasButton(controller: homeController),
           ],
         ),
-
-        bottomNavigationBar: gasBottomNavigationBar(
-          controller: homeController,
-        ),
-        floatingActionButton:
-            gasFloatingActionButton_Bottom(controller: homeController),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }

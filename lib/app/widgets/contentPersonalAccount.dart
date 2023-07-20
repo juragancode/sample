@@ -1,28 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../modules/home/controllers/home_controller.dart';
-import 'BelanjaanTerakhirList.dart';
+import 'BelanjaanTerakhir.dart';
 import 'ProdukPromo.dart';
 import 'kategoriLainnyaHomePage.dart';
 import 'plazaTokoHomePage.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
-class contentPersonalAccount extends StatelessWidget {
-  const contentPersonalAccount({
-    super.key,
-    required this.controller,
-    required this.productPromoList,
-    required this.belanjaanTerakhirList,
-  });
-
-  final HomeController controller;
-  final productPromoList;
-  final belanjaanTerakhirList;
-
+class contentPersonalAccount extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -58,9 +48,10 @@ class contentPersonalAccount extends StatelessWidget {
         SizedBox(height: 24.sp),
         KategoriLainnyaHomePage(),
         SizedBox(height: 24.sp),
-        ProdukPromo(productPromoList: productPromoList),
+        ProdukPromo(),
         SizedBox(height: 24.0.sp),
-        BelanjaanTerakhir(belanjaanTerakhirList: belanjaanTerakhirList),
+        BelanjaanTerakhir(),
+        SizedBox(height: 24.0.sp),
       ],
     );
   }

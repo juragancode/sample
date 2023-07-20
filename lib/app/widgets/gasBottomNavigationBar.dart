@@ -5,14 +5,7 @@ import 'package:get/get.dart';
 
 import '../modules/home/controllers/home_controller.dart';
 
-class gasBottomNavigationBar extends StatelessWidget {
-  const gasBottomNavigationBar({
-    super.key,
-    required this.controller,
-  });
-
-  final HomeController controller;
-
+class gasBottomNavigationBar extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -22,8 +15,8 @@ class gasBottomNavigationBar extends StatelessWidget {
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
           showUnselectedLabels: true,
-          currentIndex: controller.selectedIndex.value,
-          onTap: (index) => controller.changePage(index),
+          currentIndex: controller.selectedIndexBottomNavBar.value.toInt(),
+          onTap: (index) => controller.selectedIndexBottomNavBar(index),
           selectedItemColor:
               Color(0xFF216BC9), // Warna ikon dan teks saat terpilih
           unselectedItemColor:
@@ -43,7 +36,7 @@ class gasBottomNavigationBar extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                controller.selectedIndex.value == 0
+                controller.selectedIndexBottomNavBar.value == 0
                     ? 'assets/icons/Home.svg'
                     : 'assets/icons/Home-Grey.svg',
                 width: 30.h,
@@ -53,7 +46,7 @@ class gasBottomNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                controller.selectedIndex.value == 1
+                controller.selectedIndexBottomNavBar.value == 1
                     ? 'assets/icons/Explore.svg'
                     : 'assets/icons/Explore-Grey.svg',
                 width: 30.h,
@@ -67,7 +60,7 @@ class gasBottomNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                controller.selectedIndex.value == 3
+                controller.selectedIndexBottomNavBar.value == 3
                     ? 'assets/icons/Transaksi.svg'
                     : 'assets/icons/Transaksi-Grey.svg',
                 width: 30.h,
@@ -77,7 +70,7 @@ class gasBottomNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                controller.selectedIndex.value == 4
+                controller.selectedIndexBottomNavBar.value == 4
                     ? 'assets/icons/Profil.svg'
                     : 'assets/icons/Profil-Grey.svg',
                 width: 30.h,

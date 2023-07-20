@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/belanjaan_terakhir_model.dart';
+import '../modules/home/controllers/home_controller.dart';
+import 'BoxShadow.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
-class BelanjaanTerakhir extends StatelessWidget {
-  const BelanjaanTerakhir({
-    super.key,
-    required this.belanjaanTerakhirList,
-  });
-
-  final BelanjaanTerakhirList belanjaanTerakhirList;
+class BelanjaanTerakhir extends GetView<HomeController> {
+  final BelanjaanTerakhirList belanjaanTerakhirList = BelanjaanTerakhirList();
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +67,9 @@ class BelanjaanTerakhir extends StatelessWidget {
                 width: 122.0.sp,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
+                  boxShadow: [
+                    BoxShadow_02(),
+                  ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 margin: EdgeInsets.symmetric(vertical: 8.0.sp),
@@ -139,7 +140,6 @@ class BelanjaanTerakhir extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(height: 10.sp),
       ],
     );
   }

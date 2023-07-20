@@ -4,17 +4,12 @@ import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/produk_promo_model.dart';
+import 'BoxShadow.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 class ProdukPromoExplore extends StatelessWidget {
-  const ProdukPromoExplore({
-    super.key,
-    required this.productPromoList,
-  });
-
-  final ProductPromoList productPromoList;
-
+  final ProductPromoList productPromoList = ProductPromoList();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,23 +30,6 @@ class ProdukPromoExplore extends StatelessWidget {
                   color: H333333,
                 ),
               ),
-              // InkWell(
-              //   borderRadius: BorderRadius.circular(4.r),
-              //   onTap: () {
-              //     //
-              //   },
-              //   child: Padding(
-              //     padding: EdgeInsets.symmetric(horizontal: 6.sp),
-              //     child: Text(
-              //       "Lihat Semua",
-              //       style: TextStyle(
-              //         fontSize: 14.sp,
-              //         fontWeight: FontWeight.w600,
-              //         color: Primary50,
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -69,6 +47,9 @@ class ProdukPromoExplore extends StatelessWidget {
                 width: 122.0.sp,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
+                  boxShadow: [
+                    BoxShadow_02(),
+                  ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 margin: EdgeInsets.symmetric(vertical: 8.0.sp),

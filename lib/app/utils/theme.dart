@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData themeGAS() => ThemeData(
       fontFamily: 'Poppins',
-
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(
           fontSize: 12.sp,
@@ -13,16 +12,14 @@ ThemeData themeGAS() => ThemeData(
           color: Color(0xFFA0A0A0),
         ),
       ),
-
-      // appBarTheme: AppBarGAS(),
+      appBarTheme: AppBarGAS(),
     );
 
-// AppBarTheme AppBarGAS() {
-//   return AppBarTheme(
-//       // systemOverlayStyle: SystemUiOverlayStyle(
-//       //   statusBarColor: Color(0xfff0f0f0),
-//       //   // statusBarBrightness: Brightness.light,
-//       //   statusBarIconBrightness: Brightness.dark,
-//       // ),
-//       );
-// }
+AppBarTheme AppBarGAS() {
+  return AppBarTheme(
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
+}

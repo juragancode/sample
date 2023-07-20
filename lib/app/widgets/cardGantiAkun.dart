@@ -4,14 +4,11 @@ import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import 'gantiAkun_showModalButtomSheet.dart';
+import 'BoxShadow.dart';
 import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 
 class cardGantiAkun extends GetView<HomeController> {
-  const cardGantiAkun({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -27,6 +24,9 @@ class cardGantiAkun extends GetView<HomeController> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
             color: Color(0xFFFFFFFF),
+            boxShadow: [
+              BoxShadow_01(),
+            ],
           ),
           child: Material(
             color: Colors.transparent,
@@ -90,4 +90,13 @@ class cardGantiAkun extends GetView<HomeController> {
       },
     );
   }
+
+  // BoxShadow BoxShadow_01() {
+  //   return BoxShadow(
+  //     color: Color(0xFF000000).withOpacity(0.05),
+  //     offset: Offset(0, 5),
+  //     blurRadius: 10,
+  //     spreadRadius: 4,
+  //   );
+  // }
 }

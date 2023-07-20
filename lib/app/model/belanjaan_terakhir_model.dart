@@ -1,11 +1,11 @@
-class BelanjaanTerakhir {
+class BelanjaanTerakhir_ {
   final String name;
   final String image;
   final double price;
   final double priceDicoret;
   final double rating;
 
-  BelanjaanTerakhir(
+  BelanjaanTerakhir_(
       {required this.name,
       required this.image,
       required this.price,
@@ -14,8 +14,8 @@ class BelanjaanTerakhir {
 }
 
 class BelanjaanTerakhirList {
-  final List<BelanjaanTerakhir> belanjaanTerakhirs = [
-    BelanjaanTerakhir(
+  final List<BelanjaanTerakhir_> belanjaanTerakhirs = [
+    BelanjaanTerakhir_(
       name:
           "Wayang Kulit Gunungan Kayon Standar Dalang / Gunungan Wayang Ukuran 70cm / Wayang Kulit Asli",
       image:
@@ -24,7 +24,7 @@ class BelanjaanTerakhirList {
       priceDicoret: 752500,
       rating: 4.7,
     ),
-    BelanjaanTerakhir(
+    BelanjaanTerakhir_(
       name: "Terjemah Rasa - Fahruddin Faiz",
       image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eFO7d0I0b_GMNLE_eygjDWZ-mHAOCxGOXAVaYpqyQDKd3TOOHdV3IDBumTctDnE2BRQ&usqp=CAU",
@@ -32,7 +32,7 @@ class BelanjaanTerakhirList {
       priceDicoret: 72000,
       rating: 4.4,
     ),
-    BelanjaanTerakhir(
+    BelanjaanTerakhir_(
       name: "Topeng Hahoe Mask (PO)",
       image:
           "https://cdnx.kincir.com/insecure/rs:fill:764:400/aHR0cHM6Ly9raW5jaXJpbWFnZS5zMy1hcC1zb3V0aGVhc3QtMS5hbWF6b25hd3MuY29tL3Byb2R1Y3Rpb24vMjAyMi0wNi8xNmJ5OS90b3BlbmctaGFob2V-MjEwZTM1NjYtZjBiNC00MDRhLTljNWUtYTU3MGNkN2Q5MjYzLmpwZw==",
@@ -40,7 +40,7 @@ class BelanjaanTerakhirList {
       priceDicoret: 120000,
       rating: 4.7,
     ),
-    BelanjaanTerakhir(
+    BelanjaanTerakhir_(
       name: "Balung Kethek / Loncis rasa Gurih 500gram",
       image:
           "https://www.gotravelly.com/assets/img/culinary/gallery/1108/7c0862757bb080cf64d91b93544ebf32.jpg",

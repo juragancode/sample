@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/produk_promo_model.dart';
+import '../modules/home/controllers/home_controller.dart';
+import 'BoxShadow.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
-class ProdukPromo extends StatelessWidget {
-  const ProdukPromo({
-    super.key,
-    required this.productPromoList,
-  });
-
-  final ProductPromoList productPromoList;
+class ProdukPromo extends GetView<HomeController> {
+  final ProductPromoList productPromoList = ProductPromoList();
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +67,9 @@ class ProdukPromo extends StatelessWidget {
                 width: 122.0.sp,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
+                  boxShadow: [
+                    BoxShadow_02(),
+                  ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 margin: EdgeInsets.symmetric(vertical: 8.0.sp),

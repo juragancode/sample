@@ -4,12 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constant/colors.dart';
+import 'BoxShadow.dart';
 
 class PlazaTokoHomePage extends StatelessWidget {
-  const PlazaTokoHomePage({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,6 +21,9 @@ class PlazaTokoHomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
                 color: Color(0xFFFFFFFF),
+                boxShadow: [
+                  BoxShadow_01(),
+                ],
               ),
               child: Padding(
                 padding: EdgeInsets.all(8.0.sp),
@@ -68,6 +68,9 @@ class PlazaTokoHomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
                 color: Color(0xFFFFFFFF),
+                boxShadow: [
+                  BoxShadow_01(),
+                ],
               ),
               child: Padding(
                 padding: EdgeInsets.all(8.0.sp),

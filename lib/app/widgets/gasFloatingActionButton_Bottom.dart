@@ -9,13 +9,6 @@ import '../constant/colors.dart';
 import '../modules/home/controllers/home_controller.dart';
 
 class gasFloatingActionButton_Bottom extends GetView<HomeController> {
-  const gasFloatingActionButton_Bottom({
-    super.key,
-    required this.controller,
-  });
-
-  final HomeController controller;
-
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -46,13 +39,6 @@ class gasFloatingActionButton_Bottom extends GetView<HomeController> {
 }
 
 class gasButton extends GetView<HomeController> {
-  const gasButton({
-    super.key,
-    required this.controller,
-  });
-
-  final HomeController controller;
-
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -85,18 +71,18 @@ class gasButton extends GetView<HomeController> {
                       sigmaY: 2,
                     ),
                     child: Container(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.grey.shade400.withOpacity(0.5),
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 13.sp),
+                padding: EdgeInsets.only(top: 13.w),
                 child: Column(
                   children: [
                     Container(
-                      height: 32.sp,
-                      width: 32.sp,
+                      height: 32.w,
+                      width: 32.w,
                       child: SvgPicture.asset(
                         'assets/icons/iconJual-Barang.svg',
                         fit: BoxFit.contain,
@@ -105,7 +91,7 @@ class gasButton extends GetView<HomeController> {
                     Text(
                       "Jual Barang",
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 12.w,
                         fontWeight: FontWeight.w400,
                         color: Primary30,
                       ),
@@ -115,9 +101,9 @@ class gasButton extends GetView<HomeController> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: 54.sp,
-                  left: 15.sp,
-                  right: 15.sp,
+                  top: 54.w,
+                  left: 15.w,
+                  right: 15.w,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,8 +111,8 @@ class gasButton extends GetView<HomeController> {
                     Column(
                       children: [
                         Container(
-                          height: 32.sp,
-                          width: 32.sp,
+                          height: 32.w,
+                          width: 32.w,
                           child: SvgPicture.asset(
                             'assets/icons/iconMesin-Kasir.svg',
                             fit: BoxFit.contain,
@@ -135,7 +121,7 @@ class gasButton extends GetView<HomeController> {
                         Text(
                           "Mesin Kasir",
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 12.w,
                             fontWeight: FontWeight.w400,
                             color: Primary30,
                           ),
@@ -145,8 +131,8 @@ class gasButton extends GetView<HomeController> {
                     Column(
                       children: [
                         Container(
-                          height: 32.sp,
-                          width: 32.sp,
+                          height: 32.w,
+                          width: 32.w,
                           child: SvgPicture.asset(
                             'assets/icons/iconKeranjang.svg',
                             fit: BoxFit.contain,
@@ -155,7 +141,7 @@ class gasButton extends GetView<HomeController> {
                         Text(
                           "Keranjang",
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 12.w,
                             fontWeight: FontWeight.w400,
                             color: Primary30,
                           ),

@@ -18,8 +18,12 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
+import '../modules/profil/bindings/profil_binding.dart';
+import '../modules/profil/views/profil_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/transaksi/bindings/transaksi_binding.dart';
+import '../modules/transaksi/views/transaksi_view.dart';
 import '../modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
 import '../modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 import '../modules/verifikasiLupaPassword/bindings/verifikasi_lupa_password_binding.dart';
@@ -94,6 +98,16 @@ class AppPages {
       name: _Paths.EXPLORE,
       page: () => ExploreView(),
       binding: ExploreBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSAKSI,
+      page: () => const TransaksiView(),
+      binding: TransaksiBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFIL,
+      page: () => const ProfilView(),
+      binding: ProfilBinding(),
     ),
   ];
 }

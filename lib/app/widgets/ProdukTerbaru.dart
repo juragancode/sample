@@ -6,16 +6,12 @@ import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/produk_terbaru_model.dart';
+import 'BoxShadow.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 class ProdukTerbaru extends StatelessWidget {
-  const ProdukTerbaru({
-    super.key,
-    required this.productTerbaruList,
-  });
-
-  final ProductTerbaruList productTerbaruList;
+  final ProductTerbaruList productTerbaruList = ProductTerbaruList();
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +50,9 @@ class ProdukTerbaru extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           color: Color(0xFFFFFFFF),
+                          boxShadow: [
+                            BoxShadow_02(),
+                          ],
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Padding(

@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_a_s_app_rekadigi/app/utils/theme.dart';
-import 'package:g_a_s_app_rekadigi/app/utils/translation.dart';
-
+import 'app/utils/theme.dart';
+import 'app/utils/translation.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
   runApp(MyApp());
 }
 
@@ -16,7 +22,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         title: "Application",
-        initialRoute: Routes.EXPLORE,
+        initialRoute: Routes.HOME,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),

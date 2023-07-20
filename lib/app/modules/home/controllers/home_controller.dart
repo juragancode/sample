@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:g_a_s_app_rekadigi/app/model/filter_model.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/explore/views/explore_view.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/profil/views/profil_view.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/transaksi/views/transaksi_view.dart';
+import 'package:g_a_s_app_rekadigi/app/widgets/Beranda.dart';
 import 'package:get/get.dart';
+// import '..//views/home_view.dart';
 
 // final HomeController homeController = Get.put(HomeController());
 
@@ -11,18 +16,12 @@ class HomeController extends GetxController {
   // FocusNode
   FocusNode searchFN = FocusNode();
 
-  // indeks Bottom Navigation Bar
-  RxInt selectedIndex = 0.obs;
-
   final List<String> imageList = [
     'assets/icons/Banner-Belanja-Praktis.png',
     'assets/icons/Banner-Bergabung-GAS.png',
   ];
 
   final RxInt currentIndex = 0.obs;
-  void changePage(int index) {
-    selectedIndex.value = index;
-  }
 
   RxBool buttonFloat = false.obs;
 
@@ -47,4 +46,15 @@ class HomeController extends GetxController {
     filterSelectedState[0] = true;
     super.onInit();
   }
+
+  // indeks Bottom Navigation Bar
+  RxInt selectedIndexBottomNavBar = 0.obs; //sekaligus halaman awal
+
+  RxList<dynamic> pageBottomNavBar = [
+    Beranda(),
+    ExploreView(),
+    null,
+    TransaksiView(),
+    ProfilView(),
+  ].obs;
 }
