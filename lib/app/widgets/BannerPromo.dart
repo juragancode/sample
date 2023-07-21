@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constant/colors.dart';
+import 'BoxShadow.dart';
 
 class BannerPromo extends StatelessWidget {
   @override
@@ -12,6 +13,9 @@ class BannerPromo extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
         color: Color(0xFFFFFFFF),
+        boxShadow: [
+          BoxShadow_01(),
+        ],
       ),
       child: Stack(
         children: [

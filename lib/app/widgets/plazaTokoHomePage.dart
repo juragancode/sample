@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import 'BoxShadow.dart';
@@ -16,7 +17,7 @@ class PlazaTokoHomePage extends StatelessWidget {
         children: [
           Flexible(
             child: Container(
-              width: 167.w,
+              width: Get.width / 2.25,
               // height: 110.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
@@ -31,27 +32,27 @@ class PlazaTokoHomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 32.sp,
-                      width: 32.sp,
+                      height: 31.w,
+                      width: 31.w,
                       child: SvgPicture.asset(
                         'assets/icons/icon-Bag-Red.svg',
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 8.sp),
+                    SizedBox(height: 8.w),
                     Text(
                       "Plaza",
                       style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 15.5.w,
                         fontWeight: FontWeight.w600,
                         color: Color(0xFF333333),
                       ),
                     ),
-                    SizedBox(height: 2.sp),
+                    SizedBox(height: 1.5.w),
                     Text(
                       "Cari berbagai kebutuhan di plaza sekitarmu.",
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 10.w,
                         fontWeight: FontWeight.w400,
                         color: Neutral90,
                       ),
@@ -63,7 +64,7 @@ class PlazaTokoHomePage extends StatelessWidget {
           ),
           Flexible(
             child: Container(
-              width: 167.w,
+              width: Get.width / 2.25,
               // height: 110.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
@@ -78,27 +79,27 @@ class PlazaTokoHomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 32.sp,
-                      width: 32.sp,
+                      height: 31.w,
+                      width: 31.w,
                       child: SvgPicture.asset(
                         'assets/icons/icon-Shop-Blue.svg',
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 8.sp),
+                    SizedBox(height: 8.w),
                     Text(
                       "Toko",
                       style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 15.5.w,
                         fontWeight: FontWeight.w600,
                         color: Color(0xFF333333),
                       ),
                     ),
-                    SizedBox(height: 2.sp),
+                    SizedBox(height: 1.5.w),
                     Text(
                       "Belanja murah di toko-toko terdekat.",
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 10.w,
                         fontWeight: FontWeight.w400,
                         color: Neutral90,
                       ),

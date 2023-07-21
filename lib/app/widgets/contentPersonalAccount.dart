@@ -11,6 +11,7 @@ import 'kategoriLainnyaHomePage.dart';
 import 'plazaTokoHomePage.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
+bool buttonLihatSemua_ProdukPromo = true;
 
 class contentPersonalAccount extends GetView<HomeController> {
   @override
@@ -48,7 +49,7 @@ class contentPersonalAccount extends GetView<HomeController> {
         SizedBox(height: 24.sp),
         KategoriLainnyaHomePage(),
         SizedBox(height: 24.sp),
-        ProdukPromo(),
+        ProdukPromo(visibility: buttonLihatSemua_ProdukPromo),
         SizedBox(height: 24.0.sp),
         BelanjaanTerakhir(),
         SizedBox(height: 24.0.sp),

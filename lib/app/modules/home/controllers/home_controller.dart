@@ -57,4 +57,6 @@ class HomeController extends GetxController {
     TransaksiView(),
     ProfilView(),
   ].obs;
+
+  //
 }

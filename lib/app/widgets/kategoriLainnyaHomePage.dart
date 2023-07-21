@@ -18,7 +18,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
               Text(
                 "Kategori Lainnya",
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: 15.5.w,
                   fontWeight: FontWeight.w600,
                   color: H333333,
                 ),
@@ -46,8 +46,8 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(14.sp),
                       child: SvgPicture.asset(
-                        height: 46.sp,
-                        width: 46.sp,
+                        height: 46.w,
+                        width: 46.w,
                         'assets/icons/Category-Icons-Fashion2.svg',
                         fit: BoxFit.contain,
                       ),
@@ -57,7 +57,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                   Text(
                     "Fashion",
                     style: TextStyle(
-                      fontSize: 12.sp,
+                      fontSize: 11.5.w,
                       fontWeight: FontWeight.w400,
                       color: H333333,
                     ),
@@ -77,8 +77,8 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(14.sp),
                       child: SvgPicture.asset(
-                        height: 46.sp,
-                        width: 46.sp,
+                        height: 46.w,
+                        width: 46.w,
                         'assets/icons/Category-Icons-Food2.svg',
                         fit: BoxFit.contain,
                       ),
@@ -88,7 +88,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                   Text(
                     "GAS Food",
                     style: TextStyle(
-                      fontSize: 12.sp,
+                      fontSize: 11.5.w,
                       fontWeight: FontWeight.w400,
                       color: H333333,
                     ),
@@ -108,8 +108,8 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(14.sp),
                       child: SvgPicture.asset(
-                        height: 46.sp,
-                        width: 46.sp,
+                        height: 46.w,
+                        width: 46.w,
                         'assets/icons/Category-Icons-Otomotif2.svg',
                         fit: BoxFit.contain,
                       ),
@@ -119,7 +119,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                   Text(
                     "Otomotif",
                     style: TextStyle(
-                      fontSize: 12.sp,
+                      fontSize: 11.5.w,
                       fontWeight: FontWeight.w400,
                       color: H333333,
                     ),
@@ -140,8 +140,8 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(14.sp),
                       child: SvgPicture.asset(
-                        height: 46.sp,
-                        width: 46.sp,
+                        height: 46.w,
+                        width: 46.w,
                         'assets/icons/Category-Icons-Lainnya2.svg',
                         fit: BoxFit.contain,
                       ),
@@ -151,7 +151,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                   Text(
                     "Lain-lain",
                     style: TextStyle(
-                      fontSize: 12.sp,
+                      fontSize: 11.5.w,
                       fontWeight: FontWeight.w400,
                       color: H333333,
                     ),

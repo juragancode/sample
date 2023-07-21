@@ -22,12 +22,12 @@ class gasBottomNavigationBar extends GetView<HomeController> {
           unselectedItemColor:
               Color(0xFFA0A0A0), // Warna ikon dan teks saat tidak terpilih
           unselectedLabelStyle: TextStyle(
-            fontSize: 10.sp,
+            fontSize: 10.w,
             fontWeight: FontWeight.w400,
             // color: Color(0xFF216BC9),
           ),
           selectedLabelStyle: TextStyle(
-            fontSize: 10.sp,
+            fontSize: 10.w,
             fontWeight: FontWeight.w600,
             // color: Color(0xFFA0A0A0),
           ),
@@ -39,8 +39,8 @@ class gasBottomNavigationBar extends GetView<HomeController> {
                 controller.selectedIndexBottomNavBar.value == 0
                     ? 'assets/icons/Home.svg'
                     : 'assets/icons/Home-Grey.svg',
-                width: 30.h,
-                height: 30.h,
+                width: 28.w,
+                height: 28.w,
               ),
               label: 'Beranda',
             ),
@@ -49,8 +49,8 @@ class gasBottomNavigationBar extends GetView<HomeController> {
                 controller.selectedIndexBottomNavBar.value == 1
                     ? 'assets/icons/Explore.svg'
                     : 'assets/icons/Explore-Grey.svg',
-                width: 30.h,
-                height: 30.h,
+                width: 28.w,
+                height: 28.w,
               ),
               label: 'Telusuri',
             ),
@@ -63,8 +63,8 @@ class gasBottomNavigationBar extends GetView<HomeController> {
                 controller.selectedIndexBottomNavBar.value == 3
                     ? 'assets/icons/Transaksi.svg'
                     : 'assets/icons/Transaksi-Grey.svg',
-                width: 30.h,
-                height: 30.h,
+                width: 28.w,
+                height: 28.w,
               ),
               label: 'Transaksi',
             ),
@@ -73,8 +73,8 @@ class gasBottomNavigationBar extends GetView<HomeController> {
                 controller.selectedIndexBottomNavBar.value == 4
                     ? 'assets/icons/Profil.svg'
                     : 'assets/icons/Profil-Grey.svg',
-                width: 30.h,
-                height: 30.h,
+                width: 28.w,
+                height: 28.w,
               ),
               label: 'Profil',
             ),

@@ -20,7 +20,7 @@ class cardGantiAkun extends GetView<HomeController> {
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 16.sp),
           width: 343.w,
-          height: 60.sp,
+          height: 60.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
             color: Color(0xFFFFFFFF),
@@ -36,21 +36,21 @@ class cardGantiAkun extends GetView<HomeController> {
                 gantiAkun_showModalButtomSheet(context);
               },
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
                         Container(
-                          height: 40.sp,
-                          width: 40.sp,
+                          height: 40.w,
+                          width: 40.w,
                           child: Image.asset(
                             'assets/icons/${selectedAccount.image}',
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(width: 8.sp),
+                        SizedBox(width: 8.w),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +58,7 @@ class cardGantiAkun extends GetView<HomeController> {
                             Text(
                               selectedAccount.name,
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 13.3.w,
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF333333),
                               ),
@@ -67,7 +67,7 @@ class cardGantiAkun extends GetView<HomeController> {
                             Text(
                               selectedAccount.typeAccount,
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 11.5.w,
                                 fontWeight: FontWeight.w400,
                                 color: Neutral90,
                               ),
@@ -78,7 +78,7 @@ class cardGantiAkun extends GetView<HomeController> {
                     ),
                     Icon(
                       Icons.keyboard_arrow_down_rounded,
-                      size: 24.sp,
+                      size: 24.w,
                       color: Primary50,
                     ),
                   ],

@@ -41,7 +41,7 @@ class AppBarHome extends StatelessWidget {
                         // bug apabila text yang diisi panjangnya melebihi yang disediakan textfield maka akn terpotong (kayaknya content padding)
                         child: TextField(
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 11.5.w,
                             fontWeight: FontWeight.w400,
                             color: Color(0xFF333333),
                             decorationThickness: 0,
@@ -57,7 +57,7 @@ class AppBarHome extends StatelessWidget {
                             contentPadding:
                                 EdgeInsets.symmetric(vertical: 12.sp),
                             hintStyle: TextStyle(
-                              fontSize: 12.sp,
+                              fontSize: 11.5.w,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                               color: Neutral90,

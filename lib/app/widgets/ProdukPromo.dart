@@ -12,6 +12,8 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 class ProdukPromo extends GetView<HomeController> {
   final ProductPromoList productPromoList = ProductPromoList();
+  final bool visibility;
+  ProdukPromo({required this.visibility});
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +30,27 @@ class ProdukPromo extends GetView<HomeController> {
               Text(
                 "Produk Promo!",
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: 15.5.w,
                   fontWeight: FontWeight.w600,
                   color: H333333,
                 ),
               ),
-              InkWell(
-                borderRadius: BorderRadius.circular(4.r),
-                onTap: () {
-                  //
-                },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6.sp),
-                  child: Text(
-                    "Lihat Semua",
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Primary50,
+              Visibility(
+                visible: visibility,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(4.r),
+                  onTap: () {
+                    //
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.sp),
+                    child: Text(
+                      "Lihat Semua",
+                      style: TextStyle(
+                        fontSize: 13.5.w,
+                        fontWeight: FontWeight.w600,
+                        color: Primary50,
+                      ),
                     ),
                   ),
                 ),
@@ -54,7 +59,7 @@ class ProdukPromo extends GetView<HomeController> {
           ),
         ),
         Container(
-          height: 250.0.sp,
+          height: 242.0.w,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -64,7 +69,7 @@ class ProdukPromo extends GetView<HomeController> {
             itemCount: productPromoList.productPromos.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                width: 122.0.sp,
+                width: 122.0.w,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
                   boxShadow: [
@@ -75,16 +80,16 @@ class ProdukPromo extends GetView<HomeController> {
                 margin: EdgeInsets.symmetric(vertical: 8.0.sp),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
-                    8.0.sp,
-                    8.0.sp,
-                    8.0.sp,
-                    0.sp,
+                    8.0.w,
+                    8.0.w,
+                    8.0.w,
+                    0,
                   ),
                   child: Stack(
                     children: [
                       Container(
-                        width: 106.0.sp,
-                        height: 90.0.sp,
+                        width: 106.0.w,
+                        height: 90.0.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(4.0.sp),
@@ -107,10 +112,10 @@ class ProdukPromo extends GetView<HomeController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // SizedBox naik 0.5 agar
-                          SizedBox(height: 89.5.sp),
+                          SizedBox(height: 89.5.w),
                           Container(
-                            width: 106.0.sp,
-                            height: 18.0.sp,
+                            width: 106.0.w,
+                            height: 18.0.w,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(16.0.sp),
@@ -134,7 +139,7 @@ class ProdukPromo extends GetView<HomeController> {
                               child: Text(
                                 "Lagi Promo!",
                                 style: TextStyle(
-                                  fontSize: 10.0.sp,
+                                  fontSize: 9.5.w,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.white,
                                 ),
@@ -145,7 +150,7 @@ class ProdukPromo extends GetView<HomeController> {
                           Text(
                             productPromoList.productPromos[index].name,
                             style: TextStyle(
-                              fontSize: 12.0.sp,
+                              fontSize: 11.5.w,
                               fontWeight: FontWeight.w400,
                               color: H333333,
                             ),
@@ -158,14 +163,14 @@ class ProdukPromo extends GetView<HomeController> {
                               Icon(
                                 Icons.star,
                                 color: Secondary50,
-                                size: 16.0.sp,
+                                size: 15.5.w,
                               ),
                               SizedBox(width: 4.sp),
                               Text(
                                 productPromoList.productPromos[index].rating
                                     .toString(),
                                 style: TextStyle(
-                                  fontSize: 10.0.sp,
+                                  fontSize: 9.5.w,
                                   fontWeight: FontWeight.w400,
                                   color: Neutral90,
                                 ),
@@ -176,7 +181,7 @@ class ProdukPromo extends GetView<HomeController> {
                           Text(
                             "Rp ${f.format(productPromoList.productPromos[index].priceDicoret.toInt())}",
                             style: TextStyle(
-                              fontSize: 10.0.sp,
+                              fontSize: 9.5.w,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.lineThrough,
                               color: Neutral90,
@@ -185,7 +190,7 @@ class ProdukPromo extends GetView<HomeController> {
                           Text(
                             "Rp ${f.format(productPromoList.productPromos[index].price.toInt())}",
                             style: TextStyle(
-                              fontSize: 14.0.sp,
+                              fontSize: 13.5.w,
                               fontWeight: FontWeight.w600,
                               color: H333333,
                             ),

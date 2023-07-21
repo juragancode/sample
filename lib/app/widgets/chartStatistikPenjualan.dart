@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/colors.dart';
+import 'BoxShadow.dart';
 
 class ChartStatistikPenjualan extends StatelessWidget {
   @override
@@ -16,6 +17,9 @@ class ChartStatistikPenjualan extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
             color: Color(0xFFFFFFFF),
+            boxShadow: [
+              BoxShadow_01(),
+            ],
           ),
           child: Column(
             children: [
