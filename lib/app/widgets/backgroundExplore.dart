@@ -7,7 +7,7 @@ class backgroundExplore extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      height: 187.w.h,
+      height: 47.sp + 140.w,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

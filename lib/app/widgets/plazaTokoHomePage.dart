@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import 'BoxShadow.dart';
@@ -15,9 +14,9 @@ class PlazaTokoHomePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Flexible(
+          Expanded(
             child: Container(
-              width: Get.width / 2.25,
+              // width: 167.w,
               // height: 110.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
@@ -39,7 +38,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 8.w),
+                    SizedBox(height: 8.sp),
                     Text(
                       "Plaza",
                       style: TextStyle(
@@ -48,7 +47,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         color: Color(0xFF333333),
                       ),
                     ),
-                    SizedBox(height: 1.5.w),
+                    SizedBox(height: 2.sp),
                     Text(
                       "Cari berbagai kebutuhan di plaza sekitarmu.",
                       style: TextStyle(
@@ -62,9 +61,10 @@ class PlazaTokoHomePage extends StatelessWidget {
               ),
             ),
           ),
-          Flexible(
+          SizedBox(width: 8.w),
+          Expanded(
             child: Container(
-              width: Get.width / 2.25,
+              // width: 167.w,
               // height: 110.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
@@ -86,7 +86,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 8.w),
+                    SizedBox(height: 8.sp),
                     Text(
                       "Toko",
                       style: TextStyle(
@@ -95,7 +95,7 @@ class PlazaTokoHomePage extends StatelessWidget {
                         color: Color(0xFF333333),
                       ),
                     ),
-                    SizedBox(height: 1.5.w),
+                    SizedBox(height: 2.sp),
                     Text(
                       "Belanja murah di toko-toko terdekat.",
                       style: TextStyle(

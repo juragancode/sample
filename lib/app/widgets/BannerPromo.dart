@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
 import 'BoxShadow.dart';
@@ -33,16 +34,15 @@ class BannerPromo extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  // color: Colors.green,
+                  // color: Colors.amber,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 3.81,
-                      horizontal: 10,
+                      horizontal: 5.64.w,
                     ),
                     child: Container(
                       // color: Colors.amber,
-                      height: 39.71.sp,
-                      width: 39.71.sp,
+                      height: 39.71.w,
+                      width: 39.71.w,
                       child: SvgPicture.asset(
                         'assets/icons/icon-Buat-Promo.svg',
                         fit: BoxFit.cover,
@@ -50,20 +50,20 @@ class BannerPromo extends StatelessWidget {
                     ),
                   ),
                 ),
-                // SizedBox(width: 12.64.sp),
+                SizedBox(width: 9.w),
                 Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  child: Stack(
+                    alignment: Alignment.centerLeft,
                     children: [
                       Container(
-                        width: 225.sp,
+                        width: 225.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Buat Promo",
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 13.5.w,
                                 fontWeight: FontWeight.w600,
                                 color: H333333,
                               ),
@@ -72,7 +72,7 @@ class BannerPromo extends StatelessWidget {
                             Text(
                               "Promosikan produkmu dengan diskon menarik & kupon belanja.",
                               style: TextStyle(
-                                fontSize: 10.sp,
+                                fontSize: 10.w,
                                 fontWeight: FontWeight.w400,
                                 color: Neutral90,
                               ),
@@ -80,10 +80,13 @@ class BannerPromo extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Icon(
-                        CupertinoIcons.chevron_forward,
-                        color: Primary50,
-                        size: 20.sp,
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Icon(
+                          CupertinoIcons.chevron_forward,
+                          color: Primary50,
+                          size: 20.w,
+                        ),
                       ),
                     ],
                   ),

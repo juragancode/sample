@@ -6,6 +6,16 @@ import '../constant/colors.dart';
 import 'BoxShadow.dart';
 
 class FiturToko extends StatelessWidget {
+  final String svg;
+  final String title;
+  final String deskripsi;
+
+  FiturToko({
+    required this.svg,
+    required this.title,
+    required this.deskripsi,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,9 +25,9 @@ class FiturToko extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(
+              Expanded(
                 child: Container(
-                  width: 167.w,
+                  // width: 167.w,
                   // height: 110.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
@@ -32,8 +42,8 @@ class FiturToko extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: 32.sp,
-                          width: 32.sp,
+                          height: 31.w,
+                          width: 31.w,
                           child: SvgPicture.asset(
                             'assets/icons/icon-Mesin-Kasir-Blue.svg',
                             fit: BoxFit.cover,
@@ -43,7 +53,7 @@ class FiturToko extends StatelessWidget {
                         Text(
                           "Mesin Kasir",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 15.5.w,
                             fontWeight: FontWeight.w600,
                             color: H333333,
                           ),
@@ -52,7 +62,7 @@ class FiturToko extends StatelessWidget {
                         Text(
                           "Hitung penjualanmu dengan mesin kasir otomatis.",
                           style: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 10.w,
                             fontWeight: FontWeight.w400,
                             color: Neutral90,
                           ),
@@ -62,9 +72,10 @@ class FiturToko extends StatelessWidget {
                   ),
                 ),
               ),
-              Flexible(
+              SizedBox(width: 8.w),
+              Expanded(
                 child: Container(
-                  width: 167.w,
+                  // width: 167.w,
                   // height: 110.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
@@ -79,27 +90,27 @@ class FiturToko extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: 32.sp,
-                          width: 32.sp,
+                          height: 31.w,
+                          width: 31.w,
                           child: SvgPicture.asset(
-                            'assets/icons/icon-Kelola Product-Yellow.svg',
+                            svg,
                             fit: BoxFit.cover,
                           ),
                         ),
                         SizedBox(height: 8.sp),
                         Text(
-                          "Kelola Produk",
+                          title,
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 15.5.w,
                             fontWeight: FontWeight.w600,
                             color: H333333,
                           ),
                         ),
                         SizedBox(height: 2.sp),
                         Text(
-                          "Kelola stok, varian, dan kategori produkmu",
+                          deskripsi,
                           style: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 10.w,
                             fontWeight: FontWeight.w400,
                             color: Neutral90,
                           ),
@@ -112,13 +123,13 @@ class FiturToko extends StatelessWidget {
             ],
           ),
           //
-          SizedBox(height: 8.sp),
+          SizedBox(height: 8.w),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(
+              Expanded(
                 child: Container(
-                  width: 167.w,
+                  // width: 167.w,
                   // height: 110.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
@@ -141,7 +152,7 @@ class FiturToko extends StatelessWidget {
                             Text(
                               "Pesanan Baru",
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 11.5.w,
                                 fontWeight: FontWeight.w400,
                                 color: H333333,
                               ),
@@ -160,7 +171,7 @@ class FiturToko extends StatelessWidget {
                         Text(
                           "3",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 15.5.w,
                             fontWeight: FontWeight.w600,
                             color: H333333,
                           ),
@@ -170,9 +181,10 @@ class FiturToko extends StatelessWidget {
                   ),
                 ),
               ),
-              Flexible(
+              SizedBox(width: 8.w),
+              Expanded(
                 child: Container(
-                  width: 167.w,
+                  // width: 167.w,
                   // height: 110.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
@@ -192,7 +204,7 @@ class FiturToko extends StatelessWidget {
                         Text(
                           "Pesanan Selesai",
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 11.5.w,
                             fontWeight: FontWeight.w400,
                             color: H333333,
                           ),
@@ -201,7 +213,7 @@ class FiturToko extends StatelessWidget {
                         Text(
                           "15",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 15.5.w,
                             fontWeight: FontWeight.w600,
                             color: H333333,
                           ),

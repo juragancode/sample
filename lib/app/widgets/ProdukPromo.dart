@@ -59,7 +59,7 @@ class ProdukPromo extends GetView<HomeController> {
           ),
         ),
         Container(
-          height: 242.0.w,
+          height: 242.0.w.spMax,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -161,9 +161,9 @@ class ProdukPromo extends GetView<HomeController> {
                           Row(
                             children: [
                               Icon(
-                                Icons.star,
+                                Icons.star_rounded,
                                 color: Secondary50,
-                                size: 15.5.w,
+                                size: 15.w,
                               ),
                               SizedBox(width: 4.sp),
                               Text(

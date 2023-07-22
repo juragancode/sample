@@ -26,7 +26,7 @@ class ProdukTerlaris extends StatelessWidget {
               Text(
                 "Produk Terlaris!",
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: 15.5.w,
                   fontWeight: FontWeight.w600,
                   color: H333333,
                 ),
@@ -35,7 +35,7 @@ class ProdukTerlaris extends StatelessWidget {
           ),
         ),
         Container(
-          height: 250.0.sp,
+          height: 242.0.w.spMax,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -45,7 +45,7 @@ class ProdukTerlaris extends StatelessWidget {
             itemCount: productTerlarisList.productTerlariss.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                width: 122.0.sp,
+                width: 122.0.w,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFFFF),
                   boxShadow: [
@@ -56,16 +56,16 @@ class ProdukTerlaris extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 8.0.sp),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
-                    8.0.sp,
-                    8.0.sp,
-                    8.0.sp,
-                    0.sp,
+                    8.0.w,
+                    8.0.w,
+                    8.0.w,
+                    0,
                   ),
                   child: Stack(
                     children: [
                       Container(
-                        width: 106.0.sp,
-                        height: 90.0.sp,
+                        width: 106.0.w,
+                        height: 90.0.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(4.0.sp),
@@ -88,10 +88,10 @@ class ProdukTerlaris extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // SizedBox naik 0.5 agar
-                          SizedBox(height: 89.5.sp),
+                          SizedBox(height: 89.5.w),
                           Container(
-                            width: 106.0.sp,
-                            height: 18.0.sp,
+                            width: 106.0.w,
+                            height: 18.0.w,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(16.0.sp),
@@ -115,7 +115,7 @@ class ProdukTerlaris extends StatelessWidget {
                               child: Text(
                                 "Lagi Promo!",
                                 style: TextStyle(
-                                  fontSize: 10.0.sp,
+                                  fontSize: 9.5.w,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.white,
                                 ),
@@ -126,7 +126,7 @@ class ProdukTerlaris extends StatelessWidget {
                           Text(
                             productTerlarisList.productTerlariss[index].name,
                             style: TextStyle(
-                              fontSize: 12.0.sp,
+                              fontSize: 11.5.w,
                               fontWeight: FontWeight.w400,
                               color: H333333,
                             ),
@@ -137,9 +137,9 @@ class ProdukTerlaris extends StatelessWidget {
                           Row(
                             children: [
                               Icon(
-                                Icons.star,
+                                Icons.star_rounded,
                                 color: Secondary50,
-                                size: 16.0.sp,
+                                size: 15.w,
                               ),
                               SizedBox(width: 4.sp),
                               Text(
@@ -147,7 +147,7 @@ class ProdukTerlaris extends StatelessWidget {
                                     .productTerlariss[index].rating
                                     .toString(),
                                 style: TextStyle(
-                                  fontSize: 10.0.sp,
+                                  fontSize: 9.5.w,
                                   fontWeight: FontWeight.w400,
                                   color: Neutral90,
                                 ),
@@ -158,7 +158,7 @@ class ProdukTerlaris extends StatelessWidget {
                           Text(
                             "Rp ${f.format(productTerlarisList.productTerlariss[index].priceDicoret.toInt())}",
                             style: TextStyle(
-                              fontSize: 10.0.sp,
+                              fontSize: 9.5.w,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.lineThrough,
                               color: Neutral90,
@@ -167,7 +167,7 @@ class ProdukTerlaris extends StatelessWidget {
                           Text(
                             "Rp ${f.format(productTerlarisList.productTerlariss[index].price.toInt())}",
                             style: TextStyle(
-                              fontSize: 14.0.sp,
+                              fontSize: 13.5.w,
                               fontWeight: FontWeight.w600,
                               color: H333333,
                             ),

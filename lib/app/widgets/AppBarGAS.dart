@@ -2,17 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import '../modules/home/controllers/home_controller.dart';
 
-class AppBarHome extends StatelessWidget {
-  const AppBarHome({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final HomeController controller;
+class AppBarGAS extends GetView<HomeController> {
+  final BorderStyle borderStyle;
+  AppBarGAS({required this.borderStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class AppBarHome extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                height: 36.sp,
+                height: 35.w,
                 decoration: AppBar_BoxDecoration(),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -55,7 +52,7 @@ class AppBarHome extends StatelessWidget {
                             border: InputBorder.none,
                             hintText: 'Cari di aplikasi GAS',
                             contentPadding:
-                                EdgeInsets.symmetric(vertical: 12.sp),
+                                EdgeInsets.symmetric(vertical: 11.w),
                             hintStyle: TextStyle(
                               fontSize: 11.5.w,
                               fontFamily: 'Poppins',
@@ -80,8 +77,8 @@ class AppBarHome extends StatelessWidget {
                 child: SvgPicture.asset(
                   'assets/icons/Button-Message.svg',
                   fit: BoxFit.contain,
-                  width: 36.sp,
-                  height: 36.sp,
+                  width: 35.w,
+                  height: 35.w,
                 ),
               ),
             ),
@@ -95,8 +92,8 @@ class AppBarHome extends StatelessWidget {
                 child: SvgPicture.asset(
                   'assets/icons/Button-Notif.svg',
                   fit: BoxFit.contain,
-                  height: 36.sp,
-                  width: 36.sp,
+                  height: 35.w,
+                  width: 35.w,
                 ),
               ),
             ),
@@ -110,8 +107,8 @@ class AppBarHome extends StatelessWidget {
                 child: SvgPicture.asset(
                   'assets/icons/Button-Cart.svg',
                   fit: BoxFit.contain,
-                  height: 36.sp,
-                  width: 36.sp,
+                  height: 35.w,
+                  width: 35.w,
                 ),
               ),
             ),
@@ -127,7 +124,7 @@ class AppBarHome extends StatelessWidget {
       borderRadius: BorderRadius.circular(32.r),
       border: Border.all(
         strokeAlign: BorderSide.strokeAlignInside,
-        style: BorderStyle.none,
+        style: borderStyle,
         width: 1.sp,
         color: Neutral10,
       ),

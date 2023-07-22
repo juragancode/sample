@@ -31,7 +31,7 @@ class ChartStatistikPenjualan extends StatelessWidget {
                     Text(
                       "Statistik Penjualan",
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 13.5.w,
                         fontWeight: FontWeight.w600,
                         color: H333333,
                       ),

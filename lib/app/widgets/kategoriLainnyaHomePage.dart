@@ -44,7 +44,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(14.sp),
+                      padding: EdgeInsets.all(14.w),
                       child: SvgPicture.asset(
                         height: 46.w,
                         width: 46.w,
@@ -75,7 +75,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(14.sp),
+                      padding: EdgeInsets.all(14.w),
                       child: SvgPicture.asset(
                         height: 46.w,
                         width: 46.w,
@@ -106,7 +106,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(14.sp),
+                      padding: EdgeInsets.all(14.w),
                       child: SvgPicture.asset(
                         height: 46.w,
                         width: 46.w,
@@ -138,7 +138,7 @@ class KategoriLainnyaHomePage extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(14.sp),
+                      padding: EdgeInsets.all(14.w),
                       child: SvgPicture.asset(
                         height: 46.w,
                         width: 46.w,

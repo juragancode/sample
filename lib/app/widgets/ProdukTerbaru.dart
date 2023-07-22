@@ -26,7 +26,7 @@ class ProdukTerbaru extends StatelessWidget {
                 Text(
                   "Produk Terbaru!",
                   style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 15.5.w,
                     fontWeight: FontWeight.w600,
                     color: H333333,
                   ),
@@ -40,7 +40,7 @@ class ProdukTerbaru extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 9.0.sp, // aslinya di figma 8
               crossAxisSpacing: 9.0.sp,
-              childAspectRatio: 167.0.sp / 345.0.sp,
+              childAspectRatio: 167.0.w / 345.0.w,
               shrinkWrap: true,
               children: List.generate(
                 productTerbaruList.productTerbarus.length,
@@ -56,7 +56,7 @@ class ProdukTerbaru extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(8.0.sp),
+                          padding: EdgeInsets.all(8.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -82,12 +82,12 @@ class ProdukTerbaru extends StatelessWidget {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(4.sp),
+                                      padding: EdgeInsets.all(4.w),
                                       child: Align(
                                         alignment: Alignment.topRight,
                                         child: Container(
-                                          width: 32.sp,
-                                          height: 32.sp,
+                                          width: 31.w,
+                                          height: 31.w,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
@@ -107,10 +107,10 @@ class ProdukTerbaru extends StatelessWidget {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsets.only(top: 1.5.sp),
+                                                EdgeInsets.only(top: 1.3.w),
                                             child: Icon(
                                               CupertinoIcons.heart_fill,
-                                              size: 21.sp,
+                                              size: 21.w,
                                               // Icons.favorite,
                                               color: productTerbaruList
                                                           .productTerbarus[
@@ -131,7 +131,7 @@ class ProdukTerbaru extends StatelessWidget {
                               Text(
                                 productTerbaruList.productTerbarus[index].name,
                                 style: TextStyle(
-                                  fontSize: 12.0.sp,
+                                  fontSize: 11.5.w,
                                   fontWeight: FontWeight.w400,
                                   color: H333333,
                                 ),
@@ -144,7 +144,7 @@ class ProdukTerbaru extends StatelessWidget {
                                   Icon(
                                     Icons.star,
                                     color: Secondary50,
-                                    size: 16.0.sp,
+                                    size: 15.w,
                                   ),
                                   SizedBox(width: 4.sp),
                                   Text(
@@ -152,7 +152,7 @@ class ProdukTerbaru extends StatelessWidget {
                                         .productTerbarus[index].rating
                                         .toString(),
                                     style: TextStyle(
-                                      fontSize: 10.0.sp,
+                                      fontSize: 9.5.w,
                                       fontWeight: FontWeight.w400,
                                       color: Neutral90,
                                     ),
@@ -165,14 +165,14 @@ class ProdukTerbaru extends StatelessWidget {
                                   Icon(
                                     Icons.place,
                                     color: Warning50,
-                                    size: 16.0.sp,
+                                    size: 15.w,
                                   ),
                                   SizedBox(width: 4.sp),
                                   Text(
                                     productTerbaruList
                                         .productTerbarus[index].city,
                                     style: TextStyle(
-                                      fontSize: 10.0.sp,
+                                      fontSize: 9.5.w,
                                       fontWeight: FontWeight.w400,
                                       color: Neutral90,
                                     ),
@@ -182,10 +182,10 @@ class ProdukTerbaru extends StatelessWidget {
                               SizedBox(height: 4.0.sp),
                               Row(
                                 children: [
-                                  SizedBox(width: 2.0.sp),
+                                  SizedBox(width: 1.5.w),
                                   Container(
-                                    height: 14.sp,
-                                    width: 14.sp,
+                                    height: 14.w,
+                                    width: 14.w,
                                     child: SvgPicture.asset(
                                       'assets/icons/icon-Bag-Green.svg',
                                       fit: BoxFit.contain,
@@ -193,12 +193,12 @@ class ProdukTerbaru extends StatelessWidget {
                                       // width: 11.sp,
                                     ),
                                   ),
-                                  SizedBox(width: 4.sp),
+                                  SizedBox(width: 3.w),
                                   Text(
                                     productTerbaruList
                                         .productTerbarus[index].shopName,
                                     style: TextStyle(
-                                      fontSize: 10.0.sp,
+                                      fontSize: 9.5.w,
                                       fontWeight: FontWeight.w400,
                                       color: Neutral90,
                                     ),
@@ -209,7 +209,7 @@ class ProdukTerbaru extends StatelessWidget {
                               Text(
                                 "Rp ${f.format(productTerbaruList.productTerbarus[index].priceDicoret.toInt())}",
                                 style: TextStyle(
-                                  fontSize: 10.0.sp,
+                                  fontSize: 9.5.w,
                                   fontWeight: FontWeight.w400,
                                   decoration: TextDecoration.lineThrough,
                                   color: Neutral90,
@@ -218,12 +218,12 @@ class ProdukTerbaru extends StatelessWidget {
                               Text(
                                 "Rp ${f.format(productTerbaruList.productTerbarus[index].price.toInt())}",
                                 style: TextStyle(
-                                  fontSize: 14.0.sp,
+                                  fontSize: 13.5.w,
                                   fontWeight: FontWeight.w600,
                                   color: H333333,
                                 ),
                               ),
-                              SizedBox(height: 6.0.sp),
+                              SizedBox(height: 6.0.w),
                             ],
                           ),
                         ),
@@ -242,7 +242,7 @@ class ProdukTerbaru extends StatelessWidget {
                             },
                             child: Ink(
                               // width: 149.w,
-                              height: 32.sp,
+                              height: 31.w,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
@@ -258,8 +258,8 @@ class ProdukTerbaru extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    height: 25.sp,
-                                    width: 25.sp,
+                                    height: 25.w,
+                                    width: 25.w,
                                     child: SvgPicture.asset(
                                       'assets/icons/iconKeranjang.svg',
                                       color: Colors.white,
@@ -272,7 +272,7 @@ class ProdukTerbaru extends StatelessWidget {
                                   Text(
                                     "Tambah",
                                     style: TextStyle(
-                                      fontSize: 12.sp,
+                                      fontSize: 11.5.w,
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
                                     ),

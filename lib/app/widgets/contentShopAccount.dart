@@ -7,12 +7,16 @@ import 'BannerPromo.dart';
 import 'FiturToko.dart';
 import 'chartStatistikPenjualan.dart';
 
+String svg = "assets/icons/icon-Kelola Product-Yellow.svg";
+String title = "Kelola Produk";
+String deskripsi = "Kelola stok, varian, dan kategori produkmu";
+
 class contentShopAccount extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FiturToko(),
+        FiturToko(svg: svg, title: title, deskripsi: deskripsi),
         SizedBox(height: 16.sp),
         BannerPromo(),
         SizedBox(height: 16.sp),
