@@ -25,9 +25,16 @@ class HomeView extends GetView<HomeController> {
         body: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
-            Obx(
-              () => controller
-                  .pageBottomNavBar[controller.selectedIndexBottomNavBar.value],
+            PageView.builder(
+              controller: controller.pageController,
+              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (index) {
+                controller.selectedIndexBottomNavBar.value = index;
+              },
+              itemCount: controller.pageBottomNavBar.length,
+              itemBuilder: (context, index) {
+                return controller.pageBottomNavBar[index];
+              },
             ),
             gasButton(),
           ],

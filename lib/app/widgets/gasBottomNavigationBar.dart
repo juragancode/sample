@@ -16,7 +16,7 @@ class gasBottomNavigationBar extends GetView<HomeController> {
           backgroundColor: Colors.transparent,
           showUnselectedLabels: true,
           currentIndex: controller.selectedIndexBottomNavBar.value.toInt(),
-          onTap: (index) => controller.selectedIndexBottomNavBar(index),
+          onTap: (index) => controller.changePage(index),
           selectedItemColor:
               Color(0xFF216BC9), // Warna ikon dan teks saat terpilih
           unselectedItemColor:

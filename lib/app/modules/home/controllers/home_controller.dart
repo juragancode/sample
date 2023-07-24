@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:g_a_s_app_rekadigi/app/model/filter_model.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/explore/views/explore_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/profil/views/profil_view.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/transaksi/views/transaksi_view.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/Beranda.dart';
 import 'package:get/get.dart';
-// import '..//views/home_view.dart';
 
-// final HomeController homeController = Get.put(HomeController());
+import '../../../model/filter_model.dart';
+import '../../../widgets/Beranda.dart';
+import '../views/explore.dart';
+import '../views/profil_view.dart';
+import '../views/transaksi_view.dart';
 
 class HomeController extends GetxController {
   // TextEditingController
@@ -22,17 +20,37 @@ class HomeController extends GetxController {
   ];
 
   final RxInt currentIndex = 0.obs;
-
   RxBool buttonFloat = false.obs;
-
   RxInt accountIndex = 0.obs;
 
   void changeAccountIndex(int index) {
     accountIndex.value = index;
   }
 
-  //
+  // indeks Bottom Navigation Bar
+  final PageController pageController = PageController(initialPage: 0);
+  RxInt selectedIndexBottomNavBar = 0.obs;
+  RxList<dynamic> pageBottomNavBar = [
+    Beranda(),
+    Explore(),
+    null,
+    TransaksiView(),
+    ProfilView(),
+  ].obs;
 
+  void changePage(int index) {
+    if (selectedIndexBottomNavBar.value != index) {
+      selectedIndexBottomNavBar.value = index;
+      pageController.animateToPage(
+        index,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  //
+  // Explore
   RxInt isTokoIndex = 0.obs;
 
   // filter
@@ -46,17 +64,4 @@ class HomeController extends GetxController {
     filterSelectedState[0] = true;
     super.onInit();
   }
-
-  // indeks Bottom Navigation Bar
-  RxInt selectedIndexBottomNavBar = 0.obs; //sekaligus halaman awal
-
-  RxList<dynamic> pageBottomNavBar = [
-    Beranda(),
-    ExploreView(),
-    null,
-    TransaksiView(),
-    ProfilView(),
-  ].obs;
-
-  //
 }

@@ -6,8 +6,6 @@ import '../modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
 import '../modules/aturUlangPassword/views/atur_ulang_password_view.dart';
 import '../modules/daftar/bindings/daftar_binding.dart';
 import '../modules/daftar/views/daftar_view.dart';
-import '../modules/explore/bindings/explore_binding.dart';
-import '../modules/explore/views/explore_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro_screen/bindings/intro_screen_binding.dart';
@@ -18,12 +16,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
-import '../modules/profil/bindings/profil_binding.dart';
-import '../modules/profil/views/profil_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
-import '../modules/transaksi/bindings/transaksi_binding.dart';
-import '../modules/transaksi/views/transaksi_view.dart';
 import '../modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
 import '../modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 import '../modules/verifikasiLupaPassword/bindings/verifikasi_lupa_password_binding.dart';
@@ -93,21 +87,6 @@ class AppPages {
       name: _Paths.ALIH_BAHASA,
       page: () => AlihBahasaView(),
       binding: AlihBahasaBinding(),
-    ),
-    GetPage(
-      name: _Paths.EXPLORE,
-      page: () => ExploreView(),
-      binding: ExploreBinding(),
-    ),
-    GetPage(
-      name: _Paths.TRANSAKSI,
-      page: () => const TransaksiView(),
-      binding: TransaksiBinding(),
-    ),
-    GetPage(
-      name: _Paths.PROFIL,
-      page: () => const ProfilView(),
-      binding: ProfilBinding(),
     ),
   ];
 }
