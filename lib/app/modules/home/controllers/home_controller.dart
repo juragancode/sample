@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../model/filter_model.dart';
-import '../../../widgets/Beranda.dart';
-import '../views/explore.dart';
+import '../views/Beranda.dart';
+import '../../../widgets/Blank.dart';
 import '../views/profil_view.dart';
 import '../views/transaksi_view.dart';
+import '../views/explore.dart';
 
 class HomeController extends GetxController {
   // TextEditingController
@@ -33,7 +34,7 @@ class HomeController extends GetxController {
   RxList<dynamic> pageBottomNavBar = [
     Beranda(),
     Explore(),
-    null,
+    Blank(),
     TransaksiView(),
     ProfilView(),
   ].obs;

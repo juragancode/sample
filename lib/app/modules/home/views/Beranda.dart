@@ -3,13 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../modules/home/controllers/home_controller.dart';
-import 'AppBarGAS.dart';
-import 'backgroundHomePage.dart';
-import 'cardGantiAkun.dart';
-import 'contentEmployeeAccount.dart';
-import 'contentPersonalAccount.dart';
-import 'contentShopAccount.dart';
+import '../controllers/home_controller.dart';
+import '../../../widgets/AppBarGAS.dart';
+import '../../../widgets/backgroundHomePage.dart';
+import '../../../widgets/cardGantiAkun.dart';
+import '../../../widgets/contentEmployeeAccount.dart';
+import '../../../widgets/contentPersonalAccount.dart';
+import '../../../widgets/contentShopAccount.dart';
 
 BorderStyle borderStyle = BorderStyle.none;
 
