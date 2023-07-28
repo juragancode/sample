@@ -21,4 +21,34 @@ class FilterKategoriList {
       title: "Olahraga",
     ),
   ];
+
+  final List<FilterKategori> tipe_pengiriman = [
+    FilterKategori(
+      title: "Ambil di Tempat",
+    ),
+    FilterKategori(
+      title: "Pengiriman Toko",
+    ),
+    FilterKategori(
+      title: "Kurir",
+    ),
+  ];
+
+  final List<FilterKategori> kondisi = [
+    FilterKategori(
+      title: "Baru",
+    ),
+    FilterKategori(
+      title: "Bekas",
+    ),
+  ];
+
+  final List<FilterKategori> lainnya = [
+    FilterKategori(
+      title: "Ready Stock",
+    ),
+    FilterKategori(
+      title: "Pre-Order",
+    ),
+  ];
 }

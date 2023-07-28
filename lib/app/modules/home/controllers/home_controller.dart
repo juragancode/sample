@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../model/filter_model.dart';
 import '../../../model/filter_urutkan_model.dart';
+import '../../../model/filter_model.dart';
 import '../../../model/filter_kategori_model.dart';
+import '../../../model/filter_lokasi_model.dart';
 import '../views/Beranda.dart';
 import '../../../widgets/Blank.dart';
 import '../views/profil.dart';
@@ -57,6 +58,7 @@ class HomeController extends GetxController {
   RxInt isTokoIndex = 0.obs;
 
   // filter
+
   List<bool> filterSelectedState =
       List.filled(FilterList().filters.length, false).obs;
 
@@ -66,10 +68,22 @@ class HomeController extends GetxController {
   List<bool> filterKategoriState =
       List.filled(FilterKategoriList().filter_kategoris.length, false).obs;
 
+  List<bool> filterLokasiState =
+      List.filled(FilterLokasiList().filter_lokasis.length, false).obs;
+
+  List<bool> filterPengirimanState =
+      List.filled(FilterKategoriList().tipe_pengiriman.length, false).obs;
+
+  List<bool> filterKondisiState =
+      List.filled(FilterKategoriList().kondisi.length, false).obs;
+
+  List<bool> filterLainnyaState =
+      List.filled(FilterKategoriList().lainnya.length, false).obs;
+
   @override
   void onInit() {
     // Inisialisasi filterSelectedState untuk index 0 menjadi true di awal
-    filterSelectedState[0] = true;
+    filterUrutkanState[1] = true;
 
     super.onInit();
   }
