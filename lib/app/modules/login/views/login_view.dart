@@ -10,9 +10,12 @@ import 'package:text_divider/text_divider.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../widgets/buttonGoogle.dart';
+import '../../home/controllers/home_controller.dart';
 import '../controllers/login_controller.dart';
 
-class LoginView extends GetView<LoginController> {
+final LoginController controller = LoginController();
+
+class LoginView extends GetView<HomeController> {
   final box = GetStorage();
 
   @override

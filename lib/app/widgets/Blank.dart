@@ -16,9 +16,6 @@ class Blank extends GetView<HomeController> {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
-    return Container(
-      height: Get.height,
-      width: Get.width,
-    );
+    return Container();
   }
 }

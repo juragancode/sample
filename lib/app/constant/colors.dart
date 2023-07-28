@@ -21,4 +21,5 @@ const Error50 = Color(0xFFFF002E);
 
 const Favorite = Color(0xFFFF2048);
 
-const BackgroundColor = Color(0xFFF9F9F9);
+const BackgroundColor = Color(0xFFFFFFFF);
+const BackgroundColor2 = Color(0xFFF9F9F9);

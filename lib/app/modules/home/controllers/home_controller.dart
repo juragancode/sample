@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../model/filter_model.dart';
+import '../../../model/filter_urutkan_model.dart';
+import '../../../model/filter_kategori_model.dart';
 import '../views/Beranda.dart';
 import '../../../widgets/Blank.dart';
-import '../views/profil_view.dart';
-import '../views/transaksi_view.dart';
+import '../views/profil.dart';
+import '../views/transaksi.dart';
 import '../views/explore.dart';
 
 class HomeController extends GetxController {
@@ -35,8 +37,8 @@ class HomeController extends GetxController {
     Beranda(),
     Explore(),
     Blank(),
-    TransaksiView(),
-    ProfilView(),
+    Transaksi(),
+    Profil(),
   ].obs;
 
   void changePage(int index) {
@@ -44,8 +46,8 @@ class HomeController extends GetxController {
       selectedIndexBottomNavBar.value = index;
       pageController.animateToPage(
         index,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
+        duration: Duration(milliseconds: 600),
+        curve: Curves.fastLinearToSlowEaseIn,
       );
     }
   }
@@ -55,14 +57,20 @@ class HomeController extends GetxController {
   RxInt isTokoIndex = 0.obs;
 
   // filter
-  RxInt filterIndex = 0.obs;
   List<bool> filterSelectedState =
       List.filled(FilterList().filters.length, false).obs;
+
+  List<bool> filterUrutkanState =
+      List.filled(FilterUrutkanList().filter_urutkans.length, false).obs;
+
+  List<bool> filterKategoriState =
+      List.filled(FilterKategoriList().filter_kategoris.length, false).obs;
 
   @override
   void onInit() {
     // Inisialisasi filterSelectedState untuk index 0 menjadi true di awal
     filterSelectedState[0] = true;
+
     super.onInit();
   }
 }

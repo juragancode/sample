@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "708436128118",
+    "project_id": "gas-indonesia",
+    "storage_bucket": "gas-indonesia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708436128118:android:c2f4527500683445524a57",
+        "android_client_info": {
+          "package_name": "id.rekadigi.g_a_s_app_rekadigi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708436128118-4v79qdec8sbth4eg7m94u8uj3m09vgbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAveK311sV6WvvMzREG0etsGSb0hlU8NPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708436128118-4v79qdec8sbth4eg7m94u8uj3m09vgbp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "708436128118-ulo0he110j38u7gv67sr99o4766go5qh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "id.rekadigi.gASAppRekadigi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

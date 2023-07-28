@@ -4,9 +4,11 @@
    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
    <application
-        android:label="g_a_s_app_rekadigi"
+        android:label="GAS Indonesia"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon"
+        android:usesCleartextTraffic="true">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

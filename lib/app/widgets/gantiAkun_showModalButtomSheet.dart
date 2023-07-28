@@ -8,7 +8,6 @@ import '../modules/home/controllers/home_controller.dart';
 import 'checkModalBottomSheet_false.dart';
 import 'checkModalBottomSheet_true.dart';
 
-final HomeController homeController = Get.put(HomeController());
 AccountList accountList = AccountList();
 
 Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
