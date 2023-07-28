@@ -64,257 +64,58 @@ class FilterAppBar extends GetView<HomeController> {
         Container(
           height: 35.w,
           width: Get.width - 28.w - 18.sp - 8.sp,
-          child:
-
-              // ListView.separated(
-              //   separatorBuilder: (BuildContext context, int index) {
-              //     return SizedBox(width: 4.w);
-              //   },
-              //   padding: EdgeInsets.only(right: 12.sp),
-              //   scrollDirection: Axis.horizontal,
-              //   itemCount: filterList.filters.length,
-              //   itemBuilder: (context, index) {
-              //     final filter = filterList.filters[index];
-              //     return Obx(
-              //       () => GestureDetector(
-              //         onTap: () {
-              //           controller.filterSelectedState[index] =
-              //               !controller.filterSelectedState[index];
-              //         },
-              //         child: AnimatedContainer(
-              //           duration: Duration(milliseconds: 300),
-              //           curve: Curves.slowMiddle,
-              //           padding: EdgeInsets.symmetric(
-              //             horizontal: 16.sp,
-              //             vertical: 8.sp,
-              //           ),
-              //           decoration: BoxDecoration(
-              //             color: controller.filterSelectedState[index]
-              //                 ? Color(0xFFD0E4FF)
-              //                 : Colors.transparent,
-              //             borderRadius: BorderRadius.circular(32.r),
-              //             border: controller.filterSelectedState[index]
-              //                 ? Border.all(color: Primary50, width: 0.5)
-              //                 : Border.all(color: Neutral90, width: 0.5),
-              //           ),
-              //           child: Center(
-              //             child: Row(
-              //               children: [
-              //                 if (filter.icon != null) ...[
-              //                   Icon(filter.icon, size: 15.w, color: Secondary50),
-              //                   SizedBox(width: 4.sp),
-              //                 ],
-              //                 Text(
-              //                   filter.title!,
-              //                   style: TextStyle(
-              //                     fontSize: 12,
-              //                     fontWeight: FontWeight.w400,
-              //                     color: controller.filterSelectedState[index]
-              //                         ? Primary50
-              //                         : Neutral90,
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     );
-              //   },
-              // ),
-
-              ListView.separated(
+          child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 4.w);
             },
             padding: EdgeInsets.only(right: 12.sp),
             scrollDirection: Axis.horizontal,
-            itemCount: 4, // Set itemCount to 4 for displaying 4 items
+            itemCount: 4, // Set itemCount menjadi 4 untuk menampilkan 4 item
             itemBuilder: (context, index) {
+              Widget filterItem(String title) {
+                final bool isActive = controller.filterUrutkanState[index];
+                return GestureDetector(
+                  onTap: () {
+                    controller.filterUrutkanState[index] = !isActive;
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.slowMiddle,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.sp,
+                      vertical: 8.sp,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isActive ? Color(0xFFD0E4FF) : Colors.transparent,
+                      borderRadius: BorderRadius.circular(32.r),
+                      border: isActive
+                          ? Border.all(color: Primary50, width: 0.5)
+                          : Border.all(color: Neutral90, width: 0.5),
+                    ),
+                    child: Center(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                          color: isActive ? Primary50 : Neutral90,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
+
               if (index == 0) {
-                // Item 1: filterUrutkanList.filter_urutkans[1]
-                final filter = filterUrutkanList.filter_urutkans[1];
-                return Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      controller.filterUrutkanState[1] =
-                          !controller.filterUrutkanState[1];
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.slowMiddle,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.sp,
-                        vertical: 8.sp,
-                      ),
-                      decoration: BoxDecoration(
-                        color: controller.filterUrutkanState[1]
-                            ? Color(0xFFD0E4FF)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(32.r),
-                        border: controller.filterUrutkanState[1]
-                            ? Border.all(color: Primary50, width: 0.5)
-                            : Border.all(color: Neutral90, width: 0.5),
-                      ),
-                      child: Center(
-                        child: Row(
-                          children: [
-                            if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
-                              SizedBox(width: 4.sp),
-                            ],
-                            Text(
-                              filter.title!,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: controller.filterUrutkanState[index]
-                                    ? Primary50
-                                    : Neutral90,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+                return filterItem(filterUrutkanList.filter_urutkans[1].title!);
               } else if (index == 1) {
-                // Item 2: filterLokasiList.filter_lokasis[0]
-                final filter = filterLokasiList.filter_lokasis[0];
-                return Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      controller.filterLokasiState[0] =
-                          !controller.filterLokasiState[0];
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.slowMiddle,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.sp,
-                        vertical: 8.sp,
-                      ),
-                      decoration: BoxDecoration(
-                        color: controller.filterLokasiState[0]
-                            ? Color(0xFFD0E4FF)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(32.r),
-                        border: controller.filterLokasiState[0]
-                            ? Border.all(color: Primary50, width: 0.5)
-                            : Border.all(color: Neutral90, width: 0.5),
-                      ),
-                      child: Center(
-                        child: Text(
-                          filter.title!,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: controller.filterLokasiState[0]
-                                ? Primary50
-                                : Neutral90,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+                return filterItem(filterLokasiList.filter_lokasis[0].title!);
               } else if (index == 2) {
-                // Item 3: filterUrutkanList.filter_urutkans[0]
-                final filter = filterUrutkanList.filter_urutkans[0];
-                return Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      controller.filterUrutkanState[0] =
-                          !controller.filterUrutkanState[0];
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.slowMiddle,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.sp,
-                        vertical: 8.sp,
-                      ),
-                      decoration: BoxDecoration(
-                        color: controller.filterUrutkanState[0]
-                            ? Color(0xFFD0E4FF)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(32.r),
-                        border: controller.filterUrutkanState[0]
-                            ? Border.all(color: Primary50, width: 0.5)
-                            : Border.all(color: Neutral90, width: 0.5),
-                      ),
-                      child: Center(
-                        child: Row(
-                          children: [
-                            if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
-                              SizedBox(width: 4.sp),
-                            ],
-                            Text(
-                              filter.title!,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: controller.filterUrutkanState[0]
-                                    ? Primary50
-                                    : Neutral90,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+                return filterItem(filterUrutkanList.filter_urutkans[0].title!);
               } else if (index == 3) {
-                // Item 4: filterUrutkanList.filter_urutkans[3]
-                final filter = filterUrutkanList.filter_urutkans[3];
-                return Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      controller.filterUrutkanState[3] =
-                          !controller.filterUrutkanState[3];
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.slowMiddle,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.sp,
-                        vertical: 8.sp,
-                      ),
-                      decoration: BoxDecoration(
-                        color: controller.filterUrutkanState[3]
-                            ? Color(0xFFD0E4FF)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(32.r),
-                        border: controller.filterUrutkanState[3]
-                            ? Border.all(color: Primary50, width: 0.5)
-                            : Border.all(color: Neutral90, width: 0.5),
-                      ),
-                      child: Center(
-                        child: Row(
-                          children: [
-                            if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
-                              SizedBox(width: 4.sp),
-                            ],
-                            Text(
-                              filter.title!,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: controller.filterUrutkanState[3]
-                                    ? Primary50
-                                    : Neutral90,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+                return filterItem(filterUrutkanList.filter_urutkans[3].title!);
+              } else {
+                return Container(); // Kembalikan wadah kosong untuk indeks lainnya
               }
             },
           ),
