@@ -14,13 +14,35 @@ class FilterLokasi extends GetView<HomeController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Lokasi",
-          style: TextStyle(
-            fontSize: 15.5.w,
-            fontWeight: FontWeight.w600,
-            color: H333333,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Lokasi",
+              style: TextStyle(
+                fontSize: 13.5.w,
+                fontWeight: FontWeight.w600,
+                color: H333333,
+              ),
+            ),
+            InkWell(
+              borderRadius: BorderRadius.circular(4.r),
+              onTap: () {
+                //
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.sp),
+                child: Text(
+                  "Lihat Semua",
+                  style: TextStyle(
+                    fontSize: 13.5.w,
+                    fontWeight: FontWeight.w600,
+                    color: Primary50,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 8.sp),
         Wrap(

@@ -34,19 +34,14 @@ class Explore extends GetView<HomeController> {
               SizedBox(height: 54.w),
               AppBarGAS(borderStyle: borderStyle),
               TabBarExplore(),
-              // SizedBox(height: 12.sp),
               FilterAppBar(),
               Obx(
                 () => IndexedStack(
                   index: controller.isTokoIndex.value,
                   children: [
                     ContentExplorer(),
-                    Container(
-                      width: Get.width,
-                      height: Get.height,
-                      child: Center(
-                        child: Text("Halaman Toko"),
-                      ),
+                    Center(
+                      child: Text("Halaman Toko"),
                     ),
                   ],
                 ),

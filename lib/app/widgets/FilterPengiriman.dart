@@ -17,7 +17,7 @@ class FilterPengiriman extends GetView<HomeController> {
         Text(
           "Tipe Pengiriman",
           style: TextStyle(
-            fontSize: 15.5.w,
+            fontSize: 13.5.w,
             fontWeight: FontWeight.w600,
             color: H333333,
           ),

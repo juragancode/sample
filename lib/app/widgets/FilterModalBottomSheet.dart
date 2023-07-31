@@ -33,27 +33,42 @@ Future<dynamic> FilterModalBottomSheet(BuildContext context) {
                 child: Stack(
                   children: [
                     SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 66.sp),
-                            FilterUrutkan(),
-                            SizedBox(height: 24.sp),
-                            FilterKategori(),
-                            SizedBox(height: 24.sp),
-                            FilterLokasi(),
-                            SizedBox(height: 24.sp),
-                            FilterPengiriman(),
-                            SizedBox(height: 24.sp),
-                            FilterKondisi(),
-                            SizedBox(height: 24.sp),
-                            FilterLainnya(),
-                            SizedBox(height: 75.sp),
-                            //
-                          ],
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 66.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: FilterUrutkan(),
+                          ),
+                          SizedBox(height: 24.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: FilterKategori(),
+                          ),
+                          SizedBox(height: 24.sp),
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.sp, right: 10.sp),
+                            child: FilterLokasi(),
+                          ),
+                          SizedBox(height: 24.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: FilterPengiriman(),
+                          ),
+                          SizedBox(height: 24.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: FilterKondisi(),
+                          ),
+                          SizedBox(height: 24.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: FilterLainnya(),
+                          ),
+                          SizedBox(height: 75.sp),
+                          //
+                        ],
                       ),
                     ),
                     HeaderModalBottomSheet(),

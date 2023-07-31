@@ -17,7 +17,7 @@ class FilterLainnya extends GetView<HomeController> {
         Text(
           "Lainnya",
           style: TextStyle(
-            fontSize: 15.5.w,
+            fontSize: 13.5.w,
             fontWeight: FontWeight.w600,
             color: H333333,
           ),
