@@ -29,7 +29,7 @@ class ContentExplorer extends GetView<HomeController> {
             )
           : Container(
               width: Get.width,
-              height: Get.height - (56 + 107.sp + 140.w),
+              height: Get.height / 1.7,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
