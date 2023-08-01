@@ -128,15 +128,20 @@ class ProdukTerbaru extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 8.0.sp),
-                              Text(
-                                productTerbaruList.productTerbarus[index].name,
-                                style: TextStyle(
-                                  fontSize: 11.5.w,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
+                              Container(
+                                // color: Colors.amber,
+                                height: 34.5.w,
+                                child: Text(
+                                  productTerbaruList
+                                      .productTerbarus[index].name,
+                                  style: TextStyle(
+                                    fontSize: 11.5.w,
+                                    fontWeight: FontWeight.w400,
+                                    color: H333333,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
                                 ),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
                               ),
                               SizedBox(height: 4.0.sp),
                               Row(
@@ -194,13 +199,20 @@ class ProdukTerbaru extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(width: 3.w),
-                                  Text(
-                                    productTerbaruList
-                                        .productTerbarus[index].shopName,
-                                    style: TextStyle(
-                                      fontSize: 9.5.w,
-                                      fontWeight: FontWeight.w400,
-                                      color: Neutral90,
+                                  Container(
+                                    width: 133.w,
+                                    // color: Colors.amber,
+                                    child: Text(
+                                      productTerbaruList
+                                          .productTerbarus[index].shopName,
+                                      // "aaaa sdddd ddddd  ddsfsdfsd sdfsdfds dsfdsfdsf sdfdsfsdf sddfsdfsdf sdfdsf",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 9.5.w,
+                                        fontWeight: FontWeight.w400,
+                                        color: Neutral90,
+                                      ),
                                     ),
                                   ),
                                 ],

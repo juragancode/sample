@@ -105,15 +105,19 @@ class BelanjaanTerakhir extends GetView<HomeController> {
                         ),
                       ),
                       SizedBox(height: 8.0.sp),
-                      Text(
-                        belanjaanTerakhirList.belanjaanTerakhirs[index].name,
-                        style: TextStyle(
-                          fontSize: 11.5.w,
-                          fontWeight: FontWeight.w400,
-                          color: H333333,
+                      Container(
+                        // color: Colors.amber,
+                        height: 34.5.w,
+                        child: Text(
+                          belanjaanTerakhirList.belanjaanTerakhirs[index].name,
+                          style: TextStyle(
+                            fontSize: 11.5.w,
+                            fontWeight: FontWeight.w400,
+                            color: H333333,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
                       ),
                       SizedBox(height: 8.0.sp),
                       Text(

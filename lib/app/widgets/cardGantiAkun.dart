@@ -45,9 +45,14 @@ class cardGantiAkun extends GetView<HomeController> {
                         Container(
                           height: 40.w,
                           width: 40.w,
-                          child: Image.asset(
-                            'assets/icons/${selectedAccount.image}',
-                            fit: BoxFit.cover,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/icons/${selectedAccount.image}',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         SizedBox(width: 8.w),

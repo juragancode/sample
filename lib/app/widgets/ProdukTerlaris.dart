@@ -123,15 +123,18 @@ class ProdukTerlaris extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8.0.sp),
-                          Text(
-                            productTerlarisList.productTerlariss[index].name,
-                            style: TextStyle(
-                              fontSize: 11.5.w,
-                              fontWeight: FontWeight.w400,
-                              color: H333333,
+                          Container(
+                            height: 34.5.w,
+                            child: Text(
+                              productTerlarisList.productTerlariss[index].name,
+                              style: TextStyle(
+                                fontSize: 11.5.w,
+                                fontWeight: FontWeight.w400,
+                                color: H333333,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
                             ),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
                           ),
                           SizedBox(height: 4.0.sp),
                           Row(

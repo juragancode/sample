@@ -128,7 +128,7 @@ class ShopList {
     ),
     Shop(
       name: "Batik Prabuseno",
-      nameShop: "Store Batik Prabuseno",
+      nameShop: "Store Batik Prabuseno Praha Palgunadi",
       location: "Kota Surakarta",
       rating: 4.8,
       imageShop: "BatikPrabuseno.png",
@@ -173,7 +173,7 @@ class ShopList {
       nameShop: "MIXUE Solo",
       location: "Kota Surakarta",
       rating: 4.9,
-      imageShop: "mixue.jpg",
+      imageShop: "mixue-logo-6AE8953ADB-seeklogo.com.png",
       product: [
         Product(
           productName: 'Mixue Mango Sundae',
