@@ -7,6 +7,7 @@ import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 import 'checkModalBottomSheet_false.dart';
 import 'checkModalBottomSheet_true.dart';
+import 'Shimmer.dart';
 
 AccountList accountList = AccountList();
 
@@ -63,12 +64,26 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                                     children: [
                                       Row(
                                         children: [
-                                          Container(
-                                            height: 40.sp,
-                                            width: 40.sp,
-                                            child: Image.asset(
-                                              'assets/icons/${account.image}',
-                                              fit: BoxFit.cover,
+                                          ClipOval(
+                                            child: Container(
+                                              height: 40.sp,
+                                              width: 40.sp,
+                                              child: Stack(
+                                                children: [
+                                                  Shimmer_01(),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.transparent,
+                                                      image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          account.image,
+                                                        ),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                           SizedBox(width: 10.sp),

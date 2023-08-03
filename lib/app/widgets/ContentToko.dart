@@ -6,6 +6,7 @@ import '../constant/colors.dart';
 import '../model/toko_model.dart';
 import 'BoxShadow.dart';
 import 'LinearGradient.dart';
+import 'Shimmer.dart';
 
 class ContentToko extends StatelessWidget {
   @override
@@ -40,20 +41,31 @@ class ContentToko extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  height: 40.w,
-                                  width: 40.w,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: Neutral50,
-                                      width: 0.5.sp,
+                                ClipOval(
+                                  child: Container(
+                                    height: 40.w,
+                                    width: 40.w,
+                                    decoration: BoxDecoration(
+                                      // shape: BoxShape.circle,
+                                      border: Border.all(
+                                        strokeAlign:
+                                            BorderSide.strokeAlignOutside,
+                                        color: Neutral50,
+                                        width: 0.5.sp,
+                                      ),
                                     ),
-                                  ),
-                                  child: ClipOval(
-                                    child: Image.asset(
-                                      'assets/icons/Shop/${shop.imageShop}',
-                                      fit: BoxFit.contain,
+                                    child: Stack(
+                                      children: [
+                                        Shimmer_01(),
+                                        Center(
+                                          child: ClipOval(
+                                            child: Image.network(
+                                              shop.imageShop,
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -140,41 +152,68 @@ class ContentToko extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                // ListView untuk index 0
                                 Container(
                                   height: 80.w,
                                   child: Expanded(
-                                    child: ListView.separated(
-                                      separatorBuilder:
-                                          (BuildContext context, int index) {
-                                        return SizedBox(width: 12.w);
-                                      },
+                                    child: ListView.builder(
                                       physics: NeverScrollableScrollPhysics(),
                                       scrollDirection: Axis.horizontal,
                                       shrinkWrap: true,
-                                      itemCount: shop.product.length > 3
-                                          ? 3
-                                          : shop.product.length,
+                                      itemCount:
+                                          shop.product.length > 0 ? 1 : 0,
                                       itemBuilder: (context, index) {
-                                        Product product = shop.product[index];
-                                        return Container(
-                                          width: 80.0.w,
-                                          height: 80.0.w,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(4.r),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                'assets/icons/Product/${product.productImage}',
-                                              ),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                        Product product =
+                                            shop.product[0]; // Gunakan index 0
+                                        return imageProduct_Toko(
+                                          product: product,
                                         );
                                       },
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 12.w),
+
+                                // ListView untuk index 1
+                                Container(
+                                  height: 80.w,
+                                  child: Expanded(
+                                    child: ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      scrollDirection: Axis.horizontal,
+                                      shrinkWrap: true,
+                                      itemCount:
+                                          shop.product.length > 1 ? 1 : 0,
+                                      itemBuilder: (context, index) {
+                                        Product product =
+                                            shop.product[1]; // Gunakan index 1
+                                        return imageProduct_Toko(
+                                          product: product,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+
+                                // ListView untuk index 2
+                                Container(
+                                  height: 80.w,
+                                  child: Expanded(
+                                    child: ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      scrollDirection: Axis.horizontal,
+                                      shrinkWrap: true,
+                                      itemCount:
+                                          shop.product.length > 2 ? 1 : 0,
+                                      itemBuilder: (context, index) {
+                                        Product product =
+                                            shop.product[2]; // Gunakan index 3
+                                        return imageProduct_Toko(
+                                          product: product,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
                                 Container(
                                   height: 80.w,
                                   width: 51.w,
@@ -207,6 +246,45 @@ class ContentToko extends StatelessWidget {
         ),
         SizedBox(height: 28.sp),
       ],
+    );
+  }
+}
+
+class imageProduct_Toko extends StatelessWidget {
+  const imageProduct_Toko({
+    super.key,
+    required this.product,
+  });
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80.0.w,
+      height: 80.0.w,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.r),
+        border: Border.all(
+          strokeAlign: BorderSide.strokeAlignOutside,
+          color: DEDEDE,
+          width: 0.5.sp,
+        ),
+      ),
+      child: Stack(
+        children: [
+          Shimmer_01(),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4.r),
+              image: DecorationImage(
+                image: NetworkImage(product.productImage),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

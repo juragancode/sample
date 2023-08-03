@@ -36,37 +36,17 @@ class Explore extends GetView<HomeController> {
               AppBarGAS(borderStyle: borderStyle),
               TabBarExplore(),
               FilterAppBar(),
-//               Obx(
-//                 () => IndexedStack(
-//                   index: controller.isTokoIndex.value,
-//                   children: [
-//                     ContentProduk(),
-//                     //
-//                     ContentToko(),
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
               Obx(
                 () => Column(
                   children: [
                     Visibility(
                       visible: controller.isTokoIndex.value == 0,
-                      maintainState:
-                          true, // Optional, keep the state of ContentProduk
+                      maintainState: true,
                       child: ContentProduk(),
                     ),
                     Visibility(
                       visible: controller.isTokoIndex.value == 1,
-                      maintainState:
-                          true, // Optional, keep the state of ContentToko
+                      maintainState: true,
                       child: ContentToko(),
                     ),
                   ],

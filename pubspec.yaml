@@ -43,8 +43,6 @@ flutter:
   assets:
     - assets/icons/
     - assets/icons/ContentIcons/
-    - assets/icons/Product/
-    - assets/icons/Shop/
     - fonts/
   fonts:
     - family: DancingScript

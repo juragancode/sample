@@ -50,16 +50,14 @@ class cardGantiAkun extends GetView<HomeController> {
                             child: Stack(
                               children: [
                                 Shimmer_01(),
-                                ClipOval(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/icons/${selectedAccount.image}',
-                                        ),
-                                        fit: BoxFit.cover,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        selectedAccount.image,
                                       ),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),

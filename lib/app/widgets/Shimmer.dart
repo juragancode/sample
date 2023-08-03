@@ -56,3 +56,23 @@ class Shimmer_02 extends StatelessWidget {
     );
   }
 }
+
+///rad 8.sp
+class Shimmer_03 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey.shade200,
+      highlightColor: Colors.white,
+      enabled: true,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey.shade100,
+          borderRadius: BorderRadius.all(
+            Radius.circular(8.r),
+          ),
+        ),
+      ),
+    );
+  }
+}
