@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../constant/colors.dart';
 import '../model/produk_terlaris_model.dart';
 import 'BoxShadow.dart';
+import 'Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -67,21 +68,36 @@ class ProdukTerlaris extends StatelessWidget {
                         width: 106.0.w,
                         height: 90.0.w,
                         decoration: BoxDecoration(
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(4.0.sp),
                             topRight: Radius.circular(4.0.sp),
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              productTerlarisList.productTerlariss[index].image,
-                            ),
-                            fit: BoxFit.cover,
                           ),
                           border: Border.all(
                             strokeAlign: BorderSide.strokeAlignOutside,
                             color: DEDEDE,
                             width: 0.5.sp,
                           ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Shimmer_01(),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(4.0.sp),
+                                  topRight: Radius.circular(4.0.sp),
+                                ),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    productTerlarisList
+                                        .productTerlariss[index].image,
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Column(

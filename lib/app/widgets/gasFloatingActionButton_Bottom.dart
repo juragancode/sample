@@ -17,18 +17,35 @@ class gasFloatingActionButton_Bottom extends GetView<HomeController> {
           width: 90.sp,
           height: 90.sp,
           child: FloatingActionButton(
+            splashColor:
+                controller.buttonFloat.isFalse ? Colors.amber : Colors.blue,
             elevation: 0.sp,
             onPressed: () {
               //
               controller.buttonFloat.value = !controller.buttonFloat.value;
             },
-            child: SvgPicture.asset(
-              controller.buttonFloat.isFalse
-                  ? 'assets/icons/iconGAS-Biru.svg'
-                  : 'assets/icons/iconGAS-Kuning.svg',
-              fit: BoxFit.contain,
-              width: 100.sp,
-              height: 100.sp,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment(0, 0.25),
+                  child: Container(
+                    width: 56.5.sp,
+                    height: 56.5.sp,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade100,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                SvgPicture.asset(
+                  controller.buttonFloat.isFalse
+                      ? 'assets/icons/iconGAS-Biru.svg'
+                      : 'assets/icons/iconGAS-Kuning.svg',
+                  fit: BoxFit.contain,
+                  width: 100.sp,
+                  height: 100.sp,
+                ),
+              ],
             ),
             backgroundColor: Colors.transparent,
           ),

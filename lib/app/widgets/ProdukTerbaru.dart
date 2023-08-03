@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../constant/colors.dart';
 import '../model/produk_terbaru_model.dart';
 import 'BoxShadow.dart';
+import 'Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -69,16 +70,31 @@ class ProdukTerbaru extends StatelessWidget {
                                         border: Border.all(
                                           color: DEDEDE,
                                           width: 0.5.sp,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignOutside,
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(4.r),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            productTerbaruList
-                                                .productTerbarus[index].image,
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Shimmer_01(),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                  productTerbaruList
+                                                      .productTerbarus[index]
+                                                      .image,
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
-                                          fit: BoxFit.cover,
-                                        ),
+                                        ],
                                       ),
                                     ),
                                     Padding(

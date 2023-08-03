@@ -7,6 +7,7 @@ import '../constant/colors.dart';
 import '../model/belanjaan_terakhir_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 import 'BoxShadow.dart';
+import 'Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -87,21 +88,36 @@ class BelanjaanTerakhir extends GetView<HomeController> {
                         width: 106.0.w,
                         height: 90.0.w,
                         decoration: BoxDecoration(
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(4.0.sp),
                             topRight: Radius.circular(4.0.sp),
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              belanjaanTerakhirList
-                                  .belanjaanTerakhirs[index].image,
-                            ),
-                            fit: BoxFit.cover,
                           ),
                           border: Border.all(
                             color: DEDEDE,
                             width: 0.5.sp,
                           ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Shimmer_01(),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(4.0.sp),
+                                  topRight: Radius.circular(4.0.sp),
+                                ),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    belanjaanTerakhirList
+                                        .belanjaanTerakhirs[index].image,
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(height: 8.0.sp),

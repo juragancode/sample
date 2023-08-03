@@ -7,7 +7,7 @@ import '../modules/home/controllers/home_controller.dart';
 import 'FiturToko.dart';
 import 'chartStatistikPenjualan.dart';
 
-String svg = "assets/icons/icon-Absensi-Blue.svg";
+String svg = "assets/icons/ContentIcons/Blue-Absensi.svg";
 String title = "Absensi";
 String deskripsi = "Isi kehadiranmu sesuai jadwal shift harian.";
 

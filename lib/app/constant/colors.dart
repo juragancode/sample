@@ -17,6 +17,7 @@ const Success50 = Color(0xFF0DE864);
 
 const H333333 = Color(0xFF333333);
 const DEDEDE = Color(0xFFDEDEDE);
+const EBEBEB = Color(0xFFEBEBEB);
 const Error50 = Color(0xFFFF002E);
 
 const Favorite = Color(0xFFFF2048);

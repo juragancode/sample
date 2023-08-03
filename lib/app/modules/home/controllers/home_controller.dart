@@ -23,7 +23,6 @@ class HomeController extends GetxController {
     'assets/icons/Banner-Bergabung-GAS.png',
   ];
 
-  final RxInt currentIndex = 0.obs;
   RxBool buttonFloat = false.obs;
   RxInt accountIndex = 0.obs;
 

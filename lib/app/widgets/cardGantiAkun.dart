@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../constant/colors.dart';
-import 'gantiAkun_showModalButtomSheet.dart';
-import 'BoxShadow.dart';
 import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
+import 'BoxShadow.dart';
+import 'Shimmer.dart';
+import 'gantiAkun_showModalButtomSheet.dart';
 
 class cardGantiAkun extends GetView<HomeController> {
   @override
@@ -42,16 +43,27 @@ class cardGantiAkun extends GetView<HomeController> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          height: 40.w,
-                          width: 40.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: ClipOval(
-                            child: Image.asset(
-                              'assets/icons/${selectedAccount.image}',
-                              fit: BoxFit.cover,
+                        ClipOval(
+                          child: Container(
+                            height: 40.w,
+                            width: 40.w,
+                            child: Stack(
+                              children: [
+                                Shimmer_01(),
+                                ClipOval(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/icons/${selectedAccount.image}',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

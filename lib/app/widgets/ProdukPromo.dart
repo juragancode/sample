@@ -7,6 +7,8 @@ import '../constant/colors.dart';
 import '../model/produk_promo_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 import 'BoxShadow.dart';
+import 'LinearGradient.dart';
+import 'Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -91,21 +93,36 @@ class ProdukPromo extends GetView<HomeController> {
                         width: 106.0.w,
                         height: 90.0.w,
                         decoration: BoxDecoration(
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(4.0.sp),
                             topRight: Radius.circular(4.0.sp),
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              productPromoList.productPromos[index].image,
-                            ),
-                            fit: BoxFit.cover,
                           ),
                           border: Border.all(
                             strokeAlign: BorderSide.strokeAlignOutside,
                             color: DEDEDE,
                             width: 0.5.sp,
                           ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Shimmer_01(),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(4.0.sp),
+                                  topRight: Radius.circular(4.0.sp),
+                                ),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    productPromoList.productPromos[index].image,
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Column(
@@ -121,14 +138,7 @@ class ProdukPromo extends GetView<HomeController> {
                                 bottomRight: Radius.circular(16.0.sp),
                                 bottomLeft: Radius.circular(4.0.sp),
                               ),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFF4D89D4),
-                                  Color(0xFF216BC9),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
+                              gradient: LinearGradient_Blue_01(),
                             ),
                             child: Padding(
                               padding: EdgeInsets.only(

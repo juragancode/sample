@@ -44,9 +44,21 @@ class FiturToko extends StatelessWidget {
                         Container(
                           height: 31.w,
                           width: 31.w,
-                          child: SvgPicture.asset(
-                            'assets/icons/icon-Mesin-Kasir-Blue.svg',
-                            fit: BoxFit.cover,
+                          decoration: BoxDecoration(
+                            color: EBEBEB,
+                            borderRadius: BorderRadius.circular(
+                              4.sp,
+                            ),
+                          ),
+                          child: Center(
+                            child: Container(
+                              height: 18.w,
+                              width: 18.w,
+                              child: SvgPicture.asset(
+                                'assets/icons/ContentIcons/Blue-Mesin-Kasir.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: 8.sp),
@@ -75,8 +87,6 @@ class FiturToko extends StatelessWidget {
               SizedBox(width: 8.w),
               Expanded(
                 child: Container(
-                  // width: 167.w,
-                  // height: 110.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
                     color: Color(0xFFFFFFFF),
@@ -92,9 +102,21 @@ class FiturToko extends StatelessWidget {
                         Container(
                           height: 31.w,
                           width: 31.w,
-                          child: SvgPicture.asset(
-                            svg,
-                            fit: BoxFit.cover,
+                          decoration: BoxDecoration(
+                            color: EBEBEB,
+                            borderRadius: BorderRadius.circular(
+                              4.sp,
+                            ),
+                          ),
+                          child: Center(
+                            child: Container(
+                              height: 21.w,
+                              width: 21.w,
+                              child: SvgPicture.asset(
+                                svg,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: 8.sp),

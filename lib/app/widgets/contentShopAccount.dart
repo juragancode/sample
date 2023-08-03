@@ -7,7 +7,7 @@ import 'BannerPromo.dart';
 import 'FiturToko.dart';
 import 'chartStatistikPenjualan.dart';
 
-String svg = "assets/icons/icon-Kelola Product-Yellow.svg";
+String svg = "assets/icons/ContentIcons/Yellow-Kelola-Produk.svg";
 String title = "Kelola Produk";
 String deskripsi = "Kelola stok, varian, dan kategori produkmu";
 
