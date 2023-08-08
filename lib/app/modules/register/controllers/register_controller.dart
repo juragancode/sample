@@ -80,7 +80,7 @@ class RegisterController extends GetxController {
     try {
       loadingRegister.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/registerSendOtp"),
+        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/registerSendOtp"),
         body: {
           "email": emailDaftarC.text,
         },

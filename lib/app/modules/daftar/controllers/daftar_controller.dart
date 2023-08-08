@@ -86,7 +86,7 @@ class DaftarController extends GetxController {
     try {
       loadingDaftar.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/register"),
+        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/register"),
         body: {
           // "otp": otpC.verifikasiDaftarC.text,
           "email": emailDaftarC.text,

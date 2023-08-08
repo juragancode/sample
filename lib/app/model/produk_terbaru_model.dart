@@ -8,15 +8,16 @@ class ProductTerbaru {
   final double rating;
   final bool favorite;
 
-  ProductTerbaru(
-      {required this.name,
-      required this.city,
-      required this.shopName,
-      required this.image,
-      required this.price,
-      required this.priceDicoret,
-      required this.rating,
-      required this.favorite});
+  ProductTerbaru({
+    required this.name,
+    required this.city,
+    required this.shopName,
+    required this.image,
+    required this.price,
+    required this.priceDicoret,
+    required this.rating,
+    required this.favorite,
+  });
 }
 
 class ProductTerbaruList {

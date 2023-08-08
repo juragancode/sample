@@ -2,16 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/produk_terbaru_model.dart';
+import '../modules/home/controllers/home_controller.dart';
 import 'BoxShadow.dart';
 import 'Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
-class ProdukTerbaru extends StatelessWidget {
+class ProdukTerbaru extends GetView<HomeController> {
   final ProductTerbaruList productTerbaruList = ProductTerbaruList();
 
   @override
@@ -101,40 +103,54 @@ class ProdukTerbaru extends StatelessWidget {
                                       padding: EdgeInsets.all(4.w),
                                       child: Align(
                                         alignment: Alignment.topRight,
-                                        child: Container(
-                                          width: 31.w,
-                                          height: 31.w,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color(0xFF858585)
-                                                    .withOpacity(0.455),
-                                                Color(0xFF858585)
-                                                    .withOpacity(0.455),
-                                                Color(0xFF858585)
-                                                    .withOpacity(0.65),
-                                              ],
-                                              stops: [0.455, 0.455, 0.65],
-                                              begin: Alignment.topCenter,
-                                              end: Alignment.bottomCenter,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(4.r),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsets.only(top: 1.3.w),
-                                            child: Icon(
-                                              CupertinoIcons.heart_fill,
-                                              size: 21.w,
-                                              // Icons.favorite,
-                                              color: productTerbaruList
-                                                          .productTerbarus[
-                                                              index]
-                                                          .favorite ==
-                                                      false
-                                                  ? Colors.white
-                                                  : Favorite,
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          child: Obx(
+                                            () => InkWell(
+                                              onTap: () {
+                                                //
+                                                controller
+                                                    .favoriteProdukTerbaru[
+                                                        index]
+                                                    .toggle();
+                                              },
+                                              child: Container(
+                                                width: 31.w,
+                                                height: 31.w,
+                                                decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                    colors: [
+                                                      Color(0xFF858585)
+                                                          .withOpacity(0.455),
+                                                      Color(0xFF858585)
+                                                          .withOpacity(0.455),
+                                                      Color(0xFF858585)
+                                                          .withOpacity(0.65),
+                                                    ],
+                                                    stops: [0.455, 0.455, 0.65],
+                                                    begin: Alignment.topCenter,
+                                                    end: Alignment.bottomCenter,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.r),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 1.3.w),
+                                                  child: Icon(
+                                                    CupertinoIcons.heart_fill,
+                                                    size: 21.w,
+                                                    // Icons.favorite,
+                                                    color: controller
+                                                            .favoriteProdukTerbaru[
+                                                                index]
+                                                            .value
+                                                        ? Favorite
+                                                        : Colors.white,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),

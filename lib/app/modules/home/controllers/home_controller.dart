@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_a_s_app_rekadigi/app/model/produk_terbaru_model.dart';
 import 'package:get/get.dart';
 
 import '../../../model/filter_kategori_model.dart';
@@ -54,6 +55,17 @@ class HomeController extends GetxController {
   //
   // Explore
   RxInt isTokoIndex = 0.obs;
+  final List<ProductTerbaru> products = ProductTerbaruList().productTerbarus;
+
+  final favoriteProdukTerbaru = <RxBool>[];
+
+  @override
+  void onInit() {
+    super.onInit();
+    // Mengisi list favoriteProdukTerbaru dengan nilai awal dari model
+    favoriteProdukTerbaru
+        .assignAll(products.map((product) => product.favorite.obs));
+  }
 }
 
 class ProdukController extends GetxController {

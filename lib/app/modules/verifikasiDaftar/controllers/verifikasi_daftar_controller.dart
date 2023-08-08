@@ -73,7 +73,7 @@ class VerifikasiDaftarController extends GetxController {
     try {
       loadingRegisterVerifikasiDaftar.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/registerConfirmOtp"),
+        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/registerConfirmOtp"),
         body: {
           "otp": verifikasiDaftarC.text,
           "key": emailC.emailDaftarC.text,
