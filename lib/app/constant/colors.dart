@@ -7,6 +7,8 @@ const Primary10 = Color(0xFF7AA6DF);
 const Secondary50 = Color(0xFFFFCA08);
 
 const Neutral90 = Color(0xFF858585);
+const Neutral70 = Color(0xFFA0A0A0);
+
 const Neutral50 = Color(0xFFB5B5B5);
 const Neutral30 = Color(0xFFD1D1D1);
 const Neutral10 = Color(0xFFDEDEDE);
@@ -18,7 +20,9 @@ const Success50 = Color(0xFF0DE864);
 const H333333 = Color(0xFF333333);
 const DEDEDE = Color(0xFFDEDEDE);
 const EBEBEB = Color(0xFFEBEBEB);
+
 const Error50 = Color(0xFFFF002E);
+const Error10 = Color(0xFFFF6682);
 
 const Favorite = Color(0xFFFF2048);
 

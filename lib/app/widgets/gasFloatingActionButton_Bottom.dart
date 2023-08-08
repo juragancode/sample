@@ -32,7 +32,7 @@ class gasFloatingActionButton_Bottom extends GetView<HomeController> {
                     width: 56.5.sp,
                     height: 56.5.sp,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: Colors.grey.shade300,
                       shape: BoxShape.circle,
                     ),
                   ),

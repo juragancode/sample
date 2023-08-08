@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constant/colors.dart';
-import '../model/filter_kategori_model.dart';
-import '../modules/home/controllers/home_controller.dart';
+import '../../../constant/colors.dart';
+import '../../../model/filter_kategori_model.dart';
+import '../../../modules/home/controllers/home_controller.dart';
 
 final FilterKategoriList filterKategoriList = FilterKategoriList();
 
-class FilterLainnya extends GetView<HomeController> {
+class FilterLainnya extends GetView<TokoController> {
   @override
   Widget build(BuildContext context) {
     return Column(

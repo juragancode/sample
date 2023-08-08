@@ -3,21 +3,19 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/splashAccountBerhasilDibuat.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
+import '../../../widgets/splashAccountBerhasilDibuat.dart';
 import '../controllers/daftar_controller.dart';
 
-final RegisterController email = Get.put(RegisterController());
+// final RegisterController controller = Get.put(RegisterController());
 
 class DaftarView extends GetView<DaftarController> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.emailDaftarFN.unfocus();
         controller.namaDaftarFN.unfocus();
         controller.noHpDaftarFN.unfocus();
         controller.passDaftarFN.unfocus();
@@ -111,6 +109,7 @@ class DaftarView extends GetView<DaftarController> {
               // ),
 
               // SizedBox(height: 12.w),
+
               Row(
                 children: [
                   SizedBox(width: 34.w),
@@ -339,16 +338,7 @@ class DaftarView extends GetView<DaftarController> {
                           controller.buttonDaftar.isTrue &&
                                   controller.isNoHpValid.value
                               ? () {
-                                  Get.dialog(
-                                    splashAccountBerhasilDibuat(),
-                                  );
-                                  Timer(
-                                    Duration(milliseconds: 3000),
-                                    () {
-                                      Get.offAllNamed(
-                                          Routes.IZINKAN_AKSES_LOKASI);
-                                    },
-                                  );
+                                  controller.buatAkun();
                                 }
                               : () {},
                       child: Text(

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../model/filter_urutkan_model.dart';
-import '../../../model/filter_model.dart';
 import '../../../model/filter_kategori_model.dart';
 import '../../../model/filter_lokasi_model.dart';
-import '../views/Beranda.dart';
+import '../../../model/filter_urutkan_model.dart';
 import '../../../widgets/Blank.dart';
+import '../views/Beranda.dart';
+import '../views/explore.dart';
 import '../views/profil.dart';
 import '../views/transaksi.dart';
-import '../views/explore.dart';
 
 class HomeController extends GetxController {
   // TextEditingController
@@ -55,12 +54,37 @@ class HomeController extends GetxController {
   //
   // Explore
   RxInt isTokoIndex = 0.obs;
+}
 
-  // filter
+class ProdukController extends GetxController {
+  List<bool> filterUrutkanState =
+      List.filled(FilterUrutkanList().filter_urutkans.length, false).obs;
 
-  List<bool> filterSelectedState =
-      List.filled(FilterList().filters.length, false).obs;
+  List<bool> filterKategoriState =
+      List.filled(FilterKategoriList().filter_kategoris.length, false).obs;
 
+  List<bool> filterLokasiState =
+      List.filled(FilterLokasiList().filter_lokasis.length, false).obs;
+
+  List<bool> filterPengirimanState =
+      List.filled(FilterKategoriList().tipe_pengiriman.length, false).obs;
+
+  List<bool> filterKondisiState =
+      List.filled(FilterKategoriList().kondisi.length, false).obs;
+
+  List<bool> filterLainnyaState =
+      List.filled(FilterKategoriList().lainnya.length, false).obs;
+
+  @override
+  void onInit() {
+    // Inisialisasi filterSelectedState untuk index 0 menjadi true di awal
+    filterUrutkanState[1] = true;
+
+    super.onInit();
+  }
+}
+
+class TokoController extends GetxController {
   List<bool> filterUrutkanState =
       List.filled(FilterUrutkanList().filter_urutkans.length, false).obs;
 

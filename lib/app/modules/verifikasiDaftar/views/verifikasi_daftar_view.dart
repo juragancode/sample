@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../register/controllers/register_controller.dart';
 import '../controllers/verifikasi_daftar_controller.dart';
 
-final RegisterController emailFormattedC = Get.put(RegisterController());
+final RegisterController emailC = Get.find();
 
 class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
   @override
@@ -75,7 +73,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                       () => Text(
                         "Kami telah mengirim kode verifikasi melalui email ke "
                                 .tr +
-                            "${emailFormattedC.formattedEmail.value}",
+                            "${emailC.formattedEmail.value}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -262,7 +260,9 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                       ),
                       onPressed: controller.kodeTerisi.value
                           ? () {
-                              Get.toNamed(Routes.DAFTAR);
+                              // Get.offNamed(Routes.DAFTAR);
+                              // print(emailC.emailDaftarC);
+                              controller.verifikasiDaftar();
                             }
                           : () {},
                       child: Text(

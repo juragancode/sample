@@ -3,16 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constant/colors.dart';
+import '../../../constant/colors.dart';
+import '../../../model/filter_lokasi_model.dart';
+import '../../../model/filter_urutkan_model.dart';
+import '../../../modules/home/controllers/home_controller.dart';
+import 'FilterModalBottomSheetToko.dart';
 
-import '../model/filter_model.dart';
-import '../model/filter_lokasi_model.dart';
-import '../model/filter_urutkan_model.dart';
-import '../modules/home/controllers/home_controller.dart';
-import 'FilterModalBottomSheet.dart';
-
-class FilterAppBar extends GetView<HomeController> {
-  final FilterList filterList = FilterList();
+class FilterAppBarToko extends GetView<TokoController> {
   final FilterLokasiList filterLokasiList = FilterLokasiList();
   final FilterUrutkanList filterUrutkanList = FilterUrutkanList();
 
@@ -23,7 +20,7 @@ class FilterAppBar extends GetView<HomeController> {
         // SizedBox(width: 18.sp),
         GestureDetector(
           onTap: () {
-            FilterModalBottomSheet(context);
+            FilterModalBottomSheetToko(context);
           },
           child: Container(
             // color: Colors.amber,

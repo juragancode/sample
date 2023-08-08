@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constant/colors.dart';
-import '../model/filter_kategori_model.dart';
-import '../modules/home/controllers/home_controller.dart';
+import '../../../constant/colors.dart';
+import '../../../model/filter_kategori_model.dart';
+import '../../../modules/home/controllers/home_controller.dart';
 
 final FilterKategoriList filterKategoriList = FilterKategoriList();
 
-class FilterKategori extends GetView<HomeController> {
+class FilterKondisi extends GetView<ProdukController> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Kategori",
+          "Kondisi",
           style: TextStyle(
             fontSize: 13.5.w,
             fontWeight: FontWeight.w600,
@@ -28,14 +28,14 @@ class FilterKategori extends GetView<HomeController> {
           spacing: 4.sp, // Spasi horizontal antara konten
           runSpacing: 8.sp, // Spasi vertikal antara baris
           children: List.generate(
-            filterKategoriList.filter_kategoris.length,
+            filterKategoriList.kondisi.length,
             (index) {
-              final filter = filterKategoriList.filter_kategoris[index];
+              final filter = filterKategoriList.kondisi[index];
               return Obx(
                 () => GestureDetector(
                   onTap: () {
-                    controller.filterKategoriState[index] =
-                        !controller.filterKategoriState[index];
+                    controller.filterKondisiState[index] =
+                        !controller.filterKondisiState[index];
                   },
                   child: AnimatedContainer(
                     // width: 150.w,
@@ -46,11 +46,11 @@ class FilterKategori extends GetView<HomeController> {
                       vertical: 8.sp,
                     ),
                     decoration: BoxDecoration(
-                      color: controller.filterKategoriState[index]
+                      color: controller.filterKondisiState[index]
                           ? Color(0xFFD0E4FF)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(32.r),
-                      border: controller.filterKategoriState[index]
+                      border: controller.filterKondisiState[index]
                           ? Border.all(color: Primary50, width: 0.5)
                           : Border.all(color: Neutral90, width: 0.5),
                     ),
@@ -62,7 +62,7 @@ class FilterKategori extends GetView<HomeController> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: controller.filterKategoriState[index]
+                            color: controller.filterKondisiState[index]
                                 ? Primary50
                                 : Neutral90,
                           ),

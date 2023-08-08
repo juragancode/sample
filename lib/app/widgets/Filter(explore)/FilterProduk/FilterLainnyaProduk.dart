@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constant/colors.dart';
-import '../model/filter_urutkan_model.dart';
-import '../modules/home/controllers/home_controller.dart';
+import '../../../constant/colors.dart';
+import '../../../model/filter_kategori_model.dart';
+import '../../../modules/home/controllers/home_controller.dart';
 
-final FilterUrutkanList filterUrutkanList = FilterUrutkanList();
+final FilterKategoriList filterKategoriList = FilterKategoriList();
 
-class FilterUrutkan extends GetView<HomeController> {
+class FilterLainnya extends GetView<ProdukController> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Urutkan",
+          "Lainnya",
           style: TextStyle(
             fontSize: 13.5.w,
             fontWeight: FontWeight.w600,
@@ -28,14 +28,14 @@ class FilterUrutkan extends GetView<HomeController> {
           spacing: 4.sp, // Spasi horizontal antara konten
           runSpacing: 8.sp, // Spasi vertikal antara baris
           children: List.generate(
-            filterUrutkanList.filter_urutkans.length,
+            filterKategoriList.lainnya.length,
             (index) {
-              final filter = filterUrutkanList.filter_urutkans[index];
+              final filter = filterKategoriList.lainnya[index];
               return Obx(
                 () => GestureDetector(
                   onTap: () {
-                    controller.filterUrutkanState[index] =
-                        !controller.filterUrutkanState[index];
+                    controller.filterLainnyaState[index] =
+                        !controller.filterLainnyaState[index];
                   },
                   child: AnimatedContainer(
                     // width: 150.w,
@@ -46,27 +46,23 @@ class FilterUrutkan extends GetView<HomeController> {
                       vertical: 8.sp,
                     ),
                     decoration: BoxDecoration(
-                      color: controller.filterUrutkanState[index]
+                      color: controller.filterLainnyaState[index]
                           ? Color(0xFFD0E4FF)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(32.r),
-                      border: controller.filterUrutkanState[index]
+                      border: controller.filterLainnyaState[index]
                           ? Border.all(color: Primary50, width: 0.5)
                           : Border.all(color: Neutral90, width: 0.5),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (filter.icon != null) ...[
-                          Icon(filter.icon, size: 15.w, color: Secondary50),
-                          SizedBox(width: 4.sp),
-                        ],
                         Text(
                           filter.title!,
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: controller.filterUrutkanState[index]
+                            color: controller.filterLainnyaState[index]
                                 ? Primary50
                                 : Neutral90,
                           ),

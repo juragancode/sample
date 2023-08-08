@@ -11,7 +11,7 @@ import 'ProdukTerlaris.dart';
 
 bool buttonLihatSemua_ProdukPromo = false;
 
-class ContentProduk extends GetView<HomeController> {
+class ContentProduk extends GetView<ProdukController> {
   @override
   Widget build(BuildContext context) {
     return Obx(

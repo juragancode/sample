@@ -41,8 +41,8 @@ class LoginView extends GetView<HomeController> {
               children: [
                 Center(
                   child: Container(
-                    width: 110.h,
-                    height: 110.h,
+                    width: 104.w,
+                    height: 104.w,
                     child: SvgPicture.asset(
                       "assets/icons/iconGAS.svg",
                       fit: BoxFit.contain,

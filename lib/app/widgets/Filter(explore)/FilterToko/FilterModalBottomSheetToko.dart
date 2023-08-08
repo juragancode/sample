@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constant/colors.dart';
-import 'FilterKategori.dart';
-import '../modules/home/controllers/home_controller.dart';
-import 'FilterUrutkan.dart';
-import 'FooterModalBottomSheet.dart';
-import 'HeaderModalBottomSheet.dart';
-import 'FilterLokasi.dart';
-import 'FilterPengiriman.dart';
-import 'FilterKondisi.dart';
-import 'FilterLainnya.dart';
+import '../../../constant/colors.dart';
+import '../../../modules/home/controllers/home_controller.dart';
+import '../FilterToko/FilterKondisiToko.dart';
+import '../FilterToko/FilterLainnyaToko.dart';
+import '../FilterToko/FilterLokasiToko.dart';
+import '../FilterToko/FilterPengirimanToko.dart';
+import '../FilterToko/FilterUrutkanToko.dart';
+import '../FilterToko/FilterKategoriToko.dart';
+import '../../FooterModalBottomSheet.dart';
+import '../../HeaderModalBottomSheet.dart';
 
-Future<dynamic> FilterModalBottomSheet(BuildContext context) {
+Future<dynamic> FilterModalBottomSheetToko(BuildContext context) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,

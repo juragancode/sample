@@ -7,7 +7,8 @@ import '../../../model/Filter_model.dart';
 import '../../../widgets/AppBarGAS.dart';
 import '../../../widgets/ContentProduk.dart';
 import '../../../widgets/ContentToko.dart';
-import '../../../widgets/FilterAppBar.dart';
+import '../../../widgets/Filter(explore)/FilterProduk/FilterAppBarProduk.dart';
+import '../../../widgets/Filter(explore)/FilterToko/FilterAppBarToko.dart';
 import '../../../widgets/TabBarExplore.dart';
 import '../../../widgets/backgroundExplore.dart';
 import '../controllers/home_controller.dart';
@@ -35,19 +36,28 @@ class Explore extends GetView<HomeController> {
               SizedBox(height: 54.w),
               AppBarGAS(borderStyle: borderStyle),
               TabBarExplore(),
-              FilterAppBar(),
               Obx(
                 () => Column(
                   children: [
                     Visibility(
                       visible: controller.isTokoIndex.value == 0,
                       maintainState: true,
-                      child: ContentProduk(),
+                      child: Column(
+                        children: [
+                          FilterAppBarProduk(),
+                          ContentProduk(),
+                        ],
+                      ),
                     ),
                     Visibility(
                       visible: controller.isTokoIndex.value == 1,
                       maintainState: true,
-                      child: ContentToko(),
+                      child: Column(
+                        children: [
+                          FilterAppBarToko(),
+                          ContentToko(),
+                        ],
+                      ),
                     ),
                   ],
                 ),

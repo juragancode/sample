@@ -1,7 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:g_a_s_app_rekadigi/app/modules/daftar/controllers/daftar_controller.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+
+import '../../../routes/app_pages.dart';
+
+final DaftarController emailC = Get.put(DaftarController());
 
 class RegisterController extends GetxController {
   // TextEditingController
@@ -62,4 +69,142 @@ class RegisterController extends GetxController {
       }
     }
   }
+
+  /// buat formating email buat
+
+  /// button login
+
+  RxBool loadingRegister = false.obs;
+
+  void registerButton() async {
+    try {
+      loadingRegister.value = true;
+      var response = await http.post(
+        Uri.parse("https://apigas.bagaswihant.my.id/api/registerSendOtp"),
+        body: {
+          "email": emailDaftarC.text,
+        },
+      );
+      loadingRegister.value = false;
+      Map<String, dynamic> logdata =
+          jsonDecode(response.body) as Map<String, dynamic>;
+
+      emailC.emailDaftarC.value = emailDaftarC.value;
+
+      print(response.body);
+      print(emailDaftarC.text);
+      print(emailC.emailDaftarC.text);
+
+      if (logdata['success'] == true) {
+        emailDaftarFN.unfocus();
+        formatEmail();
+        Get.toNamed(Routes.VERIFIKASI_DAFTAR);
+      } else if (logdata['success'] != true) {
+        Get.defaultDialog(
+          title: "Terjadi kesalahan",
+          middleText: "${logdata['message']}",
+        );
+      }
+    } catch (e) {
+      Get.defaultDialog(
+        title: "Login gagal",
+        middleText: "Periksa koneksi internet",
+      );
+    }
+  }
+
+  ///Daftar
+  ///
+  // @override
+  // void onClose() {
+  //   super.onClose();
+
+  //   noHpDaftarC.dispose();
+  //   noHpDaftarFN.dispose();
+  // }
+
+  // final isNoHpValid = false.obs;
+
+  // void cekNomorHP() {
+  //   final noHp = noHpDaftarC.text;
+  //   final nomorValid = validateNoHp(noHp);
+  //   isNoHpValid.value = nomorValid;
+  // }
+
+  // bool validateNoHp(String noHp) {
+  //   // Memeriksa apakah nomor handphone dimulai dengan "08"
+  //   if (noHp.startsWith("08")) {
+  //     // Memeriksa apakah nomor handphone hanya terdiri dari angka
+  //     final regex = RegExp(r'^\d+$');
+  //     if (regex.hasMatch(noHp)) {
+  //       // Memeriksa panjang nomor handphone minimal 10 digit - maksimal 13 digit
+  //       if (noHp.length >= 10 && noHp.length <= 13) {
+  //         return true;
+  //       }
+  //     }
+  //   }
+  //   return false;
+  // }
+
+  // /// Button Daftar
+  // RxBool obscureTextDaftar = true.obs;
+
+  // TextEditingController namaDaftarC = TextEditingController();
+  // TextEditingController noHpDaftarC = TextEditingController();
+  // TextEditingController passDaftarC = TextEditingController();
+
+  // // FocusNode
+  // // FocusNode emailDaftarFN = FocusNode();
+  // FocusNode namaDaftarFN = FocusNode();
+  // FocusNode noHpDaftarFN = FocusNode();
+  // FocusNode passDaftarFN = FocusNode();
+
+  // RxBool loadingDaftar = false.obs;
+
+  // void buatAkun() async {
+  //   try {
+  //     loadingDaftar.value = true;
+  //     var response = await http.post(
+  //       Uri.parse("https://apigas.bagaswihant.my.id/api/registerConfirmOtp"),
+  //       body: {
+  //         // "otp": otpC.verifikasiDaftarC.text,
+  //         "email": emailDaftarC.text,
+  //         "name": namaDaftarC.text,
+  //         "password": passDaftarC.text,
+  //         "phone": noHpDaftarC.text,
+  //       },
+  //     );
+  //     loadingDaftar.value = false;
+  //     Map<String, dynamic> logdata =
+  //         jsonDecode(response.body) as Map<String, dynamic>;
+
+  //     print(response.body);
+
+  //     if (logdata['success'] == true) {
+  //       Get.offNamed(Routes.DAFTAR);
+  //     } else if (logdata['success'] != true) {
+  //       Get.defaultDialog(
+  //         title: "Terjadi kesalahan",
+  //         middleText: "${logdata['message']}",
+  //       );
+  //     }
+  //   } catch (e) {
+  //     Get.defaultDialog(
+  //       title: "Login gagal",
+  //       middleText: "Periksa koneksi internet",
+  //     );
+  //   }
+  // }
+
+  // void buttonDaftarActive() {
+  //   if (namaDaftarC.text.isNotEmpty &&
+  //       noHpDaftarC.text.isNotEmpty &&
+  //       passDaftarC.text.isNotEmpty) {
+  //     buttonDaftar.value = true;
+  //   } else {
+  //     buttonDaftar.value = false;
+  //   }
+  // }
+
+  ///
 }
