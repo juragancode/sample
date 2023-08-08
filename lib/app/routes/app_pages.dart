@@ -18,6 +18,8 @@ import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/storeDetail/bindings/store_detail_binding.dart';
+import '../modules/storeDetail/views/store_detail_view.dart';
 import '../modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
 import '../modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 import '../modules/verifikasiLupaPassword/bindings/verifikasi_lupa_password_binding.dart';
@@ -87,6 +89,11 @@ class AppPages {
       name: _Paths.ALIH_BAHASA,
       page: () => AlihBahasaView(),
       binding: AlihBahasaBinding(),
+    ),
+    GetPage(
+      name: _Paths.STORE_DETAIL,
+      page: () => const StoreDetailView(),
+      binding: StoreDetailBinding(),
     ),
   ];
 }

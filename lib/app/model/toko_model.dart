@@ -5,16 +5,22 @@ class Shop {
   final String nameShop;
   final String location;
   final double rating;
+  final double jarak;
   final String imageShop;
+  final String bannerShop;
   final List product;
+  final bool kurir;
 
   Shop({
     required this.name,
     required this.nameShop,
     required this.location,
     required this.rating,
+    required this.jarak,
     required this.imageShop,
+    required this.bannerShop,
     required this.product,
+    required this.kurir,
   });
 }
 
@@ -26,13 +32,14 @@ class Product {
   final double rating;
   final bool favorite;
 
-  Product(
-      {required this.productName,
-      required this.productImage,
-      required this.price,
-      required this.priceDicoret,
-      required this.rating,
-      required this.favorite});
+  Product({
+    required this.productName,
+    required this.productImage,
+    required this.price,
+    required this.priceDicoret,
+    required this.rating,
+    required this.favorite,
+  });
 }
 
 class ShopList {
@@ -42,6 +49,10 @@ class ShopList {
       nameShop: "Rekadigi Office",
       location: "Kota Surakarta",
       rating: 4.9,
+      kurir: false,
+      jarak: 1.24,
+      bannerShop:
+          "https://startupstudio.id/wp-content/uploads/2021/04/02.-SSI_FollowUp_April2021_Bawa-Startup-Anda-GoTheExtraMiles-Bersama-Startup-Studio-Indonesia.jpg",
       imageShop:
           "https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/22229f467768cbf923eeac03f79932c1.png",
       product: [
@@ -97,6 +108,10 @@ class ShopList {
       nameShop: "Istana Buah & Juice",
       location: "Kota Surakarta",
       rating: 4.6,
+      kurir: true,
+      jarak: 2.09,
+      bannerShop:
+          "https://asset-2.tstatic.net/jateng/foto/bank/images/toko-istana-buah-semarang.jpg",
       imageShop:
           "https://media.licdn.com/dms/image/D5603AQG9eU5Z6b7-tw/profile-displayphoto-shrink_800_800/0/1678420203127?e=2147483647&v=beta&t=ZJIfQEalSHNKIfFCp3VoP-cwNHA2c_5U2QFHmSxoBIA",
       product: [
@@ -144,6 +159,9 @@ class ShopList {
       nameShop: "Perjalanan Luar Negeri",
       location: "Kota Surakarta",
       rating: 4.9,
+      kurir: true,
+      jarak: 3.24,
+      bannerShop: "https://picsum.photos/id/${Random().nextInt(999)}/600/600",
       imageShop:
           "https://picsum.photos/id/${Random().nextInt(999) + 1}/300/300",
       product: [
@@ -190,6 +208,10 @@ class ShopList {
       nameShop: "Store Batik Prabuseno Praha Palgunadi",
       location: "Kota Surakarta",
       rating: 4.8,
+      kurir: true,
+      jarak: 0.57,
+      bannerShop:
+          "https://lh3.googleusercontent.com/p/AF1QipPN9vivymJ-B3zlWNtbubFXZL81OXJ6DNqTuQkt=s680-w680-h510",
       imageShop:
           "https://asc-public-id.oss-ap-southeast-5.aliyuncs.com/sellerapp/400704333714/lsa-logo-679983127-439D84D1-49B7-498B-843B-F51798C1B64B.png",
       product: [
@@ -237,6 +259,10 @@ class ShopList {
       nameShop: "MIXUE Solo",
       location: "Kota Surakarta",
       rating: 4.9,
+      kurir: true,
+      jarak: 0.57,
+      bannerShop:
+          "https://www.ascomaxx.com/uploads/large/87394f112b9b1da8bc2f1ef8ad36c257.png",
       imageShop:
           "https://seeklogo.com/images/M/mixue-logo-6AE8953ADB-seeklogo.com.png",
       product: [
@@ -283,6 +309,10 @@ class ShopList {
       nameShop: "Pusat Grosir Solo (PGS)",
       location: "Kota Surakarta",
       rating: 4.7,
+      kurir: true,
+      jarak: 0.38,
+      bannerShop:
+          "https://lowongan.web.id/assets/images/job/a4be93c3732bd4b6a427edad5d8bd05f.jpg",
       imageShop:
           "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/mlogo/RIB-60045-71b0422c-b2eb-40ee-9e41-99dc7135ccb3.png",
       product: [
@@ -333,6 +363,10 @@ class ShopList {
       nameShop: "Alfarox Studio",
       location: "Kota Surakarta",
       rating: 4.9,
+      kurir: true,
+      jarak: 0.94,
+      bannerShop:
+          "https://picsum.photos/id/${Random().nextInt(999) + 5}/600/600",
       imageShop:
           "https://picsum.photos/id/${Random().nextInt(999) + 1}/300/300",
       product: [
