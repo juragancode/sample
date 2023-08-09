@@ -103,7 +103,7 @@ class IzinkanAksesLokasiView extends GetView<IzinkanAksesLokasiController> {
                         if (status.isGranted) {
                           // Izin lokasi diberikan
                           // Lanjutkan ke halaman selanjutnya
-                          Get.toNamed(Routes.HOME);
+                          Get.offAllNamed(Routes.HOME);
                         } else if (status.isDenied ||
                             status.isPermanentlyDenied) {
                           // Izin lokasi ditolak atau secara permanen ditolak

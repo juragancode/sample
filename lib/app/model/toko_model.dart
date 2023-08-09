@@ -27,17 +27,21 @@ class Shop {
 class Product {
   final String productName;
   final String productImage;
+  final String timeStamp;
   final double price;
   final double priceDicoret;
   final double rating;
+  final double terjual;
   final bool favorite;
 
   Product({
     required this.productName,
     required this.productImage,
+    required this.timeStamp,
     required this.price,
     required this.priceDicoret,
     required this.rating,
+    required this.terjual,
     required this.favorite,
   });
 }
@@ -64,6 +68,8 @@ class ShopList {
           priceDicoret: 5000000,
           favorite: false,
           rating: 4.8,
+          terjual: 0,
+          timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
           productName: 'Mobile App',
@@ -73,6 +79,8 @@ class ShopList {
           priceDicoret: 50000000,
           favorite: false,
           rating: 4.7,
+          terjual: 3,
+          timeStamp: '2023-7-04 15:30:00',
         ),
         Product(
           productName: 'MPV',
@@ -82,6 +90,8 @@ class ShopList {
           priceDicoret: 40000000,
           favorite: false,
           rating: 4.9,
+          terjual: 2,
+          timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
           productName: 'Custom Software',
@@ -91,6 +101,8 @@ class ShopList {
           priceDicoret: 80000000,
           favorite: false,
           rating: 4.9,
+          terjual: 5,
+          timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
           productName: 'Maintenance',
@@ -100,6 +112,8 @@ class ShopList {
           priceDicoret: 5000000,
           favorite: false,
           rating: 4.7,
+          terjual: 2,
+          timeStamp: '2023-08-05 15:30:00',
         ),
       ],
     ),
@@ -124,6 +138,8 @@ class ShopList {
           priceDicoret: 53000,
           favorite: false,
           rating: 4.8,
+          terjual: 10,
+          timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
           productName: 'Melon SUPER Orange f1 fresh/1pcs',
@@ -133,6 +149,8 @@ class ShopList {
           priceDicoret: 75000,
           favorite: false,
           rating: 4.9,
+          terjual: 9,
+          timeStamp: '2023-08-07 15:30:00',
         ),
         Product(
           productName: 'Strawberry Sweetheart Hidroponik 125 g 125 gram',
@@ -142,6 +160,8 @@ class ShopList {
           priceDicoret: 21500,
           favorite: false,
           rating: 4.7,
+          terjual: 8,
+          timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
           productName: 'Pisang Ambon 1 Sisir',
@@ -151,6 +171,8 @@ class ShopList {
           priceDicoret: 30000,
           favorite: false,
           rating: 4.7,
+          terjual: 12,
+          timeStamp: '2023-07-21 15:30:00',
         ),
       ],
     ),
@@ -173,6 +195,8 @@ class ShopList {
           priceDicoret: 5600000,
           favorite: false,
           rating: 4.9,
+          terjual: 7,
+          timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
           productName: 'Perjalanan Luar Negeri 15 Tempat',
@@ -182,6 +206,8 @@ class ShopList {
           priceDicoret: 22400000,
           favorite: false,
           rating: 4.7,
+          terjual: 6,
+          timeStamp: '2023-08-05 15:30:00',
         ),
         Product(
           productName: 'Perjalanan Luar Negeri 1 Negara',
@@ -191,6 +217,8 @@ class ShopList {
           priceDicoret: 41200000,
           favorite: false,
           rating: 4.7,
+          terjual: 5,
+          timeStamp: '2023-08-04 15:30:00',
         ),
         Product(
           productName: 'Perjalanan Luar Negeri 5 Negara',
@@ -200,6 +228,8 @@ class ShopList {
           priceDicoret: 51000000,
           favorite: false,
           rating: 4.8,
+          terjual: 7,
+          timeStamp: '2023-07-26 15:30:00',
         ),
       ],
     ),
@@ -223,6 +253,8 @@ class ShopList {
           priceDicoret: 350000,
           favorite: false,
           rating: 4.9,
+          terjual: 11,
+          timeStamp: '2023-07-19 15:30:00',
         ),
         Product(
           productName: 'Batik Wanita Sackdress Batik Parang Arjunaweda',
@@ -232,6 +264,8 @@ class ShopList {
           priceDicoret: 375000,
           favorite: false,
           rating: 4.8,
+          terjual: 12,
+          timeStamp: '2023-07-18 15:30:00',
         ),
         Product(
           productName: 'My Aksa Batik Anak Perempuan Dress Laura Lionel',
@@ -241,6 +275,8 @@ class ShopList {
           priceDicoret: 275000,
           favorite: false,
           rating: 4.7,
+          terjual: 8,
+          timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
           productName:
@@ -251,6 +287,8 @@ class ShopList {
           priceDicoret: 125000,
           favorite: false,
           rating: 4.7,
+          terjual: 9,
+          timeStamp: '2023-06-14 15:30:00',
         ),
       ],
     ),
@@ -274,6 +312,8 @@ class ShopList {
           priceDicoret: 20000,
           favorite: false,
           rating: 4.7,
+          terjual: 8,
+          timeStamp: '2023-07-08 15:30:00',
         ),
         Product(
           productName: 'Mixue Lucky Sundae Strawberry Ice Cream',
@@ -283,6 +323,8 @@ class ShopList {
           priceDicoret: 20000,
           favorite: false,
           rating: 4.7,
+          terjual: 20,
+          timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
           productName: 'Mixue Berrybean Sundae Ice Cream',
@@ -292,6 +334,8 @@ class ShopList {
           priceDicoret: 20000,
           favorite: false,
           rating: 4.7,
+          terjual: 30,
+          timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
           productName: 'Mixue Brown Sugar Pearl Milk Tea',
@@ -301,6 +345,8 @@ class ShopList {
           priceDicoret: 21000,
           favorite: false,
           rating: 4.7,
+          terjual: 22,
+          timeStamp: '2023-08-05 15:30:00',
         ),
       ],
     ),
@@ -325,6 +371,8 @@ class ShopList {
           priceDicoret: 165000,
           favorite: false,
           rating: 4.9,
+          terjual: 44,
+          timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
           productName:
@@ -335,6 +383,8 @@ class ShopList {
           priceDicoret: 65000,
           favorite: false,
           rating: 4.7,
+          terjual: 53,
+          timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
           productName:
@@ -345,6 +395,8 @@ class ShopList {
           priceDicoret: 40000,
           favorite: false,
           rating: 4.7,
+          terjual: 20,
+          timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
           productName:
@@ -355,6 +407,8 @@ class ShopList {
           priceDicoret: 24500,
           favorite: false,
           rating: 4.8,
+          terjual: 27,
+          timeStamp: '2023-07-22 15:30:00',
         ),
       ],
     ),
@@ -378,6 +432,8 @@ class ShopList {
           priceDicoret: 560000,
           favorite: false,
           rating: 4.9,
+          terjual: 42,
+          timeStamp: '2023-07-21 15:30:00',
         ),
         Product(
           productName: 'Alfarox Photography - Exclucive 25 Shoot',
@@ -387,6 +443,8 @@ class ShopList {
           priceDicoret: 2240000,
           favorite: false,
           rating: 4.7,
+          terjual: 25,
+          timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
           productName: 'Alfarox Photography - Special Large 50 Shoot',
@@ -396,6 +454,8 @@ class ShopList {
           priceDicoret: 4120000,
           favorite: false,
           rating: 4.7,
+          terjual: 30,
+          timeStamp: '2023-06-03 15:30:00',
         ),
         Product(
           productName: 'Alfarox Photography - Exrta Large 100 Shoot',
@@ -405,6 +465,8 @@ class ShopList {
           priceDicoret: 5100000,
           favorite: false,
           rating: 4.8,
+          terjual: 56,
+          timeStamp: '2023-07-04 15:30:00',
         ),
       ],
     ),

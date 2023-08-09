@@ -113,6 +113,12 @@ class ProdukTerbaru extends GetView<HomeController> {
                                                     .favoriteProdukTerbaru[
                                                         index]
                                                     .toggle();
+                                                print(
+                                                    'array ke ${index} : nilal boolean ${controller.favoriteProdukTerbaru[index]}');
+                                                print(controller
+                                                        .favoriteProdukTerbaru[
+                                                    index]);
+                                                print(index);
                                               },
                                               child: Container(
                                                 width: 31.w,
