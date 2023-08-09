@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../constant/colors.dart';
 import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
-import 'BoxShadow.dart';
-import 'Shimmer.dart';
+import 'Decoration/BoxShadow.dart';
+import 'Decoration/Shimmer.dart';
 import 'gantiAkun_showModalButtomSheet.dart';
 
 class cardGantiAkun extends GetView<HomeController> {

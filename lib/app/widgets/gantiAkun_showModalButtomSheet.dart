@@ -7,7 +7,7 @@ import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 import 'checkModalBottomSheet_false.dart';
 import 'checkModalBottomSheet_true.dart';
-import 'Shimmer.dart';
+import 'Decoration/Shimmer.dart';
 
 AccountList accountList = AccountList();
 

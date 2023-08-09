@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../modules/home/controllers/home_controller.dart';
-import 'Shimmer.dart';
+import 'Decoration/Shimmer.dart';
 // import 'BoxShadow.dart';
 
 class CarouselSliderPersonalAccount extends GetView<HomeController> {

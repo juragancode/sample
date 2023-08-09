@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/colors.dart';
-import 'BoxShadow.dart';
+import 'Decoration/BoxShadow.dart';
 
 class ChartStatistikPenjualan extends StatelessWidget {
   @override

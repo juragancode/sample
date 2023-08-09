@@ -7,10 +7,10 @@ import 'package:get/get.dart';
 import '../constant/colors.dart';
 import '../model/toko_model.dart';
 import '../modules/home/controllers/home_controller.dart';
-import 'BoxShadow.dart';
+import 'Decoration/BoxShadow.dart';
 import 'FilterKosong.dart';
 import 'LinearGradient.dart';
-import 'Shimmer.dart';
+import 'Decoration/Shimmer.dart';
 import 'imageProduct_Toko.dart';
 
 class ContentToko extends GetView<TokoController> {

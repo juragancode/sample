@@ -8,8 +8,9 @@ import 'package:intl/intl.dart';
 import '../constant/colors.dart';
 import '../model/produk_terbaru_model.dart';
 import '../modules/home/controllers/home_controller.dart';
-import 'BoxShadow.dart';
-import 'Shimmer.dart';
+import 'Decoration/BoxShadow.dart';
+import 'Decoration/Shimmer.dart';
+import 'Decoration/BoxOpacity.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -121,39 +122,23 @@ class ProdukTerbaru extends GetView<HomeController> {
                                                 print(index);
                                               },
                                               child: Container(
-                                                width: 31.w,
-                                                height: 31.w,
-                                                decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color(0xFF858585)
-                                                          .withOpacity(0.455),
-                                                      Color(0xFF858585)
-                                                          .withOpacity(0.455),
-                                                      Color(0xFF858585)
-                                                          .withOpacity(0.65),
-                                                    ],
-                                                    stops: [0.455, 0.455, 0.65],
-                                                    begin: Alignment.topCenter,
-                                                    end: Alignment.bottomCenter,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.r),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: 1.3.w),
-                                                  child: Icon(
-                                                    CupertinoIcons.heart_fill,
-                                                    size: 21.w,
-                                                    // Icons.favorite,
-                                                    color: controller
-                                                            .favoriteProdukTerbaru[
-                                                                index]
-                                                            .value
-                                                        ? Favorite
-                                                        : Colors.white,
+                                                width: 32.w,
+                                                height: 32.w,
+                                                child: BoxOpacity(
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 3.w),
+                                                    child: Icon(
+                                                      CupertinoIcons.heart_fill,
+                                                      size: 22.w,
+                                                      // Icons.favorite,
+                                                      color: controller
+                                                              .favoriteProdukTerbaru[
+                                                                  index]
+                                                              .value
+                                                          ? Favorite
+                                                          : Colors.white,
+                                                    ),
                                                   ),
                                                 ),
                                               ),

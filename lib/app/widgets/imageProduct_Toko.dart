@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/colors.dart';
 import '../model/toko_model.dart';
-import 'Shimmer.dart';
+import 'Decoration/Shimmer.dart';
 
 class imageProduct_Toko extends StatelessWidget {
   const imageProduct_Toko({

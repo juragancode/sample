@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 
 import '../../../constant/colors.dart';
 import '../../../model/toko_model.dart';
-import '../../../widgets/Shimmer.dart';
+import '../../../widgets/Decoration/Shimmer.dart';
 import '../controllers/store_detail_controller.dart';
+import '../../../widgets/Decoration/BoxOpacity.dart';
 
 class StoreDetailView extends GetView<StoreDetailController> {
   const StoreDetailView({Key? key}) : super(key: key);
@@ -77,35 +78,6 @@ class StoreDetailView extends GetView<StoreDetailController> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class BoxOpacity extends StatelessWidget {
-  const BoxOpacity({
-    super.key,
-    required this.child,
-  });
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF858585).withOpacity(0.35),
-            Color(0xFF858585).withOpacity(0.35),
-            Color(0xFF858585).withOpacity(0.5),
-          ],
-          stops: [0.35, 0.35, 0.5],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-        borderRadius: BorderRadius.circular(4.r),
-      ),
-      child: child,
     );
   }
 }

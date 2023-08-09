@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constant/colors.dart';
-import 'BoxShadow.dart';
+import 'Decoration/BoxShadow.dart';
 
 class PlazaTokoHomePage extends StatelessWidget {
   @override

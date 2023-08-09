@@ -6,9 +6,9 @@ import 'package:intl/intl.dart';
 import '../constant/colors.dart';
 import '../model/produk_promo_model.dart';
 import '../modules/home/controllers/home_controller.dart';
-import 'BoxShadow.dart';
+import 'Decoration/BoxShadow.dart';
 import 'LinearGradient.dart';
-import 'Shimmer.dart';
+import 'Decoration/Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 

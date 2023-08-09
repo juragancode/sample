@@ -4,8 +4,8 @@ import 'package:intl/intl.dart';
 
 import '../constant/colors.dart';
 import '../model/produk_terlaris_model.dart';
-import 'BoxShadow.dart';
-import 'Shimmer.dart';
+import 'Decoration/BoxShadow.dart';
+import 'Decoration/Shimmer.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
