@@ -22,8 +22,8 @@ class imageProduct_Toko extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.r),
         border: Border.all(
           strokeAlign: BorderSide.strokeAlignOutside,
-          color: DEDEDE,
-          width: 0.5.sp,
+          color: Neutral10,
+          width: 0.5,
         ),
       ),
       child: Stack(

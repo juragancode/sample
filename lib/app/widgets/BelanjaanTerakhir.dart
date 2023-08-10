@@ -94,8 +94,8 @@ class BelanjaanTerakhir extends GetView<HomeController> {
                             topRight: Radius.circular(4.0.sp),
                           ),
                           border: Border.all(
-                            color: DEDEDE,
-                            width: 0.5.sp,
+                            color: Neutral10,
+                            width: 0.5,
                           ),
                         ),
                         child: Stack(

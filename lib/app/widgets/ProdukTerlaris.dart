@@ -75,8 +75,8 @@ class ProdukTerlaris extends StatelessWidget {
                           ),
                           border: Border.all(
                             strokeAlign: BorderSide.strokeAlignOutside,
-                            color: DEDEDE,
-                            width: 0.5.sp,
+                            color: Neutral10,
+                            width: 0.5,
                           ),
                         ),
                         child: Stack(

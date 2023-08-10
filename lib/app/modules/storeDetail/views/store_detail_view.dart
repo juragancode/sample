@@ -43,8 +43,8 @@ class StoreDetailView extends GetView<StoreDetailController> {
                 padding: EdgeInsets.only(
                   top: 46.w,
                   bottom: 63.w,
-                  left: 16.w,
-                  right: 16.w,
+                  left: 16.sp,
+                  right: 16.sp,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,8 +110,8 @@ class StoreDetailView extends GetView<StoreDetailController> {
                               SizedBox(width: 11.5.w),
 
                               Container(
-                                color: Color.fromARGB(255, 245, 170, 255),
-                                width: 290.w,
+                                // color: Color.fromARGB(255, 245, 170, 255),
+                                width: 270.w,
                                 height: 65.w,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,6 +206,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 16.sp),
                     ],
                   ),
                 ),

@@ -71,8 +71,8 @@ class ProdukTerbaru extends GetView<HomeController> {
                                       height: 151.0.w,
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: DEDEDE,
-                                          width: 0.5.sp,
+                                          color: Neutral10,
+                                          width: 0.5,
                                           strokeAlign:
                                               BorderSide.strokeAlignOutside,
                                         ),
