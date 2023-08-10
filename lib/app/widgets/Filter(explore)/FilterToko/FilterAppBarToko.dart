@@ -98,7 +98,8 @@ class FilterAppBarToko extends GetView<TokoController> {
                         child: Row(
                           children: [
                             if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
+                              Icon(filter.icon,
+                                  size: 15.5.w, color: Secondary50),
                               SizedBox(width: 4.sp),
                             ],
                             Text(
@@ -184,7 +185,8 @@ class FilterAppBarToko extends GetView<TokoController> {
                         child: Row(
                           children: [
                             if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
+                              Icon(filter.icon,
+                                  size: 15.5.w, color: Secondary50),
                               SizedBox(width: 4.sp),
                             ],
                             Text(
@@ -231,7 +233,8 @@ class FilterAppBarToko extends GetView<TokoController> {
                         child: Row(
                           children: [
                             if (filter.icon != null) ...[
-                              Icon(filter.icon, size: 15.w, color: Secondary50),
+                              Icon(filter.icon,
+                                  size: 15.5.w, color: Secondary50),
                               SizedBox(width: 4.sp),
                             ],
                             Text(

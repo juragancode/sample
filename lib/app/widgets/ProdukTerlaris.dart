@@ -156,9 +156,9 @@ class ProdukTerlaris extends StatelessWidget {
                           Row(
                             children: [
                               Icon(
-                                Icons.star_rounded,
+                                Icons.star_rate_rounded,
                                 color: Secondary50,
-                                size: 15.w,
+                                size: 15.5.w,
                               ),
                               SizedBox(width: 4.sp),
                               Text(
@@ -174,17 +174,24 @@ class ProdukTerlaris extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: 8.0.sp),
-                          Text(
-                            "Rp ${f.format(productTerlarisList.productTerlariss[index].priceDicoret.toInt())}",
-                            style: TextStyle(
-                              fontSize: 9.5.w,
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.lineThrough,
-                              color: Neutral90,
+                          Container(
+                            height: 14.5.w,
+                            child: Text(
+                              "Rp ${f.format(productTerlarisList.productTerlariss[index].priceDicoret.toInt())}",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 9.5.w,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.lineThrough,
+                                color: Neutral90,
+                              ),
                             ),
                           ),
                           Text(
                             "Rp ${f.format(productTerlarisList.productTerlariss[index].price.toInt())}",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 13.5.w,
                               fontWeight: FontWeight.w600,

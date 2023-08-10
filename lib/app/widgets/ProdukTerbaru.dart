@@ -170,9 +170,9 @@ class ProdukTerbaru extends GetView<HomeController> {
                               Row(
                                 children: [
                                   Icon(
-                                    Icons.star,
+                                    Icons.star_rate_rounded,
                                     color: Secondary50,
-                                    size: 15.w,
+                                    size: 15.5.w,
                                   ),
                                   SizedBox(width: 4.sp),
                                   Text(
@@ -199,6 +199,8 @@ class ProdukTerbaru extends GetView<HomeController> {
                                   Text(
                                     productTerbaruList
                                         .productTerbarus[index].city,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 9.5.w,
                                       fontWeight: FontWeight.w400,
@@ -228,7 +230,6 @@ class ProdukTerbaru extends GetView<HomeController> {
                                     child: Text(
                                       productTerbaruList
                                           .productTerbarus[index].shopName,
-                                      // "aaaa sdddd ddddd  ddsfsdfsd sdfsdfds dsfdsfdsf sdfdsfsdf sddfsdfsdf sdfdsf",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -241,17 +242,24 @@ class ProdukTerbaru extends GetView<HomeController> {
                                 ],
                               ),
                               SizedBox(height: 8.0.sp),
-                              Text(
-                                "Rp ${f.format(productTerbaruList.productTerbarus[index].priceDicoret.toInt())}",
-                                style: TextStyle(
-                                  fontSize: 9.5.w,
-                                  fontWeight: FontWeight.w400,
-                                  decoration: TextDecoration.lineThrough,
-                                  color: Neutral90,
+                              Container(
+                                height: 14.5.w,
+                                child: Text(
+                                  "Rp ${f.format(productTerbaruList.productTerbarus[index].priceDicoret.toInt())}",
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 9.5.w,
+                                    fontWeight: FontWeight.w400,
+                                    decoration: TextDecoration.lineThrough,
+                                    color: Neutral90,
+                                  ),
                                 ),
                               ),
                               Text(
                                 "Rp ${f.format(productTerbaruList.productTerbarus[index].price.toInt())}",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontSize: 13.5.w,
                                   fontWeight: FontWeight.w600,

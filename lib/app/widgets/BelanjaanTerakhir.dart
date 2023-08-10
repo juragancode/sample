@@ -136,17 +136,25 @@ class BelanjaanTerakhir extends GetView<HomeController> {
                         ),
                       ),
                       SizedBox(height: 8.0.sp),
-                      Text(
-                        "Rp ${f.format(belanjaanTerakhirList.belanjaanTerakhirs[index].priceDicoret.toInt())}",
-                        style: TextStyle(
-                          fontSize: 9.5.w,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.lineThrough,
-                          color: Neutral90,
+                      Container(
+                        height: 14.5.w,
+                        child: Text(
+                          "Rp ${f.format(belanjaanTerakhirList.belanjaanTerakhirs[index].priceDicoret.toInt())}",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 9.5.w,
+                            fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.lineThrough,
+                            color: Neutral90,
+                          ),
                         ),
                       ),
                       Text(
                         "Rp ${f.format(belanjaanTerakhirList.belanjaanTerakhirs[index].price.toInt())}",
+                        // "Kalimat ini fungsinya seperti Lorem ipsum digunakan untuk test atau pengecekan pada kalimat panjang, mohon jangan dihapus. Karena bisa saja ini berguna lagi kemudian untuk dipakai di berbagai situasi seperti pengaturan overflow text.",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 13.5.w,
                           fontWeight: FontWeight.w600,

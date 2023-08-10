@@ -14,7 +14,7 @@ class FilterList {
   final List<Filter> filters = [
     Filter(
       title: "4 ke atas",
-      icon: Icons.star_rounded,
+      icon: Icons.star_rate_rounded,
     ),
     Filter(
       title: "Terdekat",

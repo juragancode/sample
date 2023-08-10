@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import '../model/toko_model.dart';
 import '../modules/home/controllers/home_controller.dart';
+import '../routes/app_pages.dart';
 import 'Decoration/BoxShadow.dart';
 import 'FilterKosong.dart';
+import 'ImageShop.dart';
 import 'LinearGradient.dart';
-import 'Decoration/Shimmer.dart';
 import 'imageProduct_Toko.dart';
 
 class ContentToko extends GetView<TokoController> {
@@ -56,32 +56,10 @@ class ContentToko extends GetView<TokoController> {
                                     children: [
                                       Row(
                                         children: [
-                                          ClipOval(
-                                            child: Container(
-                                              height: 40.w,
-                                              width: 40.w,
-                                              decoration: BoxDecoration(
-                                                // shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  strokeAlign: BorderSide
-                                                      .strokeAlignOutside,
-                                                  color: Neutral50,
-                                                  width: 0.5.sp,
-                                                ),
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Shimmer_01(),
-                                                  Center(
-                                                    child: ClipOval(
-                                                      child: Image.network(
-                                                        shop.imageShop,
-                                                        fit: BoxFit.contain,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
+                                          ImageShop(
+                                            child: Image.network(
+                                              shop.imageShop,
+                                              fit: BoxFit.contain,
                                             ),
                                           ),
                                           SizedBox(width: 9.5.w),
@@ -104,9 +82,9 @@ class ContentToko extends GetView<TokoController> {
                                                 child: Row(
                                                   children: [
                                                     Icon(
-                                                      Icons.star,
+                                                      Icons.star_rate_rounded,
                                                       color: Secondary50,
-                                                      size: 15.w,
+                                                      size: 15.5.w,
                                                     ),
                                                     SizedBox(width: 4.sp),
                                                     Text(
