@@ -57,9 +57,8 @@ class ContentToko extends GetView<TokoController> {
                                       Row(
                                         children: [
                                           ImageShop(
-                                            child: Image.network(
+                                            image: NetworkImage(
                                               shop.imageShop,
-                                              fit: BoxFit.contain,
                                             ),
                                           ),
                                           SizedBox(width: 9.5.w),

@@ -27,7 +27,7 @@ class BelanjaanTerakhirList {
     BelanjaanTerakhir_(
       name: "Terjemah Rasa - Fahruddin Faiz",
       image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eFO7d0I0b_GMNLE_eygjDWZ-mHAOCxGOXAVaYpqyQDKd3TOOHdV3IDBumTctDnE2BRQ&usqp=CAU",
+          "https://images.tokopedia.net/img/cache/700/VqbcmM/2021/8/12/ce29ae61-798d-4a5b-8e0a-8ef20f50b448.jpg",
       price: 61000,
       priceDicoret: 72000,
       rating: 4.4,
@@ -35,7 +35,7 @@ class BelanjaanTerakhirList {
     BelanjaanTerakhir_(
       name: "Topeng Hahoe Mask (PO)",
       image:
-          "https://cdnx.kincir.com/insecure/rs:fill:764:400/aHR0cHM6Ly9raW5jaXJpbWFnZS5zMy1hcC1zb3V0aGVhc3QtMS5hbWF6b25hd3MuY29tL3Byb2R1Y3Rpb24vMjAyMi0wNi8xNmJ5OS90b3BlbmctaGFob2V-MjEwZTM1NjYtZjBiNC00MDRhLTljNWUtYTU3MGNkN2Q5MjYzLmpwZw==",
+          "https://dailyspin.id/wp-content/uploads/2022/06/Arti-Topeng-Money-Heist-Korea.jpg",
       price: 95000,
       priceDicoret: 120000,
       rating: 4.7,

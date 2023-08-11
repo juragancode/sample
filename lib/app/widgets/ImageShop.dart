@@ -7,10 +7,10 @@ import 'Decoration/Shimmer.dart';
 class ImageShop extends StatelessWidget {
   const ImageShop({
     super.key,
-    required this.child,
+    required this.image,
   });
 
-  final Widget child;
+  final ImageProvider image;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,16 @@ class ImageShop extends StatelessWidget {
           ClipOval(
             child: Shimmer_01(),
           ),
-          Center(
-            child: ClipOval(
-              child: child,
+          ClipOval(
+            child: Container(
+              height: 40.w,
+              width: 40.w,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: image,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
         ],

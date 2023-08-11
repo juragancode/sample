@@ -92,7 +92,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STORE_DETAIL,
-      page: () => const StoreDetailView(),
+      page: () => StoreDetailView(),
       binding: StoreDetailBinding(),
     ),
   ];

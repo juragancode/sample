@@ -55,7 +55,7 @@ class BelanjaanTerakhir extends GetView<HomeController> {
           ),
         ),
         Container(
-          height: 210.0.w,
+          height: 198.0.w + 30.sp,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -73,7 +73,10 @@ class BelanjaanTerakhir extends GetView<HomeController> {
                   ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                margin: EdgeInsets.symmetric(vertical: 8.0.sp),
+                margin: EdgeInsets.only(
+                  top: 8.0.sp,
+                  bottom: 30.sp,
+                ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
                     8.0.w,

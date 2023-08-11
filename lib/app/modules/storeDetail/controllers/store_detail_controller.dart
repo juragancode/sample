@@ -1,23 +1,23 @@
 import 'package:get/get.dart';
 
-class StoreDetailController extends GetxController {
-  //TODO: Implement StoreDetailController
+import '../../../model/toko_model.dart';
 
-  final count = 0.obs;
+class StoreDetailController extends GetxController {
+  final List<dynamic> products =
+      ShopList().shops.expand((shop) => shop.product).toList();
+  final List<RxBool> favoriteProducts = [];
+
   @override
   void onInit() {
     super.onInit();
+    // Initialize favoriteProducts list with initial values from the model
+    favoriteProducts
+        .addAll(products.map((product) => RxBool(product.favorite)));
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void toggleFavoriteProductInStoreDetail(int index) {
+    favoriteProducts[index].toggle();
+    print(
+        'Product at index $index is now favorite: ${favoriteProducts[index].value}');
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

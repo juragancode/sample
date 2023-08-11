@@ -61,7 +61,7 @@ class ProdukPromo extends GetView<HomeController> {
           ),
         ),
         Container(
-          height: 242.0.w.spMax,
+          height: 232.0.w.spMax + 24.sp,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -79,7 +79,10 @@ class ProdukPromo extends GetView<HomeController> {
                   ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                margin: EdgeInsets.symmetric(vertical: 8.0.sp),
+                margin: EdgeInsets.only(
+                  top: 8.0.sp,
+                  bottom: 24.sp,
+                ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
                     8.0.w,

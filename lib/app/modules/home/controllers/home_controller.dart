@@ -55,6 +55,8 @@ class HomeController extends GetxController {
   //
   // Explore
   RxInt isTokoIndex = 0.obs;
+  //
+
   final List<ProductTerbaru> products = ProductTerbaruList().productTerbarus;
 
   final favoriteProdukTerbaru = <RxBool>[];

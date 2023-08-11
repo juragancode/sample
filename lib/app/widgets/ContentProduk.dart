@@ -19,11 +19,9 @@ class ContentProduk extends GetView<ProdukController> {
               children: [
                 SizedBox(height: 24.sp),
                 ProdukPromo(visibility: buttonLihatSemua_ProdukPromo),
-                SizedBox(height: 24.0.sp),
                 ProdukTerbaru(),
                 SizedBox(height: 24.sp),
                 ProdukTerlaris(),
-                SizedBox(height: 24.sp),
               ],
             )
           : FilterKosong(

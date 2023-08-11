@@ -36,7 +36,7 @@ class ProdukTerlaris extends StatelessWidget {
           ),
         ),
         Container(
-          height: 242.0.w.spMax,
+          height: 234.0.w.spMax + 30.sp,
           child: ListView.separated(
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 8.sp);
@@ -54,7 +54,10 @@ class ProdukTerlaris extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                margin: EdgeInsets.symmetric(vertical: 8.0.sp),
+                margin: EdgeInsets.only(
+                  top: 8.0.sp,
+                  bottom: 30.0.sp,
+                ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
                     8.0.w,

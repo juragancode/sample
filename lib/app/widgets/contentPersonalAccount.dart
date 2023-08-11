@@ -25,9 +25,7 @@ class contentPersonalAccount extends GetView<HomeController> {
         KategoriLainnyaHomePage(),
         SizedBox(height: 24.sp),
         ProdukPromo(visibility: buttonLihatSemua_ProdukPromo),
-        SizedBox(height: 24.0.sp),
         BelanjaanTerakhir(),
-        SizedBox(height: 24.0.sp),
       ],
     );
   }

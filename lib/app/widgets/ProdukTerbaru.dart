@@ -108,6 +108,8 @@ class ProdukTerbaru extends GetView<HomeController> {
                                           color: Colors.transparent,
                                           child: Obx(
                                             () => InkWell(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
                                               onTap: () {
                                                 //
                                                 controller
