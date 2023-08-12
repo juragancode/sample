@@ -85,7 +85,7 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
             itemCount: shop.product.length,
             itemBuilder: (context, index) {
               return SizedBox(
-                width: 167.0.w,
+                width: 170.0.w,
                 child: Stack(
                   children: [
                     Container(

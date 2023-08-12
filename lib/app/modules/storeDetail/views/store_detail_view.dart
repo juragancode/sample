@@ -341,6 +341,32 @@ class StoreDetailView extends GetView<StoreDetailController> {
           ],
         ),
       ),
+      floatingActionButton: Container(
+        width: 56.sp,
+        height: 56.sp,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Secondary10,
+              Secondary50,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: BorderRadius.circular(32.r),
+        ),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+            5.0.sp,
+            3.0.sp,
+            3.0.sp,
+            3.0.sp,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/iconKeranjang.svg',
+          ),
+        ),
+      ),
     );
   }
 }
