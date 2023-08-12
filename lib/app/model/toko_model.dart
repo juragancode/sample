@@ -31,8 +31,8 @@ class Product {
   final double price;
   final double priceDicoret;
   final double rating;
-  final double terjual;
-  final double stok;
+  final int terjual;
+  final int stok;
   final bool favorite;
 
   Product({
@@ -83,7 +83,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 99,
-          terjual: 3,
+          terjual: 12,
           timeStamp: '2023-7-04 15:30:00',
         ),
         Product(
@@ -95,7 +95,7 @@ class ShopList {
           favorite: false,
           rating: 4.9,
           stok: 99,
-          terjual: 2,
+          terjual: 21,
           timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
@@ -119,7 +119,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 99,
-          terjual: 2,
+          terjual: 6,
           timeStamp: '2023-08-05 15:30:00',
         ),
       ],
@@ -146,7 +146,7 @@ class ShopList {
           favorite: false,
           rating: 4.8,
           stok: 32,
-          terjual: 10,
+          terjual: 1200,
           timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
@@ -157,8 +157,8 @@ class ShopList {
           priceDicoret: 75000,
           favorite: false,
           rating: 4.9,
-          stok: 75,
-          terjual: 9,
+          stok: 30000,
+          terjual: 43643,
           timeStamp: '2023-08-07 15:30:00',
         ),
         Product(
@@ -170,7 +170,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 21,
-          terjual: 8,
+          terjual: 546,
           timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
@@ -182,7 +182,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 53,
-          terjual: 12,
+          terjual: 546,
           timeStamp: '2023-07-21 15:30:00',
         ),
       ],
@@ -220,7 +220,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 61,
-          terjual: 6,
+          terjual: 1289,
           timeStamp: '2023-08-05 15:30:00',
         ),
         Product(
@@ -232,7 +232,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 80,
-          terjual: 5,
+          terjual: 1274355,
           timeStamp: '2023-08-04 15:30:00',
         ),
         Product(
@@ -244,7 +244,7 @@ class ShopList {
           favorite: false,
           rating: 4.8,
           stok: 67,
-          terjual: 7,
+          terjual: 75899,
           timeStamp: '2023-07-26 15:30:00',
         ),
       ],
@@ -270,7 +270,7 @@ class ShopList {
           favorite: false,
           rating: 4.9,
           stok: 42,
-          terjual: 11,
+          terjual: 56754,
           timeStamp: '2023-07-19 15:30:00',
         ),
         Product(
@@ -282,7 +282,7 @@ class ShopList {
           favorite: false,
           rating: 4.8,
           stok: 123,
-          terjual: 12,
+          terjual: 67564,
           timeStamp: '2023-07-18 15:30:00',
         ),
         Product(
@@ -294,7 +294,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 70,
-          terjual: 8,
+          terjual: 6574765,
           timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
@@ -306,8 +306,8 @@ class ShopList {
           priceDicoret: 125000,
           favorite: false,
           rating: 4.7,
-          stok: 67,
-          terjual: 9,
+          stok: 675,
+          terjual: 5465432,
           timeStamp: '2023-06-14 15:30:00',
         ),
       ],
@@ -332,8 +332,8 @@ class ShopList {
           priceDicoret: 20000,
           favorite: false,
           rating: 4.7,
-          stok: 76,
-          terjual: 8,
+          stok: 23,
+          terjual: 1000,
           timeStamp: '2023-07-08 15:30:00',
         ),
         Product(
@@ -345,7 +345,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 78,
-          terjual: 20,
+          terjual: 675476,
           timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
@@ -357,7 +357,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 99,
-          terjual: 30,
+          terjual: 678568,
           timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
@@ -369,7 +369,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 31,
-          terjual: 22,
+          terjual: 890890,
           timeStamp: '2023-08-05 15:30:00',
         ),
       ],
@@ -396,7 +396,7 @@ class ShopList {
           favorite: false,
           rating: 4.9,
           stok: 65,
-          terjual: 44,
+          terjual: 49074,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -409,7 +409,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 21,
-          terjual: 53,
+          terjual: 9808989,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -422,7 +422,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 45,
-          terjual: 20,
+          terjual: 768,
           timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
@@ -435,7 +435,7 @@ class ShopList {
           favorite: false,
           rating: 4.8,
           stok: 99,
-          terjual: 27,
+          terjual: 45654,
           timeStamp: '2023-07-22 15:30:00',
         ),
       ],
@@ -461,7 +461,7 @@ class ShopList {
           favorite: false,
           rating: 4.9,
           stok: 99,
-          terjual: 42,
+          terjual: 456,
           timeStamp: '2023-07-21 15:30:00',
         ),
         Product(
@@ -473,7 +473,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 99,
-          terjual: 25,
+          terjual: 45634,
           timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
@@ -485,7 +485,7 @@ class ShopList {
           favorite: false,
           rating: 4.7,
           stok: 99,
-          terjual: 30,
+          terjual: 8790,
           timeStamp: '2023-06-03 15:30:00',
         ),
         Product(
@@ -497,7 +497,7 @@ class ShopList {
           favorite: false,
           rating: 4.8,
           stok: 99,
-          terjual: 56,
+          terjual: 135,
           timeStamp: '2023-07-04 15:30:00',
         ),
       ],

@@ -24,7 +24,7 @@ String formatLebihDari1000(int number) {
   }
 }
 
-class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
+class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
   @override
   Widget build(BuildContext context) {
     final Shop shop = Get.arguments;
@@ -39,33 +39,33 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Produk Terbaru",
+                "Produk Terlaris",
                 style: TextStyle(
                   fontSize: 15.5.w,
                   fontWeight: FontWeight.w600,
                   color: H333333,
                 ),
               ),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(4.r),
-                  onTap: () {
-                    //
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6.sp),
-                    child: Text(
-                      "Lihat Semua",
-                      style: TextStyle(
-                        fontSize: 13.5.w,
-                        fontWeight: FontWeight.w600,
-                        color: Primary50,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              // Material(
+              //   color: Colors.transparent,
+              //   child: InkWell(
+              //     borderRadius: BorderRadius.circular(4.r),
+              //     onTap: () {
+              //       //
+              //     },
+              //     child: Padding(
+              //       padding: EdgeInsets.symmetric(horizontal: 6.sp),
+              //       child: Text(
+              //         "Lihat Semua",
+              //         style: TextStyle(
+              //           fontSize: 13.5.w,
+              //           fontWeight: FontWeight.w600,
+              //           color: Primary50,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -81,7 +81,7 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
               16.sp,
               24.sp,
             ),
-            scrollDirection: Axis.horizontal,
+            // scrollDirection: Axis.horizontal,
             itemCount: shop.product.length,
             itemBuilder: (context, index) {
               return SizedBox(

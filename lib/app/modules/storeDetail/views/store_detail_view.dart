@@ -11,6 +11,7 @@ import '../../../widgets/ImageShop.dart';
 import '../controllers/store_detail_controller.dart';
 import 'BackgroundStoreDetail.dart';
 import 'ProdukTerbaruStoreDetail.dart';
+import 'ProdukTerlarisStoreDetail.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -35,32 +36,40 @@ class StoreDetailView extends GetView<StoreDetailController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          height: 32.sp,
-                          width: 32.sp,
-                          child: BoxOpacity(
-                            child: Icon(
-                              Icons.arrow_back_rounded,
-                              color: Secondary50,
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(4.r),
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            height: 32.sp,
+                            width: 32.sp,
+                            child: BoxOpacity(
+                              child: Icon(
+                                Icons.arrow_back_rounded,
+                                color: Secondary50,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          height: 32.sp,
-                          width: 32.sp,
-                          child: BoxOpacity(
-                            child: Icon(
-                              Icons.share,
-                              color: Colors.white,
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(4.r),
+                          onTap: () {
+                            print("share");
+                          },
+                          child: Container(
+                            height: 32.sp,
+                            width: 32.sp,
+                            child: BoxOpacity(
+                              child: Icon(
+                                Icons.share,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -323,6 +332,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
                       ),
                       SizedBox(height: 16.0.sp),
                       ProdukTerbaruStoreDetail(),
+                      ProdukTerlarisStoreDetail(),
                     ],
                   ),
                 ),
