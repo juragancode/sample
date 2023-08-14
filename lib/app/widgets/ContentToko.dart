@@ -126,7 +126,7 @@ class ContentToko extends GetView<TokoController> {
                                                     SizedBox(width: 4.sp),
                                                     Flexible(
                                                       child: Text(
-                                                        shop.nameShop,
+                                                        shop.locationStore,
                                                         maxLines: 1,
                                                         overflow: TextOverflow
                                                             .ellipsis,

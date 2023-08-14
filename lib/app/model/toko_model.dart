@@ -2,7 +2,7 @@ import 'dart:math';
 
 class Shop {
   final String name;
-  final String nameShop;
+  final String locationStore;
   final String location;
   final double rating;
   final double jarak;
@@ -13,7 +13,7 @@ class Shop {
 
   Shop({
     required this.name,
-    required this.nameShop,
+    required this.locationStore,
     required this.location,
     required this.rating,
     required this.jarak,
@@ -52,7 +52,7 @@ class ShopList {
   final List<Shop> shops = [
     Shop(
       name: "Rekadigi Shop",
-      nameShop: "Rekadigi Office",
+      locationStore: "Rekadigi Office",
       location: "Kota Surakarta",
       rating: 4.9,
       kurir: false,
@@ -126,7 +126,7 @@ class ShopList {
     ),
     Shop(
       name: "Istana Buah",
-      nameShop: "Istana Buah & Juice",
+      locationStore: "Istana Buah & Juice Surakarta",
       location: "Kota Surakarta",
       rating: 4.6,
       kurir: true,
@@ -189,7 +189,7 @@ class ShopList {
     ),
     Shop(
       name: "Awesome Travel",
-      nameShop: "Perjalanan Luar Negeri",
+      locationStore: "Agen Perjalanan Luar Negeri Jawa Tengah",
       location: "Kota Surakarta",
       rating: 4.9,
       kurir: true,
@@ -251,7 +251,7 @@ class ShopList {
     ),
     Shop(
       name: "Batik Prabuseno",
-      nameShop: "Store Batik Prabuseno Praha Palgunadi",
+      locationStore: "Batik Prabuseno Store, Laweyan",
       location: "Kota Surakarta",
       rating: 4.8,
       kurir: true,
@@ -314,7 +314,7 @@ class ShopList {
     ),
     Shop(
       name: "Mixue - Ice Cream & Tea",
-      nameShop: "MIXUE Solo",
+      locationStore: "MIXUE Solo",
       location: "Kota Surakarta",
       rating: 4.9,
       kurir: true,
@@ -376,7 +376,7 @@ class ShopList {
     ),
     Shop(
       name: "Ria Busana",
-      nameShop: "Pusat Grosir Solo (PGS)",
+      locationStore: "Pusat Grosir Solo (PGS)",
       location: "Kota Surakarta",
       rating: 4.7,
       kurir: true,
@@ -442,7 +442,7 @@ class ShopList {
     ),
     Shop(
       name: "Alfarox Photography",
-      nameShop: "Alfarox Studio",
+      locationStore: "Alfarox Studio - Solo",
       location: "Kota Surakarta",
       rating: 4.9,
       kurir: true,

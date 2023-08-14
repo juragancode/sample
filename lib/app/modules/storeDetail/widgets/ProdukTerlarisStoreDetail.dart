@@ -247,6 +247,7 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                         color: Colors.white,
                                       ),
                                     ),
+                                    SizedBox(width: 3.sp),
                                   ],
                                 ),
                               ),

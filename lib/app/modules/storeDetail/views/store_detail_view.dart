@@ -9,9 +9,11 @@ import '../../../model/toko_model.dart';
 import '../../../widgets/Decoration/BoxOpacity.dart';
 import '../../../widgets/ImageShop.dart';
 import '../controllers/store_detail_controller.dart';
-import 'BackgroundStoreDetail.dart';
-import 'ProdukTerbaruStoreDetail.dart';
-import 'ProdukTerlarisStoreDetail.dart';
+import '../widgets/BackgroundStoreDetail.dart';
+import '../widgets/FloatingActionButtonKeranjang.dart';
+import '../widgets/MessageStoreDetail.dart';
+import '../widgets/ProdukTerbaruStoreDetail.dart';
+import '../widgets/ProdukTerlarisStoreDetail.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -87,16 +89,16 @@ class StoreDetailView extends GetView<StoreDetailController> {
                       topRight: Radius.circular(8.r),
                     ),
                   ),
-                  child: Column(
+                  child: Stack(
                     children: [
-                      SizedBox(height: 16.0.sp),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
-                        child: Column(
-                          children: [
-                            //
-                            Stack(
+                      Column(
+                        children: [
+                          SizedBox(height: 16.0.sp),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
+                            child: Column(
                               children: [
+                                //
                                 Row(
                                   children: [
                                     //
@@ -175,7 +177,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
                                               SizedBox(width: 3.5.w),
                                               Flexible(
                                                 child: Text(
-                                                  shop.nameShop,
+                                                  shop.locationStore,
                                                   maxLines: 1,
                                                   overflow:
                                                       TextOverflow.ellipsis,
@@ -193,146 +195,135 @@ class StoreDetailView extends GetView<StoreDetailController> {
                                     ),
                                   ],
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Container(
-                                    height: 22.w,
-                                    width: 22.w,
-                                    child: SvgPicture.asset(
-                                      'assets/icons/icon-Message-yellow.svg',
-                                      fit: BoxFit.contain,
-                                      // height: 20.sp,
-                                      // width: 20.sp,
+                                SizedBox(height: 16.sp),
+                                Container(
+                                  height: 1,
+                                  width: Get.width,
+                                  color: D9D9D9,
+                                ),
+                                SizedBox(height: 12.sp),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text(
+                                          'Rating',
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w400,
+                                            color: Neutral90,
+                                          ),
+                                        ),
+                                        SizedBox(height: 8.sp),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star_rate_rounded,
+                                              color: Secondary50,
+                                              size: 17.w,
+                                            ),
+                                            SizedBox(width: 4.sp),
+                                            Text(
+                                              shop.rating.toString(),
+                                              style: TextStyle(
+                                                fontSize: 11.5.w,
+                                                fontWeight: FontWeight.w600,
+                                                color: H333333,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          'Jarak',
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w400,
+                                            color: Neutral90,
+                                          ),
+                                        ),
+                                        SizedBox(height: 8.sp),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.place,
+                                              color: Warning50,
+                                              size: 15.w,
+                                            ),
+                                            SizedBox(width: 4.sp),
+                                            Text(
+                                              '${shop.jarak.toString()} Km',
+                                              style: TextStyle(
+                                                fontSize: 11.5.w,
+                                                fontWeight: FontWeight.w600,
+                                                color: H333333,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          'Pengiriman',
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w400,
+                                            color: Neutral90,
+                                          ),
+                                        ),
+                                        SizedBox(height: 8.sp),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              height: 15.w,
+                                              width: 15.w,
+                                              child: SvgPicture.asset(
+                                                'assets/icons/icon-Kurir-green.svg',
+                                                fit: BoxFit.contain,
+                                                // height: 14.w,
+                                                // width: 14.w,
+                                              ),
+                                            ),
+                                            SizedBox(width: 4.sp),
+                                            Text(
+                                              shop.kurir == true
+                                                  ? "Kurir Tersedia"
+                                                  : "Kurir Belum Tersedia",
+                                              style: TextStyle(
+                                                fontSize: 11.5.w,
+                                                fontWeight: FontWeight.w600,
+                                                color: H333333,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 12.sp),
+                                Container(
+                                  height: 1,
+                                  width: Get.width,
+                                  color: D9D9D9,
                                 ),
                               ],
                             ),
-                            SizedBox(height: 16.sp),
-                            Container(
-                              height: 1,
-                              width: Get.width,
-                              color: D9D9D9,
-                            ),
-                            SizedBox(height: 12.sp),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Rating',
-                                      style: TextStyle(
-                                        fontSize: 11.5.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.sp),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.star_rate_rounded,
-                                          color: Secondary50,
-                                          size: 17.w,
-                                        ),
-                                        SizedBox(width: 4.sp),
-                                        Text(
-                                          shop.rating.toString(),
-                                          style: TextStyle(
-                                            fontSize: 11.5.w,
-                                            fontWeight: FontWeight.w600,
-                                            color: H333333,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Jarak',
-                                      style: TextStyle(
-                                        fontSize: 11.5.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.sp),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.place,
-                                          color: Warning50,
-                                          size: 15.w,
-                                        ),
-                                        SizedBox(width: 4.sp),
-                                        Text(
-                                          '${shop.jarak.toString()} Km',
-                                          style: TextStyle(
-                                            fontSize: 11.5.w,
-                                            fontWeight: FontWeight.w600,
-                                            color: H333333,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Pengiriman',
-                                      style: TextStyle(
-                                        fontSize: 11.5.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.sp),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 15.w,
-                                          width: 15.w,
-                                          child: SvgPicture.asset(
-                                            'assets/icons/icon-Kurir-green.svg',
-                                            fit: BoxFit.contain,
-                                            // height: 14.w,
-                                            // width: 14.w,
-                                          ),
-                                        ),
-                                        SizedBox(width: 4.sp),
-                                        Text(
-                                          shop.kurir == true
-                                              ? "Kurir Tersedia"
-                                              : "Kurir Belum Tersedia",
-                                          style: TextStyle(
-                                            fontSize: 11.5.w,
-                                            fontWeight: FontWeight.w600,
-                                            color: H333333,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 12.sp),
-                            Container(
-                              height: 1,
-                              width: Get.width,
-                              color: D9D9D9,
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(height: 16.0.sp),
+                          ProdukTerbaruStoreDetail(),
+                          ProdukTerlarisStoreDetail(),
+                        ],
                       ),
-                      SizedBox(height: 16.0.sp),
-                      ProdukTerbaruStoreDetail(),
-                      ProdukTerlarisStoreDetail(),
+                      MessageStoreDetail(),
                     ],
                   ),
                 ),
@@ -341,32 +332,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        width: 56.sp,
-        height: 56.sp,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Secondary10,
-              Secondary50,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-          borderRadius: BorderRadius.circular(32.r),
-        ),
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            5.0.sp,
-            3.0.sp,
-            3.0.sp,
-            3.0.sp,
-          ),
-          child: SvgPicture.asset(
-            'assets/icons/iconKeranjang.svg',
-          ),
-        ),
-      ),
+      floatingActionButton: FloatingActionButtonKeranjang(),
     );
   }
 }
