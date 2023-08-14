@@ -16,6 +16,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
+import '../modules/productDetail/bindings/product_detail_binding.dart';
+import '../modules/productDetail/views/product_detail_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/storeDetail/bindings/store_detail_binding.dart';
@@ -94,6 +96,11 @@ class AppPages {
       name: _Paths.STORE_DETAIL,
       page: () => StoreDetailView(),
       binding: StoreDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCT_DETAIL,
+      page: () => ProductDetailView(),
+      binding: ProductDetailBinding(),
     ),
   ];
 }

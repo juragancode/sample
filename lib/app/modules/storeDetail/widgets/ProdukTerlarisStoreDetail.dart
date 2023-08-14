@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -49,7 +50,7 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
           padding: EdgeInsets.symmetric(horizontal: 16.sp),
           child: Column(
             children: [
-              for (Product product in shop.product)
+              for (int index = 0; index < shop.product.length; index++)
                 Padding(
                   padding: EdgeInsets.only(bottom: 12.sp),
                   child: Stack(
@@ -62,112 +63,112 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                           ],
                           borderRadius: BorderRadius.circular(8.r),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0.w),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 88.0.w,
-                                height: 88.0.w,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Neutral10,
-                                    width: 0.5,
-                                    strokeAlign: BorderSide.strokeAlignOutside,
-                                  ),
-                                  borderRadius: BorderRadius.circular(4.r),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Shimmer_01(),
-                                    Container(
-                                      width: 88.0.w,
-                                      height: 88.0.w,
-                                      decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        borderRadius:
-                                            BorderRadius.circular(4.r),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                              product.productImage),
-                                          fit: BoxFit.cover,
-                                        ),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Get.toNamed(
+                                Routes.PRODUCT_DETAIL,
+                                arguments: shop.product[index],
+                              );
+                            },
+                            borderRadius: BorderRadius.circular(8.r),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0.w),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 88.0.w,
+                                    height: 88.0.w,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Neutral10,
+                                        width: 0.5,
+                                        strokeAlign:
+                                            BorderSide.strokeAlignOutside,
                                       ),
+                                      borderRadius: BorderRadius.circular(4.r),
                                     ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(width: 10.w),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 34.5.w,
-                                      child: Text(
-                                        product.productName,
-                                        style: TextStyle(
-                                          fontSize: 11.5.w,
-                                          fontWeight: FontWeight.w400,
-                                          color: H333333,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                      ),
-                                    ),
-                                    // SizedBox(height: 2.0.sp),
-                                    Row(
+                                    child: Stack(
                                       children: [
-                                        Icon(
-                                          Icons.star_rate_rounded,
-                                          color: Secondary50,
-                                          size: 15.5.w,
-                                        ),
-                                        SizedBox(width: 4.sp),
-                                        Text(
-                                          product.rating.toString(),
-                                          style: TextStyle(
-                                            fontSize: 9.5.w,
-                                            fontWeight: FontWeight.w400,
-                                            color: Neutral90,
+                                        Shimmer_01(),
+                                        Material(
+                                          color: Colors.transparent,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Get.toNamed(
+                                                Routes.PRODUCT_DETAIL,
+                                                arguments: shop.product[index],
+                                              );
+                                            },
+                                            child: Ink(
+                                              width: 88.0.w,
+                                              height: 88.0.w,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                borderRadius:
+                                                    BorderRadius.circular(4.r),
+                                                image: DecorationImage(
+                                                  image: NetworkImage(shop
+                                                      .product[index]
+                                                      .productImage),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 2.0.sp),
-                                    Container(
-                                      // color: Color.fromARGB(255, 115, 255, 171),
-                                      width: 139.w,
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'Stok: ${product.stok}',
-                                            maxLines: 1,
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 34.5.w,
+                                          child: Text(
+                                            shop.product[index].productName,
+                                            style: TextStyle(
+                                              fontSize: 11.5.w,
+                                              fontWeight: FontWeight.w400,
+                                              color: H333333,
+                                            ),
                                             overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              fontSize: 9.5.w,
-                                              fontWeight: FontWeight.w400,
-                                              color: Neutral90,
-                                            ),
+                                            maxLines: 2,
                                           ),
-                                          SizedBox(width: 6.w),
-                                          Text(
-                                            '|',
-                                            style: TextStyle(
-                                              fontSize: 9.5.w,
-                                              fontWeight: FontWeight.w400,
-                                              color: Neutral90,
+                                        ),
+                                        // SizedBox(height: 2.0.sp),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star_rate_rounded,
+                                              color: Secondary50,
+                                              size: 15.5.w,
                                             ),
-                                          ),
-                                          SizedBox(width: 6.w),
-                                          Visibility(
-                                            visible: product.terjual == 0
-                                                ? false
-                                                : true,
-                                            child: Flexible(
-                                              child: Text(
-                                                'Terjual: ${formatLebihDari1000(product.terjual)}',
+                                            SizedBox(width: 4.sp),
+                                            Text(
+                                              shop.product[index].rating
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontSize: 9.5.w,
+                                                fontWeight: FontWeight.w400,
+                                                color: Neutral90,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 2.0.sp),
+                                        Container(
+                                          // color: Color.fromARGB(255, 115, 255, 171),
+                                          width: 139.w,
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                'Stok: ${shop.product[index].stok}',
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
@@ -176,30 +177,61 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                                   color: Neutral90,
                                                 ),
                                               ),
+                                              SizedBox(width: 6.w),
+                                              Text(
+                                                '|',
+                                                style: TextStyle(
+                                                  fontSize: 9.5.w,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Neutral90,
+                                                ),
+                                              ),
+                                              SizedBox(width: 6.w),
+                                              Visibility(
+                                                visible: shop.product[index]
+                                                            .terjual ==
+                                                        0
+                                                    ? false
+                                                    : true,
+                                                child: Flexible(
+                                                  child: Text(
+                                                    'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontSize: 9.5.w,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Neutral90,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 2.0.w),
+                                        Container(
+                                          width: 139.w,
+                                          // color: Color.fromARGB(255, 255, 137, 222),
+                                          child: Text(
+                                            "Rp ${f.format(shop.product[index].price.toInt())}",
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: 13.5.w,
+                                              fontWeight: FontWeight.w600,
+                                              color: H333333,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 2.0.w),
-                                    Container(
-                                      width: 139.w,
-                                      // color: Color.fromARGB(255, 255, 137, 222),
-                                      child: Text(
-                                        "Rp ${f.format(product.price.toInt())}",
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 13.5.w,
-                                          fontWeight: FontWeight.w600,
-                                          color: H333333,
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
@@ -258,7 +290,6 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                     ],
                   ),
                 ),
-              SizedBox(height: 24.sp),
             ],
           ),
         ),

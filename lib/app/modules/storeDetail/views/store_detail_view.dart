@@ -11,7 +11,7 @@ import '../../../widgets/ImageShop.dart';
 import '../controllers/store_detail_controller.dart';
 import '../widgets/BackgroundStoreDetail.dart';
 import '../widgets/FloatingActionButtonKeranjang.dart';
-import '../widgets/MessageStoreDetail.dart';
+import '../widgets/ButtonMessageStoreDetail.dart';
 import '../widgets/ProdukTerbaruStoreDetail.dart';
 import '../widgets/ProdukTerlarisStoreDetail.dart';
 
@@ -321,9 +321,10 @@ class StoreDetailView extends GetView<StoreDetailController> {
                           SizedBox(height: 16.0.sp),
                           ProdukTerbaruStoreDetail(),
                           ProdukTerlarisStoreDetail(),
+                          SizedBox(height: 70.sp),
                         ],
                       ),
-                      MessageStoreDetail(),
+                      ButtonMessageStoreDetail(),
                     ],
                   ),
                 ),

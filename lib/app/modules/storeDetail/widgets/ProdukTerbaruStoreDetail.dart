@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -28,6 +29,8 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
   @override
   Widget build(BuildContext context) {
     final Shop shop = Get.arguments;
+    List<dynamic> product = shop.product;
+
     return Column(
       children: [
         Padding(
@@ -82,8 +85,9 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
               24.sp,
             ),
             scrollDirection: Axis.horizontal,
-            itemCount: shop.product.length,
+            itemCount: product.length,
             itemBuilder: (context, index) {
+              Product selectedProduct = shop.product[index];
               return SizedBox(
                 width: 170.0.w,
                 child: Stack(
@@ -96,78 +100,103 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                         ],
                         borderRadius: BorderRadius.circular(8.r),
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.w),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Center(
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: 151.0.w,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: Neutral10,
-                                        width: 0.5,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignOutside,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.PRODUCT_DETAIL);
+                          },
+                          borderRadius: BorderRadius.circular(8.r),
+                          child: Padding(
+                            padding: EdgeInsets.all(8.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: 151.0.w,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Neutral10,
+                                          width: 0.5,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignOutside,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(4.r),
                                       ),
-                                      borderRadius: BorderRadius.circular(4.r),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        Shimmer_01(),
-                                        Container(
-                                          decoration: BoxDecoration(
+                                      child: Stack(
+                                        children: [
+                                          Shimmer_01(),
+                                          Material(
                                             color: Colors.transparent,
-                                            borderRadius:
-                                                BorderRadius.circular(4.r),
-                                            image: DecorationImage(
-                                              image: NetworkImage(
-                                                shop.product[index]
-                                                    .productImage,
+                                            child: InkWell(
+                                              onDoubleTap: () {
+                                                controller
+                                                    .toggleFavoriteProductInStoreDetail(
+                                                        index);
+                                              },
+                                              onTap: () {
+                                                Get.toNamed(
+                                                  Routes.PRODUCT_DETAIL,
+                                                  arguments: selectedProduct,
+                                                );
+                                              },
+                                              child: Ink(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.transparent,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.r),
+                                                  image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      product[index]
+                                                          .productImage,
+                                                    ),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
                                               ),
-                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.all(4.w),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        child: Obx(
-                                          () => InkWell(
-                                            borderRadius:
-                                                BorderRadius.circular(4.r),
-                                            onTap: () {
-                                              //
-                                              controller
-                                                  .toggleFavoriteProductInStoreDetail(
-                                                      index);
-                                            },
-                                            child: Container(
-                                              width: 32.w,
-                                              height: 32.w,
-                                              child: BoxOpacity(
-                                                child: Padding(
-                                                  padding:
-                                                      EdgeInsets.only(top: 3.w),
-                                                  child: Icon(
-                                                    CupertinoIcons.heart_fill,
-                                                    size: 22.w,
-                                                    // Icons.favorite,
-                                                    color: controller
-                                                            .favoriteProducts[
-                                                                index]
-                                                            .value
-                                                        ? Favorite
-                                                        : Colors.white,
+                                    Padding(
+                                      padding: EdgeInsets.all(4.w),
+                                      child: Align(
+                                        alignment: Alignment.topRight,
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          child: Obx(
+                                            () => InkWell(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
+                                              onTap: () {
+                                                //
+                                                controller
+                                                    .toggleFavoriteProductInStoreDetail(
+                                                        index);
+                                              },
+                                              child: Container(
+                                                width: 32.w,
+                                                height: 32.w,
+                                                child: BoxOpacity(
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 3.w),
+                                                    child: Icon(
+                                                      CupertinoIcons.heart_fill,
+                                                      size: 22.w,
+                                                      // Icons.favorite,
+                                                      color: controller
+                                                              .favoriteProducts[
+                                                                  index]
+                                                              .value
+                                                          ? Favorite
+                                                          : Colors.white,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -176,76 +205,49 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 8.0.sp),
-                            Container(
-                              // color: Colors.amber,
-                              height: 34.5.w,
-                              child: Text(
-                                shop.product[index].productName,
-                                style: TextStyle(
-                                  fontSize: 11.5.w,
-                                  fontWeight: FontWeight.w400,
-                                  color: H333333,
+                                  ],
                                 ),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                              ),
-                            ),
-                            SizedBox(height: 4.0.sp),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.star_rate_rounded,
-                                  color: Secondary50,
-                                  size: 15.5.w,
-                                ),
-                                SizedBox(width: 4.sp),
-                                Text(
-                                  shop.product[index].rating.toString(),
-                                  style: TextStyle(
-                                    fontSize: 9.5.w,
-                                    fontWeight: FontWeight.w400,
-                                    color: Neutral90,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 8.0.sp),
-                            Container(
-                              height: 14.5.w,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Stok: ${shop.product[index].stok}',
-                                    maxLines: 1,
+                                SizedBox(height: 8.0.sp),
+                                Container(
+                                  // color: Colors.amber,
+                                  height: 34.5.w,
+                                  child: Text(
+                                    product[index].productName,
+                                    style: TextStyle(
+                                      fontSize: 11.5.w,
+                                      fontWeight: FontWeight.w400,
+                                      color: H333333,
+                                    ),
                                     overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 9.5.w,
-                                      fontWeight: FontWeight.w400,
-                                      color: Neutral90,
-                                    ),
+                                    maxLines: 2,
                                   ),
-                                  SizedBox(width: 6.w),
-                                  Text(
-                                    '|',
-                                    style: TextStyle(
-                                      fontSize: 9.5.w,
-                                      fontWeight: FontWeight.w400,
-                                      color: Neutral90,
+                                ),
+                                SizedBox(height: 4.0.sp),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star_rate_rounded,
+                                      color: Secondary50,
+                                      size: 15.5.w,
                                     ),
-                                  ),
-                                  SizedBox(width: 6.w),
-                                  Visibility(
-                                    visible: shop.product[index].terjual == 0
-                                        ? false
-                                        : true,
-                                    child: Flexible(
-                                      child: Text(
-                                        'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
+                                    SizedBox(width: 4.sp),
+                                    Text(
+                                      product[index].rating.toString(),
+                                      style: TextStyle(
+                                        fontSize: 9.5.w,
+                                        fontWeight: FontWeight.w400,
+                                        color: Neutral90,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 8.0.sp),
+                                Container(
+                                  height: 14.5.w,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Stok: ${product[index].stok}',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
@@ -254,23 +256,50 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                           color: Neutral90,
                                         ),
                                       ),
-                                    ),
+                                      SizedBox(width: 6.w),
+                                      Text(
+                                        '|',
+                                        style: TextStyle(
+                                          fontSize: 9.5.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                      ),
+                                      SizedBox(width: 6.w),
+                                      Visibility(
+                                        visible: product[index].terjual == 0
+                                            ? false
+                                            : true,
+                                        child: Flexible(
+                                          child: Text(
+                                            'Terjual: ${formatLebihDari1000(product[index].terjual)}',
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: 9.5.w,
+                                              fontWeight: FontWeight.w400,
+                                              color: Neutral90,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                                SizedBox(height: 6.0.w),
+                                Text(
+                                  "Rp ${f.format(product[index].price.toInt())}",
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 13.5.w,
+                                    fontWeight: FontWeight.w600,
+                                    color: H333333,
+                                  ),
+                                ),
+                              ],
                             ),
-                            SizedBox(height: 6.0.w),
-                            Text(
-                              "Rp ${f.format(shop.product[index].price.toInt())}",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 13.5.w,
-                                fontWeight: FontWeight.w600,
-                                color: H333333,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
                     ),

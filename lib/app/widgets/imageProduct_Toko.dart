@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
+import 'package:get/get.dart';
 
 import '../constant/colors.dart';
 import '../model/toko_model.dart';
@@ -29,12 +31,26 @@ class imageProduct_Toko extends StatelessWidget {
       child: Stack(
         children: [
           Shimmer_01(),
-          Container(
-            decoration: BoxDecoration(
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {
+                // Find the shop that contains the selected product
+
+                Get.toNamed(
+                  Routes.PRODUCT_DETAIL,
+                  arguments: product, // Pass the selected shop
+                );
+              },
               borderRadius: BorderRadius.circular(4.r),
-              image: DecorationImage(
-                image: NetworkImage(product.productImage),
-                fit: BoxFit.cover,
+              child: Ink(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.r),
+                  image: DecorationImage(
+                    image: NetworkImage(product.productImage),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ),
