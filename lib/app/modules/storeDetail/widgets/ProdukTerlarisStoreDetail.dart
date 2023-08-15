@@ -15,9 +15,9 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 String formatLebihDari1000(int number) {
   if (number >= 1000000) {
-    return '${(number / 1000000).toStringAsFixed(1)}M';
+    return '${(number / 1000000).toStringAsFixed(1)} JT';
   } else if (number >= 1000) {
-    return '${(number / 1000).toStringAsFixed(1)}K';
+    return '${(number / 1000).toStringAsFixed(1)} RB+';
   } else {
     return number.toString();
   }
@@ -67,9 +67,15 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
+                              Product selectedProduct = shop.product[index];
+
                               Get.toNamed(
                                 Routes.PRODUCT_DETAIL,
-                                arguments: shop.product[index],
+                                arguments: {
+                                  'product': selectedProduct,
+                                  'index': index,
+                                  'shop': shop,
+                                },
                               );
                             },
                             borderRadius: BorderRadius.circular(8.r),
@@ -97,11 +103,19 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
+                                              Product selectedProduct =
+                                                  shop.product[index];
                                               Get.toNamed(
                                                 Routes.PRODUCT_DETAIL,
-                                                arguments: shop.product[index],
+                                                arguments: {
+                                                  'product': selectedProduct,
+                                                  'index': index,
+                                                  'shop': shop,
+                                                },
                                               );
                                             },
+                                            borderRadius:
+                                                BorderRadius.circular(4.r),
                                             child: Ink(
                                               width: 88.0.w,
                                               height: 88.0.w,

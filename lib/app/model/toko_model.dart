@@ -32,6 +32,7 @@ class Product {
   final double priceDicoret;
   final double rating;
   final int terjual;
+  final int dilihat;
   final int stok;
   final bool favorite;
 
@@ -43,6 +44,7 @@ class Product {
     required this.priceDicoret,
     required this.rating,
     required this.terjual,
+    required this.dilihat,
     required this.stok,
     required this.favorite,
   });
@@ -72,6 +74,7 @@ class ShopList {
           rating: 4.8,
           stok: 99,
           terjual: 0,
+          dilihat: 5674462,
           timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
@@ -84,6 +87,7 @@ class ShopList {
           rating: 4.7,
           stok: 99,
           terjual: 12,
+          dilihat: 10732487,
           timeStamp: '2023-7-04 15:30:00',
         ),
         Product(
@@ -96,6 +100,7 @@ class ShopList {
           rating: 4.9,
           stok: 99,
           terjual: 21,
+          dilihat: 18832487,
           timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
@@ -108,6 +113,7 @@ class ShopList {
           rating: 4.9,
           stok: 99,
           terjual: 5,
+          dilihat: 13732487,
           timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
@@ -120,6 +126,7 @@ class ShopList {
           rating: 4.7,
           stok: 99,
           terjual: 6,
+          dilihat: 11732487,
           timeStamp: '2023-08-05 15:30:00',
         ),
       ],
@@ -147,6 +154,7 @@ class ShopList {
           rating: 4.8,
           stok: 32,
           terjual: 1200,
+          dilihat: 6574467,
           timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
@@ -159,6 +167,7 @@ class ShopList {
           rating: 4.9,
           stok: 30000,
           terjual: 43643,
+          dilihat: 654547,
           timeStamp: '2023-08-07 15:30:00',
         ),
         Product(
@@ -171,6 +180,7 @@ class ShopList {
           rating: 4.7,
           stok: 21,
           terjual: 546,
+          dilihat: 11732487,
           timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
@@ -183,6 +193,7 @@ class ShopList {
           rating: 4.7,
           stok: 53,
           terjual: 546,
+          dilihat: 1554787,
           timeStamp: '2023-07-21 15:30:00',
         ),
       ],
@@ -209,6 +220,7 @@ class ShopList {
           rating: 4.9,
           stok: 43,
           terjual: 7,
+          dilihat: 17732487,
           timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
@@ -221,6 +233,7 @@ class ShopList {
           rating: 4.7,
           stok: 61,
           terjual: 1289,
+          dilihat: 21732487,
           timeStamp: '2023-08-05 15:30:00',
         ),
         Product(
@@ -233,6 +246,7 @@ class ShopList {
           rating: 4.7,
           stok: 80,
           terjual: 1274355,
+          dilihat: 19732487,
           timeStamp: '2023-08-04 15:30:00',
         ),
         Product(
@@ -245,6 +259,7 @@ class ShopList {
           rating: 4.8,
           stok: 67,
           terjual: 75899,
+          dilihat: 54345,
           timeStamp: '2023-07-26 15:30:00',
         ),
       ],
@@ -271,6 +286,7 @@ class ShopList {
           rating: 4.9,
           stok: 42,
           terjual: 56754,
+          dilihat: 12732487,
           timeStamp: '2023-07-19 15:30:00',
         ),
         Product(
@@ -283,6 +299,7 @@ class ShopList {
           rating: 4.8,
           stok: 123,
           terjual: 67564,
+          dilihat: 13232487,
           timeStamp: '2023-07-18 15:30:00',
         ),
         Product(
@@ -295,6 +312,7 @@ class ShopList {
           rating: 4.7,
           stok: 70,
           terjual: 6574765,
+          dilihat: 15532487,
           timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
@@ -308,6 +326,7 @@ class ShopList {
           rating: 4.7,
           stok: 675,
           terjual: 5465432,
+          dilihat: 13432487,
           timeStamp: '2023-06-14 15:30:00',
         ),
       ],
@@ -334,6 +353,7 @@ class ShopList {
           rating: 4.7,
           stok: 23,
           terjual: 1000,
+          dilihat: 16732487,
           timeStamp: '2023-07-08 15:30:00',
         ),
         Product(
@@ -346,6 +366,7 @@ class ShopList {
           rating: 4.7,
           stok: 78,
           terjual: 675476,
+          dilihat: 1276542,
           timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
@@ -358,6 +379,7 @@ class ShopList {
           rating: 4.7,
           stok: 99,
           terjual: 678568,
+          dilihat: 132575,
           timeStamp: '2023-08-06 15:30:00',
         ),
         Product(
@@ -370,6 +392,7 @@ class ShopList {
           rating: 4.7,
           stok: 31,
           terjual: 890890,
+          dilihat: 653,
           timeStamp: '2023-08-05 15:30:00',
         ),
       ],
@@ -397,6 +420,7 @@ class ShopList {
           rating: 4.9,
           stok: 65,
           terjual: 49074,
+          dilihat: 16735644,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -410,6 +434,7 @@ class ShopList {
           rating: 4.7,
           stok: 21,
           terjual: 9808989,
+          dilihat: 87963,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -423,6 +448,7 @@ class ShopList {
           rating: 4.7,
           stok: 45,
           terjual: 768,
+          dilihat: 6587546,
           timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
@@ -436,6 +462,7 @@ class ShopList {
           rating: 4.8,
           stok: 99,
           terjual: 45654,
+          dilihat: 57546,
           timeStamp: '2023-07-22 15:30:00',
         ),
       ],
@@ -462,6 +489,7 @@ class ShopList {
           rating: 4.9,
           stok: 99,
           terjual: 456,
+          dilihat: 87642,
           timeStamp: '2023-07-21 15:30:00',
         ),
         Product(
@@ -474,6 +502,7 @@ class ShopList {
           rating: 4.7,
           stok: 99,
           terjual: 45634,
+          dilihat: 54634,
           timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
@@ -486,6 +515,7 @@ class ShopList {
           rating: 4.7,
           stok: 99,
           terjual: 8790,
+          dilihat: 6543,
           timeStamp: '2023-06-03 15:30:00',
         ),
         Product(
@@ -498,6 +528,7 @@ class ShopList {
           rating: 4.8,
           stok: 99,
           terjual: 135,
+          dilihat: 43652,
           timeStamp: '2023-07-04 15:30:00',
         ),
       ],

@@ -7,13 +7,19 @@ import '../constant/colors.dart';
 import '../model/toko_model.dart';
 import 'Decoration/Shimmer.dart';
 
+bool sdhMasukProdukDetail = true;
+
 class imageProduct_Toko extends StatelessWidget {
   const imageProduct_Toko({
     super.key,
     required this.product,
+    required this.shop,
+    required this.index,
   });
 
   final Product product;
+  final Shop shop;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +45,12 @@ class imageProduct_Toko extends StatelessWidget {
 
                 Get.toNamed(
                   Routes.PRODUCT_DETAIL,
-                  arguments: product, // Pass the selected shop
+                  arguments: {
+                    'product': product,
+                    'index': index,
+                    'shop': shop,
+                    'sdhMasukProdukDetail': sdhMasukProdukDetail,
+                  }, // Pass the selected shop
                 );
               },
               borderRadius: BorderRadius.circular(4.r),

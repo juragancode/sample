@@ -173,7 +173,9 @@ class ContentToko extends GetView<TokoController> {
                                                       shop.product[
                                                           0]; // Gunakan index 0
                                                   return imageProduct_Toko(
+                                                    index: index,
                                                     product: product,
+                                                    shop: shop,
                                                   );
                                                 },
                                               ),
@@ -197,7 +199,9 @@ class ContentToko extends GetView<TokoController> {
                                                       shop.product[
                                                           1]; // Gunakan index 1
                                                   return imageProduct_Toko(
+                                                    index: index,
                                                     product: product,
+                                                    shop: shop,
                                                   );
                                                 },
                                               ),
@@ -221,7 +225,9 @@ class ContentToko extends GetView<TokoController> {
                                                       shop.product[
                                                           2]; // Gunakan index 3
                                                   return imageProduct_Toko(
+                                                    index: index,
                                                     product: product,
+                                                    shop: shop,
                                                   );
                                                 },
                                               ),

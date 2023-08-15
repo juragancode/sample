@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/productDetail/controllers/product_detail_controller.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -17,13 +18,15 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 String formatLebihDari1000(int number) {
   if (number >= 1000000) {
-    return '${(number / 1000000).toStringAsFixed(1)}M';
+    return '${(number / 1000000).toStringAsFixed(1)} JT';
   } else if (number >= 1000) {
-    return '${(number / 1000).toStringAsFixed(1)}K';
+    return '${(number / 1000).toStringAsFixed(1)} RB+';
   } else {
     return number.toString();
   }
 }
+
+final ProductDetailController productC = Get.put(ProductDetailController());
 
 class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
   @override
@@ -104,7 +107,14 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.PRODUCT_DETAIL);
+                            Get.toNamed(
+                              Routes.PRODUCT_DETAIL,
+                              arguments: {
+                                'product': selectedProduct,
+                                'index': index,
+                                'shop': shop,
+                              },
+                            );
                           },
                           borderRadius: BorderRadius.circular(8.r),
                           child: Padding(
@@ -133,16 +143,22 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                             color: Colors.transparent,
                                             child: InkWell(
                                               onDoubleTap: () {
-                                                controller
+                                                productC
                                                     .toggleFavoriteProductInStoreDetail(
                                                         index);
                                               },
                                               onTap: () {
                                                 Get.toNamed(
                                                   Routes.PRODUCT_DETAIL,
-                                                  arguments: selectedProduct,
+                                                  arguments: {
+                                                    'product': selectedProduct,
+                                                    'index': index,
+                                                    'shop': shop,
+                                                  },
                                                 );
                                               },
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
                                               child: Ink(
                                                 decoration: BoxDecoration(
                                                   color: Colors.transparent,
@@ -175,7 +191,7 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                                   BorderRadius.circular(4.r),
                                               onTap: () {
                                                 //
-                                                controller
+                                                productC
                                                     .toggleFavoriteProductInStoreDetail(
                                                         index);
                                               },
@@ -190,7 +206,7 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                                       CupertinoIcons.heart_fill,
                                                       size: 22.w,
                                                       // Icons.favorite,
-                                                      color: controller
+                                                      color: productC
                                                               .favoriteProducts[
                                                                   index]
                                                               .value
