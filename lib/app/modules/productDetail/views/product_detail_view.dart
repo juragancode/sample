@@ -280,7 +280,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
 
                           Container(
                             // color: Color.fromARGB(255, 245, 170, 255),
-                            width: 270.w,
+                            width: 278.w,
                             height: 65.w,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -360,6 +360,36 @@ class ProductDetailView extends GetView<ProductDetailController> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 24.sp),
+                      Row(
+                        children: [
+                          Text(
+                            "Detail Produk",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 13.5.w,
+                              fontWeight: FontWeight.w600,
+                              color: H333333,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 7.sp),
+                      InfoProduk(
+                        judul: "Kondisi",
+                        info: product.kondisi.toString().split('.').last,
+                      ),
+                      InfoProduk(
+                        judul: "Berat",
+                        info: product.berat % 1 == 0
+                            ? '${product.berat.toInt()} gr'
+                            : '${product.berat.toString()} gr',
+                      ),
+                      InfoProduk(
+                        judul: "Kategori",
+                        info: product.kategori,
+                      ),
                     ],
                   ),
                 ),
@@ -398,7 +428,67 @@ class ProductDetailView extends GetView<ProductDetailController> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButtonKeranjang(),
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 120.sp),
+        child: FloatingActionButtonKeranjang(),
+      ),
+    );
+  }
+}
+
+class InfoProduk extends StatelessWidget {
+  const InfoProduk({
+    super.key,
+    required this.judul,
+    required this.info,
+  });
+
+  final String judul;
+  final String info;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 4.sp),
+      child: Column(
+        children: [
+          SizedBox(height: 8.sp),
+          Row(
+            children: [
+              Container(
+                width: 121.w,
+                // color: Colors.amber,
+                child: Text(
+                  judul,
+                  style: TextStyle(
+                    fontSize: 11.5.w,
+                    fontWeight: FontWeight.w600,
+                    color: Neutral90,
+                  ),
+                ),
+              ),
+              Container(
+                width: 163.w,
+                // color: Colors.amber,
+                child: Text(
+                  info,
+                  style: TextStyle(
+                    fontSize: 11.5.w,
+                    fontWeight: FontWeight.w400,
+                    color: Neutral90,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 8.sp),
+          Container(
+            height: 1,
+            width: Get.width,
+            color: Neutral30,
+          ),
+        ],
+      ),
     );
   }
 }
