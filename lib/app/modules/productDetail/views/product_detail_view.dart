@@ -12,6 +12,7 @@ import '../../../widgets/Decoration/BoxOpacity.dart';
 import '../../../widgets/Decoration/Shimmer.dart';
 import '../controllers/product_detail_controller.dart';
 import '../widgets/ImageShop54.dart';
+import '../widgets/InfoProduk.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -118,6 +119,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.sp),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, //
                     children: [
                       SizedBox(height: 16.sp),
                       Row(
@@ -361,20 +363,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                         ],
                       ),
                       SizedBox(height: 24.sp),
-                      Row(
-                        children: [
-                          Text(
-                            "Detail Produk",
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 13.5.w,
-                              fontWeight: FontWeight.w600,
-                              color: H333333,
-                            ),
-                          ),
-                        ],
-                      ),
+                      Title(title: "Detail Produk"),
                       SizedBox(height: 7.sp),
                       InfoProduk(
                         judul: "Kondisi",
@@ -390,6 +379,90 @@ class ProductDetailView extends GetView<ProductDetailController> {
                         judul: "Kategori",
                         info: product.kategori,
                       ),
+                      SizedBox(height: 24.sp),
+                      if (product.deskripsi != null) ...[
+                        Title(title: "Deskripsi"),
+                        SizedBox(height: 15.sp),
+                        Obx(
+                          () => Visibility(
+                            child: Text(
+                              product.deskripsi!,
+                              maxLines: controller.bacaSelengkapnya.isFalse
+                                  ? 5
+                                  : null,
+                              overflow: controller.bacaSelengkapnya.isFalse
+                                  ? TextOverflow.ellipsis
+                                  : null,
+                              style: TextStyle(
+                                fontSize: 11.5.w,
+                                fontWeight: FontWeight.w400,
+                                color: Neutral90,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Obx(
+                          () => Visibility(
+                            visible: controller.calculateNumberOfLines(
+                                        product.deskripsi!) >
+                                    5
+                                ? true
+                                : false,
+                            child: InkWell(
+                              onTap: () {
+                                controller.bacaSelengkapnya.toggle();
+                              },
+                              child: controller.bacaSelengkapnya.isFalse
+                                  ? Row(
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_drop_down_sharp,
+                                          color: Primary30,
+                                        ),
+                                        Text(
+                                          "Baca Selengkapnya",
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w600,
+                                            color: Primary30,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : Row(
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_drop_up_sharp,
+                                          color: Primary30,
+                                        ),
+                                        Text(
+                                          "Sembunyikan",
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w600,
+                                            color: Primary30,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 15.sp),
+                      ],
+                      Title(title: "Penilaian Pembeli"),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star_rate_rounded,
+                            color: Secondary30,
+                          ),
+                          SizedBox(width: 5.w),
+                          Title(title: product.rating.toString()),
+                          SizedBox(width: 5.w),
+                        ],
+                      ),
+                      SizedBox(height: 500.w),
                     ],
                   ),
                 ),
@@ -436,58 +509,24 @@ class ProductDetailView extends GetView<ProductDetailController> {
   }
 }
 
-class InfoProduk extends StatelessWidget {
-  const InfoProduk({
+class Title extends StatelessWidget {
+  const Title({
     super.key,
-    required this.judul,
-    required this.info,
+    required this.title,
   });
 
-  final String judul;
-  final String info;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.sp),
-      child: Column(
-        children: [
-          SizedBox(height: 8.sp),
-          Row(
-            children: [
-              Container(
-                width: 121.w,
-                // color: Colors.amber,
-                child: Text(
-                  judul,
-                  style: TextStyle(
-                    fontSize: 11.5.w,
-                    fontWeight: FontWeight.w600,
-                    color: Neutral90,
-                  ),
-                ),
-              ),
-              Container(
-                width: 163.w,
-                // color: Colors.amber,
-                child: Text(
-                  info,
-                  style: TextStyle(
-                    fontSize: 11.5.w,
-                    fontWeight: FontWeight.w400,
-                    color: Neutral90,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 8.sp),
-          Container(
-            height: 1,
-            width: Get.width,
-            color: Neutral30,
-          ),
-        ],
+    return Text(
+      title,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      style: TextStyle(
+        fontSize: 13.5.w,
+        fontWeight: FontWeight.w600,
+        color: H333333,
       ),
     );
   }
