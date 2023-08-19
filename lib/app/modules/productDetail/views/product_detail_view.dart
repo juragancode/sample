@@ -398,6 +398,8 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 fontWeight: FontWeight.w400,
                                 color: Neutral90,
                               ),
+                              textAlign: TextAlign
+                                  .justify, //tanyakan ini, apakah lebih bagus seperti ini?
                             ),
                           ),
                         ),

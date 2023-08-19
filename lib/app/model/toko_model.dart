@@ -724,7 +724,27 @@ class ShopList {
           berat: 870.5,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Jacker jeans dewasa wanita premium.\n' +
+              '\n' +
+              'Bahan : Jeans\n' +
+              '\n' +
+              'Size Chart :\n' +
+              '\n' +
+              'L : Lingkar Dada : 100 cm, Panjang Baju : 52 cm, Panjang Lengan : 50 cm\n' +
+              '\n' +
+              '*) Toleransi pengukuran +-2 cm\n' +
+              '\n' +
+              'Warna barang bisa sedikit berbeda dikarenakan pencahayaan pada foto dan resolusi monitor.\n' +
+              '\n' +
+              'Semua produk  menggunakan 100% foto asli dan telah melalui proses quality control sehingga dipastikan berkualitas. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar.\n' +
+              '\n' +
+              'Ria Busana Official tidak bertanggung jawab terhadap pihak yang mengatasnamakan Ria Busana dan pembelian selain dari akun resmi shopee kami.\n' +
+              '\n' +
+              '730 gr\n' +
+              '\n' +
+              'SKU : 020201760187\n' +
+              '\n' +
+              '25-02-2023',
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -742,7 +762,27 @@ class ShopList {
           berat: 102.30,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Tshirt lengan panjang dewasa wanita\n' +
+              '\n' +
+              'Bahan : Katun Kaos\n' +
+              '\n' +
+              'Warna : 5 Pilihan warna\n' +
+              '\n' +
+              'Size Chart :\n' +
+              '\n' +
+              'Lingkar Dada : 124 cm, Panjang baju : 65 cm(Depan) 72 cm (belakang), Panjang Lengan : 31 cm\n' +
+              '\n' +
+              '*) Toleransi pengukuran +- 2 cm\n' +
+              '\n' +
+              'Warna barang bisa sedikit berbeda dikarenakan pencahayaan pada foto dan resolusi monitor.\n' +
+              '\n' +
+              'Semua produk  menggunakan 100% foto asli dan telah melalui proses quality control sehingga dipastikan berkualitas. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar.\n' +
+              '\n' +
+              'Ria Busana Official tidak bertanggung jawab terhadap pihak yang mengatasnamakan Ria Busana dan pembelian selain dari akun resmi shopee kami.\n' +
+              '\n' +
+              'SKU : 030100402110\n' +
+              '\n' +
+              '16-01-2023',
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -760,7 +800,29 @@ class ShopList {
           berat: 500,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Tanktop dewasa wanita.\n' +
+              '\n' +
+              'Bahan : Katun\n' +
+              '\n' +
+              'Warna : Black, White\n' +
+              '\n' +
+              'Size Chart :\n' +
+              '\n' +
+              'L : Lingkar Dada : 74 cm, Panjang Baju : 52 cm\n' +
+              '\n' +
+              '\n' +
+              '\n' +
+              '*) Toleransi pengukuran +- 2 cm\n' +
+              '\n' +
+              'Warna barang bisa sedikit berbeda dikarenakan pencahayaan pada foto dan resolusi monitor.\n' +
+              '\n' +
+              'Semua produk  menggunakan 100% foto asli dan telah melalui proses quality control sehingga dipastikan berkualitas. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar.\n' +
+              '\n' +
+              'Ria Busana Official tidak bertanggung jawab terhadap pihak yang mengatasnamakan Ria Busana dan pembelian selain dari akun resmi shopee kami.\n' +
+              '\n' +
+              'SKU : 030100402091 \n' +
+              '\n' +
+              '08-12-2022',
           timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
@@ -778,7 +840,23 @@ class ShopList {
           berat: 90.20,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Kerudung segi empat dengan motif yang exlusif, nyaman digunakan untuk berbagai aktifitas.\n' +
+              '\n' +
+              'Product Detail :\n' +
+              '\n' +
+              '- Motif\n' +
+              '\n' +
+              '- Panjang 135 x 135\n' +
+              '\n' +
+              'Warna barang bisa sedikit berbeda dikarenakan pencahayaan pada foto dan resolusi monitor.\n' +
+              '\n' +
+              'Semua produk  menggunakan 100% foto asli dan telah melalui proses quality control sehingga dipastikan berkualitas. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar.\n' +
+              '\n' +
+              'Ria Busana Official tidak bertanggung jawab terhadap pihak yang mengatasnamakan Ria Busana dan pembelian selain dari akun resmi shopee kami\n' +
+              '\n' +
+              'SKU 450621940058\n' +
+              '\n' +
+              '15-03-2023',
           timeStamp: '2023-07-22 15:30:00',
         ),
       ],
@@ -809,7 +887,25 @@ class ShopList {
           berat: 500,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
+              '\n' +
+              'Apa yang Kami Tawarkan:\n' +
+              '\n' +
+              'Sesi Foto Pribadi: Kami mengerti bahwa setiap klien memiliki cerita unik. Tim fotografi kami bekerja dengan Anda untuk menciptakan sesi foto yang menampilkan kepribadian dan gaya Anda. Apakah itu sesi potret keluarga, pre-wedding, atau foto profil profesional, kami mengabadikan momen-momen dengan cermat.\n' +
+              '\n' +
+              'Fotografi Acara: Apakah Anda merencanakan acara spesial seperti pernikahan, ulang tahun, atau acara korporat? Kami menangkap setiap detil penting dan emosi yang terjadi dalam acara tersebut. Foto-foto kami tidak hanya sekadar gambar, tetapi juga cerita lengkap tentang acara Anda.\n' +
+              '\n' +
+              'Fotografi Produk: Jika Anda memiliki bisnis atau produk yang ingin dipromosikan, kami dapat membantu Anda menciptakan gambar produk yang menarik dan profesional. Foto-foto produk berkualitas tinggi ini akan membantu Anda menarik perhatian calon pelanggan dan meningkatkan penjualan.\n' +
+              '\n' +
+              'Fotografi Alam: Kami juga memiliki keahlian dalam fotografi alam. Kami menangkap keindahan alam dengan teknik canggih, sehingga Anda dapat memiliki karya seni yang dapat menghiasi ruangan Anda atau digunakan untuk keperluan pemasaran.\n' +
+              '\n' +
+              'Mengapa Memilih Layanan Kami:\n' +
+              '\n' +
+              'Kreativitas dan Kualitas: Tim fotografi kami memiliki bakat dan pengalaman dalam menciptakan gambar-gambar kreatif dan berkualitas tinggi yang mencerminkan visi Anda.\n' +
+              'Peralatan Profesional: Kami menggunakan peralatan fotografi canggih untuk menghasilkan hasil akhir yang tajam dan indah.\n' +
+              'Kerjasama: Kami mendengarkan kebutuhan dan harapan Anda. Kami bekerja sama dengan Anda untuk mencapai hasil akhir yang sesuai dengan keinginan Anda.\n' +
+              'Pengiriman Tepat Waktu: Kami menghargai waktu Anda dan berkomitmen untuk memberikan hasil fotografi dalam jangka waktu yang telah disepakati.\n' +
+              'Dengan layanan jasa fotografi kami, Anda dapat merasakan pengalaman fotografi yang menyenangkan dan mendapatkan hasil gambar yang akan Anda hargai sepanjang waktu. Jadikan momen-momen Anda tak terlupakan dengan layanan fotografi profesional kami.',
           timeStamp: '2023-07-21 15:30:00',
         ),
         Product(
@@ -826,7 +922,25 @@ class ShopList {
           berat: 500,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
+              '\n' +
+              'Apa yang Kami Tawarkan:\n' +
+              '\n' +
+              'Sesi Foto Pribadi: Kami mengerti bahwa setiap klien memiliki cerita unik. Tim fotografi kami bekerja dengan Anda untuk menciptakan sesi foto yang menampilkan kepribadian dan gaya Anda. Apakah itu sesi potret keluarga, pre-wedding, atau foto profil profesional, kami mengabadikan momen-momen dengan cermat.\n' +
+              '\n' +
+              'Fotografi Acara: Apakah Anda merencanakan acara spesial seperti pernikahan, ulang tahun, atau acara korporat? Kami menangkap setiap detil penting dan emosi yang terjadi dalam acara tersebut. Foto-foto kami tidak hanya sekadar gambar, tetapi juga cerita lengkap tentang acara Anda.\n' +
+              '\n' +
+              'Fotografi Produk: Jika Anda memiliki bisnis atau produk yang ingin dipromosikan, kami dapat membantu Anda menciptakan gambar produk yang menarik dan profesional. Foto-foto produk berkualitas tinggi ini akan membantu Anda menarik perhatian calon pelanggan dan meningkatkan penjualan.\n' +
+              '\n' +
+              'Fotografi Alam: Kami juga memiliki keahlian dalam fotografi alam. Kami menangkap keindahan alam dengan teknik canggih, sehingga Anda dapat memiliki karya seni yang dapat menghiasi ruangan Anda atau digunakan untuk keperluan pemasaran.\n' +
+              '\n' +
+              'Mengapa Memilih Layanan Kami:\n' +
+              '\n' +
+              'Kreativitas dan Kualitas: Tim fotografi kami memiliki bakat dan pengalaman dalam menciptakan gambar-gambar kreatif dan berkualitas tinggi yang mencerminkan visi Anda.\n' +
+              'Peralatan Profesional: Kami menggunakan peralatan fotografi canggih untuk menghasilkan hasil akhir yang tajam dan indah.\n' +
+              'Kerjasama: Kami mendengarkan kebutuhan dan harapan Anda. Kami bekerja sama dengan Anda untuk mencapai hasil akhir yang sesuai dengan keinginan Anda.\n' +
+              'Pengiriman Tepat Waktu: Kami menghargai waktu Anda dan berkomitmen untuk memberikan hasil fotografi dalam jangka waktu yang telah disepakati.\n' +
+              'Dengan layanan jasa fotografi kami, Anda dapat merasakan pengalaman fotografi yang menyenangkan dan mendapatkan hasil gambar yang akan Anda hargai sepanjang waktu. Jadikan momen-momen Anda tak terlupakan dengan layanan fotografi profesional kami.',
           timeStamp: '2023-07-12 15:30:00',
         ),
         Product(
@@ -843,7 +957,25 @@ class ShopList {
           berat: 500,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
+              '\n' +
+              'Apa yang Kami Tawarkan:\n' +
+              '\n' +
+              'Sesi Foto Pribadi: Kami mengerti bahwa setiap klien memiliki cerita unik. Tim fotografi kami bekerja dengan Anda untuk menciptakan sesi foto yang menampilkan kepribadian dan gaya Anda. Apakah itu sesi potret keluarga, pre-wedding, atau foto profil profesional, kami mengabadikan momen-momen dengan cermat.\n' +
+              '\n' +
+              'Fotografi Acara: Apakah Anda merencanakan acara spesial seperti pernikahan, ulang tahun, atau acara korporat? Kami menangkap setiap detil penting dan emosi yang terjadi dalam acara tersebut. Foto-foto kami tidak hanya sekadar gambar, tetapi juga cerita lengkap tentang acara Anda.\n' +
+              '\n' +
+              'Fotografi Produk: Jika Anda memiliki bisnis atau produk yang ingin dipromosikan, kami dapat membantu Anda menciptakan gambar produk yang menarik dan profesional. Foto-foto produk berkualitas tinggi ini akan membantu Anda menarik perhatian calon pelanggan dan meningkatkan penjualan.\n' +
+              '\n' +
+              'Fotografi Alam: Kami juga memiliki keahlian dalam fotografi alam. Kami menangkap keindahan alam dengan teknik canggih, sehingga Anda dapat memiliki karya seni yang dapat menghiasi ruangan Anda atau digunakan untuk keperluan pemasaran.\n' +
+              '\n' +
+              'Mengapa Memilih Layanan Kami:\n' +
+              '\n' +
+              'Kreativitas dan Kualitas: Tim fotografi kami memiliki bakat dan pengalaman dalam menciptakan gambar-gambar kreatif dan berkualitas tinggi yang mencerminkan visi Anda.\n' +
+              'Peralatan Profesional: Kami menggunakan peralatan fotografi canggih untuk menghasilkan hasil akhir yang tajam dan indah.\n' +
+              'Kerjasama: Kami mendengarkan kebutuhan dan harapan Anda. Kami bekerja sama dengan Anda untuk mencapai hasil akhir yang sesuai dengan keinginan Anda.\n' +
+              'Pengiriman Tepat Waktu: Kami menghargai waktu Anda dan berkomitmen untuk memberikan hasil fotografi dalam jangka waktu yang telah disepakati.\n' +
+              'Dengan layanan jasa fotografi kami, Anda dapat merasakan pengalaman fotografi yang menyenangkan dan mendapatkan hasil gambar yang akan Anda hargai sepanjang waktu. Jadikan momen-momen Anda tak terlupakan dengan layanan fotografi profesional kami.',
           timeStamp: '2023-06-03 15:30:00',
         ),
         Product(
@@ -860,7 +992,25 @@ class ShopList {
           berat: 500,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
-          deskripsi: null,
+          deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
+              '\n' +
+              'Apa yang Kami Tawarkan:\n' +
+              '\n' +
+              'Sesi Foto Pribadi: Kami mengerti bahwa setiap klien memiliki cerita unik. Tim fotografi kami bekerja dengan Anda untuk menciptakan sesi foto yang menampilkan kepribadian dan gaya Anda. Apakah itu sesi potret keluarga, pre-wedding, atau foto profil profesional, kami mengabadikan momen-momen dengan cermat.\n' +
+              '\n' +
+              'Fotografi Acara: Apakah Anda merencanakan acara spesial seperti pernikahan, ulang tahun, atau acara korporat? Kami menangkap setiap detil penting dan emosi yang terjadi dalam acara tersebut. Foto-foto kami tidak hanya sekadar gambar, tetapi juga cerita lengkap tentang acara Anda.\n' +
+              '\n' +
+              'Fotografi Produk: Jika Anda memiliki bisnis atau produk yang ingin dipromosikan, kami dapat membantu Anda menciptakan gambar produk yang menarik dan profesional. Foto-foto produk berkualitas tinggi ini akan membantu Anda menarik perhatian calon pelanggan dan meningkatkan penjualan.\n' +
+              '\n' +
+              'Fotografi Alam: Kami juga memiliki keahlian dalam fotografi alam. Kami menangkap keindahan alam dengan teknik canggih, sehingga Anda dapat memiliki karya seni yang dapat menghiasi ruangan Anda atau digunakan untuk keperluan pemasaran.\n' +
+              '\n' +
+              'Mengapa Memilih Layanan Kami:\n' +
+              '\n' +
+              'Kreativitas dan Kualitas: Tim fotografi kami memiliki bakat dan pengalaman dalam menciptakan gambar-gambar kreatif dan berkualitas tinggi yang mencerminkan visi Anda.\n' +
+              'Peralatan Profesional: Kami menggunakan peralatan fotografi canggih untuk menghasilkan hasil akhir yang tajam dan indah.\n' +
+              'Kerjasama: Kami mendengarkan kebutuhan dan harapan Anda. Kami bekerja sama dengan Anda untuk mencapai hasil akhir yang sesuai dengan keinginan Anda.\n' +
+              'Pengiriman Tepat Waktu: Kami menghargai waktu Anda dan berkomitmen untuk memberikan hasil fotografi dalam jangka waktu yang telah disepakati.\n' +
+              'Dengan layanan jasa fotografi kami, Anda dapat merasakan pengalaman fotografi yang menyenangkan dan mendapatkan hasil gambar yang akan Anda hargai sepanjang waktu. Jadikan momen-momen Anda tak terlupakan dengan layanan fotografi profesional kami.',
           timeStamp: '2023-07-04 15:30:00',
         ),
       ],
