@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
+import 'package:intl/intl.dart' as intl;
 import '../../../model/toko_model.dart';
 
 class ProductDetailController extends GetxController {
@@ -41,5 +41,43 @@ class ProductDetailController extends GetxController {
         maxWidth: Get.width - 16.sp); // Replace with your max text width
     final numberOfLines = textPainter.computeLineMetrics().length;
     return numberOfLines;
+  }
+
+  String getLimitedText(String text, int maxLines) {
+    List<String> lines = text.split('\n');
+    if (lines.length <= maxLines) {
+      return text;
+    }
+    return lines.take(maxLines).join('\n') + '...';
+  }
+
+  ///
+  String formatTimeDifference(DateTime dateTime) {
+    final now = DateTime.now();
+    final difference = now.difference(dateTime);
+
+    if (difference.inDays == 0) {
+      return 'Hari ini';
+    } else if (difference.inDays == 1) {
+      return 'Kemarin';
+    } else if (difference.inDays < 7) {
+      return '${difference.inDays} hari lalu';
+    } else if (difference.inDays < 14) {
+      return 'Seminggu lalu';
+    } else if (difference.inDays < 21) {
+      return '2 minggu lalu';
+    } else if (difference.inDays < 30) {
+      return '3 minggu lalu';
+    } else if (difference.inDays < 60) {
+      return 'Sebulan lalu';
+    } else if (difference.inDays < 365) {
+      final months = difference.inDays ~/ 30;
+      return '$months bulan lalu';
+    } else if (difference.inDays < 365 * 2) {
+      return '1 tahun lalu';
+    } else {
+      final formatter = intl.DateFormat('dd-MM-yyyy');
+      return formatter.format(dateTime);
+    }
   }
 }

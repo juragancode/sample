@@ -1,12 +1,15 @@
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../model/randomComment.dart';
+import '../widgets/ImageProfileComment.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../constant/colors.dart';
 import '../../../model/toko_model.dart';
-
 import '../../../modules/storeDetail/widgets/FloatingActionButtonKeranjang.dart';
 import '../../../widgets/Decoration/BoxOpacity.dart';
 import '../../../widgets/Decoration/Shimmer.dart';
@@ -15,6 +18,10 @@ import '../widgets/ImageShop54.dart';
 import '../widgets/InfoProduk.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
+
+final RandomComment randomComment = RandomComment();
+
+final randomJumlahKomentar = Random().nextInt(2968);
 
 String formatLebihDari1000(int number) {
   if (number >= 1000000) {
@@ -261,21 +268,19 @@ class ProductDetailView extends GetView<ProductDetailController> {
                         ],
                       ),
                       SizedBox(height: 12.sp),
-                      Container(
-                        height: 1,
-                        width: Get.width,
-                        color: D9D9D9,
-                      ),
+                      CostumDivider(),
                       SizedBox(height: 8.sp),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //
-                          ImageShop54(
-                            sdhMasukProdukDetail: sdhMasukProdukDetail,
-                            shop: shop,
-                            image: NetworkImage(
-                              shop.imageShop,
+                          Container(
+                            child: ImageShop54(
+                              sdhMasukProdukDetail: sdhMasukProdukDetail,
+                              shop: shop,
+                              image: NetworkImage(
+                                shop.imageShop,
+                              ),
                             ),
                           ),
                           SizedBox(width: 11.5.w),
@@ -398,8 +403,8 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 fontWeight: FontWeight.w400,
                                 color: Neutral90,
                               ),
-                              textAlign: TextAlign
-                                  .justify, //tanyakan ini, apakah lebih bagus seperti ini?
+                              // textAlign: TextAlign
+                              //     .justify, //tanyakan ini, apakah lebih bagus seperti ini?
                             ),
                           ),
                         ),
@@ -461,10 +466,70 @@ class ProductDetailView extends GetView<ProductDetailController> {
                           ),
                           SizedBox(width: 5.w),
                           Title(title: product.rating.toString()),
-                          SizedBox(width: 5.w),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "($randomJumlahKomentar Ulasan)",
+                            style: TextStyle(
+                              fontSize: 11.5.w,
+                              fontWeight: FontWeight.w400,
+                              color: Neutral90,
+                            ),
+                          ),
                         ],
                       ),
-                      SizedBox(height: 500.w),
+                      SizedBox(height: 15.sp),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          //
+                          Container(
+                            height: Get.width / 6.5,
+                            width: Get.width / 6.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: const Color.fromARGB(255, 255, 7, 193),
+                            ),
+                          ),
+
+                          Container(
+                            height: Get.width / 6.5,
+                            width: Get.width / 6.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: const Color.fromARGB(255, 255, 7, 193),
+                            ),
+                          ),
+                          Container(
+                            height: Get.width / 6.5,
+                            width: Get.width / 6.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: const Color.fromARGB(255, 255, 7, 193),
+                            ),
+                          ),
+                          Container(
+                            height: Get.width / 6.5,
+                            width: Get.width / 6.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: const Color.fromARGB(255, 255, 7, 193),
+                            ),
+                          ),
+                          Container(
+                            height: Get.width / 6.5,
+                            width: Get.width / 6.5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: const Color.fromARGB(255, 255, 7, 193),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16.sp),
+                      CostumDivider(),
+                      SizedBox(height: 16.sp),
+                      RandomComments(),
+                      SizedBox(height: 800.w),
                     ],
                   ),
                 ),
@@ -507,6 +572,189 @@ class ProductDetailView extends GetView<ProductDetailController> {
         padding: EdgeInsets.only(bottom: 120.sp),
         child: FloatingActionButtonKeranjang(),
       ),
+    );
+  }
+}
+
+class RandomComments extends GetView<ProductDetailController> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: 12,
+      itemBuilder: (context, index) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                ImageProfileComment(
+                  image: NetworkImage(
+                    faker.randomGenerator.element(
+                      [
+                        faker.image.image(
+                          random: true,
+                        ),
+                        'https://picsum.photos/${Random().nextInt(999) + 200}/${Random().nextInt(999) + 200}',
+                        'https://picsum.photos/${Random().nextInt(999) + 201}/${Random().nextInt(999) + 201}',
+                        'https://picsum.photos/${Random().nextInt(999) + 202}/${Random().nextInt(999) + 202}',
+                        'https://picsum.photos/${Random().nextInt(999) + 203}/${Random().nextInt(999) + 203}',
+                        'https://picsum.photos/${Random().nextInt(999) + 204}/${Random().nextInt(999) + 204}',
+                        'https://picsum.photos/${Random().nextInt(999) + 205}/${Random().nextInt(999) + 205}',
+                        'https://picsum.photos/${Random().nextInt(999) + 206}/${Random().nextInt(999) + 206}',
+                        'https://picsum.photos/${Random().nextInt(999) + 207}/${Random().nextInt(999) + 207}',
+                        'https://picsum.photos/${Random().nextInt(999) + 208}/${Random().nextInt(999) + 208}',
+                        'https://picsum.photos/${Random().nextInt(999) + 209}/${Random().nextInt(999) + 209}',
+                        'https://picsum.photos/${Random().nextInt(999) + 210}/${Random().nextInt(999) + 210}',
+                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78)}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78) + 0}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(77) + 1}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78)}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78) + 0}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(77) + 1}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(76) + 2}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(75) + 3}.jpg',
+                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(74) + 4}.jpg',
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                Title(
+                  title: faker.person.name(),
+                ),
+              ],
+            ),
+            SizedBox(height: 4.sp),
+            Row(
+              children: [
+                RatingBar.builder(
+                  itemSize: 22.7.sp,
+                  initialRating:
+                      faker.randomGenerator.element([3.5, 4, 4.5, 5]),
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemBuilder: (context, _) => Icon(
+                    Icons.star_rate_rounded,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
+                SizedBox(width: 6.w),
+                Text(
+                  controller.formatTimeDifference(
+                    faker.date.dateTimeBetween(
+                      DateTime(2019, 8, 1),
+                      DateTime.now(),
+                    ),
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 10.w,
+                    fontWeight: FontWeight.w400,
+                    color: Neutral90,
+                  ),
+                ),
+              ],
+            ),
+            if (randomComment.batik.elementAt(Random().nextInt(40)) != '')
+              Column(
+                children: [
+                  SizedBox(height: 16.sp),
+                  Text(
+                    randomComment.batik.elementAt(Random().nextInt(40)),
+                    style: TextStyle(
+                      fontSize: 11.5.w,
+                      fontWeight: FontWeight.w400,
+                      color: H333333,
+                    ),
+                  ),
+                ],
+              ),
+            SizedBox(height: 16.sp),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(
+                Random().nextInt(5),
+                (index) {
+                  return Row(
+                    children: [
+                      Container(
+                        width: Get.width / 6.5,
+                        height: Get.width / 6.5,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Neutral10,
+                            width: 0.5,
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                          ),
+                          borderRadius: BorderRadius.circular(4.r),
+                        ),
+                        child: Stack(
+                          children: [
+                            Shimmer_01(),
+                            Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  //
+                                },
+                                borderRadius: BorderRadius.circular(4.r),
+                                child: Ink(
+                                  width: 88.0.w,
+                                  height: 88.0.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(4.r),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                          'https://picsum.photos/${Random().nextInt(999) + 300}/${Random().nextInt(999) + 300}'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      if (index != 4)
+                        SizedBox(
+                            height: Get.width / 6.5,
+                            width:
+                                ((Get.width - 32.sp) - (Get.width / 6.5) * 5) /
+                                    4), // Jarak antara elemen
+                    ],
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 20.sp),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class CostumDivider extends StatelessWidget {
+  const CostumDivider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 1,
+      width: Get.width,
+      color: D9D9D9,
     );
   }
 }

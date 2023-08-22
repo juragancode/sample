@@ -18,8 +18,8 @@ class FloatingActionButtonKeranjang extends StatelessWidget {
         print("keranjang");
       },
       child: Ink(
-        width: 56.sp,
-        height: 56.sp,
+        width: 100.sp,
+        height: 100.sp,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [

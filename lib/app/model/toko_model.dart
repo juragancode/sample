@@ -1,4 +1,8 @@
 import 'dart:math';
+import 'package:faker/faker.dart';
+import 'package:g_a_s_app_rekadigi/app/model/randomComment.dart';
+
+final RandomComment randomComment = RandomComment();
 
 class Shop {
   final String name;
@@ -63,6 +67,8 @@ class Product {
   });
 }
 
+final faker = Faker();
+
 class ShopList {
   final List<Shop> shops = [
     Shop(
@@ -80,7 +86,7 @@ class ShopList {
         Product(
           productName: 'UX Research',
           productImage:
-              'https://www.dreambox.id/wp-content/uploads/2022/06/7.jpg',
+              'https://glints.com/id/lowongan/wp-content/uploads/2020/02/ux-research.jpeg',
           price: 4975000,
           priceDicoret: 5000000,
           favorite: false,
