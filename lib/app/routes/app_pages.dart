@@ -12,6 +12,8 @@ import '../modules/intro_screen/bindings/intro_screen_binding.dart';
 import '../modules/intro_screen/views/intro_screen_view.dart';
 import '../modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart';
 import '../modules/izinkanAksesLokasi/views/izinkan_akses_lokasi_view.dart';
+import '../modules/keranjang/bindings/keranjang_binding.dart';
+import '../modules/keranjang/views/keranjang_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
@@ -101,6 +103,11 @@ class AppPages {
       name: _Paths.PRODUCT_DETAIL,
       page: () => ProductDetailView(),
       binding: ProductDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.KERANJANG,
+      page: () => const KeranjangView(),
+      binding: KeranjangBinding(),
     ),
   ];
 }

@@ -94,8 +94,8 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                     color:
                                         controller.favoriteProducts[index].value
                                             ? Favorite
-                                            : Neutral50,
-                                    size: 200.0.w, // Ukuran ikon hati
+                                            : Neutral30,
+                                    size: Get.width / 2.5, // Ukuran ikon hati
                                   ),
                                 ),
                               ),
@@ -496,77 +496,9 @@ class ProductDetailView extends GetView<ProductDetailController> {
                           PenilaianPembeli(
                               product: product,
                               randomJumlahKomentar: randomJumlahKomentar),
-                          Material(
-                            color: Colors.transparent,
-                            child: Obx(
-                              () => InkWell(
-                                borderRadius: BorderRadius.circular(32.r),
-                                splashColor: Primary30.withOpacity(0.35),
-                                onTap: () {
-                                  controller.lihatSemuaPenilaian.toggle();
-                                },
-                                child: Ink(
-                                  height: 32.w,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Primary30,
-                                        Primary50,
-                                      ],
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                    ),
-                                    borderRadius: BorderRadius.circular(32.r),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(1.w),
-                                    child: Ink(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(32.r),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          controller.lihatSemuaPenilaian.isFalse
-                                              ? Text(
-                                                  "Lihat Semua Penilaian (${randomJumlahKomentar})",
-                                                  style: TextStyle(
-                                                    fontSize: 11.5.w,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: Primary50,
-                                                  ),
-                                                )
-                                              : Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons
-                                                          .keyboard_arrow_up_rounded,
-                                                      color: Primary50,
-                                                      size: 20.sp,
-                                                    ),
-                                                    Text(
-                                                      "Sembunyikan",
-                                                      style: TextStyle(
-                                                        fontSize: 11.5.w,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Primary50,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 85.sp),
+                          BottonLihatSemuaPenilaian(
+                              randomJumlahKomentar: randomJumlahKomentar),
+                          SizedBox(height: 80.sp),
                         ],
                       ),
                     ),
@@ -618,69 +550,99 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 borderRadius: BorderRadius.circular(8.r),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                padding: EdgeInsets.only(
+                  left: 8.sp,
+                  right: 16.sp,
+                ),
+                child: Stack(
                   children: [
-                    Container(
-                      height: 32.w,
-                      width: 32.w,
-                      child: SvgPicture.asset(
-                        'assets/icons/icon-Message-yellow.svg',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    BottonPembelian(
-                      onTap: () {
-                        //
-                        print("Keranjang");
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(1.w),
-                        child: Ink(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(32.r),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 25.w,
-                                width: 25.w,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: ClipOval(
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Padding(
+                              padding: EdgeInsets.all(8.sp),
+                              child: Container(
+                                height: 32.w,
+                                width: 32.w,
                                 child: SvgPicture.asset(
-                                  'assets/icons/iconKeranjang.svg',
+                                  'assets/icons/icon-Message-yellow.svg',
                                   fit: BoxFit.contain,
                                 ),
                               ),
-                              // SizedBox(width: 4.sp),
-                              Text(
-                                "Keranjang",
-                                style: TextStyle(
-                                  fontSize: 11.5.w,
-                                  fontWeight: FontWeight.w600,
-                                  color: Primary50,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    BottonPembelian(
-                      onTap: () {
-                        //
-                        print("Beli Langsung");
-                      },
-                      child: Center(
-                        child: Text(
-                          "Beli Langsung",
-                          style: TextStyle(
-                            fontSize: 11.5.w,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 5.0.sp),
+                            child: Container(
+                              height: 32.w,
+                              width: 32.w,
+                            ),
                           ),
-                        ),
+                          BottonPembelian(
+                            onTap: () {
+                              //
+                              print("Keranjang");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(1.w),
+                              child: Ink(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(32.r),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 25.w,
+                                      width: 25.w,
+                                      child: SvgPicture.asset(
+                                        'assets/icons/iconKeranjang.svg',
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
+                                    // SizedBox(width: 4.sp),
+                                    Text(
+                                      "Keranjang",
+                                      style: TextStyle(
+                                        fontSize: 11.5.w,
+                                        fontWeight: FontWeight.w600,
+                                        color: Primary50,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          BottonPembelian(
+                            onTap: () {
+                              //
+                              print("Beli Langsung");
+                            },
+                            child: Center(
+                              child: Text(
+                                "Beli Langsung",
+                                style: TextStyle(
+                                  fontSize: 11.5.w,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -693,6 +655,85 @@ class ProductDetailView extends GetView<ProductDetailController> {
       floatingActionButton: Padding(
         padding: EdgeInsets.only(bottom: 60.sp),
         child: FloatingActionButtonKeranjang(),
+      ),
+    );
+  }
+}
+
+class BottonLihatSemuaPenilaian extends GetView<ProductDetailController> {
+  const BottonLihatSemuaPenilaian({
+    super.key,
+    required this.randomJumlahKomentar,
+  });
+
+  final int randomJumlahKomentar;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: Obx(
+        () => InkWell(
+          borderRadius: BorderRadius.circular(32.r),
+          splashColor: Primary30.withOpacity(0.35),
+          onTap: () {
+            controller.lihatSemuaPenilaian.toggle();
+          },
+          child: Ink(
+            height: 32.w,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Primary30,
+                  Primary50,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(32.r),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(1.w),
+              child: Ink(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(32.r),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    controller.lihatSemuaPenilaian.isFalse
+                        ? Text(
+                            "Lihat Semua Penilaian (${randomJumlahKomentar})",
+                            style: TextStyle(
+                              fontSize: 11.5.w,
+                              fontWeight: FontWeight.w400,
+                              color: Primary50,
+                            ),
+                          )
+                        : Row(
+                            children: [
+                              Icon(
+                                Icons.keyboard_arrow_up_rounded,
+                                color: Primary50,
+                                size: 20.sp,
+                              ),
+                              Text(
+                                "Sembunyikan",
+                                style: TextStyle(
+                                  fontSize: 11.5.w,
+                                  fontWeight: FontWeight.w400,
+                                  color: Primary50,
+                                ),
+                              ),
+                            ],
+                          ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -819,7 +860,7 @@ class PenilaianPembeli extends GetView<ProductDetailController> {
                                 child: Center(
                                   child: index == 4
                                       ? Text(
-                                          '+${randomJumlahKomentar * Random().nextInt(5)}',
+                                          '+${randomJumlahKomentar * (Random().nextInt(5) + 1)}',
                                           style: TextStyle(
                                             fontSize: 11.5.w,
                                             fontWeight: FontWeight.w600,
