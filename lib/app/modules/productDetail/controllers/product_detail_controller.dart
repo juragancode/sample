@@ -80,4 +80,8 @@ class ProductDetailController extends GetxController {
       return formatter.format(dateTime);
     }
   }
+
+  RxBool lihatSemuaPenilaian = false.obs;
+
+  RxBool animasiFavorit = false.obs;
 }

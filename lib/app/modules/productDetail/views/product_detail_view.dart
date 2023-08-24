@@ -1,22 +1,24 @@
+import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../model/randomComment.dart';
-import '../widgets/ImageProfileComment.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import '../../../constant/colors.dart';
 import '../../../model/toko_model.dart';
 import '../../../modules/storeDetail/widgets/FloatingActionButtonKeranjang.dart';
 import '../../../widgets/Decoration/BoxOpacity.dart';
+import '../../../widgets/Decoration/BoxShadow.dart';
 import '../../../widgets/Decoration/Shimmer.dart';
 import '../controllers/product_detail_controller.dart';
+import '../widgets/ImageProfileComment.dart';
 import '../widgets/ImageShop54.dart';
 import '../widgets/InfoProduk.dart';
-import '../../../widgets/Decoration/BoxShadow.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -41,6 +43,17 @@ class ProductDetailView extends GetView<ProductDetailController> {
     final Shop shop = args['shop'];
     final bool sdhMasukProdukDetail = args['sdhMasukProdukDetail'] ?? false;
 
+    final randomJumlahKomentar = (5 + Random().nextInt(20));
+
+    void showHeart() {
+      controller.toggleFavoriteProductInStoreDetail(index);
+
+      controller.animasiFavorit.toggle();
+      Timer(Duration(milliseconds: 700), () {
+        controller.animasiFavorit.toggle();
+      });
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
@@ -50,75 +63,99 @@ class ProductDetailView extends GetView<ProductDetailController> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: Get.width,
-                      height: Get.width,
-                      child: Stack(
+                InkWell(
+                  onDoubleTap: () {
+                    showHeart();
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: Get.width,
+                        height: Get.width,
+                        child: Stack(
+                          children: [
+                            Shimmer_00(),
+                            Image.network(
+                              product.productImage,
+                              width: Get.width,
+                              height: Get.width,
+                              fit: BoxFit.cover,
+                            ),
+                            Obx(
+                              () => Center(
+                                child: AnimatedOpacity(
+                                  opacity: controller.animasiFavorit.value
+                                      ? 0.8
+                                      : 0.0, // Mengatur opacity berdasarkan kondisi
+                                  duration: Duration(
+                                      seconds: 1), // Durasi muncul/hilang
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color:
+                                        controller.favoriteProducts[index].value
+                                            ? Favorite
+                                            : Neutral50,
+                                    size: 200.0.w, // Ukuran ikon hati
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(
                         children: [
-                          Shimmer_00(),
-                          Image.network(
-                            product.productImage,
-                            width: Get.width,
-                            height: Get.width,
-                            fit: BoxFit.cover,
+                          SizedBox(height: 46.w),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(4.r),
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      height: 32.sp,
+                                      width: 32.sp,
+                                      child: BoxOpacity(
+                                        child: Icon(
+                                          Icons.arrow_back_rounded,
+                                          color: Secondary50,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(4.r),
+                                    onTap: () {
+                                      print("share");
+                                    },
+                                    child: Container(
+                                      height: 32.sp,
+                                      width: 32.sp,
+                                      child: BoxOpacity(
+                                        child: Icon(
+                                          Icons.share,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    Column(
-                      children: [
-                        SizedBox(height: 46.w),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(4.r),
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    height: 32.sp,
-                                    width: 32.sp,
-                                    child: BoxOpacity(
-                                      child: Icon(
-                                        Icons.arrow_back_rounded,
-                                        color: Secondary50,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(4.r),
-                                  onTap: () {
-                                    print("share");
-                                  },
-                                  child: Container(
-                                    height: 32.sp,
-                                    width: 32.sp,
-                                    child: BoxOpacity(
-                                      child: Icon(
-                                        Icons.share,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Stack(
                   children: [
@@ -456,8 +493,80 @@ class ProductDetailView extends GetView<ProductDetailController> {
                             ),
                             SizedBox(height: 15.sp),
                           ],
-                          PenilaianPembeli(product: product),
-                          SizedBox(height: 75.sp),
+                          PenilaianPembeli(
+                              product: product,
+                              randomJumlahKomentar: randomJumlahKomentar),
+                          Material(
+                            color: Colors.transparent,
+                            child: Obx(
+                              () => InkWell(
+                                borderRadius: BorderRadius.circular(32.r),
+                                splashColor: Primary30.withOpacity(0.35),
+                                onTap: () {
+                                  controller.lihatSemuaPenilaian.toggle();
+                                },
+                                child: Ink(
+                                  height: 32.w,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Primary30,
+                                        Primary50,
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                    borderRadius: BorderRadius.circular(32.r),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(1.w),
+                                    child: Ink(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(32.r),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          controller.lihatSemuaPenilaian.isFalse
+                                              ? Text(
+                                                  "Lihat Semua Penilaian (${randomJumlahKomentar})",
+                                                  style: TextStyle(
+                                                    fontSize: 11.5.w,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: Primary50,
+                                                  ),
+                                                )
+                                              : Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .keyboard_arrow_up_rounded,
+                                                      color: Primary50,
+                                                      size: 20.sp,
+                                                    ),
+                                                    Text(
+                                                      "Sembunyikan",
+                                                      style: TextStyle(
+                                                        fontSize: 11.5.w,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Primary50,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 85.sp),
                         ],
                       ),
                     ),
@@ -470,8 +579,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                controller
-                                    .toggleFavoriteProductInStoreDetail(index);
+                                showHeart();
                               },
                               child: Padding(
                                 padding: EdgeInsets.all(10.sp),
@@ -512,6 +620,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.sp),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       height: 32.w,
@@ -521,7 +630,59 @@ class ProductDetailView extends GetView<ProductDetailController> {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    BottonKeranjang(),
+                    BottonPembelian(
+                      onTap: () {
+                        //
+                        print("Keranjang");
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(1.w),
+                        child: Ink(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 25.w,
+                                width: 25.w,
+                                child: SvgPicture.asset(
+                                  'assets/icons/iconKeranjang.svg',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              // SizedBox(width: 4.sp),
+                              Text(
+                                "Keranjang",
+                                style: TextStyle(
+                                  fontSize: 11.5.w,
+                                  fontWeight: FontWeight.w600,
+                                  color: Primary50,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    BottonPembelian(
+                      onTap: () {
+                        //
+                        print("Beli Langsung");
+                      },
+                      child: Center(
+                        child: Text(
+                          "Beli Langsung",
+                          style: TextStyle(
+                            fontSize: 11.5.w,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -530,88 +691,67 @@ class ProductDetailView extends GetView<ProductDetailController> {
         ],
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 120.sp),
+        padding: EdgeInsets.only(bottom: 60.sp),
         child: FloatingActionButtonKeranjang(),
       ),
     );
   }
 }
 
-class BottonKeranjang extends StatelessWidget {
-  const BottonKeranjang({
+class BottonPembelian extends StatelessWidget {
+  const BottonPembelian({
     super.key,
+    required this.child,
+    required this.onTap,
   });
 
+  final Widget child;
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(32.r),
-        onTap: () {
-          //
-          print("tambah");
-        },
+        splashColor: Primary30.withOpacity(0.35),
+        onTap: onTap,
         child: Ink(
           width: 144.w,
           height: 32.w,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color(0xFF4D89D4),
-                Color(0xFF216BC9),
+                Primary30,
+                Primary50,
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
             borderRadius: BorderRadius.circular(32.r),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 25.w,
-                width: 25.w,
-                child: SvgPicture.asset(
-                  'assets/icons/iconKeranjang.svg',
-                  color: Colors.white,
-                  fit: BoxFit.contain,
-                  // height: 11.sp,
-                  // width: 11.sp,
-                ),
-              ),
-              // SizedBox(width: 4.sp),
-              Text(
-                "Keranjang",
-                style: TextStyle(
-                  fontSize: 11.5.w,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+          child: child,
         ),
       ),
     );
   }
 }
 
-class PenilaianPembeli extends StatelessWidget {
+class PenilaianPembeli extends GetView<ProductDetailController> {
   const PenilaianPembeli({
     super.key,
     required this.product,
+    required this.randomJumlahKomentar,
   });
 
+  final int randomJumlahKomentar;
   final Product product;
 
   @override
   Widget build(BuildContext context) {
-    final randomJumlahKomentar = Random().nextInt(123);
-
     return Visibility(
-      visible: randomJumlahKomentar == 0,
+      visible: randomJumlahKomentar != 0,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Title(title: "Penilaian Pembeli"),
           Row(
@@ -621,7 +761,9 @@ class PenilaianPembeli extends StatelessWidget {
                 color: Secondary30,
               ),
               SizedBox(width: 5.w),
-              Title(title: product.rating.toString()),
+              Title(
+                title: product.rating.toString(),
+              ),
               SizedBox(width: 8.w),
               Text(
                 "($randomJumlahKomentar Ulasan)",
@@ -670,9 +812,21 @@ class PenilaianPembeli extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(4.r),
                                   image: DecorationImage(
                                     image: NetworkImage(
-                                        'https://picsum.photos/${Random().nextInt(999) + 300}/${Random().nextInt(999) + 300}'),
+                                        'https://picsum.photos/${Random().nextInt(100) + 100}/${Random().nextInt(100) + 100}'),
                                     fit: BoxFit.cover,
                                   ),
+                                ),
+                                child: Center(
+                                  child: index == 4
+                                      ? Text(
+                                          '+${randomJumlahKomentar * Random().nextInt(5)}',
+                                          style: TextStyle(
+                                            fontSize: 11.5.w,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      : SizedBox.shrink(),
                                 ),
                               ),
                             ),
@@ -693,7 +847,10 @@ class PenilaianPembeli extends StatelessWidget {
           SizedBox(height: 16.sp),
           CostumDivider(),
           SizedBox(height: 16.sp),
-          RandomComments(),
+          RandomComments(
+            product: product,
+            randomJumlahKomentar: randomJumlahKomentar,
+          ),
         ],
       ),
     );
@@ -701,170 +858,214 @@ class PenilaianPembeli extends StatelessWidget {
 }
 
 class RandomComments extends GetView<ProductDetailController> {
+  const RandomComments({
+    super.key,
+    required this.product,
+    required this.randomJumlahKomentar,
+  });
+
+  final int randomJumlahKomentar;
+  final Product product;
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: 2,
-      padding: EdgeInsets.zero,
-      itemBuilder: (context, index) {
-        return Column(
-          // mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                ImageProfileComment(
-                  image: NetworkImage(
-                    faker.randomGenerator.element(
-                      [
-                        faker.image.image(
-                          random: true,
-                        ),
-                        'https://picsum.photos/${Random().nextInt(999) + 200}/${Random().nextInt(999) + 200}',
-                        'https://picsum.photos/${Random().nextInt(999) + 201}/${Random().nextInt(999) + 201}',
-                        'https://picsum.photos/${Random().nextInt(999) + 202}/${Random().nextInt(999) + 202}',
-                        'https://picsum.photos/${Random().nextInt(999) + 203}/${Random().nextInt(999) + 203}',
-                        'https://picsum.photos/${Random().nextInt(999) + 204}/${Random().nextInt(999) + 204}',
-                        'https://picsum.photos/${Random().nextInt(999) + 205}/${Random().nextInt(999) + 205}',
-                        'https://picsum.photos/${Random().nextInt(999) + 206}/${Random().nextInt(999) + 206}',
-                        'https://picsum.photos/${Random().nextInt(999) + 207}/${Random().nextInt(999) + 207}',
-                        'https://picsum.photos/${Random().nextInt(999) + 208}/${Random().nextInt(999) + 208}',
-                        'https://picsum.photos/${Random().nextInt(999) + 209}/${Random().nextInt(999) + 209}',
-                        'https://picsum.photos/${Random().nextInt(999) + 210}/${Random().nextInt(999) + 210}',
-                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78)}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78) + 0}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(77) + 1}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78)}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78) + 0}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(77) + 1}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(76) + 2}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(75) + 3}.jpg',
-                        'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(74) + 4}.jpg',
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(width: 8.w),
-                Title(
-                  title: faker.person.name(),
-                ),
-              ],
-            ),
-            SizedBox(height: 4.sp),
-            Row(
-              children: [
-                RatingBar.builder(
-                  itemSize: 22.7.sp,
-                  initialRating:
-                      faker.randomGenerator.element([3.5, 4, 4.5, 5]),
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemBuilder: (context, _) => Icon(
-                    Icons.star_rate_rounded,
-                    color: Colors.amber,
-                  ),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
-                ),
-                SizedBox(width: 6.w),
-                Text(
-                  controller.formatTimeDifference(
-                    faker.date.dateTimeBetween(
-                      DateTime(2019, 8, 1),
-                      DateTime.now(),
-                    ),
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 10.w,
-                    fontWeight: FontWeight.w400,
-                    color: Neutral90,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10.sp),
-            RndomCommentFotoProduct(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(
-                Random().nextInt(5),
-                (index) {
-                  return Row(
-                    children: [
-                      Container(
-                        width: Get.width / 6.5,
-                        height: Get.width / 6.5,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Neutral10,
-                            width: 0.5,
-                            strokeAlign: BorderSide.strokeAlignOutside,
+    return Obx(
+      () => ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount:
+            controller.lihatSemuaPenilaian.isFalse ? 2 : randomJumlahKomentar,
+        padding: EdgeInsets.zero,
+        itemBuilder: (context, index) {
+          return Column(
+            // mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  ImageProfileComment(
+                    image: NetworkImage(
+                      faker.randomGenerator.element(
+                        [
+                          faker.image.image(
+                            random: true,
                           ),
-                          borderRadius: BorderRadius.circular(4.r),
-                        ),
-                        child: Stack(
-                          children: [
-                            Shimmer_01(),
-                            Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  //
-                                },
-                                borderRadius: BorderRadius.circular(4.r),
-                                child: Ink(
-                                  width: 88.0.w,
-                                  height: 88.0.w,
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.circular(4.r),
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                          'https://picsum.photos/${Random().nextInt(999) + 300}/${Random().nextInt(999) + 300}'),
-                                      fit: BoxFit.cover,
+                          'https://picsum.photos/${Random().nextInt(100) + 200}/${Random().nextInt(100) + 200}',
+                          'https://picsum.photos/${Random().nextInt(100) + 201}/${Random().nextInt(100) + 201}',
+                          'https://picsum.photos/${Random().nextInt(100) + 202}/${Random().nextInt(100) + 202}',
+                          'https://picsum.photos/${Random().nextInt(100) + 203}/${Random().nextInt(100) + 203}',
+                          'https://picsum.photos/${Random().nextInt(100) + 204}/${Random().nextInt(100) + 204}',
+                          'https://picsum.photos/${Random().nextInt(100) + 205}/${Random().nextInt(100) + 205}',
+                          'https://picsum.photos/${Random().nextInt(100) + 206}/${Random().nextInt(100) + 206}',
+                          'https://picsum.photos/${Random().nextInt(100) + 207}/${Random().nextInt(100) + 207}',
+                          'https://picsum.photos/${Random().nextInt(100) + 208}/${Random().nextInt(100) + 208}',
+                          'https://picsum.photos/${Random().nextInt(100) + 209}/${Random().nextInt(100) + 209}',
+                          'https://picsum.photos/${Random().nextInt(100) + 210}/${Random().nextInt(100) + 210}',
+                          'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78)}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(78) + 0}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/male/${Random().nextInt(77) + 1}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78)}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(78) + 0}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(77) + 1}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(76) + 2}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(75) + 3}.jpg',
+                          'https://xsgames.co/randomusers/assets/avatars/female/${Random().nextInt(74) + 4}.jpg',
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 8.w),
+                  Title(
+                    title: faker.person.name(),
+                  ),
+                ],
+              ),
+              SizedBox(height: 4.sp),
+              Row(
+                children: [
+                  RatingBar.builder(
+                    itemSize: 22.7.sp,
+                    initialRating:
+                        faker.randomGenerator.element([3.5, 4, 4.5, 5]),
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star_rate_rounded,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                  ),
+                  SizedBox(width: 6.w),
+                  Text(
+                    controller.formatTimeDifference(
+                      faker.date.dateTimeBetween(
+                        DateTime(2019, 8, 1),
+                        DateTime.now(),
+                      ),
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 10.w,
+                      fontWeight: FontWeight.w400,
+                      color: Neutral90,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10.sp),
+              RandomCommentFotoProduct(
+                product: product,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: List.generate(
+                  Random().nextInt(5),
+                  (index) {
+                    return Row(
+                      children: [
+                        Container(
+                          width: Get.width / 6.5,
+                          height: Get.width / 6.5,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Neutral10,
+                              width: 0.5,
+                              strokeAlign: BorderSide.strokeAlignOutside,
+                            ),
+                            borderRadius: BorderRadius.circular(4.r),
+                          ),
+                          child: Stack(
+                            children: [
+                              Shimmer_01(),
+                              Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () {
+                                    //
+                                  },
+                                  borderRadius: BorderRadius.circular(4.r),
+                                  child: Ink(
+                                    width: 88.0.w,
+                                    height: 88.0.w,
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(4.r),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            'https://picsum.photos/${Random().nextInt(100) + 100}/${Random().nextInt(100) + 100}'),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      if (index != 4)
-                        SizedBox(
-                            height: Get.width / 6.5,
-                            width:
-                                ((Get.width - 32.sp) - (Get.width / 6.5) * 5) /
-                                    4), // Jarak antara elemen
-                    ],
-                  );
-                },
+                        if (index != 4)
+                          SizedBox(
+                              height: Get.width / 6.5,
+                              width: ((Get.width - 32.sp) -
+                                      (Get.width / 6.5) * 5) /
+                                  4), // Jarak antara elemen
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
-        );
-      },
+              SizedBox(height: 20.sp),
+            ],
+          );
+        },
+      ),
     );
   }
 }
 
-class RndomCommentFotoProduct extends StatelessWidget {
-  const RndomCommentFotoProduct({
+class RandomCommentFotoProduct extends StatelessWidget {
+  const RandomCommentFotoProduct({
+    required this.product,
     super.key,
   });
 
+  final Product product;
   @override
   Widget build(BuildContext context) {
     var randomCommentIndex = Random().nextInt(40);
-    var selectedComment = randomComment.batik.elementAt(randomCommentIndex);
 
+    var selectedComment = '';
+
+    switch (product.kat) {
+      case Kat.esKrim:
+        selectedComment = randomComment.esKrim.elementAt(randomCommentIndex);
+        break;
+      case Kat.batik:
+        selectedComment = randomComment.batik.elementAt(randomCommentIndex);
+        break;
+      case Kat.kerudung:
+        selectedComment = randomComment.kerudung.elementAt(randomCommentIndex);
+        break;
+      case Kat.buah:
+        selectedComment = randomComment.buah.elementAt(randomCommentIndex);
+        break;
+      case Kat.dri:
+        selectedComment = randomComment.dri.elementAt(randomCommentIndex);
+        break;
+      case Kat.travel:
+        selectedComment = randomComment.travel.elementAt(randomCommentIndex);
+        break;
+      case Kat.fotografi:
+        selectedComment = randomComment.fotografi.elementAt(randomCommentIndex);
+        break;
+      case Kat.pakaian:
+        selectedComment = randomComment.pakaian.elementAt(randomCommentIndex);
+        break;
+    }
     return Visibility(
       visible: selectedComment != '',
       child: Column(

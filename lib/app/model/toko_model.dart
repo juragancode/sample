@@ -33,6 +33,17 @@ enum Kondisi {
   Bekas,
 }
 
+enum Kat {
+  esKrim,
+  batik,
+  kerudung,
+  buah,
+  dri,
+  travel,
+  fotografi,
+  pakaian,
+}
+
 class Product {
   final String productName;
   final String productImage;
@@ -48,6 +59,7 @@ class Product {
   final int stok;
   final bool favorite;
   final Kondisi kondisi;
+  final Kat kat;
 
   Product({
     required this.productName,
@@ -64,6 +76,7 @@ class Product {
     required this.stok,
     required this.favorite,
     required this.kondisi,
+    required this.kat,
   });
 }
 
@@ -95,6 +108,7 @@ class ShopList {
           terjual: 0,
           dilihat: 5674462,
           berat: 500,
+          kat: Kat.dri,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Kami menyediakan layanan UX Research yang dirancang khusus untuk membantu Anda mengoptimalkan pengalaman pengguna (UX) produk atau layanan Anda. Dengan pendekatan yang mendalam dan metodologi yang teruji, tim ahli kami akan memastikan bahwa produk Anda tidak hanya fungsional, tetapi juga memenuhi harapan dan kebutuhan pengguna.\n' +
@@ -121,6 +135,7 @@ class ShopList {
           terjual: 12,
           dilihat: 10732487,
           berat: 500,
+          kat: Kat.dri,
           kategori: "Software",
           kondisi: Kondisi.Baru,
           deskripsi: 'Di tengah pergeseran paradigma digital, memiliki kehadiran yang kuat di dunia aplikasi mobile adalah kunci untuk menjangkau pelanggan dengan cara yang lebih mendalam dan relevan. Layanan Pembuatan Aplikasi Mobile kami dirancang untuk mewujudkan visi Anda menjadi aplikasi yang menarik, fungsional, dan memikat pengguna di seluruh platform mobile.\n' +
@@ -147,6 +162,7 @@ class ShopList {
           terjual: 21,
           dilihat: 18832487,
           berat: 500,
+          kat: Kat.dri,
           kategori: "Software",
           kondisi: Kondisi.Baru,
           deskripsi: 'Deskripsi:\n' +
@@ -174,6 +190,7 @@ class ShopList {
           terjual: 5,
           dilihat: 13732487,
           berat: 500,
+          kat: Kat.dri,
           kategori: "Software",
           kondisi: Kondisi.Baru,
           deskripsi: 'Deskripsi:\n' +
@@ -201,6 +218,7 @@ class ShopList {
           terjual: 6,
           dilihat: 11732487,
           berat: 500,
+          kat: Kat.dri,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Aplikasi Anda adalah aset berharga yang memainkan peran kunci dalam menjaga hubungan Anda dengan pengguna. Namun, seperti halnya perangkat lunak lainnya, aplikasi juga memerlukan perawatan teratur agar tetap berfungsi dengan baik. Layanan Pemeliharaan Aplikasi kami dirancang untuk memastikan aplikasi Anda tetap up-to-date, bebas dari bug, dan memberikan pengalaman pengguna yang optimal.\n' +
@@ -242,6 +260,7 @@ class ShopList {
           terjual: 1200,
           dilihat: 6574467,
           berat: 500,
+          kat: Kat.buah,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: 'Mangga harum manis\n' +
@@ -279,6 +298,7 @@ class ShopList {
           terjual: 43643,
           dilihat: 654547,
           berat: 500,
+          kat: Kat.buah,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '☑️ Penawaran Harga Murah, karena langsung dari Agen\n' +
@@ -304,6 +324,7 @@ class ShopList {
           terjual: 546,
           dilihat: 11732487,
           berat: 500,
+          kat: Kat.buah,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '• ORDER SEBELUM PUKUL 21.00 WIB DIKIRIM H+1\n' +
@@ -326,6 +347,7 @@ class ShopList {
           terjual: 546,
           dilihat: 1554787,
           berat: 500,
+          kat: Kat.buah,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi:
@@ -358,6 +380,7 @@ class ShopList {
           terjual: 7,
           dilihat: 17732487,
           berat: 500,
+          kat: Kat.travel,
           kategori: "Hiburan",
           kondisi: Kondisi.Baru,
           deskripsi: 'Bersama Awesome Travel Perjalanan Luar Negeri Anda Tak Terlupakan\n' +
@@ -396,6 +419,7 @@ class ShopList {
           terjual: 1289,
           dilihat: 21732487,
           berat: 500,
+          kat: Kat.travel,
           kategori: "Hiburan",
           kondisi: Kondisi.Baru,
           deskripsi: 'Bersama Awesome Travel Perjalanan Luar Negeri Anda Tak Terlupakan\n' +
@@ -434,6 +458,7 @@ class ShopList {
           terjual: 1274355,
           dilihat: 19732487,
           berat: 500,
+          kat: Kat.travel,
           kategori: "Hiburan",
           kondisi: Kondisi.Baru,
           deskripsi: 'Bersama Awesome Travel Perjalanan Luar Negeri Anda Tak Terlupakan\n' +
@@ -472,6 +497,7 @@ class ShopList {
           terjual: 75899,
           dilihat: 54345,
           berat: 500,
+          kat: Kat.travel,
           kategori: "Hiburan",
           kondisi: Kondisi.Baru,
           deskripsi: 'Bersama Awesome Travel Perjalanan Luar Negeri Anda Tak Terlupakan\n' +
@@ -524,6 +550,7 @@ class ShopList {
           terjual: 56754,
           dilihat: 12732487,
           berat: 500,
+          kat: Kat.batik,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi:
@@ -542,6 +569,7 @@ class ShopList {
           terjual: 67564,
           dilihat: 13232487,
           berat: 500,
+          kat: Kat.batik,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi:
@@ -560,6 +588,7 @@ class ShopList {
           terjual: 6574765,
           dilihat: 15532487,
           berat: 500,
+          kat: Kat.batik,
           kategori: "Pakaian Anak",
           kondisi: Kondisi.Baru,
           deskripsi:
@@ -581,6 +610,7 @@ class ShopList {
           terjual: 5465432,
           dilihat: 13432487,
           berat: 500,
+          kat: Kat.batik,
           kategori: "Pakaian Anak",
           kondisi: Kondisi.Baru,
           deskripsi:
@@ -613,6 +643,7 @@ class ShopList {
           terjual: 1000,
           dilihat: 16732487,
           berat: 500,
+          kat: Kat.esKrim,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '- Minuman yang cocok sekali bila diminum saat dahaga di siang hari yang panas dan terik.\n' +
@@ -638,6 +669,7 @@ class ShopList {
           terjual: 675476,
           dilihat: 1276542,
           berat: 500,
+          kat: Kat.esKrim,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '- Minuman yang cocok sekali bila diminum saat dahaga di siang hari yang panas dan terik.\n' +
@@ -663,6 +695,7 @@ class ShopList {
           terjual: 678568,
           dilihat: 132575,
           berat: 500,
+          kat: Kat.esKrim,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '- Minuman yang cocok sekali bila diminum saat dahaga di siang hari yang panas dan terik.\n' +
@@ -688,6 +721,7 @@ class ShopList {
           terjual: 890890,
           dilihat: 653,
           berat: 500,
+          kat: Kat.esKrim,
           kategori: "Makanan",
           kondisi: Kondisi.Baru,
           deskripsi: '- Minuman yang cocok sekali bila diminum saat dahaga di siang hari yang panas dan terik.\n' +
@@ -728,6 +762,7 @@ class ShopList {
           terjual: 49074,
           dilihat: 16735644,
           berat: 870.5,
+          kat: Kat.pakaian,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi: 'Jacker jeans dewasa wanita premium.\n' +
@@ -766,6 +801,7 @@ class ShopList {
           terjual: 9808989,
           dilihat: 87963,
           berat: 102.30,
+          kat: Kat.pakaian,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi: 'Tshirt lengan panjang dewasa wanita\n' +
@@ -804,6 +840,7 @@ class ShopList {
           terjual: 768,
           dilihat: 6587546,
           berat: 500,
+          kat: Kat.pakaian,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi: 'Tanktop dewasa wanita.\n' +
@@ -844,6 +881,7 @@ class ShopList {
           terjual: 45654,
           dilihat: 57546,
           berat: 90.20,
+          kat: Kat.kerudung,
           kategori: "Pakaian Wanita",
           kondisi: Kondisi.Baru,
           deskripsi: 'Kerudung segi empat dengan motif yang exlusif, nyaman digunakan untuk berbagai aktifitas.\n' +
@@ -891,6 +929,7 @@ class ShopList {
           terjual: 456,
           dilihat: 87642,
           berat: 500,
+          kat: Kat.fotografi,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
@@ -926,6 +965,7 @@ class ShopList {
           terjual: 45634,
           dilihat: 54634,
           berat: 500,
+          kat: Kat.fotografi,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
@@ -961,6 +1001,7 @@ class ShopList {
           terjual: 8790,
           dilihat: 6543,
           berat: 500,
+          kat: Kat.fotografi,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
@@ -996,6 +1037,7 @@ class ShopList {
           terjual: 135,
           dilihat: 43652,
           berat: 500,
+          kat: Kat.fotografi,
           kategori: "Jasa",
           kondisi: Kondisi.Baru,
           deskripsi: 'Apakah Anda mencari cara untuk mengabadikan momen-momen berharga dalam hidup Anda dengan cara yang indah dan berkesan? Layanan jasa fotografi profesional kami siap membantu Anda membuat kenangan yang tak terlupakan melalui gambar-gambar berkualitas tinggi yang menggambarkan cerita Anda.\n' +
