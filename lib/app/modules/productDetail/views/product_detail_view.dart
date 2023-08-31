@@ -547,7 +547,6 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 boxShadow: [
                   BoxShadow_00(),
                 ],
-                borderRadius: BorderRadius.circular(8.r),
               ),
               child: Padding(
                 padding: EdgeInsets.only(

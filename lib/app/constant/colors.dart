@@ -28,6 +28,8 @@ const H333333 = Color(0xFF333333);
 
 const EBEBEB = Color(0xFFEBEBEB);
 
+const F0F0F0 = Color(0xFFF0F0F0);
+
 const Error50 = Color(0xFFFF002E);
 const Error10 = Color(0xFFFF6682);
 

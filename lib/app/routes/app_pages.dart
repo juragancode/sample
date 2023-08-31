@@ -106,7 +106,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.KERANJANG,
-      page: () => const KeranjangView(),
+      page: () => KeranjangView(),
       binding: KeranjangBinding(),
     ),
   ];

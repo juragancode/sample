@@ -12,6 +12,7 @@ import '../../../routes/app_pages.dart';
 import '../../../widgets/buttonGoogle.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/login_controller.dart';
+import '../../../constant/colors.dart';
 
 final LoginController controller = LoginController();
 
@@ -128,7 +129,7 @@ class LoginView extends GetView<HomeController> {
                                 child: Icon(
                                   CupertinoIcons.checkmark_alt_circle_fill,
                                   // Icons.check_circle,
-                                  color: Color(0xFF0DE864),
+                                  color: Success50,
                                 ),
                               )
                             : null,
@@ -285,8 +286,10 @@ class LoginView extends GetView<HomeController> {
                                   ),
                                 ),
                                 child: Icon(
-                                  CupertinoIcons.checkmark_alt,
-                                  size: 21.sp,
+                                  // CupertinoIcons.checkmark_alt,
+                                  // size: 21.sp,
+                                  Icons.check_rounded,
+                                  size: 16.sp,
                                   color: Colors.white,
                                 ),
                               ),

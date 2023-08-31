@@ -27,6 +27,15 @@ BoxShadow BoxShadow_02() {
   );
 }
 
+BoxShadow BoxShadow_03() {
+  return BoxShadow(
+    color: Color(0xFF262626).withOpacity(0.075),
+    offset: Offset(0, 0),
+    blurRadius: 32,
+    spreadRadius: 4,
+  );
+}
+
 BoxShadow BoxShadow_Test() {
   return BoxShadow(
     color: Color(0xFF262626).withOpacity(0.25),
