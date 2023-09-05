@@ -112,7 +112,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
                                     Container(
                                       // color: Color.fromARGB(255, 245, 170, 255),
                                       width: 270.w,
-                                      height: 65.w,
+                                      height: 60.w + 16.sp,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -195,7 +195,7 @@ class StoreDetailView extends GetView<StoreDetailController> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 16.sp),
+                                // SizedBox(height: 16.sp),
                                 Container(
                                   height: 1,
                                   width: Get.width,

@@ -4,6 +4,8 @@ import '../modules/alihBahasa/bindings/alih_bahasa_binding.dart';
 import '../modules/alihBahasa/views/alih_bahasa_view.dart';
 import '../modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
 import '../modules/aturUlangPassword/views/atur_ulang_password_view.dart';
+import '../modules/buatPesanan/bindings/buat_pesanan_binding.dart';
+import '../modules/buatPesanan/views/buat_pesanan_view.dart';
 import '../modules/daftar/bindings/daftar_binding.dart';
 import '../modules/daftar/views/daftar_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -18,6 +20,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/lupaPassword/views/lupa_password_view.dart';
+import '../modules/pembayaran/bindings/pembayaran_binding.dart';
+import '../modules/pembayaran/views/pembayaran_view.dart';
 import '../modules/productDetail/bindings/product_detail_binding.dart';
 import '../modules/productDetail/views/product_detail_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -108,6 +112,16 @@ class AppPages {
       name: _Paths.KERANJANG,
       page: () => KeranjangView(),
       binding: KeranjangBinding(),
+    ),
+    GetPage(
+      name: _Paths.PEMBAYARAN,
+      page: () => PembayaranView(),
+      binding: PembayaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.BUAT_PESANAN,
+      page: () => BuatPesananView(),
+      binding: BuatPesananBinding(),
     ),
   ];
 }

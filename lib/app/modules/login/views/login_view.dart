@@ -433,7 +433,7 @@ class LoginView extends GetView<HomeController> {
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xFF858585),
                       ),
                     ),

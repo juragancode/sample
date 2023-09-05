@@ -240,6 +240,7 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                 ),
                                 SizedBox(height: 4.0.sp),
                                 Row(
+                                  // mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Icon(
                                       Icons.star_rate_rounded,
@@ -272,31 +273,31 @@ class ProdukTerbaruStoreDetail extends GetView<StoreDetailController> {
                                           color: Neutral90,
                                         ),
                                       ),
-                                      SizedBox(width: 6.w),
-                                      Text(
-                                        '|',
-                                        style: TextStyle(
-                                          fontSize: 9.5.w,
-                                          fontWeight: FontWeight.w400,
-                                          color: Neutral90,
-                                        ),
-                                      ),
-                                      SizedBox(width: 6.w),
                                       Visibility(
-                                        visible: product[index].terjual == 0
-                                            ? false
-                                            : true,
-                                        child: Flexible(
-                                          child: Text(
-                                            'Terjual: ${formatLebihDari1000(product[index].terjual)}',
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              fontSize: 9.5.w,
-                                              fontWeight: FontWeight.w400,
-                                              color: Neutral90,
+                                        visible: product[index].terjual != 0,
+                                        child: Row(
+                                          children: [
+                                            SizedBox(width: 6.w),
+                                            Text(
+                                              '|',
+                                              style: TextStyle(
+                                                fontSize: 9.5.w,
+                                                fontWeight: FontWeight.w400,
+                                                color: Neutral90,
+                                              ),
                                             ),
-                                          ),
+                                            SizedBox(width: 6.w),
+                                            Text(
+                                              'Terjual: ${formatLebihDari1000(product[index].terjual)}',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                fontSize: 9.5.w,
+                                                fontWeight: FontWeight.w400,
+                                                color: Neutral90,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],

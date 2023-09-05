@@ -18,7 +18,7 @@ class gasFloatingActionButton_Bottom extends GetView<HomeController> {
           height: 90.sp,
           child: FloatingActionButton(
             splashColor:
-                controller.buttonFloat.isFalse ? Colors.amber : Colors.blue,
+                controller.buttonFloat.isFalse ? Secondary50 : Primary50,
             elevation: 0.sp,
             onPressed: () {
               //

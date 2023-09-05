@@ -23,6 +23,7 @@ class Product {
   final int stok;
   final int jumlahPembelian;
   final bool favorite;
+  final bool check;
 
   Product({
     required this.productName,
@@ -35,6 +36,7 @@ class Product {
     required this.stok,
     required this.jumlahPembelian,
     required this.favorite,
+    required this.check,
   });
 }
 
@@ -62,6 +64,7 @@ class ShopList {
           ],
           variasi: 'Biru Muda',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -83,6 +86,7 @@ class ShopList {
           ],
           variasi: 'Cream',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-06-04 15:30:00',
         ),
         Product(
@@ -100,6 +104,7 @@ class ShopList {
           ],
           variasi: 'White',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-08-09 15:30:00',
         ),
         Product(
@@ -118,6 +123,7 @@ class ShopList {
           ],
           variasi: 'Red',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-07-22 15:30:00',
         ),
       ],
@@ -143,6 +149,7 @@ class ShopList {
           ],
           variasi: '1/2 Kg',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-08-08 15:30:00',
         ),
         Product(
@@ -159,6 +166,7 @@ class ShopList {
           ],
           variasi: '1',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-08-07 15:30:00',
         ),
         Product(
@@ -176,6 +184,7 @@ class ShopList {
           ],
           variasi: '125 gram',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-06-22 15:30:00',
         ),
         Product(
@@ -189,6 +198,7 @@ class ShopList {
           varian: [],
           variasi: '',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-07-21 15:30:00',
         ),
       ],
@@ -213,6 +223,7 @@ class ShopList {
           ],
           variasi: 'Normal',
           jumlahPembelian: 1,
+          check: false,
           timeStamp: '2023-08-05 15:30:00',
         ),
       ],

@@ -3,6 +3,7 @@ import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:g_a_s_app_rekadigi/app/model/keranjang_model.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -116,34 +117,49 @@ class KeranjangView extends GetView<KeranjangController> {
                     children: [
                       SizedBox(height: 85.w),
                       Column(
-                          children: ShopList().shops.map(
-                        (shop) {
+                          children: ShopList().shops.asMap().entries.map(
+                        (entry) {
+                          final index = entry.key;
+                          final shop = entry.value;
                           return Column(
                             children: [
                               SizedBox(height: 16.sp),
                               Row(
                                 children: [
-                                  Container(
-                                    height: 19.w,
-                                    width: 19.w,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(4.r),
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFF4D89D4),
-                                          Color(0xFF216BC9),
-                                        ],
-
-                                        begin: Alignment
-                                            .topCenter, // Posisi awal gradient
-                                        end: Alignment
-                                            .bottomCenter, // Posisi akhir gradient
+                                  GestureDetector(
+                                    onTap: () {
+                                      true;
+                                    },
+                                    child: Container(
+                                      height: 19.w,
+                                      width: 19.w,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(4.r),
+                                        gradient: true
+                                            ? null
+                                            : LinearGradient(
+                                                colors: [
+                                                  Primary30,
+                                                  Primary50,
+                                                ],
+                                                begin: Alignment.topCenter,
+                                                end: Alignment.bottomCenter,
+                                              ),
+                                        border: true
+                                            ? Border.all(
+                                                color: Neutral50,
+                                                width: 1.5.w,
+                                              )
+                                            : null,
                                       ),
-                                    ),
-                                    child: Icon(
-                                      Icons.check_rounded,
-                                      size: 16.sp,
-                                      color: Colors.white,
+                                      child: true
+                                          ? null
+                                          : Icon(
+                                              Icons.check_rounded,
+                                              size: 16.sp,
+                                              color: Colors.white,
+                                            ),
                                     ),
                                   ),
                                   SizedBox(width: 10.sp),
@@ -201,29 +217,57 @@ class KeranjangView extends GetView<KeranjangController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
-                                            height: 19.w,
-                                            width: 19.w,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.r),
-
-                                              // color: Color(0xFFB5B5B5),
-                                              gradient: LinearGradient(
-                                                colors: [
-                                                  Color(0xFF4D89D4),
-                                                  Color(0xFF216BC9),
-                                                ], // Daftar warna gradient yang ingin digunakan
-                                                begin: Alignment
-                                                    .topCenter, // Posisi awal gradient
-                                                end: Alignment
-                                                    .bottomCenter, // Posisi akhir gradient
+                                          GestureDetector(
+                                            onTap: () {
+                                              controller.toggleCheck(index);
+                                            },
+                                            child: Obx(
+                                              () => Container(
+                                                height: 19.w,
+                                                width: 19.w,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.r),
+                                                  gradient: controller
+                                                              .checkProducts[
+                                                                  index]
+                                                              .value ==
+                                                          true
+                                                      ? null
+                                                      : LinearGradient(
+                                                          colors: [
+                                                            Primary30,
+                                                            Primary50,
+                                                          ],
+                                                          begin: Alignment
+                                                              .topCenter,
+                                                          end: Alignment
+                                                              .bottomCenter,
+                                                        ),
+                                                  border: controller
+                                                              .checkProducts[
+                                                                  index]
+                                                              .value ==
+                                                          true
+                                                      ? Border.all(
+                                                          color: Neutral50,
+                                                          width: 1.5.w,
+                                                        )
+                                                      : null,
+                                                ),
+                                                child: controller
+                                                            .checkProducts[
+                                                                index]
+                                                            .value ==
+                                                        true
+                                                    ? null
+                                                    : Icon(
+                                                        Icons.check_rounded,
+                                                        size: 16.sp,
+                                                        color: Colors.white,
+                                                      ),
                                               ),
-                                            ),
-                                            child: Icon(
-                                              Icons.check_rounded,
-                                              size: 16.sp,
-                                              color: Colors.white,
                                             ),
                                           ),
                                           SizedBox(width: 10.sp),
@@ -264,140 +308,146 @@ class KeranjangView extends GetView<KeranjangController> {
                                             ),
                                           ),
                                           SizedBox(width: 8.sp),
-                                          Container(
-                                            width: 240.w,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  // color: Colors.amberAccent,
-
-                                                  height: 41.sp,
-                                                  child: Text(
-                                                    product.productName,
-                                                    maxLines: 2,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                      fontSize: 11.5.w,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: H333333,
+                                          Flexible(
+                                            child: Container(
+                                              // width: 240.w,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    height: 41.sp,
+                                                    child: Text(
+                                                      product.productName,
+                                                      maxLines: 2,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 11.5.w,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: H333333,
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                SizedBox(width: 8.sp),
-                                                if (product.variasi != '')
-                                                  Column(
-                                                    children: [
-                                                      Container(
-                                                        // width: 240.w,
-                                                        child: Neumorphic(
-                                                          style:
-                                                              NeumorphicStyle(
-                                                            depth: -3.5.w,
-                                                            shadowDarkColorEmboss:
-                                                                Colors.black
-                                                                    .withOpacity(
-                                                                        0.5),
-                                                            shadowLightColorEmboss:
-                                                                Colors.white,
-                                                            color: F0F0F0,
-                                                          ),
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.r),
+                                                  SizedBox(width: 8.sp),
+                                                  if (product.variasi != '')
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Flexible(
+                                                          // width: 240.w,
+                                                          child: Neumorphic(
+                                                            style:
+                                                                NeumorphicStyle(
+                                                              depth: -3.5.w,
+                                                              shadowDarkColorEmboss:
+                                                                  Colors.black
+                                                                      .withOpacity(
+                                                                          0.5),
+                                                              shadowLightColorEmboss:
+                                                                  Colors.white,
+                                                              color: F0F0F0,
                                                             ),
-                                                            child: Padding(
-                                                              padding: EdgeInsets
-                                                                  .symmetric(
-                                                                horizontal: 8.w,
-                                                                vertical: 2.5.w,
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.r),
                                                               ),
-                                                              child: Row(
-                                                                children: [
-                                                                  SizedBox(
-                                                                      width:
-                                                                          3.w),
-                                                                  Flexible(
-                                                                    child:
-                                                                        RichText(
-                                                                      text:
-                                                                          TextSpan(
-                                                                        style: DefaultTextStyle.of(context)
-                                                                            .style,
-                                                                        children: <TextSpan>[
-                                                                          TextSpan(
-                                                                            text:
-                                                                                'Variasi: ',
-                                                                            style:
-                                                                                TextStyle(
-                                                                              color: H333333, // Warna hitam
-                                                                              fontSize: 10.w,
-                                                                              fontWeight: FontWeight.w400,
+                                                              child: Padding(
+                                                                padding: EdgeInsets
+                                                                    .symmetric(
+                                                                  horizontal:
+                                                                      8.w,
+                                                                  vertical:
+                                                                      2.5.w,
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .min,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width: 3
+                                                                            .w),
+                                                                    Flexible(
+                                                                      child:
+                                                                          RichText(
+                                                                        text:
+                                                                            TextSpan(
+                                                                          style:
+                                                                              DefaultTextStyle.of(context).style,
+                                                                          children: <TextSpan>[
+                                                                            TextSpan(
+                                                                              text: 'Pilih Variasi: ',
+                                                                              style: TextStyle(
+                                                                                color: H333333, // Warna hitam
+                                                                                fontSize: 10.w,
+                                                                                fontWeight: FontWeight.w400,
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                          TextSpan(
-                                                                            text:
-                                                                                product.variasi,
-                                                                            style:
-                                                                                TextStyle(
-                                                                              color: Neutral90,
-                                                                              fontSize: 10.w,
-                                                                              fontWeight: FontWeight.w400,
+                                                                            TextSpan(
+                                                                              text: product.variasi,
+                                                                              style: TextStyle(
+                                                                                color: Neutral90,
+                                                                                fontSize: 10.w,
+                                                                                fontWeight: FontWeight.w400,
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                  Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color:
-                                                                        Primary50,
-                                                                    size: 20.sp,
-                                                                  ),
-                                                                ],
+                                                                    Icon(
+                                                                      Icons
+                                                                          .keyboard_arrow_down_rounded,
+                                                                      color:
+                                                                          Primary50,
+                                                                      size:
+                                                                          20.sp,
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      SizedBox(height: 12.sp),
-                                                    ],
+                                                        SizedBox(height: 12.sp),
+                                                      ],
+                                                    ),
+                                                  Text(
+                                                    "Rp ${f.format(product.priceDicoret.toInt())}",
+                                                    style: TextStyle(
+                                                      fontSize: 10.w,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Neutral90,
+                                                      decoration: TextDecoration
+                                                          .lineThrough,
+                                                    ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
-                                                Text(
-                                                  "Rp ${f.format(product.priceDicoret.toInt())}",
-                                                  style: TextStyle(
-                                                    fontSize: 10.w,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: Neutral90,
-                                                    decoration: TextDecoration
-                                                        .lineThrough,
+                                                  SizedBox(height: 2.sp),
+                                                  Text(
+                                                    "Rp ${f.format(product.price.toInt())}",
+                                                    style: TextStyle(
+                                                      fontSize: 11.5.w,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: H333333,
+                                                    ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                                SizedBox(height: 2.sp),
-                                                Text(
-                                                  "Rp ${f.format(product.price.toInt())}",
-                                                  style: TextStyle(
-                                                    fontSize: 11.5.w,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: H333333,
-                                                  ),
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -650,8 +700,6 @@ class KeranjangView extends GetView<KeranjangController> {
                                                                   Colors.black
                                                                       .withOpacity(
                                                                           0.5),
-
-                                                              // color: F0F0F0,
                                                             ),
                                                             child: ClipOval(
                                                               child: Container(
@@ -694,7 +742,7 @@ class KeranjangView extends GetView<KeranjangController> {
                       ).toList()),
                       //   },
                       // ),
-                      SizedBox(height: 108.w + 32.sp + 20.sp),
+                      SizedBox(height: 140.w + 20.sp),
                     ],
                   ),
                 ),
@@ -823,7 +871,7 @@ class KeranjangView extends GetView<KeranjangController> {
                           child: InkWell(
                             borderRadius: BorderRadius.circular(8.r),
                             onTap: () {
-                              //
+                              Get.toNamed(Routes.BUAT_PESANAN);
                             },
                             child: Ink(
                               width: 92.w,

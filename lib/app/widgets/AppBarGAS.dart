@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../constant/colors.dart';
@@ -101,6 +102,7 @@ class AppBarGAS extends GetView<HomeController> {
             GestureDetector(
               onTap: () {
                 print("Keranjang");
+                Get.toNamed(Routes.KERANJANG);
               },
               child: Container(
                 decoration: AppBar_BoxDecoration(),

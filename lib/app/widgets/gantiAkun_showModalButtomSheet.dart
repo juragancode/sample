@@ -1,13 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../constant/colors.dart';
 import '../model/account_model.dart';
 import '../modules/home/controllers/home_controller.dart';
 import 'checkModalBottomSheet_false.dart';
 import 'checkModalBottomSheet_true.dart';
-import 'Decoration/Shimmer.dart';
 
 AccountList accountList = AccountList();
 
@@ -64,25 +65,33 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                                     children: [
                                       Row(
                                         children: [
-                                          ClipOval(
-                                            child: Container(
-                                              height: 40.sp,
-                                              width: 40.sp,
-                                              child: Stack(
-                                                children: [
-                                                  Shimmer_01(),
-                                                  Container(
+                                          Container(
+                                            height: 40.w,
+                                            width: 40.w,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
+                                            ),
+                                            child: ClipOval(
+                                              child: CachedNetworkImage(
+                                                imageUrl: account.image,
+                                                fit: BoxFit.cover,
+                                                placeholder: (context, url) =>
+                                                    Shimmer.fromColors(
+                                                  baseColor:
+                                                      Colors.grey.shade200,
+                                                  highlightColor: Colors.white,
+                                                  child: Container(
                                                     decoration: BoxDecoration(
-                                                      color: Colors.transparent,
-                                                      image: DecorationImage(
-                                                        image: NetworkImage(
-                                                          account.image,
-                                                        ),
-                                                        fit: BoxFit.cover,
+                                                      color:
+                                                          Colors.grey.shade100,
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                        Radius.circular(4.r),
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -138,8 +147,8 @@ Future<dynamic> gantiAkun_showModalButtomSheet(BuildContext context) {
                       child: Row(
                         children: [
                           Container(
-                            height: 40.sp,
-                            width: 40.sp,
+                            height: 40.w,
+                            width: 40.w,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(

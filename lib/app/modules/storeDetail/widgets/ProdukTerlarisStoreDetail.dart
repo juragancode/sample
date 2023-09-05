@@ -177,8 +177,9 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                         ),
                                         SizedBox(height: 2.0.sp),
                                         Container(
-                                          // color: Color.fromARGB(255, 115, 255, 171),
-                                          width: 139.w,
+                                          // color: Color.fromARGB(
+                                          //     255, 115, 255, 171),
+                                          width: Get.width / 2.7,
                                           child: Row(
                                             children: [
                                               Text(
@@ -191,35 +192,38 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                                   color: Neutral90,
                                                 ),
                                               ),
-                                              SizedBox(width: 6.w),
-                                              Text(
-                                                '|',
-                                                style: TextStyle(
-                                                  fontSize: 9.5.w,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Neutral90,
-                                                ),
-                                              ),
-                                              SizedBox(width: 6.w),
                                               Visibility(
                                                 visible: shop.product[index]
-                                                            .terjual ==
-                                                        0
-                                                    ? false
-                                                    : true,
-                                                child: Flexible(
-                                                  child: Text(
-                                                    'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                      fontSize: 9.5.w,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Neutral90,
+                                                        .terjual !=
+                                                    0,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    SizedBox(width: 6.w),
+                                                    Text(
+                                                      '|',
+                                                      style: TextStyle(
+                                                        fontSize: 9.5.w,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Neutral90,
+                                                      ),
                                                     ),
-                                                  ),
+                                                    SizedBox(width: 6.w),
+                                                    Text(
+                                                      'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 9.5.w,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Neutral90,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],
@@ -227,7 +231,8 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                         ),
                                         SizedBox(height: 2.0.w),
                                         Container(
-                                          width: 139.w,
+                                          // color: Colors.amber,
+                                          width: Get.width / 2.7,
                                           // color: Color.fromARGB(255, 255, 137, 222),
                                           child: Text(
                                             "Rp ${f.format(shop.product[index].price.toInt())}",

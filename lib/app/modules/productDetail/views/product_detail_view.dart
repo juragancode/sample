@@ -86,16 +86,17 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                 child: AnimatedOpacity(
                                   opacity: controller.animasiFavorit.value
                                       ? 0.8
-                                      : 0.0, // Mengatur opacity berdasarkan kondisi
+                                      : 0.0,
                                   duration: Duration(
-                                      seconds: 1), // Durasi muncul/hilang
+                                    seconds: 1,
+                                  ),
                                   child: Icon(
                                     Icons.favorite,
                                     color:
                                         controller.favoriteProducts[index].value
                                             ? Favorite
                                             : Neutral30,
-                                    size: Get.width / 2.5, // Ukuran ikon hati
+                                    size: Get.width / 2.5,
                                   ),
                                 ),
                               ),
@@ -170,7 +171,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                               Container(
                                 // color: Colors.pink.shade200,
                                 height: 40.w,
-                                width: 315.w,
+                                width: Get.width - (Get.width / 6.5),
                                 child: Text(
                                   product.productName,
                                   // "aaaa aaaaaa  aaaaa aaaa aaaa aaaa aaaa aaa aaaa aaa aaaa aaa aaa aaa aaa aaaa aaaaa aaaaaa aaaa aaaaa aaa aaaa aaaaa aaa aaaaaaa",
@@ -305,7 +306,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                           ),
                           SizedBox(height: 12.sp),
                           CostumDivider(),
-                          SizedBox(height: 8.sp),
+                          SizedBox(height: 12.sp),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -323,8 +324,8 @@ class ProductDetailView extends GetView<ProductDetailController> {
 
                               Container(
                                 // color: Color.fromARGB(255, 245, 170, 255),
-                                width: 278.w,
-                                height: 65.w,
+                                width: Get.width - (Get.width / 3.8),
+                                height: 65.w + 24.sp,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -379,8 +380,6 @@ class ProductDetailView extends GetView<ProductDetailController> {
                                           child: SvgPicture.asset(
                                             'assets/icons/icon-Bag-Green.svg',
                                             fit: BoxFit.contain,
-                                            // height: 11.sp,
-                                            // width: 11.sp,
                                           ),
                                         ),
                                         SizedBox(width: 3.5.w),
@@ -403,7 +402,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 24.sp),
+                          // SizedBox(height: 24.sp),
                           Title(title: "Detail Produk"),
                           SizedBox(height: 7.sp),
                           InfoProduk(
