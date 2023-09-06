@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 import '../constant/colors.dart';
 import '../model/FilterTransaksi_model.dart';
 import '../modules/home/controllers/home_controller.dart';
-import 'Filter(explore)/FilterProduk/FilterModalBottomSheetProduk.dart';
+import '../widgets/FilterRiwayatPesanan_ModalBottomSheet.dart';
 
-class FilterTransaksi extends GetView<ProdukController> {
-  final FilterTransaksiList filterTransaksiList = FilterTransaksiList();
+class FilterTransaksi extends GetView<HomeController> {
+  final FilterTransaksiList filterTransaksi = FilterTransaksiList();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class FilterTransaksi extends GetView<ProdukController> {
         // SizedBox(width: 18.sp),
         GestureDetector(
           onTap: () {
-            FilterModalBottomSheetProduk(context);
+            FilterRiwayatPesanan_ModalBottomSheet(context);
           },
           child: Container(
             // color: Colors.amber,
@@ -63,16 +63,18 @@ class FilterTransaksi extends GetView<ProdukController> {
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(width: 4.w);
             },
-            padding: EdgeInsets.only(right: 12.sp),
+            padding: EdgeInsets.only(
+              right: 12.sp,
+              // left: 10.sp,
+            ),
             scrollDirection: Axis.horizontal,
-            itemCount: filterTransaksiList.filters.length,
+            itemCount: filterTransaksi.filters.length,
             itemBuilder: (context, index) {
-              final filter = filterTransaksiList.filters[index];
+              final filter = filterTransaksi.filters[index];
               return Obx(
                 () => GestureDetector(
                   onTap: () {
-                    // controller.filterUrutkanState[1] =
-                    //     !controller.filterUrutkanState[1];
+                    controller.filterTransaksi.value = index;
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 300),
@@ -82,11 +84,11 @@ class FilterTransaksi extends GetView<ProdukController> {
                       vertical: 8.sp,
                     ),
                     decoration: BoxDecoration(
-                      color: controller.filterUrutkanState[1]
+                      color: controller.filterTransaksi.value == index
                           ? Color(0xFFD0E4FF)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(32.r),
-                      border: controller.filterUrutkanState[1]
+                      border: controller.filterTransaksi.value == index
                           ? Border.all(color: Primary50, width: 0.5)
                           : Border.all(color: Neutral90, width: 0.5),
                     ),
@@ -98,7 +100,7 @@ class FilterTransaksi extends GetView<ProdukController> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: controller.filterUrutkanState[1]
+                              color: controller.filterTransaksi.value == index
                                   ? Primary50
                                   : Neutral90,
                             ),

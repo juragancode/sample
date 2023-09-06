@@ -227,17 +227,19 @@ class ProdukTerbaru extends GetView<HomeController> {
                                   ),
                                   SizedBox(width: 3.w),
                                   Container(
-                                    width: 133.w,
                                     // color: Colors.amber,
-                                    child: Text(
-                                      productTerbaruList
-                                          .productTerbarus[index].shopName,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 9.5.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
+                                    child: Flexible(
+                                      child: Text(
+                                        productTerbaruList
+                                            .productTerbarus[index].shopName,
+                                        // "rfdwfdsf dsagsdag dsgfdagdaf dsagdasgafds asdgadfg dsgagfd adsdgdsag dsagfdag agfdaga",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 9.5.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
                                       ),
                                     ),
                                   ),

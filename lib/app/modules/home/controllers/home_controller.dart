@@ -68,6 +68,8 @@ class HomeController extends GetxController {
     favoriteProdukTerbaru
         .assignAll(products.map((product) => product.favorite.obs));
   }
+
+  RxInt filterTransaksi = 0.obs;
 }
 
 class ProdukController extends GetxController {
@@ -124,4 +126,6 @@ class TokoController extends GetxController {
 
     super.onInit();
   }
+
+  ////
 }

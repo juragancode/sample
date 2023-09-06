@@ -36,7 +36,9 @@ Future<dynamic> FilterModalBottomSheetToko(BuildContext context) {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 66.sp),
+                          SizedBox(
+                            height: 8.sp + 4.sp + 16.sp + 16.sp + 24.w,
+                          ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 16.sp),
                             child: FilterUrutkan(),
@@ -66,7 +68,7 @@ Future<dynamic> FilterModalBottomSheetToko(BuildContext context) {
                             padding: EdgeInsets.symmetric(horizontal: 16.sp),
                             child: FilterLainnya(),
                           ),
-                          SizedBox(height: 75.sp),
+                          SizedBox(height: 35.sp + 40.w),
                           //
                         ],
                       ),

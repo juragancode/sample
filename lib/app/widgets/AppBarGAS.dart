@@ -122,7 +122,8 @@ class AppBarGAS extends GetView<HomeController> {
 
   BoxDecoration AppBar_BoxDecoration() {
     return BoxDecoration(
-      color: Color(0xFFFFFFFF),
+      // color: Neutral10.withOpacity(0.4),
+      color: Color(0xFFF0F0F0),
       borderRadius: BorderRadius.circular(32.r),
       border: Border.all(
         strokeAlign: BorderSide.strokeAlignInside,

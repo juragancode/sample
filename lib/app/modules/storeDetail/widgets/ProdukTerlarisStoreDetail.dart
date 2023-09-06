@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../constant/colors.dart';
 import '../../../model/toko_model.dart';
@@ -84,56 +86,57 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    width: 88.0.w,
-                                    height: 88.0.w,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: Neutral10,
-                                        width: 0.5,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignOutside,
-                                      ),
+                                  Material(
+                                    color: Colors.transparent,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Product selectedProduct =
+                                            shop.product[index];
+                                        Get.toNamed(
+                                          Routes.PRODUCT_DETAIL,
+                                          arguments: {
+                                            'product': selectedProduct,
+                                            'index': index,
+                                            'shop': shop,
+                                          },
+                                        );
+                                      },
                                       borderRadius: BorderRadius.circular(4.r),
-                                    ),
-                                    child: Stack(
-                                      children: [
-                                        Shimmer_01(),
-                                        Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Product selectedProduct =
-                                                  shop.product[index];
-                                              Get.toNamed(
-                                                Routes.PRODUCT_DETAIL,
-                                                arguments: {
-                                                  'product': selectedProduct,
-                                                  'index': index,
-                                                  'shop': shop,
-                                                },
-                                              );
-                                            },
-                                            borderRadius:
-                                                BorderRadius.circular(4.r),
-                                            child: Ink(
-                                              width: 88.0.w,
-                                              height: 88.0.w,
-                                              decoration: BoxDecoration(
-                                                color: Colors.transparent,
-                                                borderRadius:
-                                                    BorderRadius.circular(4.r),
-                                                image: DecorationImage(
-                                                  image: NetworkImage(shop
-                                                      .product[index]
-                                                      .productImage),
-                                                  fit: BoxFit.cover,
+                                      child: Ink(
+                                        height: Get.width / 4,
+                                        width: Get.width / 4,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(4.r),
+                                          border: Border.all(
+                                            color: Neutral10,
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(4.r),
+                                          child: CachedNetworkImage(
+                                            imageUrl: shop
+                                                .product[index].productImage,
+                                            fit: BoxFit.cover,
+                                            placeholder: (context, url) =>
+                                                Shimmer.fromColors(
+                                              baseColor: Colors.grey.shade200,
+                                              highlightColor: Colors.white,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey.shade100,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(4.r),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                   SizedBox(width: 10.w),
@@ -155,7 +158,7 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                             maxLines: 2,
                                           ),
                                         ),
-                                        // SizedBox(height: 2.0.sp),
+                                        SizedBox(height: 2.0.sp),
                                         Row(
                                           children: [
                                             Icon(
@@ -163,7 +166,7 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                               color: Secondary50,
                                               size: 15.5.w,
                                             ),
-                                            SizedBox(width: 4.sp),
+                                            SizedBox(width: 6.sp),
                                             Text(
                                               shop.product[index].rating
                                                   .toString(),
@@ -175,11 +178,11 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 2.0.sp),
+                                        SizedBox(height: 4.0.sp),
                                         Container(
                                           // color: Color.fromARGB(
                                           //     255, 115, 255, 171),
-                                          width: Get.width / 2.7,
+                                          width: Get.width / 2.8,
                                           child: Row(
                                             children: [
                                               Text(
@@ -192,38 +195,43 @@ class ProdukTerlarisStoreDetail extends GetView<StoreDetailController> {
                                                   color: Neutral90,
                                                 ),
                                               ),
-                                              Visibility(
-                                                visible: shop.product[index]
-                                                        .terjual !=
-                                                    0,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    SizedBox(width: 6.w),
-                                                    Text(
-                                                      '|',
-                                                      style: TextStyle(
-                                                        fontSize: 9.5.w,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Neutral90,
+                                              Flexible(
+                                                child: Visibility(
+                                                  visible: shop.product[index]
+                                                          .terjual !=
+                                                      0,
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      SizedBox(width: 6.w),
+                                                      Text(
+                                                        '|',
+                                                        style: TextStyle(
+                                                          fontSize: 9.5.w,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Neutral90,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(width: 6.w),
-                                                    Text(
-                                                      'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
-                                                      maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      style: TextStyle(
-                                                        fontSize: 9.5.w,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Neutral90,
+                                                      SizedBox(width: 6.w),
+                                                      Flexible(
+                                                        child: Text(
+                                                          'Terjual: ${formatLebihDari1000(shop.product[index].terjual)}',
+                                                          // "dtgretr ewgfdsgfd dfgfdgfd dfgdfg",
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                            fontSize: 9.5.w,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            color: Neutral90,
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ],
