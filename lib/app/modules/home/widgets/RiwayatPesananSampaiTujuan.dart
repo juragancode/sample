@@ -12,8 +12,6 @@ import '../../productDetail/views/product_detail_view.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
-BorderStyle borderStyle = BorderStyle.solid;
-
 RiwayatPesananList riwayatPesanan = RiwayatPesananList();
 
 final sampaiTujuan = riwayatPesanan.riwayatpesanan_

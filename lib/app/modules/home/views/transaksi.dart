@@ -1,24 +1,22 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../../constant/colors.dart';
 import '../../../model/RiwayatPesanan_model.dart';
 import '../../../widgets/AppBarGAS.dart';
-import '../../../widgets/Decoration/BoxShadow.dart';
 import '../../../widgets/FilterKosong.dart';
 import '../../../widgets/FilterTransaksi.dart';
 import '../../../widgets/backgroundExplore.dart';
-import '../../productDetail/views/product_detail_view.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/RiwayatPesananDiproses.dart';
-import '../widgets/SemuaRiwayatPesanan.dart';
+import '../widgets/RiwayatPesananDibatalkan.dart';
 import '../widgets/RiwayatPesananDikirim.dart';
+import '../widgets/RiwayatPesananDiproses.dart';
 import '../widgets/RiwayatPesananSampaiTujuan.dart';
+import '../widgets/RiwayatPesananSelesai.dart';
+import '../widgets/SemuaRiwayatPesanan.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -39,6 +37,10 @@ final sampaiTujuan = riwayatPesanan.riwayatpesanan_
 
 final selesai = riwayatPesanan.riwayatpesanan_
     .where((pesanan) => pesanan.status == Status.selesai)
+    .toList();
+
+final dibatalkan = riwayatPesanan.riwayatpesanan_
+    .where((pesanan) => pesanan.status == Status.dibatalkan)
     .toList();
 
 class Transaksi extends GetView<HomeController> {
@@ -137,7 +139,15 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : Container();
+                            : RiwayatPesananSelesai();
+                      case 5: // Dikirim
+                        return dibatalkan.isEmpty
+                            ? FilterKosong(
+                                title:
+                                    "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
+                                subtitle: "Coba reset atau ubah filtermu, ya.",
+                              )
+                            : RiwayatPesananDibatalkan();
                       default:
                         return Container();
                     }

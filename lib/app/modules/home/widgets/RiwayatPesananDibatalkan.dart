@@ -13,12 +13,13 @@ import '../../productDetail/views/product_detail_view.dart';
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 RiwayatPesananList riwayatPesanan = RiwayatPesananList();
-final diproses = riwayatPesanan.riwayatpesanan_
-    .where((pesanan) => pesanan.status == Status.diproses)
+
+final dibatalkan = riwayatPesanan.riwayatpesanan_
+    .where((pesanan) => pesanan.status == Status.dibatalkan)
     .toList();
 
-class RiwayatPesananDiproses extends StatelessWidget {
-  const RiwayatPesananDiproses({
+class RiwayatPesananDibatalkan extends StatelessWidget {
+  const RiwayatPesananDibatalkan({
     super.key,
   });
 
@@ -31,7 +32,7 @@ class RiwayatPesananDiproses extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.sp),
           child: Column(
             children: [
-              for (int index = 0; index < diproses.length; index++)
+              for (int index = 0; index < dibatalkan.length; index++)
                 Padding(
                   padding: EdgeInsets.only(bottom: 12.sp),
                   child: Stack(
@@ -59,7 +60,7 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                     children: [
                                       Flexible(
                                         child: Text(
-                                          diproses[index].shopName,
+                                          dibatalkan[index].shopName,
                                           // "Toko toki tora tono todo baram to toronto totorotot tong tung tang ting tung",
                                           style: TextStyle(
                                             fontSize: 13.5.w,
@@ -76,19 +77,19 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                               BorderRadius.circular(4.r),
                                           border: Border.all(
                                             width: 0.5,
-                                            color: Neutral50,
+                                            color: Error10,
                                           ),
-                                          color: F0F0F0,
+                                          color: Error05,
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 10.w, vertical: 3.w),
                                           child: Text(
-                                            "Diproses",
+                                            "Dibatalkan",
                                             style: TextStyle(
                                               fontSize: 10.w,
                                               fontWeight: FontWeight.w400,
-                                              color: Primary30,
+                                              color: Error50,
                                             ),
                                           ),
                                         ),
@@ -125,7 +126,8 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(4.r),
                                               child: CachedNetworkImage(
-                                                imageUrl: diproses[index].image,
+                                                imageUrl:
+                                                    dibatalkan[index].image,
                                                 fit: BoxFit.cover,
                                                 placeholder: (context, url) =>
                                                     Shimmer.fromColors(
@@ -162,7 +164,7 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                               //     255),
                                               height: 24.5.w,
                                               child: Text(
-                                                diproses[index].name,
+                                                dibatalkan[index].name,
                                                 style: TextStyle(
                                                   fontSize: 11.5.w,
                                                   fontWeight: FontWeight.w400,
@@ -178,7 +180,7 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                             Row(
                                               children: [
                                                 Text(
-                                                  diproses[index]
+                                                  dibatalkan[index]
                                                           .jumlahPesanan
                                                           .toString() +
                                                       " item",
@@ -201,7 +203,7 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                               //     137,
                                               //     222),
                                               child: Text(
-                                                "Rp ${f.format(diproses[index].price.toInt())}",
+                                                "Rp ${f.format(dibatalkan[index].price.toInt())}",
                                                 // "Rp 123.456.789.000",
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
@@ -228,36 +230,45 @@ class RiwayatPesananDiproses extends StatelessWidget {
                         right: 8.sp,
                         child: Row(
                           children: [
-                            Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(32.r),
-                                onTap: () {
-                                  //
-                                  print("tambah");
-                                },
-                                splashColor: Primary30.withOpacity(0.2),
-                                highlightColor: Primary30.withOpacity(0.1),
-                                child: Ink(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 1,
-                                      color: Primary30,
+                            Padding(
+                              padding: EdgeInsets.only(left: 6.w),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(32.r),
+                                  onTap: () {
+                                    //
+                                    print("beli lagi");
+                                  },
+                                  child: Ink(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xFF4D89D4),
+                                          Color(0xFF216BC9),
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Primary30,
+                                      ),
+                                      borderRadius: BorderRadius.circular(
+                                        32.r,
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.circular(
-                                      32.r,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 17.w, vertical: 5.w),
-                                    child: Center(
-                                      child: Text(
-                                        "Lacak",
-                                        style: TextStyle(
-                                          fontSize: 10.w,
-                                          fontWeight: FontWeight.w600,
-                                          color: Primary50,
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.w, vertical: 5.w),
+                                      child: Center(
+                                        child: Text(
+                                          "Beli Lagi",
+                                          style: TextStyle(
+                                            fontSize: 10.w,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -265,7 +276,6 @@ class RiwayatPesananDiproses extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            //
                           ],
                         ),
                       ),
