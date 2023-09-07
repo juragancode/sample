@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const Primary05 = Color(0xFFDBEBFF);
 const Primary10 = Color(0xFF7AA6DF);
 const Primary30 = Color(0xFF4D89D4);
 const Primary50 = Color(0xFF216BC9);
@@ -20,9 +21,15 @@ const Neutral90 = Color(0xFF858585);
 
 const D9D9D9 = Color(0xFFD9D9D9);
 
+const Warning05 = Color(0xFFFDEFBD);
+const Warning10 = Color(0xFFFFAF66);
+const Warning30 = Color(0xFFFF9533);
 const Warning50 = Color(0xFFFF7A00);
 
+const Success05 = Color(0xFFADFFCE);
+const Success10 = Color(0xFF6EF1A2);
 const Success50 = Color(0xFF0DE864);
+const Success90 = Color(0xFF088B3C);
 
 const H333333 = Color(0xFF333333);
 
@@ -30,8 +37,9 @@ const EBEBEB = Color(0xFFEBEBEB);
 
 const F0F0F0 = Color(0xFFF0F0F0);
 
-const Error50 = Color(0xFFFF002E);
+const Error05 = Color(0xFFFFD3DB);
 const Error10 = Color(0xFFFF6682);
+const Error50 = Color(0xFFFF002E);
 
 const Favorite = Color(0xFFFF2048);
 

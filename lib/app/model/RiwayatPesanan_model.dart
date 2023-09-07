@@ -21,6 +21,7 @@ enum Status {
   dikirim,
   sampaiTujuan,
   selesai,
+  dibatalkan,
 }
 
 class RiwayatPesananList {
@@ -45,10 +46,10 @@ class RiwayatPesananList {
       status: Status.selesai,
     ),
     RiwayatPesanan(
-      name: "My Aksa Batik Pria Kemeja Panjang Semi Sutra Furing Aziz Amara",
+      name: "My Aksa Batik Wanita Blouse Kimi Khalil",
       shopName: "Bernita Fashion",
       image:
-          "https://down-id.img.susercontent.com/file/a201cb820ac3c4617ece89ebafc01bff",
+          "https://down-id.img.susercontent.com/file/0c7683baac488ccc8cff862c9c5af005",
       price: 399000,
       jumlahPesanan: 1,
       status: Status.diproses,
@@ -95,12 +96,12 @@ class RiwayatPesananList {
     ),
     RiwayatPesanan(
       name: "L'Oreal Paris Aura Perfect Clinical Night Cream Skin Care - 50 ml",
-      shopName: "L'Oreal Paris Indonesia Official Shop",
+      shopName: "L'Oreal Paris Cosmetics Indonesia Official Shop",
       image:
           "https://down-id.img.susercontent.com/file/sg-11134201-7qvg5-lj11rd95ygz714",
       price: 162400,
       jumlahPesanan: 1,
-      status: Status.diproses,
+      status: Status.dibatalkan,
     ),
   ];
 }

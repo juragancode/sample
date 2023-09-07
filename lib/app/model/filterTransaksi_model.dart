@@ -23,5 +23,8 @@ class FilterTransaksiList {
     FilterTransaksi(
       title: "Selesai",
     ),
+    FilterTransaksi(
+      title: "Dibatalkan",
+    ),
   ];
 }
