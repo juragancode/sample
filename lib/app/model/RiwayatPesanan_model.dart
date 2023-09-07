@@ -32,7 +32,7 @@ class RiwayatPesananList {
       shopName: "TWS 3C Digital",
       image:
           "https://down-id.img.susercontent.com/file/sg-11134201-22110-5d3traeyyzjvd2",
-      price: 21000,
+      price: 135400,
       jumlahPesanan: 1,
       status: Status.diproses,
     ),

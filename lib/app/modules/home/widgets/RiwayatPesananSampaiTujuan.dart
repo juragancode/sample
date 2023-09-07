@@ -15,12 +15,13 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 BorderStyle borderStyle = BorderStyle.solid;
 
 RiwayatPesananList riwayatPesanan = RiwayatPesananList();
-final diproses = riwayatPesanan.riwayatpesanan_
-    .where((pesanan) => pesanan.status == Status.diproses)
+
+final sampaiTujuan = riwayatPesanan.riwayatpesanan_
+    .where((pesanan) => pesanan.status == Status.sampaiTujuan)
     .toList();
 
-class RiwayatTransaksiDiproses extends StatelessWidget {
-  const RiwayatTransaksiDiproses({
+class RiwayatPesananSampaiTujuan extends StatelessWidget {
+  const RiwayatPesananSampaiTujuan({
     super.key,
   });
 
@@ -33,7 +34,7 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.sp),
           child: Column(
             children: [
-              for (int index = 0; index < diproses.length; index++)
+              for (int index = 0; index < sampaiTujuan.length; index++)
                 Padding(
                   padding: EdgeInsets.only(bottom: 12.sp),
                   child: Stack(
@@ -61,7 +62,7 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                                     children: [
                                       Flexible(
                                         child: Text(
-                                          diproses[index].shopName,
+                                          sampaiTujuan[index].shopName,
                                           // "Toko toki tora tono todo baram to toronto totorotot tong tung tang ting tung",
                                           style: TextStyle(
                                             fontSize: 13.5.w,
@@ -78,19 +79,19 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                                               BorderRadius.circular(4.r),
                                           border: Border.all(
                                             width: 0.5,
-                                            color: Neutral50,
+                                            color: Warning30,
                                           ),
-                                          color: F0F0F0,
+                                          color: Warning05,
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 10.w, vertical: 3.w),
                                           child: Text(
-                                            "Diproses",
+                                            "Sampai Tujuan",
                                             style: TextStyle(
                                               fontSize: 10.w,
                                               fontWeight: FontWeight.w400,
-                                              color: Primary30,
+                                              color: Warning50,
                                             ),
                                           ),
                                         ),
@@ -127,7 +128,8 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(4.r),
                                               child: CachedNetworkImage(
-                                                imageUrl: diproses[index].image,
+                                                imageUrl:
+                                                    sampaiTujuan[index].image,
                                                 fit: BoxFit.cover,
                                                 placeholder: (context, url) =>
                                                     Shimmer.fromColors(
@@ -164,7 +166,7 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                                               //     255),
                                               height: 24.5.w,
                                               child: Text(
-                                                diproses[index].name,
+                                                sampaiTujuan[index].name,
                                                 style: TextStyle(
                                                   fontSize: 11.5.w,
                                                   fontWeight: FontWeight.w400,
@@ -180,7 +182,7 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                                             Row(
                                               children: [
                                                 Text(
-                                                  diproses[index]
+                                                  sampaiTujuan[index]
                                                           .jumlahPesanan
                                                           .toString() +
                                                       " item",
@@ -195,15 +197,14 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
 
                                             SizedBox(height: 16.0.sp),
                                             Container(
-                                              // color: Colors.amber,
-                                              width: Get.width / 3.5,
+                                              width: Get.width / 2.22,
                                               // color: Color.fromARGB(
                                               //     255,
                                               //     255,
                                               //     137,
                                               //     222),
                                               child: Text(
-                                                "Rp ${f.format(diproses[index].price.toInt())}",
+                                                "Rp ${f.format(sampaiTujuan[index].price.toInt())}",
                                                 // "Rp 123.456.789.000",
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
@@ -230,40 +231,36 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                         right: 8.sp,
                         child: Row(
                           children: [
-                            Visibility(
-                              visible:
-                                  diproses[index].status != Status.dibatalkan,
-                              child: Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(32.r),
-                                  onTap: () {
-                                    //
-                                    print("tambah");
-                                  },
-                                  splashColor: Primary30.withOpacity(0.2),
-                                  highlightColor: Primary30.withOpacity(0.1),
-                                  child: Ink(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 1,
-                                        color: Primary30,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        32.r,
-                                      ),
+                            Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(32.r),
+                                onTap: () {
+                                  //
+                                  print("tambah");
+                                },
+                                splashColor: Primary30.withOpacity(0.2),
+                                highlightColor: Primary30.withOpacity(0.1),
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1,
+                                      color: Primary30,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 17.w, vertical: 5.w),
-                                      child: Center(
-                                        child: Text(
-                                          "Lacak",
-                                          style: TextStyle(
-                                            fontSize: 10.w,
-                                            fontWeight: FontWeight.w600,
-                                            color: Primary50,
-                                          ),
+                                    borderRadius: BorderRadius.circular(
+                                      32.r,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 17.w, vertical: 5.w),
+                                    child: Center(
+                                      child: Text(
+                                        "Selesai",
+                                        style: TextStyle(
+                                          fontSize: 10.w,
+                                          fontWeight: FontWeight.w600,
+                                          color: Primary50,
                                         ),
                                       ),
                                     ),
@@ -272,57 +269,6 @@ class RiwayatTransaksiDiproses extends StatelessWidget {
                               ),
                             ),
                             //
-                            Visibility(
-                              visible:
-                                  diproses[index].status == Status.dibatalkan ||
-                                      diproses[index].status == Status.selesai,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 6.w),
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    borderRadius: BorderRadius.circular(32.r),
-                                    onTap: () {
-                                      //
-                                      print("beli lagi");
-                                    },
-                                    child: Ink(
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFF4D89D4),
-                                            Color(0xFF216BC9),
-                                          ],
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                        ),
-                                        border: Border.all(
-                                          width: 1,
-                                          color: Primary30,
-                                        ),
-                                        borderRadius: BorderRadius.circular(
-                                          32.r,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10.w, vertical: 5.w),
-                                        child: Center(
-                                          child: Text(
-                                            "Beli Lagi",
-                                            style: TextStyle(
-                                              fontSize: 10.w,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),
