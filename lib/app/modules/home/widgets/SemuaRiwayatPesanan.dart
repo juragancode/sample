@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
@@ -30,7 +31,7 @@ class SemuaRiwayatPesanan extends StatelessWidget {
             children: [
               for (int index = 0;
                   index < riwayatPesanan.riwayatpesanan_.length;
-                  index++)
+                  index++,)
                 Padding(
                   padding: EdgeInsets.only(bottom: 12.sp),
                   child: Stack(
@@ -221,7 +222,16 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                         color: Colors.transparent,
                                         child: InkWell(
                                           onTap: () {
-                                            print("detail pengiriman");
+                                            Get.toNamed(
+                                              Routes.LACAK,
+                                              arguments: {
+                                                'lacakPesanan': riwayatPesanan
+                                                    .riwayatpesanan_[index]
+                                                    .lacakPesanan,
+                                                'riwayatPesanan': riwayatPesanan
+                                                    .riwayatpesanan_[index],
+                                              },
+                                            );
                                           },
                                           borderRadius:
                                               BorderRadius.circular(4.r),

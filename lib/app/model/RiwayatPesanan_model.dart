@@ -2,17 +2,31 @@ class RiwayatPesanan {
   final String name;
   final String shopName;
   final String image;
+  final String resi;
   final double price;
   final int jumlahPesanan;
   final Status status;
+  final List lacakPesanan;
 
   RiwayatPesanan({
     required this.name,
     required this.shopName,
+    required this.resi,
     required this.image,
     required this.price,
     required this.jumlahPesanan,
     required this.status,
+    required this.lacakPesanan,
+  });
+}
+
+class LacakPesanan {
+  final DateTime waktu;
+  final String info;
+
+  LacakPesanan({
+    required this.waktu,
+    required this.info,
   });
 }
 
@@ -34,6 +48,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/sg-11134201-22110-5d3traeyyzjvd2",
       price: 135400,
       jumlahPesanan: 1,
+      resi: "4G56FDG6FD65S565",
+      lacakPesanan: [],
       status: Status.diproses,
     ),
     RiwayatPesanan(
@@ -43,6 +59,18 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/c7f9be1627694babc4e6d9d7b6df5de1",
       price: 129000,
       jumlahPesanan: 1,
+      resi: "80CX5HFDH0FDHDFH58",
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime(2023, 9, 3, 13, 21),
+            info: "Seller sudah mengirim paket"),
+        LacakPesanan(
+            waktu: DateTime(2023, 9, 6, 11, 00),
+            info: "Paket telah diterima di Bandung [Sortir Bandung]"),
+        LacakPesanan(
+            waktu: DateTime(2023, 9, 8, 15, 30),
+            info: "Paket telah tiba dan diterima oleh Kerabat"),
+      ],
       status: Status.selesai,
     ),
     RiwayatPesanan(
@@ -52,6 +80,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/0c7683baac488ccc8cff862c9c5af005",
       price: 399000,
       jumlahPesanan: 1,
+      resi: "FG78GFDGHJ7S854FFD3",
+      lacakPesanan: [],
       status: Status.diproses,
     ),
     RiwayatPesanan(
@@ -62,6 +92,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/id-11134207-7qul6-liu6yo90a61t25",
       price: 19999000,
       jumlahPesanan: 1,
+      resi: "GH6FG70HHJK885SKIJG",
+      lacakPesanan: [],
       status: Status.dikirim,
     ),
     RiwayatPesanan(
@@ -72,6 +104,8 @@ class RiwayatPesananList {
           "https://i.etsystatic.com/10655649/r/il/b5771f/3209670708/il_794xN.3209670708_5wtw.jpg",
       price: 1050955,
       jumlahPesanan: 1,
+      resi: "FD78HFDH7HGF80GHFGH8",
+      lacakPesanan: [],
       status: Status.sampaiTujuan,
     ),
     RiwayatPesanan(
@@ -82,6 +116,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/b2c3b50ec55eb82b1fe03780b63c2e6f",
       price: 59400,
       jumlahPesanan: 1,
+      resi: "WG87F78FDGGFD67FDDGC",
+      lacakPesanan: [],
       status: Status.sampaiTujuan,
     ),
     RiwayatPesanan(
@@ -92,6 +128,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkrs2gus0yofb5",
       price: 6999000,
       jumlahPesanan: 1,
+      resi: "GF7GF87FG89GFGFHBNBVC",
+      lacakPesanan: [],
       status: Status.dikirim,
     ),
     RiwayatPesanan(
@@ -101,6 +139,8 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/sg-11134201-7qvg5-lj11rd95ygz714",
       price: 162400,
       jumlahPesanan: 1,
+      resi: "CVXFDD8DFDF87FDHFDD09H",
+      lacakPesanan: [],
       status: Status.dibatalkan,
     ),
   ];

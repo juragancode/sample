@@ -85,14 +85,6 @@ class Transaksi extends GetView<HomeController> {
                   duration: Duration(milliseconds: 500),
                   transitionBuilder:
                       (Widget child, Animation<double> animation) {
-                    //   return SlideTransition(
-                    //     position: Tween<Offset>(
-                    //       begin: Offset(-1.0, 0.0),
-                    //       end: Offset(0.0, 0.0),
-                    //     ).animate(animation),
-                    //     child: child,
-                    //   );
-                    // },
                     return FadeTransition(
                       opacity: animation,
                       child: child,
