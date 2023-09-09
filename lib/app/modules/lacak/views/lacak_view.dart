@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:g_a_s_app_rekadigi/app/widgets/Decoration/BoxShadow.dart';
@@ -24,7 +25,7 @@ class LacakView extends GetView<LacakController> {
     // final riwayatPesanan = Get.arguments as RiwayatPesanan;
     // final lacakPesanan = Get.arguments as LacakPesanan;
 
-    final List<LacakPesanan> lacakPesanan = args['lacakPesanan'];
+    final List<dynamic> lacakPesanan = args['lacakPesanan'];
     final RiwayatPesanan riwayatPesanan = args['riwayatPesanan'];
 
     return Scaffold(
@@ -453,14 +454,17 @@ class LacakView extends GetView<LacakController> {
                                       ),
                                     ),
                                     SizedBox(height: 4.w),
-                                    Text(
-                                      "Kode Resi: ${riwayatPesanan.resi}",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 10.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: H333333,
+                                    Visibility(
+                                      visible: riwayatPesanan.resi != null,
+                                      child: Text(
+                                        "Kode Resi: ${riwayatPesanan.resi}",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 10.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: H333333,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -472,25 +476,201 @@ class LacakView extends GetView<LacakController> {
                           CostumDivider(),
                           SizedBox(height: 24.sp),
                           ListView.builder(
+                            padding: EdgeInsets.all(0),
+                            shrinkWrap: true,
                             itemCount: riwayatPesanan.lacakPesanan.length,
+                            physics: NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
-                              final lacak = lacakPesanan[index];
+                              final reversedIndex =
+                                  riwayatPesanan.lacakPesanan.length -
+                                      1 -
+                                      index;
+                              final lacak =
+                                  riwayatPesanan.lacakPesanan[reversedIndex];
+
                               return Column(
                                 // mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Waktu: ${DateFormat('dd MMMM yyyy HH:mm').format(lacak.waktu)}",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 10.w,
-                                      fontWeight: FontWeight.w400,
-                                      color: H333333,
-                                    ),
+                                  Stack(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    height: 8.w,
+                                                    width: 8.w,
+                                                    decoration: BoxDecoration(
+                                                      gradient: LinearGradient(
+                                                        colors: () {
+                                                          if (index == 0) {
+                                                            return [
+                                                              Color(0xFF4D89D4),
+                                                              Color(0xFF216BC9),
+                                                            ];
+                                                          } else {
+                                                            return [
+                                                              Neutral70,
+                                                              Neutral70,
+                                                            ];
+                                                          }
+                                                        }(),
+                                                        begin:
+                                                            Alignment.topCenter,
+                                                        end: Alignment
+                                                            .bottomCenter,
+                                                      ),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 8.w),
+                                                  Text(
+                                                    () {
+                                                      if (reversedIndex == 0) {
+                                                        return "Seller - ";
+                                                      } else {
+                                                        return "Track - ";
+                                                      }
+                                                    }(),
+                                                    style: TextStyle(
+                                                      fontSize: 10.w,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: H333333,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    controller.isSameDay(
+                                                            DateTime.now(),
+                                                            lacak.waktu)
+                                                        ? "Hari ini"
+                                                        : controller
+                                                                .isYesterday(
+                                                                    lacak.waktu)
+                                                            ? "Kemarin"
+                                                            : "${DateFormat('EEEE, d MMMM yyyy', 'id_ID').format(lacak.waktu)}",
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontSize: 10.w,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: H333333,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              SizedBox(height: 6.sp),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(width: 3.35.w),
+                                                  reversedIndex == 0
+                                                      ? SizedBox()
+                                                      : Dash(
+                                                          direction:
+                                                              Axis.vertical,
+                                                          length: 44.sp,
+                                                          dashColor: Neutral50,
+                                                          dashThickness: 0.75.w,
+                                                        ),
+                                                  SizedBox(width: 8.w + 4.w),
+                                                  Container(
+                                                    width: Get.width -
+                                                        64.w -
+                                                        8.w -
+                                                        8.w,
+                                                    // color: Colors.amber,
+                                                    child: Text(
+                                                      // "HGDSFGSD SDFCIJDSBFJSD DSHFGBDSHFGD SXIFGFDSF DSHJFHGDS",
+                                                      lacak.info,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 10.w,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: H333333,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 6.sp),
+                                            ],
+                                          ),
+                                          //
+                                        ],
+                                      ),
+                                      Positioned(
+                                        right: 0,
+                                        top: 0,
+                                        child: Text(
+                                          "${DateFormat('HH:mm').format(lacak.waktu)}",
+                                          style: TextStyle(
+                                            fontSize: 10.w,
+                                            fontWeight: FontWeight.w400,
+                                            color: Neutral90,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               );
                             },
+                          ),
+                          SizedBox(height: 20.sp),
+                          CostumDivider(),
+                          SizedBox(height: 16.sp),
+                          Row(
+                            children: [
+                              Text(
+                                "Status: ",
+                                style: TextStyle(
+                                  fontSize: 10.w,
+                                  fontWeight: FontWeight.w400,
+                                  color: H333333,
+                                ),
+                              ),
+                              Text(
+                                () {
+                                  if (riwayatPesanan.status ==
+                                      Status.diproses) {
+                                    return "Pesanan sedang diproses";
+                                  } else if (riwayatPesanan.status ==
+                                      Status.dikirim) {
+                                    return "Pesanan telah dikirim";
+                                  } else if (riwayatPesanan.status ==
+                                      Status.sampaiTujuan) {
+                                    return "Pesanan telah sampai";
+                                  } else if (riwayatPesanan.status ==
+                                      Status.selesai) {
+                                    return "Pesanan selesai";
+                                  } else if (riwayatPesanan.status ==
+                                      Status.dibatalkan) {
+                                    return "Pesanan dibatalkan";
+                                  } else {
+                                    return "";
+                                  }
+                                }(),
+                                style: TextStyle(
+                                  fontSize: 10.w,
+                                  fontWeight: FontWeight.w600,
+                                  color: Primary50,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

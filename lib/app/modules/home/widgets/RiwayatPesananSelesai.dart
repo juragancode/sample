@@ -287,17 +287,15 @@ class RiwayatPesananSelesai extends StatelessWidget {
                                         begin: Alignment.topCenter,
                                         end: Alignment.bottomCenter,
                                       ),
-                                      border: Border.all(
-                                        width: 1,
-                                        color: Primary30,
-                                      ),
                                       borderRadius: BorderRadius.circular(
                                         32.r,
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: 10.w, vertical: 5.w),
+                                        horizontal: 10.w + 1,
+                                        vertical: 5.w + 1,
+                                      ),
                                       child: Center(
                                         child: Text(
                                           "Beli Lagi",

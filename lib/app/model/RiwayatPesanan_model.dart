@@ -2,7 +2,7 @@ class RiwayatPesanan {
   final String name;
   final String shopName;
   final String image;
-  final String resi;
+  late String? resi;
   final double price;
   final int jumlahPesanan;
   final Status status;
@@ -11,7 +11,7 @@ class RiwayatPesanan {
   RiwayatPesanan({
     required this.name,
     required this.shopName,
-    required this.resi,
+    this.resi,
     required this.image,
     required this.price,
     required this.jumlahPesanan,
@@ -48,7 +48,7 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/sg-11134201-22110-5d3traeyyzjvd2",
       price: 135400,
       jumlahPesanan: 1,
-      resi: "4G56FDG6FD65S565",
+      // resi: "4G56FDG6FD65S565",
       lacakPesanan: [],
       status: Status.diproses,
     ),
@@ -65,10 +65,10 @@ class RiwayatPesananList {
             waktu: DateTime(2023, 9, 3, 13, 21),
             info: "Seller sudah mengirim paket"),
         LacakPesanan(
-            waktu: DateTime(2023, 9, 6, 11, 00),
+            waktu: DateTime(2023, 9, 8, 11, 00),
             info: "Paket telah diterima di Bandung [Sortir Bandung]"),
         LacakPesanan(
-            waktu: DateTime(2023, 9, 8, 15, 30),
+            waktu: DateTime(2023, 9, 9, 15, 30),
             info: "Paket telah tiba dan diterima oleh Kerabat"),
       ],
       status: Status.selesai,
