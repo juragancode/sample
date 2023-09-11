@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
@@ -13,20 +15,20 @@ import '../controllers/lacak_controller.dart';
 import '../../../model/RiwayatPesanan_model.dart';
 import '../../../constant/colors.dart';
 import '../../../modules/productDetail/views/product_detail_view.dart';
+import '../../../widgets/PesananDibatalkan_ModalBottomSheet.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 class LacakView extends GetView<LacakController> {
-  const LacakView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final Map<String, dynamic> args = Get.arguments;
 
-    // final riwayatPesanan = Get.arguments as RiwayatPesanan;
-    // final lacakPesanan = Get.arguments as LacakPesanan;
-
-    final List<dynamic> lacakPesanan = args['lacakPesanan'];
+    // final List<dynamic> lacakPesanan = args['lacakPesanan'];
     final RiwayatPesanan riwayatPesanan = args['riwayatPesanan'];
+
+    // Get.lazyPut(() => LacakController);
+    //
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -269,13 +271,7 @@ class LacakView extends GetView<LacakController> {
                                           Material(
                                             color: Colors.transparent,
                                             child: InkWell(
-                                              onTap: () {
-                                                // final LacakPesanan lacakPesanan;
-                                                // print("detail pengiriman");
-                                                // Get.toNamed(Routes.LACAK,
-                                                //     arguments: riwayatPesanan
-                                                //         .riwayatpesanan_[index]);
-                                              },
+                                              onTap: () {},
                                               borderRadius:
                                                   BorderRadius.circular(4.r),
                                               child: Ink(
@@ -650,7 +646,7 @@ class LacakView extends GetView<LacakController> {
                                     return "Pesanan sedang diproses";
                                   } else if (riwayatPesanan.status ==
                                       Status.dikirim) {
-                                    return "Pesanan telah dikirim";
+                                    return "Pesanan dalam pengiriman";
                                   } else if (riwayatPesanan.status ==
                                       Status.sampaiTujuan) {
                                     return "Pesanan telah sampai";
@@ -676,6 +672,41 @@ class LacakView extends GetView<LacakController> {
                       ),
                     ),
                   ),
+                  if (riwayatPesanan.status == Status.diproses)
+                    Column(
+                      children: [
+                        SizedBox(height: 16.sp),
+                        InkWell(
+                          onTap: () {
+                            PesananDibatalkan_ModalBottomSheet(context);
+                          },
+                          borderRadius: BorderRadius.circular(32.r),
+                          splashColor: Primary50.withOpacity(0.1),
+                          highlightColor: Primary50.withOpacity(0.2),
+                          child: Container(
+                            height: 38.w,
+                            width: Get.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.r),
+                              border: Border.all(
+                                color: Primary30,
+                                width: 1.5,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Batalkan Pesanan",
+                                style: TextStyle(
+                                  fontSize: 15.5.w,
+                                  fontWeight: FontWeight.w600,
+                                  color: Primary50,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),

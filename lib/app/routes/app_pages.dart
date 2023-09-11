@@ -127,7 +127,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LACAK,
-      page: () => const LacakView(),
+      page: () => LacakView(),
       binding: LacakBinding(),
     ),
   ];

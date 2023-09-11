@@ -673,7 +673,8 @@ class BottonLihatSemuaPenilaian extends GetView<ProductDetailController> {
       child: Obx(
         () => InkWell(
           borderRadius: BorderRadius.circular(32.r),
-          splashColor: Primary30.withOpacity(0.35),
+          splashColor: Primary50.withOpacity(0.1),
+          highlightColor: Primary50.withOpacity(0.2),
           onTap: () {
             controller.lihatSemuaPenilaian.toggle();
           },

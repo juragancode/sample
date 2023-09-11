@@ -15,10 +15,13 @@ var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
 RiwayatPesananList riwayatPesanan = RiwayatPesananList();
 
-class SemuaRiwayatPesanan extends StatelessWidget {
-  const SemuaRiwayatPesanan({
+class RiwayatPesananContent extends StatelessWidget {
+  const RiwayatPesananContent({
     super.key,
+    required this.content,
   });
+
+  final List content;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +32,7 @@ class SemuaRiwayatPesanan extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.sp),
           child: Column(
             children: [
-              for (int index = 0;
-                  index < riwayatPesanan.riwayatpesanan_.length;
-                  index++,)
+              for (int index = 0; index < content.length; index++,)
                 Padding(
                   padding: EdgeInsets.only(bottom: 12.sp),
                   child: Stack(
@@ -47,7 +48,15 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(
+                                Routes.LACAK,
+                                arguments: {
+                                  // 'lacakPesanan': content[index].lacakPesanan,
+                                  'riwayatPesanan': content[index],
+                                },
+                              );
+                            },
                             borderRadius: BorderRadius.circular(8.r),
                             child: Padding(
                               padding: EdgeInsets.all(8.0.w),
@@ -59,9 +68,8 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                     children: [
                                       Flexible(
                                         child: Text(
-                                          riwayatPesanan
-                                              .riwayatpesanan_[index].shopName,
-                                          // "Toko toki tora tono todo baram to toronto totorotot tong tung tang ting tung",
+                                          content[index].shopName,
+                                          // "Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.",
                                           style: TextStyle(
                                             fontSize: 13.5.w,
                                             fontWeight: FontWeight.w600,
@@ -78,28 +86,22 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                           border: Border.all(
                                             width: 0.5,
                                             color: () {
-                                              if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
-                                                      .status ==
+                                              if (content[index].status ==
                                                   Status.diproses) {
                                                 return Neutral50;
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.dikirim) {
                                                 return Primary30;
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.sampaiTujuan) {
                                                 return Warning30;
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.selesai) {
                                                 return Success50;
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.dibatalkan) {
                                                 return Error10;
@@ -109,29 +111,19 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                             }(),
                                           ),
                                           color: () {
-                                            if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            if (content[index].status ==
                                                 Status.diproses) {
                                               return F0F0F0;
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.dikirim) {
                                               return Primary05;
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.sampaiTujuan) {
                                               return Warning05;
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.selesai) {
                                               return Success05.withOpacity(0.5);
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.dibatalkan) {
                                               return Error05;
                                             } else {
@@ -144,28 +136,22 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                               horizontal: 10.w, vertical: 3.w),
                                           child: Text(
                                             () {
-                                              if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
-                                                      .status ==
+                                              if (content[index].status ==
                                                   Status.diproses) {
                                                 return "Diproses";
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.dikirim) {
                                                 return "Dikirim";
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.sampaiTujuan) {
                                                 return "Sampai Tujuan";
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.selesai) {
                                                 return "Selesai";
-                                              } else if (riwayatPesanan
-                                                      .riwayatpesanan_[index]
+                                              } else if (content[index]
                                                       .status ==
                                                   Status.dibatalkan) {
                                                 return "Dibatalkan";
@@ -177,29 +163,20 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                               fontSize: 10.w,
                                               fontWeight: FontWeight.w400,
                                               color: () {
-                                                if (riwayatPesanan
-                                                            .riwayatpesanan_[
-                                                                index]
-                                                            .status ==
+                                                if (content[index].status ==
                                                         Status.diproses ||
-                                                    riwayatPesanan
-                                                            .riwayatpesanan_[
-                                                                index]
-                                                            .status ==
+                                                    content[index].status ==
                                                         Status.dikirim) {
                                                   return Primary30;
-                                                } else if (riwayatPesanan
-                                                        .riwayatpesanan_[index]
+                                                } else if (content[index]
                                                         .status ==
                                                     Status.sampaiTujuan) {
                                                   return Warning50;
-                                                } else if (riwayatPesanan
-                                                        .riwayatpesanan_[index]
+                                                } else if (content[index]
                                                         .status ==
                                                     Status.selesai) {
                                                   return Success90;
-                                                } else if (riwayatPesanan
-                                                        .riwayatpesanan_[index]
+                                                } else if (content[index]
                                                         .status ==
                                                     Status.dibatalkan) {
                                                   return Error50;
@@ -218,55 +195,47 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Material(
-                                        color: Colors.transparent,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Get.toNamed(
-                                              Routes.LACAK,
-                                              arguments: {
-                                                'lacakPesanan': riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .lacakPesanan,
-                                                'riwayatPesanan': riwayatPesanan
-                                                    .riwayatpesanan_[index],
-                                              },
-                                            );
-                                          },
+                                      Container(
+                                        height: Get.width / 5,
+                                        width: Get.width / 5,
+                                        decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(4.r),
-                                          child: Ink(
-                                            height: Get.width / 5,
-                                            width: Get.width / 5,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.r),
-                                              border: Border.all(
-                                                color: Neutral10,
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.r),
-                                              child: CachedNetworkImage(
-                                                imageUrl: riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .image,
-                                                fit: BoxFit.cover,
-                                                placeholder: (context, url) =>
-                                                    Shimmer.fromColors(
-                                                  baseColor:
-                                                      Colors.grey.shade200,
-                                                  highlightColor: Colors.white,
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          Colors.grey.shade100,
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                        Radius.circular(4.r),
-                                                      ),
+                                          border: Border.all(
+                                            color: Neutral10,
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(4.r),
+                                          child: InkWell(
+                                            onTap: () {
+                                              Get.toNamed(
+                                                Routes.LACAK,
+                                                arguments: {
+                                                  // 'lacakPesanan': content[index]
+                                                  //     .lacakPesanan,
+                                                  'riwayatPesanan':
+                                                      content[index],
+                                                },
+                                              );
+                                            },
+                                            borderRadius:
+                                                BorderRadius.circular(4.r),
+                                            child: CachedNetworkImage(
+                                              imageUrl: content[index].image,
+                                              fit: BoxFit.cover,
+                                              placeholder: (context, url) =>
+                                                  Shimmer.fromColors(
+                                                baseColor: Colors.grey.shade200,
+                                                highlightColor: Colors.white,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.grey.shade100,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(4.r),
                                                     ),
                                                   ),
                                                 ),
@@ -289,9 +258,7 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                               //     255),
                                               height: 24.5.w,
                                               child: Text(
-                                                riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .name,
+                                                content[index].name,
                                                 style: TextStyle(
                                                   fontSize: 11.5.w,
                                                   fontWeight: FontWeight.w400,
@@ -307,9 +274,7 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                             Row(
                                               children: [
                                                 Text(
-                                                  riwayatPesanan
-                                                          .riwayatpesanan_[
-                                                              index]
+                                                  content[index]
                                                           .jumlahPesanan
                                                           .toString() +
                                                       " item",
@@ -332,7 +297,7 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                               //     137,
                                               //     222),
                                               child: Text(
-                                                "Rp ${f.format(riwayatPesanan.riwayatpesanan_[index].price.toInt())}",
+                                                "Rp ${f.format(content[index].price.toInt())}",
                                                 // "Rp 123.456.789.000",
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
@@ -360,9 +325,8 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                         child: Row(
                           children: [
                             Visibility(
-                              visible: riwayatPesanan
-                                      .riwayatpesanan_[index].status !=
-                                  Status.dibatalkan,
+                              visible:
+                                  content[index].status != Status.dibatalkan,
                               child: Material(
                                 color: Colors.transparent,
                                 child: InkWell(
@@ -389,23 +353,15 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                                       child: Center(
                                         child: Text(
                                           () {
-                                            if (riwayatPesanan
-                                                        .riwayatpesanan_[index]
-                                                        .status ==
+                                            if (content[index].status ==
                                                     Status.diproses ||
-                                                riwayatPesanan
-                                                        .riwayatpesanan_[index]
-                                                        .status ==
+                                                content[index].status ==
                                                     Status.dikirim) {
                                               return "Lacak";
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.sampaiTujuan) {
                                               return "Selesai";
-                                            } else if (riwayatPesanan
-                                                    .riwayatpesanan_[index]
-                                                    .status ==
+                                            } else if (content[index].status ==
                                                 Status.selesai) {
                                               return "Nilai";
                                             } else {
@@ -426,12 +382,9 @@ class SemuaRiwayatPesanan extends StatelessWidget {
                             ),
                             //
                             Visibility(
-                              visible: riwayatPesanan
-                                          .riwayatpesanan_[index].status ==
-                                      Status.dibatalkan ||
-                                  riwayatPesanan
-                                          .riwayatpesanan_[index].status ==
-                                      Status.selesai,
+                              visible:
+                                  content[index].status == Status.dibatalkan ||
+                                      content[index].status == Status.selesai,
                               child: Padding(
                                 padding: EdgeInsets.only(left: 6.w),
                                 child: Material(

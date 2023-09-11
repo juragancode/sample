@@ -11,12 +11,7 @@ import '../../../widgets/FilterKosong.dart';
 import '../../../widgets/FilterTransaksi.dart';
 import '../../../widgets/backgroundExplore.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/RiwayatPesananDibatalkan.dart';
-import '../widgets/RiwayatPesananDikirim.dart';
-import '../widgets/RiwayatPesananDiproses.dart';
-import '../widgets/RiwayatPesananSampaiTujuan.dart';
-import '../widgets/RiwayatPesananSelesai.dart';
-import '../widgets/SemuaRiwayatPesanan.dart';
+import '../widgets/RiwayatPesananContent.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -99,7 +94,9 @@ class Transaksi extends GetView<HomeController> {
                                 subtitle:
                                     "Semua transaksimu bakalan muncul di sini.",
                               )
-                            : SemuaRiwayatPesanan();
+                            : RiwayatPesananContent(
+                                content: riwayatPesanan.riwayatpesanan_,
+                              );
                       case 1: // Diproses
                         return diproses.isEmpty
                             ? FilterKosong(
@@ -107,7 +104,9 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : RiwayatPesananDiproses();
+                            : RiwayatPesananContent(
+                                content: diproses,
+                              );
                       case 2: // Dikirim
                         return dikirim.isEmpty
                             ? FilterKosong(
@@ -115,7 +114,9 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : RiwayatPesananDikirim();
+                            : RiwayatPesananContent(
+                                content: dikirim,
+                              );
                       case 3: // Sampai Tujuan
                         return sampaiTujuan.isEmpty
                             ? FilterKosong(
@@ -123,7 +124,9 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : RiwayatPesananSampaiTujuan();
+                            : RiwayatPesananContent(
+                                content: sampaiTujuan,
+                              );
                       case 4: // Selesai
                         return selesai.isEmpty
                             ? FilterKosong(
@@ -131,7 +134,9 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : RiwayatPesananSelesai();
+                            : RiwayatPesananContent(
+                                content: selesai,
+                              );
                       case 5: // Dikirim
                         return dibatalkan.isEmpty
                             ? FilterKosong(
@@ -139,7 +144,9 @@ class Transaksi extends GetView<HomeController> {
                                     "Ups! nggak ada transaksi yang sesuai dengan filter, nih",
                                 subtitle: "Coba reset atau ubah filtermu, ya.",
                               )
-                            : RiwayatPesananDibatalkan();
+                            : RiwayatPesananContent(
+                                content: dibatalkan,
+                              );
                       default:
                         return Container();
                     }

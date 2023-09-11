@@ -49,7 +49,10 @@ class RiwayatPesananList {
       price: 135400,
       jumlahPesanan: 1,
       // resi: "4G56FDG6FD65S565",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now(), info: "Seller sedang menyiapkan pesanan"),
+      ],
       status: Status.diproses,
     ),
     RiwayatPesanan(
@@ -66,7 +69,7 @@ class RiwayatPesananList {
             info: "Seller sudah mengirim paket"),
         LacakPesanan(
             waktu: DateTime(2023, 9, 8, 11, 00),
-            info: "Paket telah diterima di Bandung [Sortir Bandung]"),
+            info: "Paket telah diterima di Karanganyar [Sortir Karanganyar]"),
         LacakPesanan(
             waktu: DateTime(2023, 9, 9, 15, 30),
             info: "Paket telah tiba dan diterima oleh Kerabat"),
@@ -80,8 +83,12 @@ class RiwayatPesananList {
           "https://down-id.img.susercontent.com/file/0c7683baac488ccc8cff862c9c5af005",
       price: 399000,
       jumlahPesanan: 1,
-      resi: "FG78GFDGHJ7S854FFD3",
-      lacakPesanan: [],
+      // resi: "FG78GFDGHJ7S854FFD3",
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Seller sedang menyiapkan pesanan"),
+      ],
       status: Status.diproses,
     ),
     RiwayatPesanan(
@@ -93,7 +100,14 @@ class RiwayatPesananList {
       price: 19999000,
       jumlahPesanan: 1,
       resi: "GH6FG70HHJK885SKIJG",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 2)),
+            info: "Seller sudah mengirim paket"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Paket telah diterima di Jakarta [Sortir Jakarta]"),
+      ],
       status: Status.dikirim,
     ),
     RiwayatPesanan(
@@ -105,7 +119,20 @@ class RiwayatPesananList {
       price: 1050955,
       jumlahPesanan: 1,
       resi: "FD78HFDH7HGF80GHFGH8",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 3)),
+            info: "Pesanan dibuat"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 2)),
+            info: "Seller sudah mengirim paket"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 2)),
+            info: "Paket telah diterima di Solo [Sortir Solo]"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Paket telah diterima di Semarang [Sortir Semarang]"),
+      ],
       status: Status.sampaiTujuan,
     ),
     RiwayatPesanan(
@@ -117,7 +144,20 @@ class RiwayatPesananList {
       price: 59400,
       jumlahPesanan: 1,
       resi: "WG87F78FDGGFD67FDDGC",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 2)),
+            info: "Pesanan dibuat"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Seller sudah mengirim paket"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Paket telah diterima di Solo [Sortir Solo]"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 0)),
+            info: "Paket telah diterima di Solo [Sortir Solo]"),
+      ],
       status: Status.sampaiTujuan,
     ),
     RiwayatPesanan(
@@ -129,7 +169,17 @@ class RiwayatPesananList {
       price: 6999000,
       jumlahPesanan: 1,
       resi: "GF7GF87FG89GFGFHBNBVC",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 2)),
+            info: "Pesanan dibuat"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 1)),
+            info: "Seller sudah mengirim paket"),
+        LacakPesanan(
+            waktu: DateTime.now().subtract(Duration(days: 0)),
+            info: "Paket telah diterima di Bandung [Sortir Jakarta]"),
+      ],
       status: Status.dikirim,
     ),
     RiwayatPesanan(
@@ -140,7 +190,12 @@ class RiwayatPesananList {
       price: 162400,
       jumlahPesanan: 1,
       resi: "CVXFDD8DFDF87FDHFDD09H",
-      lacakPesanan: [],
+      lacakPesanan: [
+        LacakPesanan(
+            waktu: DateTime(2023, 9, 7, 13, 21), info: "Pesanan dibuat"),
+        LacakPesanan(
+            waktu: DateTime(2023, 9, 7, 13, 21), info: "Pesanan dibatalkan"),
+      ],
       status: Status.dibatalkan,
     ),
   ];
