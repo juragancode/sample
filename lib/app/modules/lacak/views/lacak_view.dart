@@ -27,7 +27,7 @@ class LacakView extends GetView<LacakController> {
     // final List<dynamic> lacakPesanan = args['lacakPesanan'];
     final RiwayatPesanan riwayatPesanan = args['riwayatPesanan'];
 
-    // Get.lazyPut(() => LacakController);
+    Get.lazyPut(() => LacakController);
     //
 
     return Scaffold(
@@ -690,7 +690,7 @@ class LacakView extends GetView<LacakController> {
                               borderRadius: BorderRadius.circular(32.r),
                               border: Border.all(
                                 color: Primary30,
-                                width: 1.5,
+                                width: 1,
                               ),
                             ),
                             child: Center(

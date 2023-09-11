@@ -14,4 +14,10 @@ class LacakController extends GetxController {
         date.month == yesterday.month &&
         date.day == yesterday.day;
   }
+
+  RxInt alasanIndex = 0.obs;
+
+  void changeAlasanIndex(int index) {
+    alasanIndex.value = index;
+  }
 }
