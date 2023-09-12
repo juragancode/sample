@@ -15,7 +15,7 @@ import '../controllers/lacak_controller.dart';
 import '../../../model/RiwayatPesanan_model.dart';
 import '../../../constant/colors.dart';
 import '../../../modules/productDetail/views/product_detail_view.dart';
-import '../../../widgets/PesananDibatalkan_ModalBottomSheet.dart';
+import '../../../widgets/PilihAlasan_ModalBottomSheet.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 
@@ -113,204 +113,195 @@ class LacakView extends GetView<LacakController> {
                           ),
                           child: Material(
                             color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {},
-                              borderRadius: BorderRadius.circular(8.r),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0.w),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.all(16.sp),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Flexible(
-                                            child: Text(
-                                              riwayatPesanan.shopName,
-                                              // "Toko toki tora tono todo baram to toronto totorotot tong tung tang ting tung",
-                                              style: TextStyle(
-                                                fontSize: 13.5.w,
-                                                fontWeight: FontWeight.w600,
-                                                color: H333333,
-                                              ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0.w),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(16.sp),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Flexible(
+                                          child: Text(
+                                            riwayatPesanan.shopName,
+                                            // "Toko toki tora tono todo baram to toronto totorotot tong tung tang ting tung",
+                                            style: TextStyle(
+                                              fontSize: 13.5.w,
+                                              fontWeight: FontWeight.w600,
+                                              color: H333333,
                                             ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.r),
-                                              border: Border.all(
-                                                width: 0.5,
-                                                color: () {
-                                                  if (riwayatPesanan.status ==
-                                                      Status.diproses) {
-                                                    return Neutral50;
-                                                  } else if (riwayatPesanan
-                                                          .status ==
-                                                      Status.dikirim) {
-                                                    return Primary30;
-                                                  } else if (riwayatPesanan
-                                                          .status ==
-                                                      Status.sampaiTujuan) {
-                                                    return Warning30;
-                                                  } else if (riwayatPesanan
-                                                          .status ==
-                                                      Status.selesai) {
-                                                    return Success50;
-                                                  } else if (riwayatPesanan
-                                                          .status ==
-                                                      Status.dibatalkan) {
-                                                    return Error10;
-                                                  } else {
-                                                    return Colors.transparent;
-                                                  }
-                                                }(),
-                                              ),
+                                        ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(4.r),
+                                            border: Border.all(
+                                              width: 0.5,
                                               color: () {
                                                 if (riwayatPesanan.status ==
                                                     Status.diproses) {
-                                                  return F0F0F0;
+                                                  return Neutral50;
                                                 } else if (riwayatPesanan
                                                         .status ==
                                                     Status.dikirim) {
-                                                  return Primary05;
+                                                  return Primary30;
                                                 } else if (riwayatPesanan
                                                         .status ==
                                                     Status.sampaiTujuan) {
-                                                  return Warning05;
+                                                  return Warning30;
                                                 } else if (riwayatPesanan
                                                         .status ==
                                                     Status.selesai) {
-                                                  return Success05.withOpacity(
-                                                      0.5);
+                                                  return Success50;
                                                 } else if (riwayatPesanan
                                                         .status ==
                                                     Status.dibatalkan) {
-                                                  return Error05;
+                                                  return Error10;
                                                 } else {
                                                   return Colors.transparent;
                                                 }
                                               }(),
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 10.w,
-                                                  vertical: 3.w),
-                                              child: Text(
-                                                () {
+                                            color: () {
+                                              if (riwayatPesanan.status ==
+                                                  Status.diproses) {
+                                                return F0F0F0;
+                                              } else if (riwayatPesanan
+                                                      .status ==
+                                                  Status.dikirim) {
+                                                return Primary05;
+                                              } else if (riwayatPesanan
+                                                      .status ==
+                                                  Status.sampaiTujuan) {
+                                                return Warning05;
+                                              } else if (riwayatPesanan
+                                                      .status ==
+                                                  Status.selesai) {
+                                                return Success05.withOpacity(
+                                                    0.5);
+                                              } else if (riwayatPesanan
+                                                      .status ==
+                                                  Status.dibatalkan) {
+                                                return Error05;
+                                              } else {
+                                                return Colors.transparent;
+                                              }
+                                            }(),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 10.w,
+                                                vertical: 3.w),
+                                            child: Text(
+                                              () {
+                                                if (riwayatPesanan.status ==
+                                                    Status.diproses) {
+                                                  return "Diproses";
+                                                } else if (riwayatPesanan
+                                                        .status ==
+                                                    Status.dikirim) {
+                                                  return "Dikirim";
+                                                } else if (riwayatPesanan
+                                                        .status ==
+                                                    Status.sampaiTujuan) {
+                                                  return "Sampai Tujuan";
+                                                } else if (riwayatPesanan
+                                                        .status ==
+                                                    Status.selesai) {
+                                                  return "Selesai";
+                                                } else if (riwayatPesanan
+                                                        .status ==
+                                                    Status.dibatalkan) {
+                                                  return "Dibatalkan";
+                                                } else {
+                                                  return "";
+                                                }
+                                              }(),
+                                              style: TextStyle(
+                                                fontSize: 10.w,
+                                                fontWeight: FontWeight.w400,
+                                                color: () {
                                                   if (riwayatPesanan.status ==
-                                                      Status.diproses) {
-                                                    return "Diproses";
-                                                  } else if (riwayatPesanan
-                                                          .status ==
-                                                      Status.dikirim) {
-                                                    return "Dikirim";
+                                                          Status.diproses ||
+                                                      riwayatPesanan.status ==
+                                                          Status.dikirim) {
+                                                    return Primary30;
                                                   } else if (riwayatPesanan
                                                           .status ==
                                                       Status.sampaiTujuan) {
-                                                    return "Sampai Tujuan";
+                                                    return Warning50;
                                                   } else if (riwayatPesanan
                                                           .status ==
                                                       Status.selesai) {
-                                                    return "Selesai";
+                                                    return Success90;
                                                   } else if (riwayatPesanan
                                                           .status ==
                                                       Status.dibatalkan) {
-                                                    return "Dibatalkan";
-                                                  } else {
-                                                    return "";
+                                                    return Error50;
                                                   }
                                                 }(),
-                                                style: TextStyle(
-                                                  fontSize: 10.w,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: () {
-                                                    if (riwayatPesanan.status ==
-                                                            Status.diproses ||
-                                                        riwayatPesanan.status ==
-                                                            Status.dikirim) {
-                                                      return Primary30;
-                                                    } else if (riwayatPesanan
-                                                            .status ==
-                                                        Status.sampaiTujuan) {
-                                                      return Warning50;
-                                                    } else if (riwayatPesanan
-                                                            .status ==
-                                                        Status.selesai) {
-                                                      return Success90;
-                                                    } else if (riwayatPesanan
-                                                            .status ==
-                                                        Status.dibatalkan) {
-                                                      return Error50;
-                                                    }
-                                                  }(),
-                                                ),
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                    // SizedBox(height: 8.sp),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 16.sp),
-                                      child: CostumDivider(),
-                                    ),
-                                    // SizedBox(height: 8.sp),
-                                    Padding(
-                                      padding: EdgeInsets.all(16.sp),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Material(
-                                            color: Colors.transparent,
-                                            child: InkWell(
-                                              onTap: () {},
-                                              borderRadius:
-                                                  BorderRadius.circular(4.r),
-                                              child: Ink(
-                                                height: Get.width / 5,
-                                                width: Get.width / 5,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.r),
-                                                  border: Border.all(
-                                                    color: Neutral10,
-                                                    width: 0.5,
-                                                  ),
+                                  ),
+                                  // SizedBox(height: 8.sp),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 16.sp),
+                                    child: CostumDivider(),
+                                  ),
+                                  // SizedBox(height: 8.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(16.sp),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          color: Colors.transparent,
+                                          child: InkWell(
+                                            onTap: () {},
+                                            borderRadius:
+                                                BorderRadius.circular(4.r),
+                                            child: Ink(
+                                              height: Get.width / 5,
+                                              width: Get.width / 5,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(4.r),
+                                                border: Border.all(
+                                                  color: Neutral10,
+                                                  width: 0.5,
                                                 ),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.r),
-                                                  child: CachedNetworkImage(
-                                                    imageUrl:
-                                                        riwayatPesanan.image,
-                                                    fit: BoxFit.cover,
-                                                    placeholder:
-                                                        (context, url) =>
-                                                            Shimmer.fromColors(
-                                                      baseColor:
-                                                          Colors.grey.shade200,
-                                                      highlightColor:
-                                                          Colors.white,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors
-                                                              .grey.shade100,
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                            Radius.circular(
-                                                                4.r),
-                                                          ),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(4.r),
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      riwayatPesanan.image,
+                                                  fit: BoxFit.cover,
+                                                  placeholder: (context, url) =>
+                                                      Shimmer.fromColors(
+                                                    baseColor:
+                                                        Colors.grey.shade200,
+                                                    highlightColor:
+                                                        Colors.white,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: Colors
+                                                            .grey.shade100,
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                          Radius.circular(4.r),
                                                         ),
                                                       ),
                                                     ),
@@ -319,83 +310,80 @@ class LacakView extends GetView<LacakController> {
                                               ),
                                             ),
                                           ),
-                                          SizedBox(width: 10.w),
-                                          Expanded(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  // color: Color.fromARGB(
-                                                  //     255,
-                                                  //     87,
-                                                  //     207,
-                                                  //     255),
-                                                  height: 24.5.w,
-                                                  child: Text(
-                                                    riwayatPesanan.name,
+                                        ),
+                                        SizedBox(width: 10.w),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                // color: Color.fromARGB(
+                                                //     255,
+                                                //     87,
+                                                //     207,
+                                                //     255),
+                                                height: 24.5.w,
+                                                child: Text(
+                                                  riwayatPesanan.name,
+                                                  style: TextStyle(
+                                                    fontSize: 11.5.w,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: H333333,
+                                                  ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 1,
+                                                ),
+                                              ),
+                                              // SizedBox(
+                                              //     height:
+                                              //         4.0.w),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    riwayatPesanan.jumlahPesanan
+                                                            .toString() +
+                                                        " item",
                                                     style: TextStyle(
-                                                      fontSize: 11.5.w,
+                                                      fontSize: 9.5.w,
                                                       fontWeight:
                                                           FontWeight.w400,
-                                                      color: H333333,
+                                                      color: Neutral90,
                                                     ),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    maxLines: 1,
                                                   ),
-                                                ),
-                                                // SizedBox(
-                                                //     height:
-                                                //         4.0.w),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      riwayatPesanan
-                                                              .jumlahPesanan
-                                                              .toString() +
-                                                          " item",
-                                                      style: TextStyle(
-                                                        fontSize: 9.5.w,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Neutral90,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                ],
+                                              ),
 
-                                                SizedBox(height: 16.0.sp),
-                                                Container(
-                                                  // color: Colors.amber,
-                                                  width: Get.width / 3.5,
-                                                  // color: Color.fromARGB(
-                                                  //     255,
-                                                  //     255,
-                                                  //     137,
-                                                  //     222),
-                                                  child: Text(
-                                                    "Rp ${f.format(riwayatPesanan.price.toInt())}",
-                                                    // "Rp 123.456.789.000",
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                      fontSize: 13.5.w,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: H333333,
-                                                    ),
+                                              SizedBox(height: 16.0.sp),
+                                              Container(
+                                                // color: Colors.amber,
+                                                width: Get.width / 3.5,
+                                                // color: Color.fromARGB(
+                                                //     255,
+                                                //     255,
+                                                //     137,
+                                                //     222),
+                                                child: Text(
+                                                  "Rp ${f.format(riwayatPesanan.price.toInt())}",
+                                                  // "Rp 123.456.789.000",
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: TextStyle(
+                                                    fontSize: 13.5.w,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: H333333,
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -678,7 +666,7 @@ class LacakView extends GetView<LacakController> {
                         SizedBox(height: 16.sp),
                         InkWell(
                           onTap: () {
-                            PesananDibatalkan_ModalBottomSheet(context);
+                            PilihAlasan_ModalBottomSheet(context);
                           },
                           borderRadius: BorderRadius.circular(32.r),
                           splashColor: Primary50.withOpacity(0.1),
