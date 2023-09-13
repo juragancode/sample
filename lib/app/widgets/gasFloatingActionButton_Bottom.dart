@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../constant/colors.dart';
@@ -93,27 +94,32 @@ class gasButton extends GetView<HomeController> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 13.w),
-                child: Column(
-                  children: [
-                    Container(
-                      height: 32.w,
-                      width: 32.w,
-                      child: SvgPicture.asset(
-                        'assets/icons/iconJual-Barang.svg',
-                        fit: BoxFit.contain,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.USER_JUAL_BARANG);
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(top: 13.w),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 32.w,
+                        width: 32.w,
+                        child: SvgPicture.asset(
+                          'assets/icons/iconJual-Barang.svg',
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "Jual Barang",
-                      style: TextStyle(
-                        fontSize: 12.w,
-                        fontWeight: FontWeight.w400,
-                        color: Primary30,
+                      Text(
+                        "Jual Barang",
+                        style: TextStyle(
+                          fontSize: 12.w,
+                          fontWeight: FontWeight.w400,
+                          color: Primary30,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Padding(

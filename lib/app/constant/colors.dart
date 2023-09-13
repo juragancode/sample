@@ -45,3 +45,12 @@ const Favorite = Color(0xFFFF2048);
 
 const BackgroundColor = Color(0xFFFFFFFF);
 const BackgroundColor2 = Color(0xFFF9F9F9);
+
+const TextBlack = Color(0xFF000000);
+
+class GradientColor {
+  static const List<Color> primaryGradient = [
+    Color(0xFF4D89D4),
+    Color(0xFF216BC9)
+  ];
+}
