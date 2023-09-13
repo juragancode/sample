@@ -36,6 +36,7 @@ const H333333 = Color(0xFF333333);
 const EBEBEB = Color(0xFFEBEBEB);
 
 const F0F0F0 = Color(0xFFF0F0F0);
+const F9F9F9 = Color(0xFFF9F9F9);
 
 const Error05 = Color(0xFFFFD3DB);
 const Error10 = Color(0xFFFF6682);
