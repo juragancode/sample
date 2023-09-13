@@ -30,6 +30,8 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/storeDetail/bindings/store_detail_binding.dart';
 import '../modules/storeDetail/views/store_detail_view.dart';
+import '../modules/userJualBarang/bindings/user_jual_barang_binding.dart';
+import '../modules/userJualBarang/views/user_jual_barang_view.dart';
 import '../modules/verifikasiDaftar/bindings/verifikasi_daftar_binding.dart';
 import '../modules/verifikasiDaftar/views/verifikasi_daftar_view.dart';
 import '../modules/verifikasiLupaPassword/bindings/verifikasi_lupa_password_binding.dart';
@@ -124,6 +126,11 @@ class AppPages {
       name: _Paths.BUAT_PESANAN,
       page: () => BuatPesananView(),
       binding: BuatPesananBinding(),
+    ),
+    GetPage(
+      name: _Paths.USER_JUAL_BARANG,
+      page: () => const UserJualBarangView(),
+      binding: UserJualBarangBinding(),
     ),
     GetPage(
       name: _Paths.LACAK,
