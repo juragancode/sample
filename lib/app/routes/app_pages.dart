@@ -16,6 +16,8 @@ import '../modules/izinkanAksesLokasi/bindings/izinkan_akses_lokasi_binding.dart
 import '../modules/izinkanAksesLokasi/views/izinkan_akses_lokasi_view.dart';
 import '../modules/keranjang/bindings/keranjang_binding.dart';
 import '../modules/keranjang/views/keranjang_view.dart';
+import '../modules/lacak/bindings/lacak_binding.dart';
+import '../modules/lacak/views/lacak_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/lupaPassword/bindings/lupa_password_binding.dart';
@@ -129,6 +131,11 @@ class AppPages {
       name: _Paths.USER_JUAL_BARANG,
       page: () => const UserJualBarangView(),
       binding: UserJualBarangBinding(),
+    ),
+    GetPage(
+      name: _Paths.LACAK,
+      page: () => LacakView(),
+      binding: LacakBinding(),
     ),
   ];
 }
