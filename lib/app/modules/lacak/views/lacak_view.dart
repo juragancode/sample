@@ -1,21 +1,18 @@
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/Decoration/BoxShadow.dart';
-
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../controllers/lacak_controller.dart';
-import '../../../model/RiwayatPesanan_model.dart';
 import '../../../constant/colors.dart';
+import '../../../model/RiwayatPesanan_model.dart';
 import '../../../modules/productDetail/views/product_detail_view.dart';
+import '../../../widgets/Decoration/BoxShadow.dart';
 import '../../../widgets/PilihAlasan_ModalBottomSheet.dart';
+import '../controllers/lacak_controller.dart';
 
 var f = NumberFormat.currency(locale: "id", symbol: "", decimalDigits: 0);
 

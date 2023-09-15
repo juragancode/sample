@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_a_s_app_rekadigi/app/model/produk_terbaru_model.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../model/filter_kategori_model.dart';
 import '../../../model/filter_lokasi_model.dart';
@@ -10,6 +11,8 @@ import '../views/Beranda.dart';
 import '../views/explore.dart';
 import '../views/profil.dart';
 import '../views/transaksi.dart';
+
+import 'dart:async';
 
 class HomeController extends GetxController {
   // TextEditingController
@@ -70,6 +73,33 @@ class HomeController extends GetxController {
   }
 
   RxInt filterTransaksi = 0.obs;
+
+  ///
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  GoogleSignInAccount? currentUser;
+  Future<void> login() async {
+    try {
+      await _googleSignIn.signIn().then((value) => currentUser = value);
+      // await _googleSignIn.isSignedIn().then((value) => print(value));
+
+      await _googleSignIn.isSignedIn().then((value) {
+        if (value) {
+          // jika login berhasil
+          print('Anda sudah berhasil login');
+          print(currentUser);
+        } else {
+          // jika login gagal
+          print('login gagal => tetap semangat kaka!');
+        }
+      });
+
+      //
+    } catch (error) {
+      print('ERROR!');
+      print(error);
+    }
+  }
 }
 
 class ProdukController extends GetxController {

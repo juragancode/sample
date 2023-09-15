@@ -38,8 +38,8 @@ class FilterAppBarProduk extends GetView<ProdukController> {
                   borderRadius: BorderRadius.circular(32.0.sp),
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xFF4D89D4),
-                      Color(0xFF216BC9),
+                      Primary30,
+                      Primary50,
                     ],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
@@ -253,6 +253,8 @@ class FilterAppBarProduk extends GetView<ProdukController> {
                     ),
                   ),
                 );
+              } else {
+                return SizedBox();
               }
             },
           ),

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../routes/app_pages.dart';
+import '../../../constant/url_GAS_v021.dart';
 
 final DaftarController emailC = Get.put(DaftarController());
 
@@ -80,9 +81,9 @@ class RegisterController extends GetxController {
     try {
       loadingRegister.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/registerSendOtp"),
+        Uri.parse(registerSendOtp),
         body: {
-          "email": emailDaftarC.text,
+          "email": emailDaftarC.text.toLowerCase(), // dibuat huruf kecil
         },
       );
       loadingRegister.value = false;

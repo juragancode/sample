@@ -1,7 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+
+import '../../../constant/url_GAS_v021.dart';
+import '../../../routes/app_pages.dart';
+import '../../register/controllers/register_controller.dart';
 
 class LoginController extends GetxController {
   // TextEditingController
@@ -75,6 +81,44 @@ class LoginController extends GetxController {
       passTerisi.value = true;
     } else {
       passTerisi.value = false;
+    }
+  }
+
+  //
+  RxBool loadingLogin = false.obs;
+
+  void login_N() async {
+    try {
+      loadingLogin.value = true;
+      var response = await http.post(
+        Uri.parse(registerConfirmOtp),
+        body: {
+          "email": emailLoginC.text.toLowerCase(),
+          "password": passLoginC.text,
+        },
+      );
+      loadingLogin.value = false;
+      Map<String, dynamic> logdata =
+          jsonDecode(response.body) as Map<String, dynamic>;
+
+      print(response.body);
+      print(emailLoginC.text);
+      print(emailC.emailDaftarC.text);
+
+      if (logdata['success'] == true) {
+        Get.offNamed(Routes.DAFTAR);
+      } else if (logdata['success'] != true) {
+        Get.defaultDialog(
+          title: "Terjadi kesalahan",
+          middleText: "${logdata['message']}",
+        );
+      }
+    } catch (e) {
+      print(e);
+      Get.defaultDialog(
+        title: "Login gagal",
+        middleText: "Periksa koneksi internet",
+      );
     }
   }
 }

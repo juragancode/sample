@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -67,6 +68,7 @@ class TextfieldEmail extends StatelessWidget {
               },
               focusNode: focusNode,
               controller: textController,
+              textCapitalization: TextCapitalization.none,
               textInputAction: textInputAction,
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
@@ -76,6 +78,9 @@ class TextfieldEmail extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: controller.isValid ? H333333 : Error50,
               ),
+              inputFormatters: [
+                LowerCaseTextFormatter(), // Menggunakan LowerCaseTextFormatter
+              ],
               decoration: InputDecoration(
                 border:
                     controller.isValid || !controller.isTextFieldTapped.value
@@ -119,6 +124,19 @@ class TextfieldEmail extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class LowerCaseTextFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    // Mengonversi teks baru menjadi huruf kecil
+    final newText = newValue.text.toLowerCase();
+    return TextEditingValue(
+      text: newText,
+      selection: newValue.selection,
     );
   }
 }

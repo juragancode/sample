@@ -1,37 +1,45 @@
 {
   "project_info": {
-    "project_number": "708436128118",
-    "project_id": "gas-indonesia",
-    "storage_bucket": "gas-indonesia.appspot.com"
+    "project_number": "55558880296",
+    "project_id": "gas-indonesia-01",
+    "storage_bucket": "gas-indonesia-01.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:708436128118:android:c2f4527500683445524a57",
+        "mobilesdk_app_id": "1:55558880296:android:e434579284d8602912c91d",
         "android_client_info": {
           "package_name": "id.rekadigi.g_a_s_app_rekadigi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "708436128118-4v79qdec8sbth4eg7m94u8uj3m09vgbp.apps.googleusercontent.com",
+          "client_id": "55558880296-ov7emf4n2hgk8792nsu3sh1fkr9b0rk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rekadigi.g_a_s_app_rekadigi",
+            "certificate_hash": "22ac5fa8d0ea23ed311b15ff1637bf17f5023200"
+          }
+        },
+        {
+          "client_id": "55558880296-i242ch4ovmlodb73hhjiqeqtbk573jjg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAveK311sV6WvvMzREG0etsGSb0hlU8NPE"
+          "current_key": "AIzaSyAQiel2iPO8Rc3TLwNih4ZVhuX5hA0xHZ0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "708436128118-4v79qdec8sbth4eg7m94u8uj3m09vgbp.apps.googleusercontent.com",
+              "client_id": "55558880296-i242ch4ovmlodb73hhjiqeqtbk573jjg.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "708436128118-ulo0he110j38u7gv67sr99o4766go5qh.apps.googleusercontent.com",
+              "client_id": "55558880296-7cu8q1p3k9rauu5fafb1cr1dkj93m28j.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "id.rekadigi.gASAppRekadigi"

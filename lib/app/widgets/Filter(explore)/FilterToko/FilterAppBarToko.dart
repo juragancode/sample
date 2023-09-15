@@ -253,6 +253,8 @@ class FilterAppBarToko extends GetView<TokoController> {
                     ),
                   ),
                 );
+              } else {
+                return SizedBox();
               }
             },
           ),

@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 import '../../../routes/app_pages.dart';
 import '../../register/controllers/register_controller.dart';
+import '../../../constant/url_GAS_v021.dart';
 
 final RegisterController emailC = Get.find();
 
@@ -73,7 +74,7 @@ class VerifikasiDaftarController extends GetxController {
     try {
       loadingRegisterVerifikasiDaftar.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/registerConfirmOtp"),
+        Uri.parse(registerConfirmOtp),
         body: {
           "otp": verifikasiDaftarC.text,
           "key": emailC.emailDaftarC.text,

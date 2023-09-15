@@ -1,67 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ButtonGoogleAuth extends StatelessWidget {
-  final Uri googleLoginUrl = Uri.parse(
-    // 'https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S1594143820%3A1690339619229306&client_id=9497603742-dpi5bn75d652l6sshkjt4886j6vi8l1s.apps.googleusercontent.com&o2v=1&redirect_uri=https%3A%2F%2Fbagaswihant.my.id%2Flogingoogle.php&response_type=code&scope=openid+profile+email&service=lso&flowName=GeneralOAuthFlow&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAOihoN8-xwB5f2GLYp8SR7YQZoqJ75AY224IEdRz6KIrqp7W8vVYsVGA9zzqgOOGxidQmroXzquJsvnJUToJwx59facBNGl-xGSsIQaR0fRXk01WxKxmyPxR1fuwj5MndgzyUP5T6fxViAeLG0eQnENnlhZK3zvpD5pB3sViYd0vqHj-zbc_gwpyT8YY1GzvSNoSgfDvM361-BvlsEYYbxhEP8_Pn7t1H1hEOZaXshnN5QVaGrSxJ8eTk4FjpjWDnHxESRX88JrlcN3VYSCxsXTkzNmagh1kyV8zBukfBW8r8Du8s4tkKCyMPF6WFIErkUuEPIpCJI3cufVhAe40ZGf7Psuv6lffqyocZ-teAiniosh1DYR1A07B7PP8q-ktHq28uaYSgqNRldUfAmaBTrcy_Vq2CfGJoP1J552TqU5xuYaj6C7YWlg7HLmVsa0QswTq2WZx93HrI4PcNskKKdpDJcTJA%26as%3DS1594143820%253A1690339619229306%26client_id%3D9497603742-dpi5bn75d652l6sshkjt4886j6vi8l1s.apps.googleusercontent.com%23&app_domain=https%3A%2F%2Fbagaswihant.my.id&rart=ANgoxcfUyU-haob04dWJ1My551ryrqwuFMMUFdq7X3GRd7ukI3nV_L0D2nweOjyeDDgu0eCOgGC0iZBbVBJb-JWS9Zyr9kTQaw',
-    ///
-    //
-    'https://apigas.bagaswihant.my.id/api/registerGoogle',
-  );
+import 'package:get/get.dart';
+import '../modules/home/controllers/home_controller.dart';
 
-  Future<void> launchGoogleLogin() async {
-    if (!await launchUrl(
-      googleLoginUrl,
-      // mode: LaunchMode.inAppWebView,
-      // webViewConfiguration: WebViewConfiguration(
-      //   enableJavaScript: true,
-      //   enableDomStorage: true,
-      // ),
-      // mode: LaunchMode.externalApplication,
-    )) {
-      throw Exception('Could not launch $googleLoginUrl');
-    }
-  }
+// final FirebaseAuth _auth = FirebaseAuth.instance;
 
-//   void showGoogleLoginDialog(BuildContext context) async {
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) async {
-//       try {
-//         await launchGoogleLogin();
-
-//       } catch (error) {
-//         print('Error during Google sign in: $error');
-
-//       }
-//       Get.back();
-//       Get.toNamed("page");
-//     },
-//   );
+// Future<User?> handleSignIn() async {
+//   try {
+//     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+//     final GoogleSignInAuthentication googleAuth =
+//         await googleUser!.authentication;
+//     final AuthCredential credential = GoogleAuthProvider.credential(
+//       accessToken: googleAuth.accessToken,
+//       idToken: googleAuth.idToken,
+//     );
+//     final UserCredential authResult =
+//         await _auth.signInWithCredential(credential);
+//     final User? user = authResult.user;
+//     return user;
+//   } catch (error) {
+//     print(error);
+//     return null;
+//   }
 // }
 
+class ButtonGoogleAuth extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => HomeController());
     return InkWell(
       onTap: () {
-        //
-        // showGoogleLoginDialog(BuildContext context);
-        launchGoogleLogin();
-        // Get.dialog(
-        //   Dialog(
-        //     child: Container(
-        //       width: 343.w,
-        //       height: 497.w,
-        //       decoration: BoxDecoration(
-        //         borderRadius: BorderRadius.circular(8.r),
-        //         color: Colors.white,
-        //       ),
-        //     ),
-        //   ),
-        // );
+        // User? user = await handleSignIn();
+        // if (user != null) {
+        //   // Login berhasil, lanjutkan ke halaman berikutnya atau lakukan sesuatu yang diperlukan.
+        //   print('Login berhasil: ${user.displayName}');
+        // } else {
+        //   // Login gagal atau dibatalkan.
+        //   print('Login gagal atau dibatalkan');
+        // }
+        controller.login();
       },
       child: Center(
         child: Flexible(
@@ -106,118 +85,3 @@ class ButtonGoogleAuth extends StatelessWidget {
     );
   }
 }
-
-// / cara atur fingerprint SHA masuk folder android jalankan terminal ' ./gradlew signingReport '
-// /
-// /
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
-// import 'package:google_sign_in/google_sign_in.dart';
-
-// GoogleSignInAccount? currentUser;
-
-// const List<String> scopes = <String>[
-//   'email',
-//   // 'https://www.googleapis.com/auth/contacts.readonly',
-// ];
-
-// GoogleSignIn _googleSignIn = GoogleSignIn(
-//   // Optional clientId
-//   // clientId: 'your-client_id.apps.googleusercontent.com',
-//   scopes: scopes,
-// );
-
-// Future<void> handleSignIn() async {
-//   try {
-//     await _googleSignIn.signIn();
-//     print(currentUser?.email);
-//     print(currentUser?.id);
-//     print(currentUser?.photoUrl);
-//     print(currentUser?.displayName);
-//     print(currentUser?.serverAuthCode);
-//   } catch (error) {
-//     print(error);
-//   }
-// }
-
-// // final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
-
-// // Future<void> handleGoogleSignIn() async {
-// //   try {
-// //     // Membuka dialog untuk memilih akun Google
-// //     GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-
-// //     if (googleUser == null) {
-// //       // Jika user membatalkan login
-// //       print("Login dibatalkan.");
-// //       return;
-// //     }
-
-// //     // Jika berhasil login, bisa mendapatkan informasi user seperti email dan nama
-// //     print("Berhasil login dengan akun: ${googleUser.email}");
-// //     print("Nama pengguna: ${googleUser.displayName}");
-
-// //     // Lakukan interaksi dengan API Google lainnya dengan mengambil token
-// //     GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-// //     print("Access token: ${googleAuth.accessToken}");
-// //     print("ID token: ${googleAuth.idToken}");
-// //   } catch (error) {
-// //     print("Terjadi kesalahan saat login: $error");
-// //   }
-// // }
-
-// class ButtonGoogleAuth extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: () {
-//         handleSignIn();
-
-//         // handleGoogleSignIn();
-//       },
-//       child: Center(
-//         child: Flexible(
-//           child: Container(
-//             decoration: BoxDecoration(
-//               borderRadius: BorderRadius.circular(50.r),
-//               border: Border.all(
-//                 color: Color(0xFF216BC9), // Warna garis tepi
-//                 width: 1, // Lebar garis tepi
-//               ),
-//             ),
-//             child: Padding(
-//               padding: const EdgeInsets.all(6),
-//               child: Wrap(
-//                 // alignment: WrapAlignment.center,
-//                 crossAxisAlignment: WrapCrossAlignment.center,
-//                 children: [
-//                   Container(
-//                     width: 30.w,
-//                     height: 30.w,
-//                     child: SvgPicture.asset(
-//                       "assets/icons/iconGoogle.svg",
-//                       fit: BoxFit.cover,
-//                     ),
-//                   ),
-//                   SizedBox(width: 4.w),
-//                   Text(
-//                     "Google",
-//                     style: TextStyle(
-//                       fontSize: 16.sp,
-//                       fontFamily: 'Poppins',
-//                       fontWeight: FontWeight.w600,
-//                       color: Color(0xFF216BC9),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

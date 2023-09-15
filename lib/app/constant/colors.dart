@@ -55,3 +55,10 @@ class GradientColor {
     Color(0xFF216BC9)
   ];
 }
+
+class GradientColor_01 {
+  static const List<Color> primaryGradient = [
+    Primary30,
+    Primary50,
+  ];
+}

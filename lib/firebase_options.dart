@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,40 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCtR1rNJbo4UvT7sFd1W7xn_1LFBNbyRE0',
-    appId: '1:708436128118:web:7160b6d2c5a52da3524a57',
-    messagingSenderId: '708436128118',
-    projectId: 'gas-indonesia',
-    authDomain: 'gas-indonesia.firebaseapp.com',
-    storageBucket: 'gas-indonesia.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAveK311sV6WvvMzREG0etsGSb0hlU8NPE',
-    appId: '1:708436128118:android:c2f4527500683445524a57',
-    messagingSenderId: '708436128118',
-    projectId: 'gas-indonesia',
-    storageBucket: 'gas-indonesia.appspot.com',
+    apiKey: 'AIzaSyAQiel2iPO8Rc3TLwNih4ZVhuX5hA0xHZ0',
+    appId: '1:55558880296:android:e434579284d8602912c91d',
+    messagingSenderId: '55558880296',
+    projectId: 'gas-indonesia-01',
+    storageBucket: 'gas-indonesia-01.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCiZtf-cOr3BvpwARoOiS7FUmSSQYjSxAo',
-    appId: '1:708436128118:ios:72499f0cacef6749524a57',
-    messagingSenderId: '708436128118',
-    projectId: 'gas-indonesia',
-    storageBucket: 'gas-indonesia.appspot.com',
-    iosClientId: '708436128118-ulo0he110j38u7gv67sr99o4766go5qh.apps.googleusercontent.com',
-    iosBundleId: 'id.rekadigi.gASAppRekadigi',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCiZtf-cOr3BvpwARoOiS7FUmSSQYjSxAo',
-    appId: '1:708436128118:ios:72499f0cacef6749524a57',
-    messagingSenderId: '708436128118',
-    projectId: 'gas-indonesia',
-    storageBucket: 'gas-indonesia.appspot.com',
-    iosClientId: '708436128118-ulo0he110j38u7gv67sr99o4766go5qh.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD2QVBrrA4e1TJdJYKM25iBf4kvSC--pQE',
+    appId: '1:55558880296:ios:dcb645ebacab1d3312c91d',
+    messagingSenderId: '55558880296',
+    projectId: 'gas-indonesia-01',
+    storageBucket: 'gas-indonesia-01.appspot.com',
     iosBundleId: 'id.rekadigi.gASAppRekadigi',
   );
 }

@@ -21,7 +21,11 @@ class HomeView extends GetView<HomeController> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
-        backgroundColor: BackgroundColor,
+        backgroundColor:
+            //  controller.selectedIndexBottomNavBar.value == 4
+            //     ? Neutral10
+            //     :
+            BackgroundColor,
         body: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [

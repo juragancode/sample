@@ -111,6 +111,7 @@ class RegisterView extends GetView<RegisterController> {
                               controller.syaratKebijakanCheck.isTrue
                           ? () {
                               controller.registerButton();
+                              print(controller.emailDaftarC.text);
 
                               // controller.formatEmail();
                               // Get.toNamed(Routes.VERIFIKASI_DAFTAR);

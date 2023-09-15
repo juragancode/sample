@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
+import 'package:g_a_s_app_rekadigi/app/widgets/Decoration/BoxShadow.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -28,16 +29,16 @@ class Profil extends GetView<HomeController> {
         children: [
           Container(
             height: Get.height - 56,
-            color: Neutral10,
+            // color: Neutral10,
           ),
           backgroundProfile(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.sp),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 46.w),
-                Text(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 46.w),
+              Padding(
+                padding: EdgeInsets.only(left: 16.sp),
+                child: Text(
                   "Personal",
                   style: TextStyle(
                     fontSize: 15.5.sp,
@@ -45,13 +46,17 @@ class Profil extends GetView<HomeController> {
                     color: Colors.white,
                   ),
                 ),
-
-                SizedBox(height: 14.sp),
-                Container(
-                  // height: 88.w,
+              ),
+              SizedBox(height: 14.sp),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
                     color: Colors.white,
+                    boxShadow: [
+                      BoxShadow_01(),
+                    ],
                   ),
                   child: Stack(
                     children: [
@@ -162,12 +167,18 @@ class Profil extends GetView<HomeController> {
                     ],
                   ),
                 ),
-                SizedBox(height: 16.sp),
-                Container(
+              ),
+              SizedBox(height: 16.sp),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                child: Container(
                   // height: 100,
                   decoration: BoxDecoration(
                     color: BackgroundColor,
                     borderRadius: BorderRadius.circular(8.r),
+                    boxShadow: [
+                      BoxShadow_01(),
+                    ],
                   ),
 
                   // color: Colors.amber,
@@ -194,31 +205,34 @@ class Profil extends GetView<HomeController> {
                                     ),
                                   ),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Rekadigi Shop Surakarta",
-                                      style: TextStyle(
-                                        fontSize: 10.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: H333333,
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Rekadigi Shop Surakarta TextPanjaang...!!!!",
+                                        style: TextStyle(
+                                          fontSize: 10.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: H333333,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                    ),
-                                    SizedBox(height: 2.w),
-                                    Text(
-                                      "Akun Toko",
-                                      style: TextStyle(
-                                        fontSize: 8.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
+                                      SizedBox(height: 2.w),
+                                      Text(
+                                        "Akun Toko",
+                                        style: TextStyle(
+                                          fontSize: 8.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -249,31 +263,34 @@ class Profil extends GetView<HomeController> {
                                     ),
                                   ),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Emily Olivia Laura Blunt",
-                                      style: TextStyle(
-                                        fontSize: 10.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: H333333,
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Emily Olivia Laura Blunt TextPanjaang...!!!!",
+                                        style: TextStyle(
+                                          fontSize: 10.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: H333333,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                    ),
-                                    SizedBox(height: 2.w),
-                                    Text(
-                                      "Akun Karyawan",
-                                      style: TextStyle(
-                                        fontSize: 8.w,
-                                        fontWeight: FontWeight.w400,
-                                        color: Neutral90,
+                                      SizedBox(height: 2.w),
+                                      Text(
+                                        "Akun Karyawan",
+                                        style: TextStyle(
+                                          fontSize: 8.w,
+                                          fontWeight: FontWeight.w400,
+                                          color: Neutral90,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -283,13 +300,211 @@ class Profil extends GetView<HomeController> {
                     ),
                   ),
                 ),
-
-                //
-              ],
-            ),
+              ),
+              SizedBox(height: 16.sp),
+              Container(
+                width: Get.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow_01(),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16.sp),
+                      ListView.separated(
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: 24.sp);
+                        },
+                        padding: EdgeInsets.zero,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 6,
+                        itemBuilder: (context, index) {
+                          return ActionProfilePersonal(
+                            title: "Riwayat Transaksi",
+                            svg: "assets/icons/User-Profile-Blue.svg",
+                            onTap: () {
+                              //
+                            },
+                          );
+                        },
+                      ),
+                      SizedBox(height: 16.sp),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.sp),
+              Container(
+                width: Get.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow_01(),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 8.sp),
+                      ListView.separated(
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: 24.sp);
+                        },
+                        padding: EdgeInsets.zero,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          return ActionProfilePersonal(
+                            title: "Riwayat Transaksi",
+                            svg: "assets/icons/User-Profile-Blue.svg",
+                            onTap: () {
+                              //
+                            },
+                          );
+                        },
+                      ),
+                      SizedBox(height: 8.sp),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.sp),
+              Container(
+                width: Get.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow_01(),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 8.sp),
+                      ActionProfilePersonal(
+                        title: "Keluar",
+                        svg: "assets/icons/User-Profile-Blue.svg",
+                        onTap: () {
+                          //
+                        },
+                      ),
+                      SizedBox(height: 8.sp),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 44.sp),
+            ],
           ),
         ],
       ),
     );
   }
 }
+
+class ActionProfilePersonal extends StatelessWidget {
+  const ActionProfilePersonal({
+    super.key,
+    required this.title,
+    required this.onTap,
+    required this.svg,
+  });
+
+  final String title;
+  final Function() onTap;
+  final String svg;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        // splashColor: Primary50.withOpacity(0.1),
+        // highlightColor: Primary50.withOpacity(0.2),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              color: Colors.amberAccent,
+              width: Get.width - 32.sp - 20.w - 8.w,
+              child: Row(
+                children: [
+                  Container(
+                    // color: Colors.amber,
+                    height: 32.w,
+                    width: 32.w,
+                    child: Center(
+                      child: SvgPicture.asset(
+                        svg,
+                        width: 20.w,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 8.w),
+                  Flexible(
+                    child: Text(
+                      // title,
+                      'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ',
+                      style: TextStyle(
+                        fontSize: 11.5.w,
+                        fontWeight: FontWeight.w400,
+                        color: H333333,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Icon(
+              Icons.keyboard_arrow_right_rounded,
+              color: Primary50,
+              size: 24.sp,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// class GradientIcon extends StatelessWidget {
+//   final IconData icon;
+//   final double size;
+//   final List<Color> gradientColors;
+
+//   GradientIcon(
+//     this.icon, {
+//     required this.size,
+//     required this.gradientColors,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ShaderMask(
+//       shaderCallback: (Rect bounds) {
+//         return LinearGradient(
+//           colors: gradientColors,
+//           begin: Alignment.topCenter,
+//           end: Alignment.bottomCenter,
+//         ).createShader(bounds);
+//       },
+//       child: Icon(
+//         icon,
+//         size: size,
+//         color: Colors.white,
+//       ),
+//     );
+//   }
+// }

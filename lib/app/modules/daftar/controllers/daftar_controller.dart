@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 
 import '../../../routes/app_pages.dart';
 import '../../../widgets/splashAccountBerhasilDibuat.dart';
+import '../../../constant/url_GAS_v021.dart';
 
 class DaftarController extends GetxController {
   TextEditingController emailDaftarC = TextEditingController();
@@ -86,7 +87,7 @@ class DaftarController extends GetxController {
     try {
       loadingDaftar.value = true;
       var response = await http.post(
-        Uri.parse("https://apigas.bagaswihant.my.id/api/v1/register"),
+        Uri.parse(register),
         body: {
           // "otp": otpC.verifikasiDaftarC.text,
           "email": emailDaftarC.text,
