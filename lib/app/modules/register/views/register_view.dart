@@ -107,8 +107,10 @@ class RegisterView extends GetView<RegisterController> {
                   SizedBox(height: 16.w),
                   Obx(
                     () => ButtonCustom(
+                      controller_: controller.loadingRegister == true,
                       onTap: controller.isValid &&
-                              controller.syaratKebijakanCheck.isTrue
+                              controller.syaratKebijakanCheck.isTrue &&
+                              controller.loadingRegister.isFalse
                           ? () {
                               controller.registerButton();
                               print(controller.emailDaftarC.text);
@@ -119,10 +121,11 @@ class RegisterView extends GetView<RegisterController> {
                             }
                           : () {},
                       splashFactory: controller.isValid &&
-                              controller.syaratKebijakanCheck.isTrue
+                              controller.syaratKebijakanCheck.isTrue &&
+                              controller.loadingRegister.isFalse
                           ? InkSplash.splashFactory
                           : NoSplash.splashFactory,
-                      title: "Daftar".tr,
+                      title: 'Daftar'.tr,
                     ),
                   ),
 

@@ -87,11 +87,11 @@ class LoginController extends GetxController {
   //
   RxBool loadingLogin = false.obs;
 
-  void login_N() async {
+  void loginWithEmail() async {
     try {
       loadingLogin.value = true;
       var response = await http.post(
-        Uri.parse(registerConfirmOtp),
+        Uri.parse(login_),
         body: {
           "email": emailLoginC.text.toLowerCase(),
           "password": passLoginC.text,
@@ -105,14 +105,17 @@ class LoginController extends GetxController {
       print(emailLoginC.text);
       print(emailC.emailDaftarC.text);
 
-      if (logdata['success'] == true) {
-        Get.offNamed(Routes.DAFTAR);
-      } else if (logdata['success'] != true) {
+      if (
+          // logdata['message'] == "Berhasil Login" &&
+          response.statusCode == 200) {
+        Get.offNamed(Routes.HOME);
+      } else {
         Get.defaultDialog(
           title: "Terjadi kesalahan",
           middleText: "${logdata['message']}",
         );
       }
+      ;
     } catch (e) {
       print(e);
       Get.defaultDialog(
