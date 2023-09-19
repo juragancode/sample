@@ -101,8 +101,10 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 ),
                 keyboardType: TextInputType.number,
                 controller: controller.verifikasiDaftarC,
+                focusNode: controller.verifikasiDaftarFN,
                 appContext: context,
                 length: 4,
+                autoFocus: true,
                 onChanged: controller.perubahanKodeTerisi,
                 boxShadows: [
                   BoxShadow(
@@ -297,7 +299,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                     gradient: LinearGradient(
                       colors: controller.loadingRegisterVerifikasiDaftar.isTrue
                           ? [
-                              Primary10.withOpacity(0.9),
+                              Primary10.withOpacity(0.8),
                               Primary10,
                             ]
                           : [

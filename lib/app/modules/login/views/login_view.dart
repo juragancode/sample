@@ -146,7 +146,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 8.w),
+                SizedBox(height: 8.sp),
                 Row(
                   children: [
                     SizedBox(width: 34.w),
@@ -219,7 +219,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 8.sp),
                 Obx(
                   () => Visibility(
                     visible: !controller.isValid &&
@@ -248,7 +248,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 8.sp),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(

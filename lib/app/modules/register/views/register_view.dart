@@ -78,13 +78,16 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
 
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 5.sp),
                   Obx(
                     () => Visibility(
                       visible: !controller.isValid &&
-                          controller.isTextFieldTapped.value,
+                              controller.isTextFieldTapped.value ||
+                          controller.emailSudahDigunakan.isTrue ||
+                          controller.emailTidakTerdaftar.isTrue,
                       child: Row(
                         children: [
+                          SizedBox(width: 4.w),
                           Icon(
                             Icons.info,
                             color: Error50,
@@ -92,7 +95,11 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                           SizedBox(width: 5.sp),
                           Text(
-                            "Format email tidak valid.".tr,
+                            controller.emailSudahDigunakan.isTrue
+                                ? 'Email telah dipakai. Silahkan gunakan email lain.'
+                                : controller.emailTidakTerdaftar.isTrue
+                                    ? 'Gunakan email lain, email tidak terdaftar.'
+                                    : "Format email tidak valid.".tr,
                             style: TextStyle(
                               fontSize: 12.sp,
                               fontFamily: 'Poppins',
@@ -110,7 +117,7 @@ class RegisterView extends GetView<RegisterController> {
                       gradient: LinearGradient(
                         colors: controller.loadingRegister == true
                             ? [
-                                Primary10,
+                                Primary10.withOpacity(0.8),
                                 Primary10,
                               ]
                             : controller.isValid &&
@@ -133,10 +140,6 @@ class RegisterView extends GetView<RegisterController> {
                           ? () {
                               controller.registerButton();
                               print(controller.emailDaftarC.text);
-
-                              // controller.formatEmail();
-                              // Get.toNamed(Routes.VERIFIKASI_DAFTAR);
-                              // print(controller.emailDaftarC);
                             }
                           : () {},
                       splashFactory: controller.isValid &&

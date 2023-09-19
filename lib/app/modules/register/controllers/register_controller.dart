@@ -78,9 +78,13 @@ class RegisterController extends GetxController {
   /// button login
 
   RxBool loadingRegister = false.obs;
+  RxBool emailTidakTerdaftar = false.obs;
+  RxBool emailSudahDigunakan = false.obs;
 
   void registerButton() async {
     try {
+      emailSudahDigunakan.value = false;
+      emailTidakTerdaftar.value = false;
       loadingRegister.value = true;
       var response = await http.post(
         Uri.parse(registerSendOtp),
@@ -89,28 +93,47 @@ class RegisterController extends GetxController {
         },
       );
       loadingRegister.value = false;
+      print(response.statusCode);
+
       Map<String, dynamic> logdata =
           jsonDecode(response.body) as Map<String, dynamic>;
 
-      emailC.emailDaftarC.value = emailDaftarC.value;
-
-      print(response.body);
-      print(emailDaftarC.text);
-      print(emailC.emailDaftarC.text);
+      // ;
 
       if (response.statusCode >= 200 && response.statusCode <= 210) {
         emailDaftarFN.unfocus();
         formatEmail();
+        print(emailDaftarC.text);
+        print(emailC.emailDaftarC.text);
+        print(response.body);
+
         Get.toNamed(Routes.VERIFIKASI_DAFTAR);
+      } else if (logdata["errors"]["email"] is List) {
+        final emailErrors = logdata["errors"]["email"] as List;
+
+        if (emailErrors.isNotEmpty) {
+          final errorMessage = emailErrors[0];
+
+          if (errorMessage == "The email has already been taken.") {
+            emailSudahDigunakan.value = true;
+          } else if (errorMessage ==
+              "The email field must be a valid email address.") {
+            emailTidakTerdaftar.value = true;
+          }
+        }
       } else
         Get.dialog(
-          Dialog_KesalahanServer(),
+          Dialog_KesalahanServer(
+            onReload: registerButton,
+          ),
         );
     } catch (e) {
       print(e);
-      loadingRegister.value == false;
+      loadingRegister.value = false;
       Get.dialog(
-        Dialog_Koneksi_Internet_Terganggu(),
+        Dialog_Koneksi_Internet_Terganggu(
+          onReload: registerButton,
+        ),
       );
     }
   }

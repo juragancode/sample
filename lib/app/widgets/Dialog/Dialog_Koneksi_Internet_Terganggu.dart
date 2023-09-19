@@ -8,9 +8,9 @@ import '../../constant/colors.dart';
 class Dialog_Koneksi_Internet_Terganggu extends StatelessWidget {
   const Dialog_Koneksi_Internet_Terganggu({
     super.key,
-    // required this.muatUlang,
+    required this.onReload,
   });
-  // final void Function() muatUlang;
+  final void Function() onReload;
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +55,9 @@ class Dialog_Koneksi_Internet_Terganggu extends StatelessWidget {
                 borderRadius: BorderRadius.circular(32.r),
                 onTap: () {
                   //
-                  print("Muat Ulang OTP");
+                  print("Muat Ulang");
                   Get.back();
+                  onReload();
                 },
                 child: Ink(
                   decoration: BoxDecoration(

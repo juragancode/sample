@@ -8,7 +8,9 @@ import '../../constant/colors.dart';
 class Dialog_KesalahanServer extends StatelessWidget {
   const Dialog_KesalahanServer({
     super.key,
+    required this.onReload,
   });
+  final void Function() onReload;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class Dialog_KesalahanServer extends StatelessWidget {
                       borderRadius: BorderRadius.circular(32.r),
                       onTap: () {
                         //
-                        print("Muat Ulang OTP");
+                        print("Kembali");
                         Get.back();
                       },
                       child: Ink(
@@ -94,7 +96,8 @@ class Dialog_KesalahanServer extends StatelessWidget {
                       borderRadius: BorderRadius.circular(32.r),
                       onTap: () {
                         //
-                        print("Muat Ulang OTP");
+                        print("Muat Ulang");
+                        onReload();
                         Get.back();
                       },
                       child: Ink(
