@@ -1,13 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter/material.dart';
+import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../routes/app_pages.dart';
 import '../../register/controllers/register_controller.dart';
 import '../../../constant/url_GAS_v021.dart';
+import '../../../widgets/Dialog/Dialog_KesalahanServer.dart';
+import '../../../widgets/Dialog/Dialog_Koneksi_Internet_Terganggu.dart';
 
 final RegisterController emailC = Get.find();
 
@@ -63,6 +68,8 @@ class VerifikasiDaftarController extends GetxController {
   }
 
   void restartTimer() {
+    kirimUlangOTP();
+    verifikasiDaftarC.clear();
     empatPuluhDetik.value = 41;
     kirimUlangKodeVerifikasi.value = false;
     startTimer();
@@ -88,20 +95,186 @@ class VerifikasiDaftarController extends GetxController {
       print(verifikasiDaftarC.text);
       print(emailC.emailDaftarC.text);
 
-      if (logdata['success'] == true) {
+      if (
+          // logdata['message'] == OTP Terverifikasi
+          // &&
+          response.statusCode >= 200 && response.statusCode <= 210) {
         Get.offNamed(Routes.DAFTAR);
-      } else if (logdata['success'] != true) {
-        Get.defaultDialog(
-          title: "Terjadi kesalahan",
-          middleText: "${logdata['message']}",
+      } else if (logdata['message'] == "OTP Tidak Sama") {
+        Get.dialog(
+          Dialog_OTP_Salah(),
+        );
+      } else {
+        Get.dialog(
+          Dialog_KesalahanServer(),
         );
       }
     } catch (e) {
       print(e);
-      Get.defaultDialog(
-        title: "Login gagal",
-        middleText: "Periksa koneksi internet",
+      loadingRegisterVerifikasiDaftar.value = false;
+      Get.dialog(
+        Dialog_Koneksi_Internet_Terganggu(),
       );
     }
+  }
+
+  void kirimUlangOTP() async {
+    try {
+      loadingRegisterVerifikasiDaftar.value = true;
+      var response = await http.post(
+        Uri.parse(registerSendOtp),
+        body: {
+          "email": emailC.emailDaftarC.text.toLowerCase(),
+        },
+      );
+      loadingRegisterVerifikasiDaftar.value = false;
+      Map<String, dynamic> logdata =
+          jsonDecode(response.body) as Map<String, dynamic>;
+
+      print(response.body);
+      print(emailC.emailDaftarC.text);
+      print(logdata['data']['codeOTP']);
+
+      if (
+          // logdata['message'] == OTP Terverifikasi
+          // &&
+          response.statusCode >= 200 && response.statusCode <= 210) {
+        // kosong
+      } else {
+        Get.dialog(
+          Dialog_KesalahanServer(),
+        );
+      }
+    } catch (e) {
+      print(e);
+      Get.dialog(
+        Dialog_Koneksi_Internet_Terganggu(),
+      );
+    }
+  }
+}
+
+class Dialog_OTP_Salah extends GetView<VerifikasiDaftarController> {
+  const Dialog_OTP_Salah({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0.w),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(16.sp),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Kode yang kamu masukkan salah!",
+              style: TextStyle(
+                fontSize: 13.5.w,
+                fontWeight: FontWeight.w600,
+                color: H333333,
+              ),
+            ),
+            SizedBox(height: 8.sp),
+            Text(
+              "Coba teliti kembali atau kirim ulang kode verifikasi",
+              style: TextStyle(
+                fontSize: 11.5.w,
+                fontWeight: FontWeight.w400,
+                color: Neutral90,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 24.sp),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32.r),
+                      onTap: () {
+                        //
+                        print("Kembali");
+                        Get.back();
+                      },
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          color: BackgroundColor,
+                          borderRadius: BorderRadius.circular(32.r),
+                          border: Border.all(
+                            width: 1,
+                            color: Primary30,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 9.5.w),
+                          child: Center(
+                            child: Text(
+                              "Kembali",
+                              style: TextStyle(
+                                fontSize: 11.5.w,
+                                fontWeight: FontWeight.w600,
+                                color: Primary50,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                Expanded(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32.r),
+                      onTap: () {
+                        //
+                        print("Muat Ulang OTP");
+                        Get.back();
+
+                        controller.verifikasiDaftar();
+                      },
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFF4D89D4),
+                              Color(0xFF216BC9),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(32.r),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 9.5.w),
+                          child: Center(
+                            child: Text(
+                              "Kirim Ulang",
+                              style: TextStyle(
+                                fontSize: 11.5.w,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

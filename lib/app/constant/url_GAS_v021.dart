@@ -1,4 +1,4 @@
-var urlMain = 'https://backend-gas.bagaswihant.my.id/api/';
+var urlMain = 'https://apigas.bagaswihant.my.id/api/';
 
 //
 

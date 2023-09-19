@@ -107,6 +107,25 @@ class RegisterView extends GetView<RegisterController> {
                   SizedBox(height: 16.w),
                   Obx(
                     () => ButtonCustom(
+                      gradient: LinearGradient(
+                        colors: controller.loadingRegister == true
+                            ? [
+                                Primary10,
+                                Primary10,
+                              ]
+                            : controller.isValid &&
+                                    controller.syaratKebijakanCheck.isTrue
+                                ? [
+                                    Primary30,
+                                    Primary50,
+                                  ]
+                                : [
+                                    Color(0xFFB5B5B5),
+                                    Color(0xFFB5B5B5),
+                                  ], // Daftar warna gradient yang ingin digunakan
+                        begin: Alignment.topCenter, // Posisi awal gradient
+                        end: Alignment.bottomCenter, // Posisi akhir gradient
+                      ),
                       controller_: controller.loadingRegister == true,
                       onTap: controller.isValid &&
                               controller.syaratKebijakanCheck.isTrue &&

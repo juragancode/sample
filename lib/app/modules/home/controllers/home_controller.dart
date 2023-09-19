@@ -119,7 +119,8 @@ class HomeController extends GetxController {
           print(currentUser?.serverAuthCode);
 
           if (
-              // logdata['message'] == "Berhasil Login" &&
+              // logdata['message'] == "Berhasil Login"
+              // &&
               response.statusCode >= 200 && response.statusCode <= 210) {
             Get.offNamed(Routes.HOME);
           } else {

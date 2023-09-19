@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
+import 'package:g_a_s_app_rekadigi/app/widgets/Auth/ButtonCustom.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../register/controllers/register_controller.dart';
 import '../controllers/verifikasi_daftar_controller.dart';
 
-final RegisterController emailC = Get.find();
+// final RegisterController emailC = Get.find();
+final RegisterController emailC = Get.put(RegisterController());
 
 class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
   @override
@@ -39,7 +43,6 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
@@ -190,25 +193,30 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           // isikan fungsi
                           controller.restartTimer();
+
                           //
                         },
-                        child: Text(
-                          "Kirim ulang".tr,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF216BC9),
+                        borderRadius: BorderRadius.circular(4.r),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 3.5.sp),
+                          child: Text(
+                            "Kirim ulang".tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11.5.w,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF216BC9),
+                            ),
                           ),
                         ),
                       ),
                       Text(
-                        " kode verifikasi.".tr,
+                        "kode verifikasi.".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -223,58 +231,96 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
               },
             ),
             SizedBox(height: 24.w),
-            Center(
-              child: Obx(
-                () => DecoratedBox(
-                  decoration: BoxDecoration(
+            // Center(
+            //   child: Obx(
+            //     () => DecoratedBox(
+            //       decoration: BoxDecoration(
+            //         gradient: LinearGradient(
+            //           colors: controller.kodeTerisi.value
+            //               ? [
+            //                   Color(0xFF4D89D4),
+            //                   Color(0xFF216BC9),
+            //                 ]
+            //               : [
+            //                   Colors.transparent,
+            //                   Colors.transparent,
+            //                 ],
+            //           begin: Alignment.topCenter, // Posisi awal gradient
+            //           end: Alignment.bottomCenter, // Posisi akhir gradient
+            //         ),
+            //         borderRadius: BorderRadius.circular(32),
+            //       ),
+            //       child: Visibility(
+            //         visible: controller.kodeTerisi.value,
+            //         child: ElevatedButton(
+            //           style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent,
+            //             shadowColor: Colors.transparent,
+            //             textStyle: TextStyle(
+            //               fontSize: 16.sp,
+            //               fontFamily: 'Poppins',
+            //               fontWeight: FontWeight.w600,
+            //             ),
+            //             shape: RoundedRectangleBorder(
+            //               borderRadius: BorderRadius.circular(32),
+            //             ),
+            //             fixedSize: Size(343.w, 42.w),
+            //           ),
+            //           onPressed: controller.kodeTerisi.value
+            //               ? () {
+            //                   // Get.offNamed(Routes.DAFTAR);
+            //                   // print(emailC.emailDaftarC);
+            //                   controller.verifikasiDaftar();
+            //                 }
+            //               : () {},
+            //           child: Text(
+            //             "Verifikasi".tr,
+            //             style: TextStyle(
+            //               fontSize: 16.sp,
+            //               fontFamily: 'Poppins',
+            //               fontWeight: FontWeight.w600,
+            //               // color: Color(0xFF216BC9),
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            //
+            Obx(
+              () => Visibility(
+                visible: controller.kodeTerisi.value,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: ButtonCustom(
                     gradient: LinearGradient(
-                      colors: controller.kodeTerisi.value
+                      colors: controller.loadingRegisterVerifikasiDaftar.isTrue
                           ? [
-                              Color(0xFF4D89D4),
-                              Color(0xFF216BC9),
+                              Primary10.withOpacity(0.9),
+                              Primary10,
                             ]
                           : [
-                              Colors.transparent,
-                              Colors.transparent,
+                              Primary30,
+                              Primary50,
                             ],
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  child: Visibility(
-                    visible: controller.kodeTerisi.value,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        fixedSize: Size(343.w, 42.w),
-                      ),
-                      onPressed: controller.kodeTerisi.value
-                          ? () {
-                              // Get.offNamed(Routes.DAFTAR);
-                              // print(emailC.emailDaftarC);
-                              controller.verifikasiDaftar();
-                            }
-                          : () {},
-                      child: Text(
-                        "Verifikasi".tr,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          // color: Color(0xFF216BC9),
-                        ),
-                      ),
-                    ),
+                    controller_:
+                        controller.loadingRegisterVerifikasiDaftar.isTrue,
+                    onTap: controller.kodeTerisi.value &&
+                            controller.loadingRegisterVerifikasiDaftar.isFalse
+                        ? () {
+                            //
+                            controller.verifikasiDaftar();
+                          }
+                        : () {},
+                    splashFactory: controller.kodeTerisi.value &&
+                            controller.loadingRegisterVerifikasiDaftar.isFalse
+                        ? InkSplash.splashFactory
+                        : NoSplash.splashFactory,
+                    title: 'Verifikasi'.tr,
                   ),
                 ),
               ),
