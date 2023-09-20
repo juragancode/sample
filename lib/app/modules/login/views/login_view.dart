@@ -68,7 +68,7 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 4.w),
                 Container(
                   height: 40.w,
-                  margin: EdgeInsets.symmetric(horizontal: 16.w),
+                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32.r),
                     color: Color(0xFFF0F0F0),
@@ -135,7 +135,7 @@ class LoginView extends StatelessWidget {
                             : null,
                         hintText: 'Ex: janedoe@email.com',
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 10.w),
+                            horizontal: 20.sp, vertical: 10.sp),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',
@@ -163,7 +163,7 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 4.w),
                 Container(
                   height: 40.w,
-                  margin: EdgeInsets.symmetric(horizontal: 16.w),
+                  margin: EdgeInsets.symmetric(horizontal: 16.sp),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32.r),
                     color: Color(0xFFF0F0F0),
@@ -193,7 +193,7 @@ class LoginView extends StatelessWidget {
                         border: InputBorder.none,
                         hintText: 'Masukkan password'.tr,
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 10.w),
+                            horizontal: 20.sp, vertical: 10.sp),
                         hintStyle: TextStyle(
                           fontSize: 12.sp,
                           fontFamily: 'Poppins',

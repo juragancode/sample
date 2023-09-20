@@ -133,7 +133,7 @@ class RegisterView extends GetView<RegisterController> {
                         begin: Alignment.topCenter, // Posisi awal gradient
                         end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
-                      controller_: controller.loadingRegister == true,
+                      controllerLoading: controller.loadingRegister == true,
                       onTap: controller.isValid &&
                               controller.syaratKebijakanCheck.isTrue &&
                               controller.loadingRegister.isFalse

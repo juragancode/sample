@@ -233,63 +233,6 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
               },
             ),
             SizedBox(height: 24.w),
-            // Center(
-            //   child: Obx(
-            //     () => DecoratedBox(
-            //       decoration: BoxDecoration(
-            //         gradient: LinearGradient(
-            //           colors: controller.kodeTerisi.value
-            //               ? [
-            //                   Color(0xFF4D89D4),
-            //                   Color(0xFF216BC9),
-            //                 ]
-            //               : [
-            //                   Colors.transparent,
-            //                   Colors.transparent,
-            //                 ],
-            //           begin: Alignment.topCenter, // Posisi awal gradient
-            //           end: Alignment.bottomCenter, // Posisi akhir gradient
-            //         ),
-            //         borderRadius: BorderRadius.circular(32),
-            //       ),
-            //       child: Visibility(
-            //         visible: controller.kodeTerisi.value,
-            //         child: ElevatedButton(
-            //           style: ElevatedButton.styleFrom(
-            //             backgroundColor: Colors.transparent,
-            //             shadowColor: Colors.transparent,
-            //             textStyle: TextStyle(
-            //               fontSize: 16.sp,
-            //               fontFamily: 'Poppins',
-            //               fontWeight: FontWeight.w600,
-            //             ),
-            //             shape: RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(32),
-            //             ),
-            //             fixedSize: Size(343.w, 42.w),
-            //           ),
-            //           onPressed: controller.kodeTerisi.value
-            //               ? () {
-            //                   // Get.offNamed(Routes.DAFTAR);
-            //                   // print(emailC.emailDaftarC);
-            //                   controller.verifikasiDaftar();
-            //                 }
-            //               : () {},
-            //           child: Text(
-            //             "Verifikasi".tr,
-            //             style: TextStyle(
-            //               fontSize: 16.sp,
-            //               fontFamily: 'Poppins',
-            //               fontWeight: FontWeight.w600,
-            //               // color: Color(0xFF216BC9),
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            //
             Obx(
               () => Visibility(
                 visible: controller.kodeTerisi.value,
@@ -309,7 +252,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    controller_:
+                    controllerLoading:
                         controller.loadingRegisterVerifikasiDaftar.isTrue,
                     onTap: controller.kodeTerisi.value &&
                             controller.loadingRegisterVerifikasiDaftar.isFalse

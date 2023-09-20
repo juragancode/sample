@@ -3,15 +3,20 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../routes/app_pages.dart';
-import '../../../widgets/splashAccountBerhasilDibuat.dart';
 import '../../../constant/url_GAS_v021.dart';
+import '../../../routes/app_pages.dart';
+import '../../../widgets/Dialog/Dialog_KesalahanServer.dart';
+import '../../../widgets/Dialog/Dialog_Koneksi_Internet_Terganggu.dart';
+import '../../../widgets/splashAccountBerhasilDibuat.dart';
+
+final RegisterController emailC = Get.put(RegisterController());
 
 class DaftarController extends GetxController {
-  TextEditingController emailDaftarC = TextEditingController();
+  // TextEditingController emailDaftarC = TextEditingController();
   TextEditingController namaDaftarC = TextEditingController();
   TextEditingController noHpDaftarC = TextEditingController();
   TextEditingController passDaftarC = TextEditingController();
@@ -39,6 +44,7 @@ class DaftarController extends GetxController {
 
   // Validator email
   RxBool emailBenar = true.obs;
+
   RxString email = ''.obs;
   bool get isValid {
     return RegExp(
@@ -66,20 +72,92 @@ class DaftarController extends GetxController {
     isNoHpValid.value = nomorValid;
   }
 
+  // Pertama kali no Hp diketuk
+  RxBool noHpDiklik = false.obs;
+
+  RxString password = ''.obs;
+
+  void pass() {
+    password.value = passDaftarC.value.text;
+  }
+
   bool validateNoHp(String noHp) {
     // Memeriksa apakah nomor handphone dimulai dengan "08"
     if (noHp.startsWith("08")) {
+      noHpDiklik.value = false;
+
       // Memeriksa apakah nomor handphone hanya terdiri dari angka
       final regex = RegExp(r'^\d+$');
       if (regex.hasMatch(noHp)) {
+        noHpDiklik.value = false;
+
         // Memeriksa panjang nomor handphone minimal 10 digit - maksimal 13 digit
         if (noHp.length >= 10 && noHp.length <= 13) {
+          noHpDiklik.value = false;
+
           return true;
+        } else {
+          noHpDiklik.value = true;
         }
+      } else {
+        noHpDiklik.value = true;
       }
+    } else {
+      noHpDiklik.value = true;
     }
+
     return false;
   }
+
+  // void buatAkun() async {
+  //   try {
+  //     loadingDaftar.value = true;
+  //     var response = await http.post(
+  //       Uri.parse(register),
+  //       body: {
+  //         // "otp": otpC.verifikasiDaftarC.text,
+  //         // "email": emailDaftarC.text,
+  //         "email": "davinoverclock@gmail.com",
+  //         "name": namaDaftarC.text,
+  //         "password": passDaftarC.text,
+  //         "phone": noHpDaftarC.text,
+  //       },
+  //     );
+  //     loadingDaftar.value = false;
+  //     Map<String, dynamic> logdata =
+  //         jsonDecode(response.body) as Map<String, dynamic>;
+
+  //     print(response.body);
+  //     print(emailDaftarC.text);
+  //     print(namaDaftarC.text);
+  //     print(noHpDaftarC.text);
+  //     print(passDaftarC.text);
+
+  //     if (logdata['success'] == true) {
+  //       Get.dialog(
+  //         splashAccountBerhasilDibuat(),
+  //       );
+  //       Timer(
+  //         Duration(milliseconds: 3000),
+  //         () {
+  //           Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
+  //         },
+  //       );
+  //     } else if (logdata['success'] != true) {
+  //       Get.defaultDialog(
+  //         title: "Terjadi kesalahan",
+  //         middleText: "${logdata['message']}",
+  //       );
+  //     }
+  //   } catch (e) {
+  //     Get.defaultDialog(
+  //       title: "Login gagal",
+  //       middleText: "Periksa koneksi internet",
+  //     );
+  //   }
+  // }
+
+  // RxBool loadingRegister = false.obs;
 
   RxBool loadingDaftar = false.obs;
 
@@ -90,23 +168,28 @@ class DaftarController extends GetxController {
         Uri.parse(register),
         body: {
           // "otp": otpC.verifikasiDaftarC.text,
-          "email": emailDaftarC.text,
+
+          "email": emailC.emailDaftarC.text.toLowerCase(),
+
+          // "email": "hahaha@gmail.com",
           "name": namaDaftarC.text,
           "password": passDaftarC.text,
           "phone": noHpDaftarC.text,
         },
       );
       loadingDaftar.value = false;
-      Map<String, dynamic> logdata =
-          jsonDecode(response.body) as Map<String, dynamic>;
-
-      print(response.body);
-      print(emailDaftarC.text);
+      print(response.statusCode);
+      // print(emailDaftarC.text);
+      print(emailC.emailDaftarC.text);
       print(namaDaftarC.text);
       print(noHpDaftarC.text);
       print(passDaftarC.text);
+      print(response.body);
 
-      if (logdata['success'] == true) {
+      Map<String, dynamic> logdata =
+          jsonDecode(response.body) as Map<String, dynamic>;
+
+      if (response.statusCode >= 200 && response.statusCode <= 210) {
         Get.dialog(
           splashAccountBerhasilDibuat(),
         );
@@ -116,16 +199,19 @@ class DaftarController extends GetxController {
             Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
           },
         );
-      } else if (logdata['success'] != true) {
-        Get.defaultDialog(
-          title: "Terjadi kesalahan",
-          middleText: "${logdata['message']}",
+      } else
+        Get.dialog(
+          Dialog_KesalahanServer(
+            onReload: buatAkun,
+          ),
         );
-      }
     } catch (e) {
-      Get.defaultDialog(
-        title: "Login gagal",
-        middleText: "Periksa koneksi internet",
+      print(e);
+      loadingDaftar.value = false;
+      Get.dialog(
+        Dialog_Koneksi_Internet_Terganggu(
+          onReload: buatAkun,
+        ),
       );
     }
   }

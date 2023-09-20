@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 
 import '../../../constant/url_GAS_v021.dart';
 import '../../../routes/app_pages.dart';
-import '../../register/controllers/register_controller.dart';
 
 class LoginController extends GetxController {
   // TextEditingController
@@ -103,7 +102,7 @@ class LoginController extends GetxController {
 
       print(response.body);
       print(emailLoginC.text);
-      print(emailC.emailDaftarC.text);
+      // print(emailC.emailDaftarC.text);
 
       if (
           // logdata['message'] == "Berhasil Login" &&

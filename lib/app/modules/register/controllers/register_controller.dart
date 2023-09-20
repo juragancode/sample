@@ -45,6 +45,7 @@ class RegisterController extends GetxController {
 
   void checkEmailValidity() {
     email.value = emailDaftarC.text;
+
     buttonDaftar.value = isValid;
   }
 
@@ -104,7 +105,6 @@ class RegisterController extends GetxController {
         emailDaftarFN.unfocus();
         formatEmail();
         print(emailDaftarC.text);
-        print(emailC.emailDaftarC.text);
         print(response.body);
 
         Get.toNamed(Routes.VERIFIKASI_DAFTAR);

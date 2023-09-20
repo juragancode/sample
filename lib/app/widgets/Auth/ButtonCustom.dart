@@ -11,14 +11,14 @@ class ButtonCustom extends GetView<RegisterController> {
     super.key,
     required this.splashFactory,
     required this.onTap,
-    required this.controller_,
+    required this.controllerLoading,
     required this.title,
     required this.gradient,
   });
 
   final InteractiveInkFeatureFactory splashFactory;
   final Function() onTap;
-  final bool controller_;
+  final bool controllerLoading;
   final String title;
   final LinearGradient gradient;
 
@@ -42,7 +42,7 @@ class ButtonCustom extends GetView<RegisterController> {
             child: Container(
               height: 23.5.w,
               child: Center(
-                child: controller_
+                child: controllerLoading
                     ?
                     //  Row(
                     //     mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,6 @@ class ButtonCustom extends GetView<RegisterController> {
                         ),
                       )
                     : Text(
-                        //ganti tulisan daftar dengan loading ketika request load
                         title,
                         style: TextStyle(
                           fontSize: 15.5.w,

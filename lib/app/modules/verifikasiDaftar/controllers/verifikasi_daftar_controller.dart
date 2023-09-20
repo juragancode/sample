@@ -83,7 +83,7 @@ class VerifikasiDaftarController extends GetxController {
         Uri.parse(registerConfirmOtp),
         body: {
           "otp": verifikasiDaftarC.text,
-          "key": emailC.emailDaftarC.text,
+          "key": emailC.emailDaftarC.text.toLowerCase(),
         },
       );
       loadingRegisterVerifikasiDaftar.value = false;
