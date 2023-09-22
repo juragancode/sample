@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:text_divider/text_divider.dart';
 
+import '../../../../TextDividerCustom.dart';
+import '../../../constant/colors.dart';
 import '../../../routes/app_pages.dart';
+import '../../../widgets/Auth/ButtonCustom.dart';
+import '../../../widgets/Auth/iconGAS.dart';
 import '../../../widgets/buttonGoogle.dart';
 // import '../../home/controllers/home_controller.dart';
 import '../controllers/login_controller.dart';
-import '../../../constant/colors.dart';
-import '../../../widgets/Auth/ButtonCustom.dart';
 
 // final LoginController controller = LoginController();
 
@@ -40,18 +40,8 @@ class LoginView extends GetView<LoginController> {
               // crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Container(
-                    width: 104.w,
-                    height: 104.w,
-                    child: SvgPicture.asset(
-                      "assets/icons/iconGAS.svg",
-                      fit: BoxFit.contain,
-                    ),
-                    // color: Colors.amber,
-                  ),
-                ),
-                SizedBox(height: 12.w),
+                iconGAS(),
+                SizedBox(height: 12.sp),
                 Row(
                   children: [
                     SizedBox(width: 34.w),
@@ -254,7 +244,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                // SizedBox(height: 8.sp),
+                SizedBox(height: 10.sp),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
@@ -301,26 +291,44 @@ class LoginView extends GetView<LoginController> {
                               ),
                             ),
                             SizedBox(width: 8.w),
-                            Text(
-                              "Ingat saya".tr,
-                              style: TextStyle(
-                                fontSize: 12.sp,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
+                            Obx(
+                              () => Text(
+                                "Ingat saya".tr,
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  color: controller.ingatSaya.value
+                                      ? H333333
+                                      : Neutral90,
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      TextButton(
-                        onPressed: () => Get.toNamed(Routes.LUPA_PASSWORD),
-                        child: Text(
-                          "Lupa Password?".tr,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF216BC9),
+                      InkWell(
+                        onTap: () {
+                          controller.emailLoginFN.unfocus();
+                          controller.passLoginFN.unfocus();
+                          Get.toNamed(Routes.LUPA_PASSWORD);
+                        },
+                        borderRadius: BorderRadius.circular(4.r),
+                        splashColor: splashColor,
+                        highlightColor: highlightColor,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.w,
+                          ),
+                          child: Text(
+                            "Lupa Password?".tr,
+                            style: TextStyle(
+                              fontSize: 11.5.w,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF216BC9),
+                            ),
                           ),
                         ),
                       ),
@@ -372,63 +380,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-
-                // Center(
-                //   child: DecoratedBox(
-                //     decoration: BoxDecoration(
-                //       gradient: LinearGradient(
-                //         colors: [
-                //           Color(0xFF4D89D4),
-                //           Color(0xFF216BC9),
-                //         ], // Daftar warna gradient yang ingin digunakan
-                //         begin: Alignment.topCenter, // Posisi awal gradient
-                //         end: Alignment.bottomCenter, // Posisi akhir gradient
-                //       ),
-                //       borderRadius: BorderRadius.circular(32.r),
-                //     ),
-                //     child: Obx(
-                //       () => ElevatedButton(
-                //         style: ElevatedButton.styleFrom(
-                //           backgroundColor: Colors.transparent,
-                //           shadowColor: Colors.transparent,
-                //           textStyle: TextStyle(
-                //             fontSize: 16.sp,
-                //             fontFamily: 'Poppins',
-                //             fontWeight: FontWeight.w600,
-                //           ),
-                //           shape: RoundedRectangleBorder(
-                //             borderRadius: BorderRadius.circular(32.r),
-                //           ),
-                //           fixedSize: Size(343.w, 42.w),
-                //         ),
-                //         onPressed: controller.passLoginC.text.isNotEmpty &&
-                //                 controller.isValid
-                //             ? () {
-                //                 controller.emailLoginFN.unfocus();
-                //                 controller.passLoginFN.unfocus();
-                //                 Timer(
-                //                   Duration(milliseconds: 500),
-                //                   () {
-                //                     controller.loginWithEmail();
-                //                   },
-                //                 );
-                //               }
-                //             : () {},
-                //         child: Text(
-                //           "Login",
-                //           style: TextStyle(
-                //             fontSize: 16.sp,
-                //             fontFamily: 'Poppins',
-                //             fontWeight: FontWeight.w600,
-                //             // color: Color(0xFF216BC9),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 SizedBox(height: 8.w),
-
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.sp),
                   child: InkWell(
@@ -438,8 +390,8 @@ class LoginView extends GetView<LoginController> {
                       Get.toNamed(Routes.REGISTER);
                     },
                     borderRadius: BorderRadius.circular(32.r),
-                    splashColor: Primary50.withOpacity(0.1),
-                    highlightColor: Primary50.withOpacity(0.2),
+                    splashColor: splashColor,
+                    highlightColor: highlightColor,
                     child: Container(
                       // height: 38.w,
                       width: Get.width,
@@ -466,62 +418,11 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(32.r),
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        side: BorderSide(color: Color(0xFF216BC9), width: 1.w),
-                        backgroundColor: Colors.white,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.r),
-                        ),
-                        fixedSize: Size(343.w, 42.w),
-                      ),
-                      onPressed: () {
-                        controller.emailLoginFN.unfocus();
-                        controller.passLoginFN.unfocus();
-                        Get.toNamed(Routes.REGISTER);
-                      },
-                      child: Text(
-                        "Daftar".tr,
-                        style: TextStyle(
-                          fontSize: 15.5.w,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          color: Primary50,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.w),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child: TextDivider(
-                    text: Text(
-                      "atau masuk dengan".tr,
-                      style: TextStyle(
-                        color: Color(0xFF858585),
-                        fontSize: 10.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    color: Color(0xFF858585),
-                  ),
-                ),
-                SizedBox(height: 16.w),
+                SizedBox(height: 16.sp),
+                TextDividerCustom(),
+                SizedBox(height: 16.sp),
                 ButtonGoogleAuth(),
-                SizedBox(height: 16.w),
+                SizedBox(height: 16.sp),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

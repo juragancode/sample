@@ -31,15 +31,18 @@ class ButtonGoogleAuth extends GetView<LoginController> {
             // alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Container(
-                width: 24.w,
-                height: 24.w,
-                child: SvgPicture.asset(
-                  "assets/icons/iconGoogle.svg",
-                  fit: BoxFit.cover,
+              Padding(
+                padding: EdgeInsets.all(1.w),
+                child: Container(
+                  width: 25.w,
+                  height: 25.w,
+                  child: SvgPicture.asset(
+                    "assets/icons/iconGoogle.svg",
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              SizedBox(width: 4.w),
+              SizedBox(width: 3.w),
               Text(
                 "Google",
                 style: TextStyle(

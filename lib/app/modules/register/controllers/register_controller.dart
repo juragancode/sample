@@ -102,7 +102,6 @@ class RegisterController extends GetxController {
       // ;
 
       if (response.statusCode >= 200 && response.statusCode <= 210) {
-        emailDaftarFN.unfocus();
         formatEmail();
         print(emailDaftarC.text);
         print(response.body);

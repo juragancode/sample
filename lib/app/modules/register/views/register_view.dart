@@ -54,7 +54,7 @@ class RegisterView extends GetView<RegisterController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   iconGAS(),
-                  SizedBox(height: 12.w),
+                  SizedBox(height: 12.sp),
                   Obx(
                     () => TextfieldEmail(
                       controller: controller,
@@ -138,6 +138,7 @@ class RegisterView extends GetView<RegisterController> {
                               controller.syaratKebijakanCheck.isTrue &&
                               controller.loadingRegister.isFalse
                           ? () {
+                              controller.emailDaftarFN.unfocus();
                               controller.registerButton();
                               print(controller.emailDaftarC.text);
                             }

@@ -219,7 +219,7 @@ class LoginController extends GetxController {
           } else {
             // jika _googleSignIn gagal , cukup di print
             print('login gagal => tetap semangat kaka!');
-            Get.back();
+            // Get.back();
           }
         },
       );
@@ -233,9 +233,10 @@ class LoginController extends GetxController {
           onReload: loginWithGoogle,
         ),
       );
-    } finally {
-      // xx
-      Get.back();
     }
+    // finally {
+    //   // xx
+    //   Get.back();
+    // }
   }
 }

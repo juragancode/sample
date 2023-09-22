@@ -6,8 +6,8 @@ class iconGAS extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 104.w,
-      height: 104.w,
+      width: 100.w,
+      height: 100.w,
       child: SvgPicture.asset(
         "assets/icons/iconGAS.svg",
         fit: BoxFit.cover,
