@@ -44,8 +44,11 @@ var Error50 = Color(0xFFFF002E);
 
 var Favorite = Color(0xFFFF2048);
 
-var BackgroundColor = Color(0xFFFFFFFF);
-var BackgroundColor2 = Color(0xFFF9F9F9);
+const BackgroundColor = Color(0xFFFFFFFF);
+const BackgroundColor2 = Color(0xFFF9F9F9);
+
+var splashColor = Primary50.withOpacity(0.1);
+var highlightColor = Primary50.withOpacity(0.2);
 
 var TextBlack = Color(0xFF000000);
 

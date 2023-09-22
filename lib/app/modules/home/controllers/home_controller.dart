@@ -1,18 +1,11 @@
-import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:http/http.dart' as http;
 
-import '../../../constant/url_GAS_v021.dart';
 import '../../../model/filter_kategori_model.dart';
 import '../../../model/filter_lokasi_model.dart';
 import '../../../model/filter_urutkan_model.dart';
 import '../../../model/produk_terbaru_model.dart';
-import '../../../routes/app_pages.dart';
 import '../../../widgets/Blank.dart';
 import '../views/Beranda.dart';
 import '../views/explore.dart';
@@ -78,73 +71,6 @@ class HomeController extends GetxController {
   }
 
   RxInt filterTransaksi = 0.obs;
-
-  ///
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-  GoogleSignInAccount? currentUser;
-
-  RxBool loadingLogin = false.obs;
-
-  Future<void> loginWithGoogle() async {
-    try {
-      loadingLogin.value = true;
-
-      await _googleSignIn.signIn().then((value) => currentUser = value);
-
-      await _googleSignIn.isSignedIn().then((value) async {
-        if (value) {
-          // jika login berhasil
-          print('Anda sudah menangkap data google sign in');
-          print(currentUser);
-
-          var response = await http.post(
-            Uri.parse(registerGoogle),
-            body: {
-              "email": currentUser?.email,
-              "name": currentUser?.displayName,
-              "photo": currentUser?.photoUrl.toString(),
-            },
-          );
-          loadingLogin.value = false;
-          Map<String, dynamic> logdata =
-              jsonDecode(response.body) as Map<String, dynamic>;
-
-          print(response.body);
-          print(currentUser?.displayName);
-          print(currentUser?.email);
-          print(currentUser?.photoUrl);
-          print(currentUser?.id);
-          print(currentUser?.authHeaders);
-          print(currentUser?.serverAuthCode);
-
-          if (
-              // logdata['message'] == "Berhasil Login"
-              // &&
-              response.statusCode >= 200 && response.statusCode <= 210) {
-            Get.offNamed(Routes.HOME);
-          } else {
-            Get.defaultDialog(
-              title: "Terjadi kesalahan",
-              middleText: "${logdata['message']}",
-            );
-          }
-          ;
-        } else {
-          // jika login gagal
-          print('login gagal => tetap semangat kaka!');
-        }
-      });
-
-      //
-    } catch (e) {
-      print(e);
-      Get.defaultDialog(
-        title: "Login gagal",
-        middleText: "Periksa koneksi internet",
-      );
-    }
-  }
 }
 
 class ProdukController extends GetxController {

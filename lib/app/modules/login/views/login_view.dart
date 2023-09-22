@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,18 +11,20 @@ import '../../../widgets/buttonGoogle.dart';
 // import '../../home/controllers/home_controller.dart';
 import '../controllers/login_controller.dart';
 import '../../../constant/colors.dart';
+import '../../../widgets/Auth/ButtonCustom.dart';
 
-final LoginController controller = LoginController();
+// final LoginController controller = LoginController();
 
-class LoginView extends StatelessWidget {
+class LoginView extends GetView<LoginController> {
   final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
-    if (box.read("dataIngatSaya") != null) {
+    if (box.hasData("dataIngatSaya")) {
+      final dataIngatSaya = box.read("dataIngatSaya");
       controller.ingatSaya.value = true;
-      controller.emailLoginC.text = box.read("dataIngatSaya")["email"];
-      controller.passLoginC.text = box.read("dataIngatSaya")["password"];
+      controller.emailLoginC.text = dataIngatSaya["email"];
+      controller.passLoginC.text = dataIngatSaya["password"];
     }
 
     return GestureDetector(
@@ -37,7 +37,7 @@ class LoginView extends StatelessWidget {
           alignment: Alignment.center,
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
@@ -55,12 +55,18 @@ class LoginView extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(width: 34.w),
-                    Text(
-                      "Email",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
+                    Obx(
+                      () => Text(
+                        "Email",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          color: controller.isValid ||
+                                  !controller.isTextFieldTapped.value
+                              ? H333333
+                              : Error50,
+                        ),
                       ),
                     ),
                   ],
@@ -93,9 +99,7 @@ class LoginView extends StatelessWidget {
                         decorationThickness: 0,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
-                        color: controller.isValid
-                            ? Color(0xFF333333)
-                            : Color(0xFFFF002E),
+                        color: controller.isValid ? H333333 : Error50,
                       ),
                       decoration: InputDecoration(
                         border: controller.isValid ||
@@ -110,7 +114,7 @@ class LoginView extends StatelessWidget {
                             color: controller.isValid ||
                                     !controller.isTextFieldTapped.value
                                 ? Colors.transparent
-                                : Color(0xFFFF002E), // Warna tepi saat fokus
+                                : Error50, // Warna tepi saat fokus
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -119,8 +123,7 @@ class LoginView extends StatelessWidget {
                             color: controller.isValid ||
                                     !controller.isTextFieldTapped.value
                                 ? Colors.transparent
-                                : Color(
-                                    0xFFFF002E), // Warna tepi saat tidak dalam fokus
+                                : Error50, // Warna tepi saat tidak dalam fokus
                           ),
                         ),
                         suffixIcon: controller.isValid
@@ -180,7 +183,7 @@ class LoginView extends StatelessWidget {
                         decorationThickness: 0,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xFF333333),
+                        color: H333333,
                       ),
                       focusNode: controller.passLoginFN,
                       controller: controller.passLoginC,
@@ -223,32 +226,35 @@ class LoginView extends StatelessWidget {
                 Obx(
                   () => Visibility(
                     visible: !controller.isValid &&
-                        controller.isTextFieldTapped.value,
+                            controller.isTextFieldTapped.value ||
+                        controller.emailAtauPassSalah.isTrue,
                     child: Row(
                       children: [
                         SizedBox(width: 21.42.w),
                         Icon(
                           Icons.info,
-                          color: Color(0xFFFF002E),
+                          color: Error50,
                           size: 20.sp,
                         ),
                         SizedBox(width: 5.sp),
                         Text(
-                          controller.emailLoginC.text.isNotEmpty
-                              ? "Format email tidak valid.".tr
-                              : "Masukan email.".tr,
+                          controller.emailAtauPassSalah.isTrue
+                              ? "Email atau password salah.".tr
+                              : controller.emailLoginC.text.isNotEmpty
+                                  ? "Format email tidak valid.".tr
+                                  : "Masukan email.".tr,
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 11.5.w,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFFFF002E),
+                            color: Error50,
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 8.sp),
+                // SizedBox(height: 8.sp),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Row(
@@ -321,62 +327,146 @@ class LoginView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 14.w),
-                Center(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
+                SizedBox(height: 14.sp),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Obx(
+                    () => ButtonCustom(
                       gradient: LinearGradient(
-                        colors: [
-                          Color(0xFF4D89D4),
-                          Color(0xFF216BC9),
-                        ], // Daftar warna gradient yang ingin digunakan
+                        colors: controller.loadingLogin == true
+                            ? [
+                                Primary10.withOpacity(0.8),
+                                Primary10,
+                              ]
+                            : controller.isValid &&
+                                    controller.passTerisi.value == true
+                                ? [
+                                    Primary30,
+                                    Primary50,
+                                  ]
+                                : [
+                                    Color(0xFFB5B5B5),
+                                    Color(0xFFB5B5B5),
+                                  ], // Daftar warna gradient yang ingin digunakan
                         begin: Alignment.topCenter, // Posisi awal gradient
                         end: Alignment.bottomCenter, // Posisi akhir gradient
                       ),
-                      borderRadius: BorderRadius.circular(32.r),
+                      controllerLoading: controller.loadingLogin == true,
+                      onTap: controller.isValid &&
+                              controller.passLoginC.text.isNotEmpty &&
+                              controller.loadingLogin.isFalse
+                          ? () {
+                              controller.emailLoginFN.unfocus();
+                              controller.passLoginFN.unfocus();
+                              controller.loginWithEmail();
+                              print(controller.emailLoginC.text);
+                              print(controller.passLoginC.text);
+                            }
+                          : () {},
+                      splashFactory: controller.isValid &&
+                              controller.passLoginC.text.isNotEmpty &&
+                              controller.loadingLogin.isFalse
+                          ? InkSplash.splashFactory
+                          : NoSplash.splashFactory,
+                      title: 'Login'.tr,
                     ),
-                    child: Obx(
-                      () => ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.transparent,
-                          textStyle: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.r),
-                          ),
-                          fixedSize: Size(343.w, 42.w),
+                  ),
+                ),
+
+                // Center(
+                //   child: DecoratedBox(
+                //     decoration: BoxDecoration(
+                //       gradient: LinearGradient(
+                //         colors: [
+                //           Color(0xFF4D89D4),
+                //           Color(0xFF216BC9),
+                //         ], // Daftar warna gradient yang ingin digunakan
+                //         begin: Alignment.topCenter, // Posisi awal gradient
+                //         end: Alignment.bottomCenter, // Posisi akhir gradient
+                //       ),
+                //       borderRadius: BorderRadius.circular(32.r),
+                //     ),
+                //     child: Obx(
+                //       () => ElevatedButton(
+                //         style: ElevatedButton.styleFrom(
+                //           backgroundColor: Colors.transparent,
+                //           shadowColor: Colors.transparent,
+                //           textStyle: TextStyle(
+                //             fontSize: 16.sp,
+                //             fontFamily: 'Poppins',
+                //             fontWeight: FontWeight.w600,
+                //           ),
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(32.r),
+                //           ),
+                //           fixedSize: Size(343.w, 42.w),
+                //         ),
+                //         onPressed: controller.passLoginC.text.isNotEmpty &&
+                //                 controller.isValid
+                //             ? () {
+                //                 controller.emailLoginFN.unfocus();
+                //                 controller.passLoginFN.unfocus();
+                //                 Timer(
+                //                   Duration(milliseconds: 500),
+                //                   () {
+                //                     controller.loginWithEmail();
+                //                   },
+                //                 );
+                //               }
+                //             : () {},
+                //         child: Text(
+                //           "Login",
+                //           style: TextStyle(
+                //             fontSize: 16.sp,
+                //             fontFamily: 'Poppins',
+                //             fontWeight: FontWeight.w600,
+                //             // color: Color(0xFF216BC9),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                SizedBox(height: 8.w),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: InkWell(
+                    onTap: () {
+                      controller.emailLoginFN.unfocus();
+                      controller.passLoginFN.unfocus();
+                      Get.toNamed(Routes.REGISTER);
+                    },
+                    borderRadius: BorderRadius.circular(32.r),
+                    splashColor: Primary50.withOpacity(0.1),
+                    highlightColor: Primary50.withOpacity(0.2),
+                    child: Container(
+                      // height: 38.w,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(32.r),
+                        border: Border.all(
+                          color: Primary30,
+                          width: 1,
                         ),
-                        onPressed:
-                            controller.isValid && controller.passTerisi.isTrue
-                                ? () {
-                                    controller.emailLoginFN.unfocus();
-                                    controller.passLoginFN.unfocus();
-                                    Timer(
-                                      Duration(milliseconds: 500),
-                                      () {
-                                        controller.loginWithEmail();
-                                      },
-                                    );
-                                  }
-                                : () {},
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            // color: Color(0xFF216BC9),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10.w),
+                        child: Center(
+                          child: Text(
+                            "Daftar",
+                            style: TextStyle(
+                              fontSize: 15.5.w,
+                              fontWeight: FontWeight.w600,
+                              color: Primary50,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 8.w),
+
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
@@ -397,14 +487,18 @@ class LoginView extends StatelessWidget {
                         ),
                         fixedSize: Size(343.w, 42.w),
                       ),
-                      onPressed: () => Get.toNamed(Routes.REGISTER),
+                      onPressed: () {
+                        controller.emailLoginFN.unfocus();
+                        controller.passLoginFN.unfocus();
+                        Get.toNamed(Routes.REGISTER);
+                      },
                       child: Text(
                         "Daftar".tr,
                         style: TextStyle(
-                          fontSize: 16.sp,
+                          fontSize: 15.5.w,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF216BC9),
+                          color: Primary50,
                         ),
                       ),
                     ),
@@ -443,6 +537,8 @@ class LoginView extends StatelessWidget {
                     SizedBox(width: 4.sp),
                     GestureDetector(
                       onTap: () {
+                        controller.emailLoginFN.unfocus();
+                        controller.passLoginFN.unfocus();
                         Get.toNamed(Routes.REGISTER);
                       },
                       child: Text(

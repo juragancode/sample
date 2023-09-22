@@ -2,11 +2,19 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:g_a_s_app_rekadigi/app/modules/register/controllers/register_controller.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../../constant/url_GAS_v021.dart';
 import '../../../routes/app_pages.dart';
+import '../../../widgets/Dialog/Dialog_KesalahanServer.dart';
+import '../../../widgets/Dialog/Dialog_Koneksi_Internet_Terganggu.dart';
+
+final RegisterController emailC = Get.put(RegisterController());
 
 class LoginController extends GetxController {
   // TextEditingController
@@ -31,6 +39,9 @@ class LoginController extends GetxController {
     super.onInit();
     emailLoginC.addListener(() {
       checkEmailValidity();
+    });
+    passLoginC.addListener(() {
+      PasswordTerisi();
     });
   }
 
@@ -72,7 +83,6 @@ class LoginController extends GetxController {
     }
   }
 
-  //
   RxBool passTerisi = false.obs;
 
   void PasswordTerisi() {
@@ -85,8 +95,12 @@ class LoginController extends GetxController {
 
   //
   RxBool loadingLogin = false.obs;
+  RxBool emailAtauPassSalah = false.obs;
 
   void loginWithEmail() async {
+    emailC.emailDaftarFN.unfocus();
+    emailLoginFN.unfocus();
+    passLoginFN.unfocus();
     try {
       loadingLogin.value = true;
       var response = await http.post(
@@ -104,23 +118,124 @@ class LoginController extends GetxController {
       print(emailLoginC.text);
       // print(emailC.emailDaftarC.text);
 
-      if (
-          // logdata['message'] == "Berhasil Login" &&
-          response.statusCode == 200) {
-        Get.offNamed(Routes.HOME);
+      if (response.statusCode >= 200 && response.statusCode <= 210) {
+        final box = GetStorage();
+        if (box.read("dataIngatSaya") != null) {
+          box.remove("dataIngatSaya");
+        }
+
+        if (ingatSaya.isTrue) {
+          box.write(
+            "dataIngatSaya",
+            {"email": emailLoginC.text, "password": passLoginC.text},
+          );
+        }
+
+        checkAndHandlePermissions();
+      } else if (logdata["message"] == "Email / Password Salah") {
+        emailAtauPassSalah.value = true;
       } else {
-        Get.defaultDialog(
-          title: "Terjadi kesalahan",
-          middleText: "${logdata['message']}",
+        loadingLogin.value = false;
+
+        Get.dialog(
+          Dialog_KesalahanServer(
+            onReload: loginWithGoogle,
+          ),
         );
       }
-      ;
     } catch (e) {
       print(e);
-      Get.defaultDialog(
-        title: "Login gagal",
-        middleText: "Periksa koneksi internet",
+      loadingLogin.value = false;
+      Get.dialog(
+        Dialog_Koneksi_Internet_Terganggu(
+          onReload: loginWithEmail,
+        ),
       );
+    }
+  }
+
+  ///
+  Future<void> checkAndHandlePermissions() async {
+    final status = await Permission.location.request();
+
+    if (status.isGranted) {
+      // Izin diberikan, arahkan pengguna ke rute HOME
+      Get.offNamed(Routes.HOME);
+    } else {
+      // Izin tidak diberikan, arahkan pengguna ke rute IZINKAN_AKSES_LOKASI
+      Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
+    }
+  }
+
+  //
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  GoogleSignInAccount? currentUser;
+
+  Future<void> loginWithGoogle() async {
+    try {
+      loadingLogin.value = true;
+
+      await _googleSignIn.signIn().then((value) => currentUser = value);
+
+      await _googleSignIn.isSignedIn().then(
+        (value) async {
+          if (value) {
+            // jika login berhasil
+            print('Anda sudah menangkap data google sign in');
+            print(currentUser);
+
+            var response = await http.post(
+              Uri.parse(registerGoogle),
+              body: {
+                "email": currentUser?.email.toString(),
+                "name": currentUser?.displayName.toString(),
+                "photo": currentUser?.photoUrl.toString(),
+              },
+            );
+            loadingLogin.value = false;
+            Map<String, dynamic> logdata =
+                jsonDecode(response.body) as Map<String, dynamic>;
+
+            print(response.body);
+            print(currentUser?.displayName);
+            print(currentUser?.email);
+            print(currentUser?.photoUrl);
+            print(currentUser?.id);
+            print(currentUser?.authHeaders);
+            print(currentUser?.serverAuthCode);
+
+            if (
+                // logdata['message'] == "Berhasil Login"
+                // &&
+                response.statusCode >= 200 && response.statusCode <= 210) {
+              checkAndHandlePermissions();
+            } else
+              Get.dialog(
+                Dialog_KesalahanServer(
+                  onReload: loginWithGoogle,
+                ),
+              );
+          } else {
+            // jika _googleSignIn gagal , cukup di print
+            print('login gagal => tetap semangat kaka!');
+            Get.back();
+          }
+        },
+      );
+
+      //
+    } catch (e) {
+      print(e);
+      loadingLogin.value = false;
+      Get.dialog(
+        Dialog_Koneksi_Internet_Terganggu(
+          onReload: loginWithGoogle,
+        ),
+      );
+    } finally {
+      // xx
+      Get.back();
     }
   }
 }

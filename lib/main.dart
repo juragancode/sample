@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app/routes/app_pages.dart';
@@ -11,6 +12,7 @@ import 'app/utils/translation.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  await GetStorage.init();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
