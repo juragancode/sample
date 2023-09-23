@@ -167,23 +167,24 @@ class LoginController extends GetxController {
     }
   }
 
-  //
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  RxBool loadingGoogle = false.obs;
 
+  //
+  GoogleSignIn _googleSignIn = GoogleSignIn();
   GoogleSignInAccount? currentUser;
 
   Future<void> loginWithGoogle() async {
     try {
-      loadingLogin.value = true;
-
+      loadingGoogle.value = true;
+      await _googleSignIn.signOut();
       await _googleSignIn.signIn().then((value) => currentUser = value);
-
       await _googleSignIn.isSignedIn().then(
         (value) async {
           if (value) {
             // jika login berhasil
             print('Anda sudah menangkap data google sign in');
             print(currentUser);
+            // print(value);
 
             var response = await http.post(
               Uri.parse(registerGoogle),
@@ -193,11 +194,12 @@ class LoginController extends GetxController {
                 "photo": currentUser?.photoUrl.toString(),
               },
             );
-            loadingLogin.value = false;
-            Map<String, dynamic> logdata =
-                jsonDecode(response.body) as Map<String, dynamic>;
+            loadingGoogle.value = false;
+            // Map<String, dynamic> logdata =
+            //     jsonDecode(response.body) as Map<String, dynamic>;
 
             print(response.body);
+            print(response.statusCode);
             print(currentUser?.displayName);
             print(currentUser?.email);
             print(currentUser?.photoUrl);
@@ -210,15 +212,25 @@ class LoginController extends GetxController {
                 // &&
                 response.statusCode >= 200 && response.statusCode <= 210) {
               checkAndHandlePermissions();
-            } else
+              loadingGoogle.value = false;
+            } else if (response.statusCode >= 400 &&
+                response.statusCode <= 410) {
+              loadingGoogle.value = false;
+              await _googleSignIn.disconnect();
               Get.dialog(
                 Dialog_KesalahanServer(
                   onReload: loginWithGoogle,
                 ),
               );
+            } else
+              print("masalah server");
+            await _googleSignIn.disconnect();
+            loadingGoogle.value = false;
           } else {
+            await _googleSignIn.disconnect();
+            loadingGoogle.value = false;
             // jika _googleSignIn gagal , cukup di print
-            print('login gagal => tetap semangat kaka!');
+            print('Terdapat masalah di signIn with google!');
             // Get.back();
           }
         },
@@ -227,7 +239,9 @@ class LoginController extends GetxController {
       //
     } catch (e) {
       print(e);
-      loadingLogin.value = false;
+      loadingGoogle.value = false;
+      await _googleSignIn.disconnect();
+
       Get.dialog(
         Dialog_Koneksi_Internet_Terganggu(
           onReload: loginWithGoogle,
