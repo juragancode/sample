@@ -6,17 +6,17 @@
         <shape android:shape="rectangle">
             <gradient
                 android:type="linear"
-                android:startColor="#4D89D4"  
-                android:endColor="#216BC9"  
-                android:angle="180"  
+                android:startColor="#216BC9"
+                android:endColor="#4D89D4"
+                android:angle="90"  
             />
         </shape>
     </item>
 
     <!-- You can insert your own image assets here -->
-    <item>
+    <!-- <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/icon_gas" />
-    </item>
+            android:src="@drawable/launcher_icon" />
+    </item> -->
 </layer-list>

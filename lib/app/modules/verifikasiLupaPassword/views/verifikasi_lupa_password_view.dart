@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
 import 'package:g_a_s_app_rekadigi/app/modules/lupaPassword/controllers/lupa_password_controller.dart';
+import 'package:g_a_s_app_rekadigi/app/widgets/Auth/ButtonCustom.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -50,7 +52,7 @@ class VerifikasiLupaPasswordView
                 "assets/icons/Verifikasi.svg",
                 height: 200.w,
                 width: 275.w,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             SizedBox(height: 8.w),
@@ -102,6 +104,8 @@ class VerifikasiLupaPasswordView
                 keyboardType: TextInputType.number,
                 controller: controller.verifikasiLupaPassC,
                 appContext: context,
+                focusNode: controller.verifikasiLupaPassFN,
+                autoFocus: true,
                 length: 4,
                 onChanged: controller.perubahanKodeTerisi,
                 boxShadows: [
@@ -193,20 +197,25 @@ class VerifikasiLupaPasswordView
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           // isikan fungsi
                           controller.restartTimer();
+
                           //
                         },
-                        child: Text(
-                          "Kirim ulang".tr,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF216BC9),
+                        borderRadius: BorderRadius.circular(4.r),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 3.5.sp),
+                          child: Text(
+                            "Kirim ulang".tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11.5.w,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF216BC9),
+                            ),
                           ),
                         ),
                       ),
@@ -226,56 +235,39 @@ class VerifikasiLupaPasswordView
               },
             ),
             SizedBox(height: 24.w),
-            Center(
-              child: Obx(
-                () => DecoratedBox(
-                  decoration: BoxDecoration(
+            Obx(
+              () => Visibility(
+                visible: controller.kodeTerisi.value,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: ButtonCustom(
                     gradient: LinearGradient(
-                      colors: controller.kodeTerisi.value
+                      colors: controller.loadingVerifikasiLupaPassOTP.isTrue
                           ? [
-                              Color(0xFF4D89D4),
-                              Color(0xFF216BC9),
+                              Primary10.withOpacity(0.8),
+                              Primary10,
                             ]
                           : [
-                              Colors.transparent,
-                              Colors.transparent,
+                              Primary30,
+                              Primary50,
                             ],
                       begin: Alignment.topCenter, // Posisi awal gradient
                       end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  child: Visibility(
-                    visible: controller.kodeTerisi.value,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        fixedSize: Size(343.w, 42.w),
-                      ),
-                      onPressed: controller.kodeTerisi.value
-                          ? () {
-                              Get.toNamed(Routes.ATUR_ULANG_PASSWORD);
-                            }
-                          : () {},
-                      child: Text(
-                        "Verifikasi".tr,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          // color: Color(0xFF216BC9),
-                        ),
-                      ),
-                    ),
+                    controllerLoading:
+                        controller.loadingVerifikasiLupaPassOTP.isTrue,
+                    onTap: controller.kodeTerisi.value &&
+                            controller.loadingVerifikasiLupaPassOTP.isFalse
+                        ? () {
+                            //
+                            controller.verifikasiLupaPass();
+                          }
+                        : () {},
+                    splashFactory: controller.kodeTerisi.value &&
+                            controller.loadingVerifikasiLupaPassOTP.isFalse
+                        ? InkSplash.splashFactory
+                        : NoSplash.splashFactory,
+                    title: 'Verifikasi'.tr,
                   ),
                 ),
               ),

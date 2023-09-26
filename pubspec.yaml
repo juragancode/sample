@@ -54,6 +54,7 @@ flutter:
     - assets/icons/
     - assets/icons/category/
     - assets/icons/ContentIcons/
+    - assets/icons/Personal/
     - fonts/
   fonts:
     - family: DancingScript

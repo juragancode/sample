@@ -79,7 +79,7 @@ class TextfieldEmail extends StatelessWidget {
                 color: controller.isValid ? H333333 : Error50,
               ),
               inputFormatters: [
-                LowerCaseTextFormatter(), // Menggunakan LowerCaseTextFormatter
+                LowerCaseTextFormatter(),
               ],
               decoration: InputDecoration(
                 border:

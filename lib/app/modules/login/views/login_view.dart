@@ -49,7 +49,7 @@ class LoginView extends GetView<LoginController> {
                       () => Text(
                         "Email",
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 13.5.w,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           color: controller.isValid ||
@@ -87,7 +87,7 @@ class LoginView extends GetView<LoginController> {
                       autocorrect: false,
                       style: TextStyle(
                         decorationThickness: 0,
-                        fontSize: 12.sp,
+                        fontSize: 11.5.w,
                         fontWeight: FontWeight.w400,
                         color: controller.isValid ? H333333 : Error50,
                       ),
@@ -130,10 +130,13 @@ class LoginView extends GetView<LoginController> {
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 20.sp, vertical: 10.sp),
                         hintStyle: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 11.5.w,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
-                          color: Color(0xFFA0A0A0),
+                          color: controller.isValid ||
+                                  !controller.isTextFieldTapped.value
+                              ? Neutral70
+                              : Error10,
                         ),
                       ),
                     ),
@@ -146,7 +149,7 @@ class LoginView extends GetView<LoginController> {
                     Text(
                       "Password",
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 13.5.w,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
@@ -171,7 +174,7 @@ class LoginView extends GetView<LoginController> {
                       },
                       style: TextStyle(
                         decorationThickness: 0,
-                        fontSize: 12.sp,
+                        fontSize: 11.5.w,
                         fontWeight: FontWeight.w400,
                         color: H333333,
                       ),
@@ -188,7 +191,7 @@ class LoginView extends GetView<LoginController> {
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 20.sp, vertical: 10.sp),
                         hintStyle: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 11.5.w,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: Color(0xFFA0A0A0),
@@ -295,7 +298,7 @@ class LoginView extends GetView<LoginController> {
                               () => Text(
                                 "Ingat saya".tr,
                                 style: TextStyle(
-                                  fontSize: 12.sp,
+                                  fontSize: 11.5.w,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
                                   color: controller.ingatSaya.value
@@ -429,7 +432,7 @@ class LoginView extends GetView<LoginController> {
                     Text(
                       "Belum punya akun GAS?".tr,
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 11.5.w,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF858585),
@@ -445,7 +448,7 @@ class LoginView extends GetView<LoginController> {
                       child: Text(
                         "Daftar".tr,
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 11.5.w,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           color: Color(0xFF216BC9),

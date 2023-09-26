@@ -1,19 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/Decoration/BoxShadow.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:g_a_s_app_rekadigi/app/model/personal_model.dart';
+import 'package:g_a_s_app_rekadigi/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../widgets/backgroundHomePage.dart';
-import '../controllers/home_controller.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import '../../../widgets/Decoration/Shimmer.dart';
+import '../../../constant/colors.dart';
+import '../../../widgets/Decoration/BoxShadow.dart';
 import '../../../widgets/backgroundProfile.dart';
+import '../controllers/home_controller.dart';
+
+final PersonalAccountList personal = PersonalAccountList();
 
 class Profil extends GetView<HomeController> {
   @override
@@ -150,6 +150,7 @@ class Profil extends GetView<HomeController> {
                                 highlightColor: Primary50.withOpacity(0.2),
                                 onTap: () {
                                   //
+                                  Get.toNamed(Routes.EDIT_PROFILE);
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(8.sp),
@@ -324,11 +325,15 @@ class Profil extends GetView<HomeController> {
                         shrinkWrap: true,
                         itemCount: 6,
                         itemBuilder: (context, index) {
+                          PersonalAccount aksi = personal.n1[index];
                           return ActionProfilePersonal(
-                            title: "Riwayat Transaksi",
-                            svg: "assets/icons/User-Profile-Blue.svg",
+                            title: personal.n1[index].title,
+                            svg: personal.n1[index].svg,
                             onTap: () {
                               //
+                              if (aksi.onTap != null) {
+                                personal.n1[index].onTap!();
+                              }
                             },
                           );
                         },
@@ -362,8 +367,8 @@ class Profil extends GetView<HomeController> {
                         itemCount: 2,
                         itemBuilder: (context, index) {
                           return ActionProfilePersonal(
-                            title: "Riwayat Transaksi",
-                            svg: "assets/icons/User-Profile-Blue.svg",
+                            title: personal.n2[index].title,
+                            svg: personal.n2[index].svg,
                             onTap: () {
                               //
                             },
@@ -391,7 +396,7 @@ class Profil extends GetView<HomeController> {
                       SizedBox(height: 8.sp),
                       ActionProfilePersonal(
                         title: "Keluar",
-                        svg: "assets/icons/User-Profile-Blue.svg",
+                        svg: "assets/icons/Personal/Keluar.svg",
                         onTap: () {
                           //
                         },
@@ -434,7 +439,7 @@ class ActionProfilePersonal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              color: Colors.amberAccent,
+              // color: Colors.amberAccent,
               width: Get.width - 32.sp - 20.w - 8.w,
               child: Row(
                 children: [
@@ -453,8 +458,8 @@ class ActionProfilePersonal extends StatelessWidget {
                   SizedBox(width: 8.w),
                   Flexible(
                     child: Text(
-                      // title,
-                      'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ',
+                      title,
+                      // 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ',
                       style: TextStyle(
                         fontSize: 11.5.w,
                         fontWeight: FontWeight.w400,

@@ -10,7 +10,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../register/controllers/register_controller.dart';
 import '../controllers/verifikasi_daftar_controller.dart';
 
-// final RegisterController emailC = Get.find();
 final RegisterController emailC = Get.put(RegisterController());
 
 class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
@@ -50,7 +49,7 @@ class VerifikasiDaftarView extends GetView<VerifikasiDaftarController> {
                 "assets/icons/Verifikasi.svg",
                 height: 200.w,
                 width: 275.w,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             SizedBox(height: 8.w),

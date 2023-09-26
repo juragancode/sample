@@ -47,6 +47,21 @@ List<UnbordingContent> contents = [
     ),
   ),
   UnbordingContent(
+    title: 'Tanpa Biaya Langganan'.tr,
+    image: 'assets/icons/Tanpa-Biaya-Langganan.svg',
+    description1: TextSpan(
+      text:
+          "Nggak perlu lagi mikirin biaya langganan. Pakai aplikasi GAS Indonesia, kamu bebas nikmatin semua fitur "
+              .tr,
+    ),
+    description2: TextSpan(
+      text: "GRATIS!".tr,
+    ),
+    description3: TextSpan(
+      text: "".tr,
+    ),
+  ),
+  UnbordingContent(
     title: 'Belanja Beragam Kebutuhan'.tr,
     image: 'assets/icons/Beragam-Kebutuhan.svg',
     description1: TextSpan(

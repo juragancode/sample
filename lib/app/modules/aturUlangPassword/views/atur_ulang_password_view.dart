@@ -1,13 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/lupaPassword/controllers/lupa_password_controller.dart';
 import 'package:get/get.dart';
-import '../../../routes/app_pages.dart';
 
-import '../../../widgets/splashPassBerhasilDiperbaharui.dart';
+import '../../../constant/colors.dart';
+import '../../../widgets/Auth/ButtonCustom.dart';
+import '../../lupaPassword/controllers/lupa_password_controller.dart';
 import '../controllers/atur_ulang_password_controller.dart';
 
 final LupaPasswordController email = Get.put(LupaPasswordController());
@@ -56,7 +54,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
             children: [
               Row(
                 children: [
-                  SizedBox(width: 18.w),
+                  SizedBox(width: 16.sp),
                   Text(
                     "Buat Password Baru".tr,
                     style: TextStyle(
@@ -70,7 +68,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
               ),
               SizedBox(height: 8.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.sp),
                 child: Center(
                   child: Text(
                     "Silakan buat password baru untuk akunmu".tr +
@@ -84,11 +82,10 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 16.w),
-              SizedBox(height: 4.w),
+              SizedBox(height: 16.sp),
               Container(
                 height: 40.w,
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                margin: EdgeInsets.symmetric(horizontal: 16.sp),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32.r),
                   color: Color(0xFFF0F0F0),
@@ -115,7 +112,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                       border: InputBorder.none,
                       hintText: 'Masukkan password baru'.tr,
                       contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 12.w),
+                          horizontal: 20.sp, vertical: 13.sp),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -141,16 +138,16 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 5.h),
+              SizedBox(height: 4.w),
               Row(
                 children: [
                   SizedBox(width: 21.42.w),
                   Icon(
                     Icons.info,
                     color: Color(0xFF4D89D4),
-                    size: 20.sp,
+                    size: 19.5.w,
                   ),
-                  SizedBox(width: 5.h),
+                  SizedBox(width: 5.w),
                   Text(
                     "Minimal 8 karakter.".tr,
                     style: TextStyle(
@@ -165,7 +162,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
               SizedBox(height: 16.w),
               Container(
                 height: 40.w,
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                margin: EdgeInsets.symmetric(horizontal: 16.sp),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32.r),
                   color: Color(0xFFF0F0F0),
@@ -192,7 +189,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                       border: InputBorder.none,
                       hintText: 'Masukkan ulang password baru'.tr,
                       contentPadding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 12.w),
+                          horizontal: 20.sp, vertical: 13.sp),
                       hintStyle: TextStyle(
                         fontSize: 12.sp,
                         fontFamily: 'Poppins',
@@ -220,7 +217,7 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
               ),
               SizedBox(height: 16.w),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.sp),
                 child: Center(
                   child: Text(
                     "Setelah password diubah, silakan masuk ke akunmu dengan password baru."
@@ -234,76 +231,46 @@ class AturUlangPasswordView extends GetView<AturUlangPasswordController> {
                   ),
                 ),
               ),
-              SizedBox(height: 24.w),
-              Center(
+              SizedBox(height: 24.sp),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.sp),
                 child: Obx(
-                  () => DecoratedBox(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: controller.passwordSama.isTrue &&
-                                controller.passBaruC.text.isNotEmpty &&
-                                controller.passBaruUlangC.text.isNotEmpty &&
-                                controller.passBaruC.text.length == 8 &&
-                                controller.passBaruUlangC.text.length == 8
-                            ? [
-                                Color(0xFF4D89D4),
-                                Color(0xFF216BC9),
-                              ]
-                            : [
-                                Color(0xFFB5B5B5),
-                                Color(0xFFB5B5B5),
-                              ], // Daftar warna gradient yang ingin digunakan
-                        begin: Alignment.topCenter, // Posisi awal gradient
-                        end: Alignment.bottomCenter, // Posisi akhir gradient
-                      ),
-                      borderRadius: BorderRadius.circular(32.r),
+                  () => ButtonCustom(
+                    gradient: LinearGradient(
+                      colors: controller.loadingGantiPass == true
+                          ? [
+                              Primary10.withOpacity(0.8),
+                              Primary10,
+                            ]
+                          : controller.passwordSama.isTrue &&
+                                  controller.passBaruUlangC.text.length > 7
+                              ? [
+                                  Primary30,
+                                  Primary50,
+                                ]
+                              : [
+                                  Color(0xFFB5B5B5),
+                                  Color(0xFFB5B5B5),
+                                ], // Daftar warna gradient yang ingin digunakan
+                      begin: Alignment.topCenter, // Posisi awal gradient
+                      end: Alignment.bottomCenter, // Posisi akhir gradient
                     ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        splashFactory: controller.passwordSama.isTrue &&
-                                controller.passBaruC.text.isNotEmpty &&
-                                controller.passBaruUlangC.text.isNotEmpty &&
-                                controller.passBaruC.text.length == 8 &&
-                                controller.passBaruUlangC.text.length == 8
-                            ? InkSplash.splashFactory
-                            : NoSplash.splashFactory,
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.r),
-                        ),
-                        fixedSize: Size(343.w, 42.w),
-                      ),
-                      onPressed: controller.passwordSama.isTrue &&
-                              controller.passBaruC.text.isNotEmpty &&
-                              controller.passBaruUlangC.text.isNotEmpty
-                          ? () {
-                              Get.dialog(
-                                splashPassBerhasilDiperbaharui(),
-                              );
-                              Timer(
-                                Duration(milliseconds: 3000),
-                                () {
-                                  Get.offAllNamed(Routes.LOGIN);
-                                },
-                              );
-                            }
-                          : () {},
-                      child: Text(
-                        "Lanjut".tr,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          // color: Color(0xFF216BC9),
-                        ),
-                      ),
-                    ),
+                    controllerLoading: controller.loadingGantiPass == true,
+                    onTap: controller.passwordSama.isTrue &&
+                            controller.passBaruUlangC.text.length > 7 &&
+                            controller.loadingGantiPass.isFalse
+                        ? () {
+                            controller.passBaruFN.unfocus();
+                            controller.passBaruUlangFN.unfocus();
+                            controller.GantiPassButton();
+                          }
+                        : () {},
+                    splashFactory: controller.passwordSama.isTrue &&
+                            controller.passBaruUlangC.text.length > 7 &&
+                            controller.loadingGantiPass.isFalse
+                        ? InkSplash.splashFactory
+                        : NoSplash.splashFactory,
+                    title: 'Lanjut'.tr,
                   ),
                 ),
               ),

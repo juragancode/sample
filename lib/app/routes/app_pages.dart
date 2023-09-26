@@ -8,6 +8,8 @@ import '../modules/buatPesanan/bindings/buat_pesanan_binding.dart';
 import '../modules/buatPesanan/views/buat_pesanan_view.dart';
 import '../modules/daftar/bindings/daftar_binding.dart';
 import '../modules/daftar/views/daftar_view.dart';
+import '../modules/editProfile/bindings/edit_profile_binding.dart';
+import '../modules/editProfile/views/edit_profile_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro_screen/bindings/intro_screen_binding.dart';
@@ -136,6 +138,11 @@ class AppPages {
       name: _Paths.LACAK,
       page: () => LacakView(),
       binding: LacakBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
     ),
   ];
 }

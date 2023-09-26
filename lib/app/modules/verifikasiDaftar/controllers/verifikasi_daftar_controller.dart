@@ -127,7 +127,6 @@ class VerifikasiDaftarController extends GetxController {
 
   void kirimUlangOTP() async {
     try {
-      loadingRegisterVerifikasiDaftar.value = true;
       var response = await http.post(
         Uri.parse(registerSendOtp),
         body: {
@@ -135,7 +134,6 @@ class VerifikasiDaftarController extends GetxController {
         },
       );
       verifikasiDaftarFN.requestFocus();
-      loadingRegisterVerifikasiDaftar.value = false;
       Map<String, dynamic> logdata =
           jsonDecode(response.body) as Map<String, dynamic>;
 

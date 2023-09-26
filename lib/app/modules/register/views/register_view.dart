@@ -64,7 +64,8 @@ class RegisterView extends GetView<RegisterController> {
                       textInputAction: TextInputAction.done,
                       suffixIcon:
                           // SizedBox(),
-                          controller.isValid
+                          controller.isValid &&
+                                  controller.emailTidakTerdaftar.isFalse
                               ? Padding(
                                   padding: EdgeInsets.only(right: 21.42.w),
                                   child: Icon(

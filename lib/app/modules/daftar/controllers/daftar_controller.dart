@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -109,56 +109,6 @@ class DaftarController extends GetxController {
     return false;
   }
 
-  // void buatAkun() async {
-  //   try {
-  //     loadingDaftar.value = true;
-  //     var response = await http.post(
-  //       Uri.parse(register),
-  //       body: {
-  //         // "otp": otpC.verifikasiDaftarC.text,
-  //         // "email": emailDaftarC.text,
-  //         "email": "davinoverclock@gmail.com",
-  //         "name": namaDaftarC.text,
-  //         "password": passDaftarC.text,
-  //         "phone": noHpDaftarC.text,
-  //       },
-  //     );
-  //     loadingDaftar.value = false;
-  //     Map<String, dynamic> logdata =
-  //         jsonDecode(response.body) as Map<String, dynamic>;
-
-  //     print(response.body);
-  //     print(emailDaftarC.text);
-  //     print(namaDaftarC.text);
-  //     print(noHpDaftarC.text);
-  //     print(passDaftarC.text);
-
-  //     if (logdata['success'] == true) {
-  //       Get.dialog(
-  //         splashAccountBerhasilDibuat(),
-  //       );
-  //       Timer(
-  //         Duration(milliseconds: 3000),
-  //         () {
-  //           Get.offAllNamed(Routes.IZINKAN_AKSES_LOKASI);
-  //         },
-  //       );
-  //     } else if (logdata['success'] != true) {
-  //       Get.defaultDialog(
-  //         title: "Terjadi kesalahan",
-  //         middleText: "${logdata['message']}",
-  //       );
-  //     }
-  //   } catch (e) {
-  //     Get.defaultDialog(
-  //       title: "Login gagal",
-  //       middleText: "Periksa koneksi internet",
-  //     );
-  //   }
-  // }
-
-  // RxBool loadingRegister = false.obs;
-
   RxBool loadingDaftar = false.obs;
 
   void buatAkun() async {
@@ -186,8 +136,8 @@ class DaftarController extends GetxController {
       print(passDaftarC.text);
       print(response.body);
 
-      Map<String, dynamic> logdata =
-          jsonDecode(response.body) as Map<String, dynamic>;
+      // Map<String, dynamic> logdata =
+      //     jsonDecode(response.body) as Map<String, dynamic>;
 
       if (response.statusCode >= 200 && response.statusCode <= 210) {
         Get.dialog(
