@@ -131,7 +131,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.USER_JUAL_BARANG,
-      page: () => const UserJualBarangView(),
+      page: () => UserJualBarangView(),
       binding: UserJualBarangBinding(),
     ),
     GetPage(
@@ -141,7 +141,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.EDIT_PROFILE,
-      page: () => const EditProfileView(),
+      page: () => EditProfileView(),
       binding: EditProfileBinding(),
     ),
   ];

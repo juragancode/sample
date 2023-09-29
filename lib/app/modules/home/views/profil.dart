@@ -66,9 +66,10 @@ class Profil extends GetView<HomeController> {
                           children: [
                             Container(),
                             ClipOval(
-                              // borderRadius: BorderRadius.circular(4.r),
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  print("foto profil di-tap");
+                                },
                                 borderRadius: BorderRadius.circular(4.r),
                                 child: Ink(
                                   height: 56.w,
@@ -327,6 +328,7 @@ class Profil extends GetView<HomeController> {
                         itemBuilder: (context, index) {
                           PersonalAccount aksi = personal.n1[index];
                           return ActionProfilePersonal(
+                            size: personal.n1[index].size,
                             title: personal.n1[index].title,
                             svg: personal.n1[index].svg,
                             onTap: () {
@@ -367,6 +369,7 @@ class Profil extends GetView<HomeController> {
                         itemCount: 2,
                         itemBuilder: (context, index) {
                           return ActionProfilePersonal(
+                            size: personal.n2[index].size,
                             title: personal.n2[index].title,
                             svg: personal.n2[index].svg,
                             onTap: () {
@@ -395,6 +398,7 @@ class Profil extends GetView<HomeController> {
                     children: [
                       SizedBox(height: 8.sp),
                       ActionProfilePersonal(
+                        size: 20,
                         title: "Keluar",
                         svg: "assets/icons/Personal/Keluar.svg",
                         onTap: () {
@@ -421,11 +425,13 @@ class ActionProfilePersonal extends StatelessWidget {
     required this.title,
     required this.onTap,
     required this.svg,
+    required this.size,
   });
 
   final String title;
   final Function() onTap;
   final String svg;
+  final int size;
 
   @override
   Widget build(BuildContext context) {
@@ -450,7 +456,7 @@ class ActionProfilePersonal extends StatelessWidget {
                     child: Center(
                       child: SvgPicture.asset(
                         svg,
-                        width: 20.w,
+                        width: size.w,
                         fit: BoxFit.contain,
                       ),
                     ),

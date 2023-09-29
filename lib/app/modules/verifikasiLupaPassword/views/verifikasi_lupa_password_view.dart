@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
-import 'package:g_a_s_app_rekadigi/app/modules/lupaPassword/controllers/lupa_password_controller.dart';
-import 'package:g_a_s_app_rekadigi/app/widgets/Auth/ButtonCustom.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../../routes/app_pages.dart';
+import '../../../constant/colors.dart';
+import '../../../widgets/Auth/ButtonCustom.dart';
+import '../../lupaPassword/controllers/lupa_password_controller.dart';
 import '../controllers/verifikasi_lupa_password_controller.dart';
 
 final LupaPasswordController emailFormattedC =

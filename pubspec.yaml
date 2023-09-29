@@ -9,14 +9,16 @@ dependencies:
   cached_network_image: ^3.2.3
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
+  dropdown_button2: ^2.3.9
   dynamic_height_grid_view: ^0.0.3
   faker: ^2.1.0
-  firebase_core: ^2.15.1
   firebase_auth: ^4.9.0
+  firebase_core: ^2.15.1
   fl_chart: ^0.63.0
   flutter:
     sdk: flutter
   flutter_dash: ^1.0.0
+  flutter_holo_date_picker: ^1.1.2+1
   flutter_launcher_icons: ^0.13.1
   flutter_neumorphic_plus: ^3.3.0
   flutter_rating_bar: ^4.0.1
@@ -33,11 +35,10 @@ dependencies:
   shimmer: ^3.0.0
   stylish_bottom_bar: ^1.0.2
   text_divider: 1.0.0
-  url_launcher: ^6.1.12
   timelines: ^0.1.0
+  url_launcher: ^6.1.12
 
 dev_dependencies:
-  # flutter_spinkit: ^5.2.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
