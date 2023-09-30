@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:g_a_s_app_rekadigi/app/constant/colors.dart';
-import 'package:get/get.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import '../../../constant/colors.dart';
 
 class EditProfileController extends GetxController {
   TextEditingController namaProfilC =
@@ -34,6 +34,7 @@ class EditProfileController extends GetxController {
       cancelText: "Batal",
       confirmText: "Simpan",
       // textColor: H333333,
+      backgroundColor: F0F0F0,
       locale: DateTimePickerLocale.id,
     );
 
@@ -41,6 +42,8 @@ class EditProfileController extends GetxController {
       selectedDate = picked;
       // Update text field dengan tanggal yang dipilih
       tglLahirProfilC.text = DateFormat("dd/MM/yyyy").format(selectedDate!);
+      // tglLahirProfilC.value = tglLahirProfilC.value;
+      tglLahir.value = tglLahirProfilC.text;
     }
   }
 
@@ -51,5 +54,29 @@ class EditProfileController extends GetxController {
 
   String? jenisKelaminDipilih;
 
+  RxString jenisKelam = "".obs;
+  RxString noHp = "".obs;
+  RxString email = "".obs;
+  RxString nama = "".obs;
+  RxString tglLahir = "".obs;
+
   final formKey = GlobalKey<FormState>();
+
+  void ubahNilai() {
+    nama.value = namaProfilC.text;
+    email.value = emailProfilC.text;
+    noHp.value = noHpProfilC.text;
+    jenisKelam.value = genderProfilC.text;
+    tglLahir.value = tglLahirProfilC.text;
+  }
+
+  bool get isValid {
+    return RegExp(
+            r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$')
+        .hasMatch(email.value);
+  }
+
+  void checkEmailValidity() {
+    email.value = emailProfilC.text;
+  }
 }
