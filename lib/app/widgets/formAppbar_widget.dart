@@ -19,13 +19,17 @@ class FormAppBarWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(
           18.w, 18.w + ScreenUtil().statusBarHeight, 18.w, 18.w),
-      decoration: BoxDecoration(color: BackgroundColor, boxShadow: [
-        BoxShadow(
+      decoration: BoxDecoration(
+        color: BackgroundColor,
+        boxShadow: [
+          BoxShadow(
             offset: Offset(0, 0),
             blurRadius: 24,
             spreadRadius: 4,
-            color: TextBlack.withOpacity(0.10))
-      ]),
+            color: TextBlack.withOpacity(0.10),
+          )
+        ],
+      ),
       child: Row(
         children: [
           Row(

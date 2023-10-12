@@ -24,23 +24,24 @@ class AddProductDetail extends StatelessWidget {
                 },
               ),
               Container(
-                  decoration: BoxDecoration(),
-                  margin: EdgeInsets.fromLTRB(
-                    16.w,
-                    58.w + ScreenUtil().statusBarHeight + 16.w,
-                    16.w,
-                    16.w,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 80.w),
-                        child: ProgressDetailWidget(
-                          data: _.processAdd,
-                        ),
+                decoration: BoxDecoration(),
+                margin: EdgeInsets.fromLTRB(
+                  16.w,
+                  58.w + ScreenUtil().statusBarHeight + 16.w,
+                  16.w,
+                  16.w,
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 80.w),
+                      child: ProgressDetailWidget(
+                        data: _.processAdd,
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
           bottomNavigationBar: FormButtonWidget(isActive: true, onTap: () {})),

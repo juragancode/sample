@@ -16,11 +16,12 @@ class ProgressDetailWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ...List.generate(
-                  data.length - 1,
-                  (index) => ConnectorIndicator(
-                        index: index,
-                        data: data[index],
-                      ))
+                data.length - 1,
+                (index) => ConnectorIndicator(
+                  index: index,
+                  data: data[index],
+                ),
+              )
             ],
           ),
         ),

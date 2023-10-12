@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import '../../../constant/colors.dart';
 
 class EditProfileController extends GetxController {
   TextEditingController namaProfilC =
@@ -33,8 +35,6 @@ class EditProfileController extends GetxController {
       titleText: "Pilih Tanggal",
       cancelText: "Batal",
       confirmText: "Simpan",
-      // textColor: H333333,
-      backgroundColor: F0F0F0,
       locale: DateTimePickerLocale.id,
     );
 
@@ -79,4 +79,39 @@ class EditProfileController extends GetxController {
   void checkEmailValidity() {
     email.value = emailProfilC.text;
   }
+
+  // File? imageProfil;
+
+  Rx<File>? imageProfil;
+  Rx<File>? gambarProfile;
+
+  Future imageProfilGallery() async {
+    final ImagePicker picker = ImagePicker();
+    // Pick an image.
+    final XFile? imagePick =
+        await picker.pickImage(source: ImageSource.gallery);
+
+    if (imagePick != null) {
+      // imageProfil = File(imagePick.path);
+      imageProfil = Rx<File>(File(imagePick.path));
+    } else {
+      print('No image selected.');
+    }
+  }
+
+  Future imageProfilCamera() async {
+    final ImagePicker picker = ImagePicker();
+    // Pick an image.
+    final XFile? imagePick = await picker.pickImage(source: ImageSource.camera);
+
+    if (imagePick != null) {
+      // imageProfil = File(imagePick.path);
+      imageProfil = Rx<File>(File(imagePick.path));
+      if (imageProfil != null) {}
+    } else {
+      print('No image selected.');
+    }
+  }
+
+  //
 }

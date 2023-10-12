@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/DaftarToko/bindings/daftar_toko_binding.dart';
+import '../modules/DaftarToko/views/daftar_toko_view.dart';
 import '../modules/alihBahasa/bindings/alih_bahasa_binding.dart';
 import '../modules/alihBahasa/views/alih_bahasa_view.dart';
 import '../modules/aturUlangPassword/bindings/atur_ulang_password_binding.dart';
@@ -143,6 +145,11 @@ class AppPages {
       name: _Paths.EDIT_PROFILE,
       page: () => EditProfileView(),
       binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.DAFTAR_TOKO,
+      page: () => const DaftarTokoView(),
+      binding: DaftarTokoBinding(),
     ),
   ];
 }

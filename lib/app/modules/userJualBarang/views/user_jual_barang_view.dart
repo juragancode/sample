@@ -18,44 +18,46 @@ class UserJualBarangView extends GetView<UserJualBarangController> {
         statusBarBrightness: Brightness.dark));
     return WillPopScope(
       onWillPop: () async {
-        SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.light));
+        SystemChrome.setSystemUIOverlayStyle(
+          const SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.light),
+        );
         await Future.delayed(Duration.zero);
         return true;
       },
       child: GetBuilder<UserJualBarangController>(
-          builder: (_) => Navigator(
-                key: NavigatorHelper.userJualBarangNav,
-                initialRoute: '/',
-                onGenerateRoute: (settings) {
-                  Widget page;
-                  switch (settings.name) {
-                    case userJualBarangRoutes.selectCategory:
-                      page = SelectCategoryView();
-                      break;
-                    case userJualBarangRoutes.addProductDetail:
-                      page = AddProductDetail();
-                      break;
-                    default:
-                      page = SelectCategoryView();
-                      break;
-                  }
-                  return PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => page,
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                                  begin: Offset(1.0, 0.0),
-                                  end: Offset(0.0, 0.0))
-                              .animate(animation),
-                          child: child,
-                        );
-                      },
-                      transitionDuration: const Duration(milliseconds: 250));
+        builder: (_) => Navigator(
+          key: NavigatorHelper.userJualBarangNav,
+          initialRoute: '/',
+          onGenerateRoute: (settings) {
+            Widget page;
+            switch (settings.name) {
+              case userJualBarangRoutes.selectCategory:
+                page = SelectCategoryView();
+                break;
+              case userJualBarangRoutes.addProductDetail:
+                page = AddProductDetail();
+                break;
+              default:
+                page = SelectCategoryView();
+                break;
+            }
+            return PageRouteBuilder(
+                pageBuilder: (_, __, ___) => page,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return SlideTransition(
+                    position:
+                        Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+                            .animate(animation),
+                    child: child,
+                  );
                 },
-              )),
+                transitionDuration: const Duration(milliseconds: 250));
+          },
+        ),
+      ),
     );
   }
 }

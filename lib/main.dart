@@ -33,14 +33,13 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         title: "Application",
-        initialRoute: Routes.HOME,
+        initialRoute: Routes.DAFTAR_TOKO,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
         theme: themeGAS(),
         translations: Languages(),
-        locale: Locale('id_ID'), // Set bahasa awal menjadi bahasa Indonesia
-        fallbackLocale:
-            Locale('en_US'), // Set bahasa cadangan menjadi bahasa inggris
+        locale: Locale('id_ID'),
+        fallbackLocale: Locale('en_US'),
       ),
       useInheritedMediaQuery: true,
       designSize: const Size(375, 812),

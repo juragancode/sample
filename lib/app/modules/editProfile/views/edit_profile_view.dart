@@ -105,6 +105,53 @@ class EditProfileView extends GetView<EditProfileController> {
                         ),
                       ),
                     ),
+                    //
+                    // InkWell(
+                    //   onTap: () {
+                    //     print("foto profil di-tap");
+                    //   },
+                    //   borderRadius: BorderRadius.circular(100.r),
+                    //   child: Ink(
+                    //     height: 100.w,
+                    //     width: 100.w,
+                    //     decoration: BoxDecoration(
+                    //       shape: BoxShape.circle,
+                    //       image: controller.imageProfil != null
+                    //           ? DecorationImage(
+                    //               image: FileImage(
+                    //                 controller.imageProfil!,
+                    //               ),
+                    //               fit: BoxFit.cover,
+                    //             )
+                    //           : null,
+                    //     ),
+                    //   ),
+                    // ),
+                    Obx(
+                      () {
+                        return InkWell(
+                          onTap: () {
+                            print("foto profil di-tap");
+                          },
+                          borderRadius: BorderRadius.circular(100.r),
+                          child: Ink(
+                            height: 100.w,
+                            width: 100.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: controller.imageProfil?.value != null
+                                  ? DecorationImage(
+                                      image: FileImage(
+                                        controller.imageProfil!.value,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    )
+                                  : null,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                     // InkWell(
                     //   onTap: () {
                     //     print("foto profil di-tap");
@@ -136,6 +183,7 @@ class EditProfileView extends GetView<EditProfileController> {
                     InkWell(
                       onTap: () {
                         //
+                        controller.imageProfilCamera();
                       },
                       splashColor: splashColor,
                       highlightColor: highlightColor,
@@ -485,6 +533,7 @@ class EditProfileView extends GetView<EditProfileController> {
                               dropdownStyleData: DropdownStyleData(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
+                                  // color: F0F0F0,
                                 ),
                               ),
                               // menuItemStyleData: MenuItemStyleData(
@@ -494,6 +543,43 @@ class EditProfileView extends GetView<EditProfileController> {
                           ),
                         ),
                       ],
+                    ),
+                    Obx(
+                      () => Visibility(
+                        visible: controller.jenisKelam.isEmpty,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 8.sp),
+                              Container(
+                                width: 227.w,
+                                // height: 33.sp,
+                                // color: Colors.amber,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.info,
+                                      color: Error50,
+                                      size: 16.sp,
+                                    ),
+                                    SizedBox(width: 5.sp),
+                                    Text(
+                                      "Silakan pilih jenis kelamin.",
+                                      style: TextStyle(
+                                        fontSize: 10.w,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w400,
+                                        color: Error50,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(height: 24.sp),
                     Row(
@@ -584,6 +670,44 @@ class EditProfileView extends GetView<EditProfileController> {
                         ),
                       ],
                     ),
+
+                    Obx(
+                      () => Visibility(
+                        visible: controller.tglLahir.isEmpty,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 8.sp),
+                              Container(
+                                width: 227.w,
+                                // height: 33.sp,
+                                // color: Colors.amber,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.info,
+                                      color: Error50,
+                                      size: 16.sp,
+                                    ),
+                                    SizedBox(width: 5.sp),
+                                    Text(
+                                      "Silakan isi tanggal lahirmu.",
+                                      style: TextStyle(
+                                        fontSize: 10.w,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w400,
+                                        color: Error50,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                     SizedBox(height: 24.sp),
 
                     Obx(
@@ -667,6 +791,8 @@ class EditProfileView extends GetView<EditProfileController> {
                                         print(
                                             "Tanggal Lahir: ${controller.tglLahirProfilC.text}");
                                         print(
+                                            "Tanggal Lahir: ${controller.imageProfil}");
+                                        print(
                                             "-------------------------------------------------------");
 
                                         print("Nama: ${controller.nama}");
@@ -677,6 +803,8 @@ class EditProfileView extends GetView<EditProfileController> {
                                             "Jenis Kelamin: ${controller.jenisKelam}");
                                         print(
                                             "Tanggal Lahir: ${controller.tglLahir}");
+                                        print(
+                                            "Tanggal Lahir: ${controller.imageProfil}");
                                       },
                                       child: Ink(
                                         decoration: BoxDecoration(
@@ -753,7 +881,7 @@ class EditProfileView extends GetView<EditProfileController> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 148.sp),
+                    SizedBox(height: 95.h),
                     Text(
                       "GAS Apps v 0.2.1",
                       style: TextStyle(

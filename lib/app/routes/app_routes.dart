@@ -23,6 +23,7 @@ abstract class Routes {
   static const USER_JUAL_BARANG = _Paths.USER_JUAL_BARANG;
   static const LACAK = _Paths.LACAK;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const DAFTAR_TOKO = _Paths.DAFTAR_TOKO;
 }
 
 abstract class _Paths {
@@ -45,4 +46,5 @@ abstract class _Paths {
   static const USER_JUAL_BARANG = '/user-jual-barang';
   static const LACAK = '/lacak';
   static const EDIT_PROFILE = '/edit-profile';
+  static const DAFTAR_TOKO = '/daftar-toko';
 }
