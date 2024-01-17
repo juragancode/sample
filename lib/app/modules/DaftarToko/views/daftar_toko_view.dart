@@ -654,7 +654,7 @@ class DaftarTokoView extends GetView<DaftarTokoController> {
                       child: InkWell(
                         onTap: () {
                           //
-                          print("Nama: ${controller.namaTokoC.text}");
+                               print("Nama: ${controller.namaTokoC.text}");
                           print("Email: ${controller.emailTokoC.text}");
                           print("NoHp: ${controller.noHpTokoC.text}");
                           print("Tipe Toko: ${controller.tipeTokoC.text}");
